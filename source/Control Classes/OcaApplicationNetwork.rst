@@ -12,19 +12,19 @@ Extends :ref:`OcaRoot <ocaroot>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``2.0``.
+        This property has id ``2.1``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``2.0``.
+        This property has id ``2.2``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaString Label
 
-        This property has id ``2.0``.
+        This property has id ``2.1``.
 
         Specific label of the network. Can be used to provide human readable
         information about the network. The label can be get and set over any
@@ -32,13 +32,13 @@ Extends :ref:`OcaRoot <ocaroot>`.
 
     .. cpp:member:: OcaONo Owner
 
-        This property has id ``2.0``.
+        This property has id ``2.2``.
 
         Object number of block that contains this network.
 
     .. cpp:member:: OcaApplicationNetworkServiceID ServiceID
 
-        This property has id ``2.0``.
+        This property has id ``2.3``.
 
         Name or GUID that this device publishes in the network's
         directory/discovery system to designate the services offered via this
@@ -49,7 +49,7 @@ Extends :ref:`OcaRoot <ocaroot>`.
 
     .. cpp:member:: OcaList<OcaNetworkSystemInterfaceDescriptor> SystemInterfaces
 
-        This property has id ``2.0``.
+        This property has id ``2.4``.
 
         Collection of identifiers of system interface descriptor(s) used by
         the network. A "system interface" is the system service through which
@@ -60,13 +60,13 @@ Extends :ref:`OcaRoot <ocaroot>`.
 
     .. cpp:member:: OcaApplicationNetworkState State
 
-        This property has id ``2.0``.
+        This property has id ``2.5``.
 
         Operational state of the network.
 
     .. cpp:member:: OcaUint16 ErrorCode
 
-        This property has id ``2.0``.
+        This property has id ``2.6``.
 
         Most recent error code. 0=no error.
 

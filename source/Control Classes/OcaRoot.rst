@@ -12,7 +12,7 @@
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``1.0``.
+        This property has id ``1.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This is a
@@ -22,7 +22,7 @@
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``1.0``.
+        This property has id ``1.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property will be
@@ -31,7 +31,7 @@
 
     .. cpp:member:: OcaONo ObjectNumber
 
-        This property has id ``1.0``.
+        This property has id ``1.3``.
 
         The object number that uniquely identifies the instantiated object.
         This read-only property must be set at creation of the object. Derived
@@ -41,7 +41,7 @@
 
     .. cpp:member:: OcaBoolean Lockable
 
-        This property has id ``1.0``.
+        This property has id ``1.4``.
 
         Read-only property that indicates whether the object is lockable or
         non-lockable. The property value must be set during construction of
@@ -49,7 +49,7 @@
 
     .. cpp:member:: OcaString Role
 
-        This property has id ``1.0``.
+        This property has id ``1.5``.
 
         Read-only text property that describes object's role in the device.
         Particularly useful for workers, e.g. "Input 1 Gain".

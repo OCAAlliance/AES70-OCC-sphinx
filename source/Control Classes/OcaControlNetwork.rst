@@ -10,19 +10,19 @@ Extends :ref:`OcaApplicationNetwork <ocaapplicationnetwork>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaNetworkControlProtocol Protocol
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Type of control protocol used by the network (OCAnn). Read-only
         property.

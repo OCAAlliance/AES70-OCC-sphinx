@@ -18,7 +18,7 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -26,7 +26,7 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -34,7 +34,7 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaModelGUID ModelGUID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Read-only property that identifies the model of the device. Note this
         property is not equivalent to a MAC address, because (a) MAC addresses
@@ -43,85 +43,85 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaString SerialNumber
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Read-only property that identifies the serial number of the CAP
         device.
 
     .. cpp:member:: OcaModelDescription ModelDescription
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Read-only property that contains text names for this model, its
         manufacturer, and its version.
 
     .. cpp:member:: OcaString DeviceName
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         Name of the device. Should be unique manufacturer-qualified
         identifier.
 
     .. cpp:member:: OcaUint16 OcaVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         Read-only property that indicates the AES70 version number used by the
         device.
 
     .. cpp:member:: OcaString DeviceRole
 
-        This property has id ``3.0``.
+        This property has id ``3.6``.
 
         Role of device in application (arbitrary).
 
     .. cpp:member:: OcaString UserInventoryCode
 
-        This property has id ``3.0``.
+        This property has id ``3.7``.
 
         Code used for equipment tracking.
 
     .. cpp:member:: OcaBoolean Enabled
 
-        This property has id ``3.0``.
+        This property has id ``3.8``.
 
         Indicates whether the device is enabled (and therefore operational).
 
     .. cpp:member:: OcaDeviceState State
 
-        This property has id ``3.0``.
+        This property has id ``3.9``.
 
         Read-only property that indicates the current state of the device.
 
     .. cpp:member:: OcaBoolean Busy
 
-        This property has id ``3.0``.
+        This property has id ``3.10``.
 
         True iff device is working on something and is not available for OCA
         command activity. Readonly.
 
     .. cpp:member:: OcaResetCause ResetCause
 
-        This property has id ``3.0``.
+        This property has id ``3.11``.
 
         Read-only attribute that indicates the reset cause of the last reset.
 
     .. cpp:member:: OcaString Message
 
-        This property has id ``3.0``.
+        This property has id ``3.12``.
 
         Arbitrary text message provided by controller. Display and handling of
         the text is device-dependent and not defined by OCA.
 
     .. cpp:member:: OcaList<OcaManagerDescriptor> Managers
 
-        This property has id ``3.0``.
+        This property has id ``3.13``.
 
         List of all manager objects instantiated in this device.
 
     .. cpp:member:: OcaString DeviceRevisionID
 
-        This property has id ``3.0``.
+        This property has id ``3.14``.
 
         Overall device revision identifier. Format of string is
         manufacturer-specific. Readonly. May be changed by proprietery

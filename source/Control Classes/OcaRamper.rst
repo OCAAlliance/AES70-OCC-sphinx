@@ -30,37 +30,37 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaRamperState State
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         {Ready, Ramping, Paused, Completed, Disabled} Readonly.
 
     .. cpp:member:: OcaProperty RampedProperty
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identification of the property being ramped.
 
     .. cpp:member:: OcaTimeMode TimeMode
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Absolute or Relative time.
 
     .. cpp:member:: OcaTimeNTP StartTime
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         Time at which to start ramp. If **TimeMode=Relative** , the actual
         event start time equals the value of **StartTime** plus the absolute
@@ -70,19 +70,19 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaTimeInterval Duration
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         Duration of ramp period.
 
     .. cpp:member:: OcaRamperInterpolationLaw InterpolationLaw
 
-        This property has id ``3.0``.
+        This property has id ``3.6``.
 
         Ramper interpolation law
 
     .. cpp:member:: OcaFloat64 Goal
 
-        This property has id ``3.0``.
+        This property has id ``3.7``.
 
         Final value of ramp. Datatype is target property's datatype.
 

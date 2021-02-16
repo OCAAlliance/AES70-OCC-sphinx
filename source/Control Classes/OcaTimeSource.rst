@@ -12,13 +12,13 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -26,19 +26,19 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaTimeSourceAvailability Availability
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Availability of this time source.
 
     .. cpp:member:: OcaTimeProtocol Protocol
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Time transport protocol used by this time source
 
     .. cpp:member:: OcaSDPString Parameters
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Parameters (identifiers, modifiers, etc.) for this time source .
         Content is an SDP timestamp reference specification as defined in
@@ -46,20 +46,20 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaTimeReferenceType ReferenceType
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         Type of time reference to which this time source is synced, if any.
 
     .. cpp:member:: OcaString ReferenceID
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         Identifier of reference to which this time source is synced, if any.
         Not needed for all reference types.
 
     .. cpp:member:: OcaTimeSourceSyncStatus SyncStatus
 
-        This property has id ``3.0``.
+        This property has id ``3.6``.
 
         Synchronization status of this time source.
 

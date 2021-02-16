@@ -25,19 +25,19 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         ID of this class
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Version number of this class
 
     .. cpp:member:: OcaMap<OcaONo, OcaStreamConnectorPinIndex> ConnectorPins
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Map of object numbers of **OcaStreamConnector** objects to
         **OcaStreamConnectorPinIndex** of these connectors. This map
@@ -52,7 +52,7 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaNetworkSignalChannelID IDAdvertised
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Character name or binary identifier of the port that is advertised on
         the network to be found by other devices' discovery processes.
@@ -62,20 +62,20 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaONo Network
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Object number of stream network object ( **OcaStreamNetwork** or one
         of its subclasses) to which this signal channel belongs.
 
     .. cpp:member:: OcaNetworkSignalChannelID RemoteChannelID
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         External ID of ultimate source or destination of signal.
 
     .. cpp:member:: OcaNetworkMediaSourceOrSink SourceOrSink
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         Describes whether this signal channel is source (emits signals into
         the network) or sink (receives signals from the network). Sources are
@@ -84,7 +84,7 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaNetworkSignalChannelStatus Status
 
-        This property has id ``3.0``.
+        This property has id ``3.6``.
 
         Status of the port
 

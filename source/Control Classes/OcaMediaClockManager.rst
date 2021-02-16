@@ -20,7 +20,7 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -28,7 +28,7 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -36,7 +36,7 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaList<OcaMediaClockType> ClockSourceTypesSupported
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         List of clock source types supported by **OcaMediaClock** objects in
         this device. Note: In AES70-2017, this method is deprecated. It only
@@ -47,7 +47,7 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaList<OcaONo> Clocks
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Object numbers of **OcaMediaClock** objects, one for each clock which
         this device uses and/or sources. Note: In AES70-2017, this property is
@@ -55,7 +55,7 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaList<OcaONo> Clock3s
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Object numbers of **OcaMediaClock3** objects, one for each clock which
         this device uses and/or sources.

@@ -11,7 +11,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -19,7 +19,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -27,21 +27,21 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaUint32 Length
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Length of the filter, in samples. Readonly. Value is set when
         SetCoefficients(...) method executes.
 
     .. cpp:member:: OcaList<OcaFloat32> Coefficients
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Array of FIR Coefficients. The size of the array (number of entries)
         is equal to the Order property plus 1.
 
     .. cpp:member:: OcaFrequency SampleRate
 
-        This property has id ``4.0``.
+        This property has id ``4.3``.
 
         Sample rate inside the filter. We can't assume it's the same as the
         device input or output rate.

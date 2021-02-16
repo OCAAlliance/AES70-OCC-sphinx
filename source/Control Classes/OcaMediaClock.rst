@@ -12,13 +12,13 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -26,31 +26,31 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaMediaClockType Type
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Type of clock.
 
     .. cpp:member:: OcaUint16 DomainID
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Clock domain ID. Arbitrary value.
 
     .. cpp:member:: OcaList<OcaMediaClockRate> RatesSupported
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         List of supported rates
 
     .. cpp:member:: OcaMediaClockRate CurrentRate
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         Current clock rate
 
     .. cpp:member:: OcaMediaClockLockState LockState
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         Lock state of clock.
 

@@ -12,7 +12,7 @@ Extends :ref:`OcaRoot <ocaroot>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``2.0``.
+        This property has id ``2.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This is a
@@ -21,7 +21,7 @@ Extends :ref:`OcaRoot <ocaroot>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``2.0``.
+        This property has id ``2.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -29,7 +29,7 @@ Extends :ref:`OcaRoot <ocaroot>`.
 
     .. cpp:member:: OcaBoolean Enabled
 
-        This property has id ``2.0``.
+        This property has id ``2.1``.
 
         Read/write property that indicates whether the worker object is
         enabled in the device. If an object is disabled it cannot be used by
@@ -39,7 +39,7 @@ Extends :ref:`OcaRoot <ocaroot>`.
 
     .. cpp:member:: OcaList<OcaPort> Ports
 
-        This property has id ``2.0``.
+        This property has id ``2.2``.
 
         The list of (input and output) OCA ports the worker object has. Note
         that a worker object can have no ports (in which case the list is
@@ -47,7 +47,7 @@ Extends :ref:`OcaRoot <ocaroot>`.
 
     .. cpp:member:: OcaString Label
 
-        This property has id ``2.0``.
+        This property has id ``2.3``.
 
         Specific label of the worker. Can be used to provide human readable
         information about the worker. The label can be get and set over the
@@ -55,13 +55,13 @@ Extends :ref:`OcaRoot <ocaroot>`.
 
     .. cpp:member:: OcaONo Owner
 
-        This property has id ``2.0``.
+        This property has id ``2.4``.
 
         Object number of block that contains this worker.
 
     .. cpp:member:: OcaTimeInterval Latency
 
-        This property has id ``2.0``.
+        This property has id ``2.5``.
 
         Processing latency of this object. Optional. Readonly or readwrite,
         depending on implementation.

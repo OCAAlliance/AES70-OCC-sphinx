@@ -17,7 +17,7 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -25,7 +25,7 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -33,32 +33,32 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaPowerState State
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Current power state of device. Readonly.
 
     .. cpp:member:: OcaList<OcaONo> PowerSupplies
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         List of object numbers of available power supplies.
 
     .. cpp:member:: OcaList<OcaONo> ActivePowerSupplies
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Object number(s) of power suppl(ies) currently in use.
 
     .. cpp:member:: OcaBoolean AutoState
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         True if current state was invoked automatically, not by a controller
         action.
 
     .. cpp:member:: OcaPowerState TargetState
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         Power state to which the device is transitioning. If no transition is
         in progress, has value None. Readonly.

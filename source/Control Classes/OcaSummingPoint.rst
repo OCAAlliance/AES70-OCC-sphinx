@@ -12,13 +12,13 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         This property is an override of the **OcaRoot** property.
 

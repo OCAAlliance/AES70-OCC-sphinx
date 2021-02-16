@@ -37,13 +37,13 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -51,26 +51,26 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaList<OcaProtoPort> ProtoPorts
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         List of proto-ports for built objects. The factory itself has no
         ports.
 
     .. cpp:member:: OcaList<OcaProtoObjectIdentification> ProtoMembers
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         List of prot-object identifiers of proto-members in the block.
 
     .. cpp:member:: OcaMap<OcaUint16, OcaProtoSignalPath> ProtoSignalPaths
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         List of proto-signal paths in the block.
 
     .. cpp:member:: OcaGlobalTypeIdentifier GlobalType
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         Global block type identifier for reusable blocks. **Added in version 2
         of this class.**

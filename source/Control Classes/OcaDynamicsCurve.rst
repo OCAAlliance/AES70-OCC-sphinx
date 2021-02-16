@@ -52,7 +52,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -60,7 +60,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -68,37 +68,37 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaUint8 NSegments
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Number of curve segments.
 
     .. cpp:member:: OcaList<OcaDBr> Threshold
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         **T[1..n-1]** . See class description for details.
 
     .. cpp:member:: OcaList<OcaFloat32> Slope
 
-        This property has id ``4.0``.
+        This property has id ``4.3``.
 
         **S[1..n]** . See class description for details.
 
     .. cpp:member:: OcaList<OcaFloat32> KneeParameter
 
-        This property has id ``4.0``.
+        This property has id ``4.4``.
 
         **K[1..n]** . See class description for details.
 
     .. cpp:member:: OcaDB DynamicGainFloor
 
-        This property has id ``4.0``.
+        This property has id ``4.5``.
 
         Lowest allowed dynamic gain value. See class description for details.
 
     .. cpp:member:: OcaDB DynamicGainCeiling
 
-        This property has id ``4.0``.
+        This property has id ``4.6``.
 
         Highest allowed dynamic gain value. See class description for details.
 

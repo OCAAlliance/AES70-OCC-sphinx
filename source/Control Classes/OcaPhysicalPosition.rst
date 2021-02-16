@@ -13,13 +13,13 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -27,14 +27,14 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaPositionCoordinateSystem CoordinateSystem
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Type of physical coordinate system this object uses. Read-only, set at
         object construction time.
 
     .. cpp:member:: OcaPositionDescriptorFieldFlags PositionDescriptorFieldFlags
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Position descriptor field flags. Describe which position descriptor
         fields are used by this object. Read-only, set at object construction
@@ -42,7 +42,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaPositionDescriptor PositionDescriptor
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Position coordinates. For details, see AES70-1, section 5.5.9 and the
         **OcaPositionDescriptor** datatype definition.

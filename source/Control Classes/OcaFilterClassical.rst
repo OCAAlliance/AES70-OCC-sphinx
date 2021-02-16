@@ -13,7 +13,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -21,7 +21,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -29,31 +29,31 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaFrequency Frequency
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         The frequency of the filter.
 
     .. cpp:member:: OcaFilterPassband Passband
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Lowpass, highpass, bandpass, bandreject
 
     .. cpp:member:: OcaClassicalFilterShape Shape
 
-        This property has id ``4.0``.
+        This property has id ``4.3``.
 
         Shape family - Butterworth, Bessell, etc.
 
     .. cpp:member:: OcaUint16 Order
 
-        This property has id ``4.0``.
+        This property has id ``4.4``.
 
         Filter order
 
     .. cpp:member:: OcaFloat32 Parameter
 
-        This property has id ``4.0``.
+        This property has id ``4.5``.
 
         Ripple or other filter parameter, depending on shape. Not used by some
         shapes.

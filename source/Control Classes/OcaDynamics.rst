@@ -16,7 +16,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -24,7 +24,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -32,7 +32,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaBoolean Triggered
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Read-only property that indicates whether the dynamics processor is
         currently triggered (i.e. the signal level is above upper threshold or
@@ -41,19 +41,19 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaDB DynamicGain
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Current instantaneous gain of dynamics object. Readonly.
 
     .. cpp:member:: OcaDynamicsFunction Function
 
-        This property has id ``4.0``.
+        This property has id ``4.3``.
 
         Dynamics element function - compressor, limiter, expander, etc.
 
     .. cpp:member:: OcaFloat32 Ratio
 
-        This property has id ``4.0``.
+        This property has id ``4.4``.
 
         DEPRECATED PROPERTY - please use property **Slope** instead.
         Compression or expansion ratio. For Function = Compress or Limit,
@@ -62,60 +62,60 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaDBr Threshold
 
-        This property has id ``4.0``.
+        This property has id ``4.5``.
 
         Compression or expansion threshold.
 
     .. cpp:member:: OcaPresentationUnit ThresholdPresentationUnits
 
-        This property has id ``4.0``.
+        This property has id ``4.6``.
 
         Compression or expansion threshold presentation units.
 
     .. cpp:member:: OcaLevelDetectionLaw DetectorLaw
 
-        This property has id ``4.0``.
+        This property has id ``4.7``.
 
 
     .. cpp:member:: OcaTimeInterval AttackTime
 
-        This property has id ``4.0``.
+        This property has id ``4.8``.
 
         Attack time in seconds.
 
     .. cpp:member:: OcaTimeInterval ReleaseTime
 
-        This property has id ``4.0``.
+        This property has id ``4.9``.
 
         Release time in seconds.
 
     .. cpp:member:: OcaTimeInterval HoldTime
 
-        This property has id ``4.0``.
+        This property has id ``4.10``.
 
         Hold time in seconds.
 
     .. cpp:member:: OcaDB DynamicGainCeiling
 
-        This property has id ``4.0``.
+        This property has id ``4.11``.
 
         Upper limit for DynamicGain
 
     .. cpp:member:: OcaDB DynamicGainFloor
 
-        This property has id ``4.0``.
+        This property has id ``4.12``.
 
         Lower limit for for DynamicGain
 
     .. cpp:member:: OcaFloat32 KneeParameter
 
-        This property has id ``4.0``.
+        This property has id ``4.13``.
 
         Soft knee parameter. Interpretation is device-dependent.
 
     .. cpp:member:: OcaFloat32 Slope
 
-        This property has id ``4.0``.
+        This property has id ``4.14``.
 
         Slope of transfer function = d(output amplitude) / d(input amplitude).
         See notes for class OcaDynamicsCurve for further detail. Note that the

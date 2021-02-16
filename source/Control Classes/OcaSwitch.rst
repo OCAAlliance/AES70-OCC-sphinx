@@ -11,7 +11,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -19,7 +19,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -27,7 +27,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaUint16 Position
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         The current position of the switch. Positions shall be numbered from
         minPosition to (including) maxPosition. If the object does not return
@@ -36,13 +36,13 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaList<OcaString> PositionNames
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Vector of switch position names. Supplied by controller.
 
     .. cpp:member:: OcaList<OcaBoolean> PositionEnableds
 
-        This property has id ``4.0``.
+        This property has id ``4.3``.
 
         Vector of booleans which enable or disable corresponding switch
         positions. Default values are a construction parameter. The usual

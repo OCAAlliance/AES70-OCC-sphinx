@@ -58,7 +58,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -66,7 +66,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -74,32 +74,32 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaObserverState State
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         State: triggered, not triggered
 
     .. cpp:member:: OcaList<OcaProperty> ObservedProperties
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         List of identifiers of the properties are being observed.
 
     .. cpp:member:: OcaFloat64 Threshold
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Comparison value for raising the **Triggered** event.
 
     .. cpp:member:: OcaRelationalOperator Operator
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         Relational operator used when comparing the value of the observed
         property to the threshold value.
 
     .. cpp:member:: OcaBoolean TwoWay
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         True to emit a **Triggered** event upon crossing the threshold in
         either direction; false to emit only upon crossing in the primary
@@ -110,7 +110,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaFloat64 Hysteresis
 
-        This property has id ``3.0``.
+        This property has id ``3.6``.
 
         Hysteresis that is used when observing the property value. This
         indicates which amount must be added/subtracted from the **Threshold**
@@ -126,7 +126,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaTimeInterval Period
 
-        This property has id ``3.0``.
+        This property has id ``3.7``.
 
         Repetition period or zero. If nonzero, the observer will retrieve the
         value and emit

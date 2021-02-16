@@ -11,7 +11,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -19,7 +19,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -27,32 +27,32 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaPowerSupplyType Type
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Type of power supply.
 
     .. cpp:member:: OcaString ModelInfo
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Model information for power supply. Text; content is
         implementation-dependent.
 
     .. cpp:member:: OcaPowerSupplyState State
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         State of power supply: off, unavailable, available, active.
 
     .. cpp:member:: OcaBoolean Charging
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         True iff charging. For rechargable supplies (obviously).
 
     .. cpp:member:: OcaFloat32 LoadFractionAvailable
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         Fraction of power supply's load capacity that is currently not being
         used. Readonly. Normal value range 0...1. A negative value indicates
@@ -60,7 +60,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaFloat32 StorageFractionAvailable
 
-        This property has id ``3.0``.
+        This property has id ``3.6``.
 
         Fraction of power supply's energy storage that remains available. For
         battery supplies. Readonly. Normal value range 0...1. A negative value
@@ -68,7 +68,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaPowerSupplyLocation Location
 
-        This property has id ``3.0``.
+        This property has id ``3.7``.
 
         Physical location of power supply - internal or external.
 

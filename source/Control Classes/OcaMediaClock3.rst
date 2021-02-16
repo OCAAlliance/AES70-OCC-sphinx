@@ -12,13 +12,13 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -26,19 +26,19 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaMediaClockAvailability Availability
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Availability of media clock.
 
     .. cpp:member:: OcaONo TimeSourceONo
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         ONo of time source that drives this media clock.
 
     .. cpp:member:: OcaTimePTP Offset
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Offset of media clock time from reference time. Note: For RTP-based
         media transport networks, this value is NOT the RTP time offset. RTP
@@ -46,13 +46,13 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaMediaClockRate CurrentRate
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         Current clock rate
 
     .. cpp:member:: OcaMap<OcaONo, OcaList> SupportedRates
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         Map of supported rates for each supported time source. Key of map is
         ONo of supported time source; value is list of supported clock rates

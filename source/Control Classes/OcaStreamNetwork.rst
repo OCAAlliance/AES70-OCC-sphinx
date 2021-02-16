@@ -17,26 +17,26 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaNetworkControlProtocol ControlProtocol
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Type of control protocol used by the network (OCAnn) or NONE if this
         network is not used for control.
 
     .. cpp:member:: OcaNetworkNodeID IDAdvertised
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         ID by which this device is known on the network, i.e. the host name or
         GUID that this device publishes in the network's directory/discovery
@@ -44,7 +44,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaNetworkLinkType LinkType
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Network link type - e.g. wired Ethernet, USB, ... See the
         OcaNetworkType enum for details. This is a read-only property whose
@@ -53,54 +53,54 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaNetworkMediaProtocol MediaProtocol
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         Type of media transport protocol used by the network, or NONE if this
         network is not used for media transport.
 
     .. cpp:member:: OcaList<OcaONo> SignalChannelsSink
 
-        This property has id ``3.0``.
+        This property has id ``3.10``.
 
         List of object numbers of _sink_ **OcaNetworkSignalChannel** objects
         collected by this network.
 
     .. cpp:member:: OcaList<OcaONo> SignalChannelsSource
 
-        This property has id ``3.0``.
+        This property has id ``3.9``.
 
         List of object numbers of _source_ **OcaNetworkSignalChannel** objects
         collected by this network.
 
     .. cpp:member:: OcaNetworkStatistics Statistics
 
-        This property has id ``3.0``.
+        This property has id ``3.11``.
 
         Error statistics for this network
 
     .. cpp:member:: OcaNetworkStatus Status
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         Operational status of the network.
 
     .. cpp:member:: OcaList<OcaONo> StreamConnectorsSink
 
-        This property has id ``3.0``.
+        This property has id ``3.8``.
 
         List of object numbers of _sink_ **OcaStreamConnector** objects
         collected by this network.
 
     .. cpp:member:: OcaList<OcaONo> StreamConnectorsSource
 
-        This property has id ``3.0``.
+        This property has id ``3.7``.
 
         List of object numbers of _source_ **OcaStreamConnector** objects
         collected by this network.
 
     .. cpp:member:: OcaList<OcaNetworkSystemInterfaceID> SystemInterfaces
 
-        This property has id ``3.0``.
+        This property has id ``3.6``.
 
         Collection of identifiers of system interface(s) used by the network.
         A "system interface" is the system service through which network

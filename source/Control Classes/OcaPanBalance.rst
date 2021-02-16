@@ -11,7 +11,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -19,7 +19,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -27,14 +27,14 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaFloat32 Position
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Pan position. Range = -1.0 to +1.0. -1.0 is 100% left, +1.0 is 100%
         right.
 
     .. cpp:member:: OcaDB MidpointGain
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Midpoint gain. Normally, max=0dB, min=-6dB. May be readonly for
         pan/balance objects with fixed midpoint gains.

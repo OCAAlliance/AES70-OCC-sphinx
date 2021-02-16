@@ -11,7 +11,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -19,7 +19,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -27,51 +27,51 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaFrequency Frequency1
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Center frequency or sweep start frequency.
 
     .. cpp:member:: OcaFrequency Frequency2
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Sweep end frequency.
 
     .. cpp:member:: OcaDBz Level
 
-        This property has id ``4.0``.
+        This property has id ``4.3``.
 
         Output level in dB relative to device-defined zero level.
 
     .. cpp:member:: OcaWaveformType Waveform
 
-        This property has id ``4.0``.
+        This property has id ``4.4``.
 
         The waveform type this generator generates (e.g. sine, square, noise,
         etc.).
 
     .. cpp:member:: OcaSweepType SweepType
 
-        This property has id ``4.0``.
+        This property has id ``4.5``.
 
         The sweep type of the signal generator: None for no sweep, linear or
         logarithmic if sweep is generated.
 
     .. cpp:member:: OcaTimeInterval SweepTime
 
-        This property has id ``4.0``.
+        This property has id ``4.6``.
 
         Duration of sweep in seconds.
 
     .. cpp:member:: OcaBoolean SweepRepeat
 
-        This property has id ``4.0``.
+        This property has id ``4.7``.
 
         Indicates whether the sweep is repeated (true) or is one-shot (false).
 
     .. cpp:member:: OcaBoolean Generating
 
-        This property has id ``4.0``.
+        This property has id ``4.8``.
 
         Read-only property that indicates whether the generator is producing
         output (true) or not (false).

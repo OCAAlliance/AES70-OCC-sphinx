@@ -11,7 +11,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -19,7 +19,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -27,32 +27,32 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaFrequency Frequency
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         The frequency setpoint of the parametric filter.
 
     .. cpp:member:: OcaParametricEQShape Shape
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         The shape of the parametric filter - peak, shelf, etc.
 
     .. cpp:member:: OcaFloat32 WidthParameter
 
-        This property has id ``4.0``.
+        This property has id ``4.3``.
 
         Width parameter. For normal parametric implementations, this is the Q
         of the filter.
 
     .. cpp:member:: OcaDB InbandGain
 
-        This property has id ``4.0``.
+        This property has id ``4.4``.
 
         In-band gain of the parametric filter.
 
     .. cpp:member:: OcaFloat32 ShapeParameter
 
-        This property has id ``4.0``.
+        This property has id ``4.5``.
 
         Width parameter. For certain filter types, this parameter may be used
         to represent extra information about the shape of the transfer

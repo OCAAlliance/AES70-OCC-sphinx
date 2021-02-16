@@ -16,19 +16,19 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaNetworkLinkType LinkType
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Network link type - e.g. wired Ethernet, USB, ... See the
         OcaNetworkType enum for details. This is a read-only property whose
@@ -37,7 +37,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaApplicationNetworkServiceID IDAdvertised
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         ID by which this network object is known on the network, i.e. the name
         or GUID that this network object publishes in the network's
@@ -49,27 +49,27 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaNetworkControlProtocol ControlProtocol
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Type of control protocol used by the network (OCAnn) or NONE if this
         network is not used for control.
 
     .. cpp:member:: OcaNetworkMediaProtocol MediaProtocol
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         Deprecated property. Always has value NONE. Media transport is managed
         by the **OcaStreamNetwork** class.
 
     .. cpp:member:: OcaNetworkStatus Status
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         Operational status of the network.
 
     .. cpp:member:: OcaList<OcaNetworkSystemInterfaceID> SystemInterfaces
 
-        This property has id ``3.0``.
+        This property has id ``3.6``.
 
         Collection of identifiers of system interface(s) used by the network.
         A "system interface" is the system service through which network
@@ -80,14 +80,14 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaList<OcaONo> MediaPorts
 
-        This property has id ``3.0``.
+        This property has id ``3.7``.
 
         Deprecated property. Always is empty. Media transport is now managed
         by the class **OcaStreamNetwork.**
 
     .. cpp:member:: OcaNetworkStatistics Statistics
 
-        This property has id ``3.0``.
+        This property has id ``3.8``.
 
         Error statistics for this network
 

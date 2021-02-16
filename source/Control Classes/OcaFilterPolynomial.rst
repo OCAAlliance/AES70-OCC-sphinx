@@ -12,7 +12,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -20,7 +20,7 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -28,26 +28,26 @@ Extends :ref:`OcaActuator <ocaactuator>`.
 
     .. cpp:member:: OcaList<OcaFloat32> A
 
-        This property has id ``4.0``.
+        This property has id ``4.1``.
 
         Numerator - "A"
 
     .. cpp:member:: OcaList<OcaFloat32> B
 
-        This property has id ``4.0``.
+        This property has id ``4.2``.
 
         Denominator - "B"
 
     .. cpp:member:: OcaFrequency SampleRate
 
-        This property has id ``4.0``.
+        This property has id ``4.3``.
 
         Sample rate inside the filter. We can't assume it's the same as the
         device input or output rate.
 
     .. cpp:member:: OcaUint8 MaxOrder
 
-        This property has id ``4.0``.
+        This property has id ``4.4``.
 
         Maximum order of A[] and B[], i.e. the maximum size of the A[] and B[]
         arrays. Readonly.

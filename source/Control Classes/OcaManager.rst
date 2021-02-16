@@ -14,7 +14,7 @@ Extends :ref:`OcaRoot <ocaroot>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``2.0``.
+        This property has id ``2.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -22,7 +22,7 @@ Extends :ref:`OcaRoot <ocaroot>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``2.0``.
+        This property has id ``2.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an

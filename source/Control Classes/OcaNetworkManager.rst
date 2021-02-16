@@ -21,7 +21,7 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -29,7 +29,7 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -38,28 +38,28 @@ Extends :ref:`OcaManager <ocamanager>`.
 
     .. cpp:member:: OcaList<OcaONo> Networks
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Object numbers of **OcaNetwork** objects, one for each network to
         which this device belongs. **Deprecated as of OCA 1.2.**
 
     .. cpp:member:: OcaList<OcaONo> StreamNetworks
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Object numbers of **OcaStreamNetwork** objects, one for each network
         to which this device belongs. **Deprecated as of OCA 1.4.**
 
     .. cpp:member:: OcaList<OcaONo> ControlNetworks
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Object numbers of **OcaControlNetwork** objects, one for each control
         network to which this device belongs. Added in version 2.
 
     .. cpp:member:: OcaList<OcaONo> MediaTransportNetworks
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         Object numbers of **OcaMediaTransportNetwork** objects, one for each
         media transport network to which this device belongs. Added in version

@@ -115,7 +115,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -123,7 +123,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -131,33 +131,33 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaBoolean ActuatorOrSensor
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         True if Grouper is actuator grouper, false if sensor grouper.
 
     .. cpp:member:: OcaList<OcaGrouperGroup> Groups
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         List of groups in the grouper. Groups are added to and deleted from a
         grouper by the AdGroup and DeleteGroup methods of OcaGrouper.
 
     .. cpp:member:: OcaList<OcaGrouperCitizen> Citizens
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         List of citizens defined for this grouper.
 
     .. cpp:member:: OcaList<OcaGrouperEnrollment> Enrollments
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         List of grouper's enrollments, i.e. which citizen(s) belong to which
         group(s).
 
     .. cpp:member:: OcaGrouperMode Mode
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         Switch that determines whether grouper is in master-slave mode or
         peer-to-peer mode.

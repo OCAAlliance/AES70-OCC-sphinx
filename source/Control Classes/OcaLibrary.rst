@@ -28,7 +28,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -36,7 +36,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -44,19 +44,19 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaLibVolType VolumeType
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Type of library volumes:
 
     .. cpp:member:: OcaLibAccess Access
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Readonly, read-expand, or full.
 
     .. cpp:member:: OcaMap<OcaLibVolID, OcaLibVol> Volumes
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Map of volumes held in the Library. Changed in version 2 because the
         definition of OcaLibVolMetaData, which is part of OcaLibVol, has

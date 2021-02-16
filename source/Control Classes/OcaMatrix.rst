@@ -53,7 +53,7 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
@@ -61,7 +61,7 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -69,7 +69,7 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaMatrixCoordinate X
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Active column index. The active column is the column to which matrix
         proxy method calls will be reflected. Value is zero-relative, i.e. the
@@ -78,7 +78,7 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaMatrixCoordinate Y
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Active row index. The active row is the row to which matrix proxy
         changes will be reflected. Value is zero-relative, i.e. the first row
@@ -86,38 +86,38 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaMatrixCoordinate xSize
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Number of columns in the matrix. Readonly in some cases.
 
     .. cpp:member:: OcaMatrixCoordinate ySize
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         Number of rows in the matrix. Readonly in some cases.
 
     .. cpp:member:: OcaList2D<OcaONo> Members
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         2D array of member object numbers.
 
     .. cpp:member:: OcaONo Proxy
 
-        This property has id ``3.0``.
+        This property has id ``3.6``.
 
         Object number of the matrix proxy.
 
     .. cpp:member:: OcaUint8 PortsPerRow
 
-        This property has id ``3.0``.
+        This property has id ``3.7``.
 
         Number of input ports per row- e.g. for a stereo matrix, the value
         would be 2.
 
     .. cpp:member:: OcaUint8 PortsPerColumn
 
-        This property has id ``3.0``.
+        This property has id ``3.8``.
 
         Number of output ports per column - e.g. for a stereo matrix, the
         value would be 2.

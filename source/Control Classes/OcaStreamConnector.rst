@@ -38,19 +38,19 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         ID of this class
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Version number of this class
 
     .. cpp:member:: OcaStreamConnectorID IDAdvertised
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Character name or binary identifier of this connector. This ID is
         advertised on the network to be found by other devices' discovery
@@ -58,7 +58,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaONo OwnerNetwork
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Object number of stream network object ( **OcaStreamNetwork** or one
         of its subclasses) to which this connector belongs. In reconfigurable
@@ -70,7 +70,7 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaMap<OcaStreamConnectorPinIndex, OcaONo> Pins
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         The map of connector pin indexes to
         **OcaNetworkSignalChannel[Source|Sink]** objects collected by this
@@ -81,20 +81,20 @@ Extends :ref:`OcaAgent <ocaagent>`.
 
     .. cpp:member:: OcaNetworkMediaSourceOrSink SourceOrSink
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         Specifies whether this connector is for output (source) or input
         (sink) signal channels.
 
     .. cpp:member:: OcaStreamConnectorStatus Status
 
-        This property has id ``3.0``.
+        This property has id ``3.6``.
 
         Status of this terminus.
 
     .. cpp:member:: OcaMap<OcaStreamIndex, OcaStream> Streams
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         The list of **OcaStream** data objects contained in (i.e. connected
         to) this connector.

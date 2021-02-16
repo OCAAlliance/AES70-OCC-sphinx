@@ -18,7 +18,7 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This is a
@@ -27,7 +27,7 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
@@ -35,7 +35,7 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaONo Type
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Readonly block type. For statically-defined blocks, this value is a
         Uint32 with a value corresponding to the unique configuration of this
@@ -45,33 +45,33 @@ Extends :ref:`OcaWorker <ocaworker>`.
 
     .. cpp:member:: OcaList<OcaObjectIdentification> Members
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         List of members in the block.
 
     .. cpp:member:: OcaMap<OcaUint16, OcaSignalPath> SignalPaths
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         List of signal paths in the block.
 
     .. cpp:member:: OcaLibVolIdentifier MostRecentParamSetIdentifier
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         Library volume identifier of the paramset most recently applied to
         this block.
 
     .. cpp:member:: OcaGlobalTypeIdentifier GlobalType
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         Global block type identifier for reusable blocks. **Added in version 2
         of this class.**
 
     .. cpp:member:: OcaMap<OcaProtoONo, OcaONo> ONoMap
 
-        This property has id ``3.0``.
+        This property has id ``3.6``.
 
         For blocks constructed by factories. Map that indicates the actual
         ONos allocated to the constructing OcaBlockFactory's prototype ONos.

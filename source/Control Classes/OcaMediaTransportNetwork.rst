@@ -10,25 +10,25 @@ Extends :ref:`OcaApplicationNetwork <ocaapplicationnetwork>`.
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         This property is an override of the **OcaRoot** property.
 
     .. cpp:member:: OcaNetworkMediaProtocol Protocol
 
-        This property has id ``3.0``.
+        This property has id ``3.1``.
 
         Type of media transport protocol used by the network.
 
     .. cpp:member:: OcaList<OcaPort> Ports
 
-        This property has id ``3.0``.
+        This property has id ``3.2``.
 
         The list of ports this network has. Note that these represent network
         channels of the media transport network. Each input port represents a
@@ -39,35 +39,35 @@ Extends :ref:`OcaApplicationNetwork <ocaapplicationnetwork>`.
 
     .. cpp:member:: OcaUint16 MaxSourceConnectors
 
-        This property has id ``3.0``.
+        This property has id ``3.3``.
 
         The maximum number of source connectors this media transport network
         can have (read-only property).
 
     .. cpp:member:: OcaUint16 MaxSinkConnectors
 
-        This property has id ``3.0``.
+        This property has id ``3.4``.
 
         The maximum number of sink connectors this media transport network can
         have (read-only property).
 
     .. cpp:member:: OcaUint16 MaxPinsPerConnector
 
-        This property has id ``3.0``.
+        This property has id ``3.5``.
 
         The maximum number of pins (channels) in a connector that this network
         will support.
 
     .. cpp:member:: OcaUint16 MaxPortsPerPin
 
-        This property has id ``3.0``.
+        This property has id ``3.6``.
 
         The maximum number of ports per pin that this network will support.
         Value of zero indicates there is no specific limit.
 
     .. cpp:member:: OcaDBFS AlignmentLevel
 
-        This property has id ``3.0``.
+        This property has id ``3.7``.
 
         Default alignment level value for newly-created
         **OcaMedia{Source|Sink}Connector** elements. The min and max values of
@@ -77,7 +77,7 @@ Extends :ref:`OcaApplicationNetwork <ocaapplicationnetwork>`.
 
     .. cpp:member:: OcaDB AlignmentGain
 
-        This property has id ``3.0``.
+        This property has id ``3.8``.
 
         Default value of AlignmentGain for newly-created
         OcaMediaSinkConnectors attached to this network. The min and max
