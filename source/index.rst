@@ -3,13 +3,17 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to AES70-OCC's documentation!
-=====================================
+AES70-OCC
+=========
+
+This document is a html version of AES70 Part 3. It describes the object model
+of AES70.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 3
 
+   Control Classes
+   Data Types
 
 
 Indices and tables
