@@ -3,7 +3,9 @@
 1.2.3  OcaRamper
 ================
 
-Extends :ref:`OcaAgent <ocaagent>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaAgent <ocaagent>` :raw:html:`&rarr;` :ref:`OcaRamper <ocaramper>` 
 
 .. cpp:class:: OcaRamper: OcaAgent
 
@@ -28,39 +30,51 @@ Extends :ref:`OcaAgent <ocaagent>`.
     value Zero.
     
 
+    **Properties**:
+
+    .. _ocaramper_classid:
+
     .. cpp:member:: OcaClassID ClassID
+
+        This property is an override of the **OcaRoot** property.
 
         This property has id ``3.1``.
 
-        This property is an override of the **OcaRoot** property.
+    .. _ocaramper_classversion:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
+        This property is an override of the **OcaRoot** property.
+
         This property has id ``3.2``.
 
-        This property is an override of the **OcaRoot** property.
+    .. _ocaramper_state:
 
     .. cpp:member:: OcaRamperState State
 
+        {Ready, Ramping, Paused, Completed, Disabled} Readonly.
+
         This property has id ``3.1``.
 
-        {Ready, Ramping, Paused, Completed, Disabled} Readonly.
+    .. _ocaramper_rampedproperty:
 
     .. cpp:member:: OcaProperty RampedProperty
 
+        Identification of the property being ramped.
+
         This property has id ``3.2``.
 
-        Identification of the property being ramped.
+    .. _ocaramper_timemode:
 
     .. cpp:member:: OcaTimeMode TimeMode
 
-        This property has id ``3.3``.
-
         Absolute or Relative time.
 
-    .. cpp:member:: OcaTimeNTP StartTime
+        This property has id ``3.3``.
 
-        This property has id ``3.4``.
+    .. _ocaramper_starttime:
+
+    .. cpp:member:: OcaTimeNTP StartTime
 
         Time at which to start ramp. If **TimeMode=Relative** , the actual
         event start time equals the value of **StartTime** plus the absolute
@@ -68,149 +82,231 @@ Extends :ref:`OcaAgent <ocaagent>`.
         **TimeMode=Absolute** , the actual event start time equals the value
         of **StartTime**
 
-    .. cpp:member:: OcaTimeInterval Duration
+        This property has id ``3.4``.
 
-        This property has id ``3.5``.
+    .. _ocaramper_duration:
+
+    .. cpp:member:: OcaTimeInterval Duration
 
         Duration of ramp period.
 
-    .. cpp:member:: OcaRamperInterpolationLaw InterpolationLaw
+        This property has id ``3.5``.
 
-        This property has id ``3.6``.
+    .. _ocaramper_interpolationlaw:
+
+    .. cpp:member:: OcaRamperInterpolationLaw InterpolationLaw
 
         Ramper interpolation law
 
-    .. cpp:member:: OcaFloat64 Goal
+        This property has id ``3.6``.
 
-        This property has id ``3.7``.
+    .. _ocaramper_goal:
+
+    .. cpp:member:: OcaFloat64 Goal
 
         Final value of ramp. Datatype is target property's datatype.
 
-    .. cpp:function:: OcaStatus Control(OcaRamperCommand Command)
+        This property has id ``3.7``.
 
-        This method has id ``3.1``.
+    Properties inherited from :ref:`OcaAgent <OcaAgent>`:
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaAgent::Label <OcaAgent_Label>`
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaAgent::Owner <OcaAgent_Owner>`
+    
+    
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocaramper_control:
+
+    .. cpp:function:: OcaStatus Control(OcaRamperCommand Command)
 
         Executes the given ramper command. The return value indicates whether
         the command was successfully executed.
 
+        This method has id ``3.1``.
+
         :param OcaRamperCommand Command: Input parameter.
 
-    .. cpp:function:: OcaStatus GetState(OcaRamperState &State)
+    .. _ocaramper_getstate:
 
-        This method has id ``3.2``.
+    .. cpp:function:: OcaStatus GetState(OcaRamperState &State)
 
         Gets current state of ramper. The return value indicates whether the
         state was successfully retrieved.
 
+        This method has id ``3.2``.
+
         :param OcaRamperState State: Output parameter.
 
-    .. cpp:function:: OcaStatus GetRampedProperty(OcaProperty &property)
+    .. _ocaramper_getrampedproperty:
 
-        This method has id ``3.3``.
+    .. cpp:function:: OcaStatus GetRampedProperty(OcaProperty &property)
 
         Gets definition of ramped property. The return value indicates whether
         the object number was successfully retrieved.
 
+        This method has id ``3.3``.
+
         :param OcaProperty property: Output parameter.
 
-    .. cpp:function:: OcaStatus SetRampedProperty(OcaProperty property)
+    .. _ocaramper_setrampedproperty:
 
-        This method has id ``3.4``.
+    .. cpp:function:: OcaStatus SetRampedProperty(OcaProperty property)
 
         Defines property to be ramped. The return value indicates whether the
         definition was successful.
 
+        This method has id ``3.4``.
+
         :param OcaProperty property: Input parameter.
 
-    .. cpp:function:: OcaStatus GetTimeMode(OcaTimeMode &TimeMode)
+    .. _ocaramper_gettimemode:
 
-        This method has id ``3.5``.
+    .. cpp:function:: OcaStatus GetTimeMode(OcaTimeMode &TimeMode)
 
         Gets ramper time mode (absolute or relative). The return value
         indicates whether the time mode was successfully retrieved.
 
+        This method has id ``3.5``.
+
         :param OcaTimeMode TimeMode: Output parameter.
 
-    .. cpp:function:: OcaStatus SetTimeMode(OcaTimeMode TimeMode)
+    .. _ocaramper_settimemode:
 
-        This method has id ``3.6``.
+    .. cpp:function:: OcaStatus SetTimeMode(OcaTimeMode TimeMode)
 
         Sets ramper time mode (absolute or relative). The return value
         indicates whether the time mode was successfully set.
 
+        This method has id ``3.6``.
+
         :param OcaTimeMode TimeMode: Input parameter.
 
-    .. cpp:function:: OcaStatus GetStartTime(OcaTimeNTP &StartTime)
+    .. _ocaramper_getstarttime:
 
-        This method has id ``3.7``.
+    .. cpp:function:: OcaStatus GetStartTime(OcaTimeNTP &StartTime)
 
         Gets ramp start time. The return value indicates whether the start
         time was successfully retrieved.
 
+        This method has id ``3.7``.
+
         :param OcaTimeNTP StartTime: Output parameter.
 
-    .. cpp:function:: OcaStatus SetStartTime(OcaTimeNTP TimeMode)
+    .. _ocaramper_setstarttime:
 
-        This method has id ``3.8``.
+    .. cpp:function:: OcaStatus SetStartTime(OcaTimeNTP TimeMode)
 
         Sets ramper start time. The return value indicates whether the start
         time was successfully set.
 
+        This method has id ``3.8``.
+
         :param OcaTimeNTP TimeMode: Input parameter.
+
+    .. _ocaramper_getduration:
 
     .. cpp:function:: OcaStatus GetDuration(OcaTimeInterval &Duration, OcaTimeInterval &miinDuration, OcaTimeInterval &maxDuration)
 
-        This method has id ``3.9``.
-
         Gets ramp duration. The return value indicates whether the duration
         was successfully retrieved.
+
+        This method has id ``3.9``.
 
         :param OcaTimeInterval Duration: Output parameter.
         :param OcaTimeInterval miinDuration: Output parameter.
         :param OcaTimeInterval maxDuration: Output parameter.
 
-    .. cpp:function:: OcaStatus SetDuration(OcaTimeInterval Duration)
+    .. _ocaramper_setduration:
 
-        This method has id ``3.10``.
+    .. cpp:function:: OcaStatus SetDuration(OcaTimeInterval Duration)
 
         Sets ramp duration. The return value indicates whether the duration
         was successfully set.
 
+        This method has id ``3.10``.
+
         :param OcaTimeInterval Duration: Input parameter.
 
-    .. cpp:function:: OcaStatus GetInterpolationLaw(OcaRamperInterpolationLaw &law)
+    .. _ocaramper_getinterpolationlaw:
 
-        This method has id ``3.11``.
+    .. cpp:function:: OcaStatus GetInterpolationLaw(OcaRamperInterpolationLaw &law)
 
         Retrieves interpolation law setting. The return value indicates
         whether the setting was successfully retrieved.
 
+        This method has id ``3.11``.
+
         :param OcaRamperInterpolationLaw law: Output parameter.
 
-    .. cpp:function:: OcaStatus SetInterpolationLaw(OcaRamperInterpolationLaw law)
+    .. _ocaramper_setinterpolationlaw:
 
-        This method has id ``3.12``.
+    .. cpp:function:: OcaStatus SetInterpolationLaw(OcaRamperInterpolationLaw law)
 
         Sets ramp interpolation law. The return value indicates whether the
         law was successfully set.
 
+        This method has id ``3.12``.
+
         :param OcaRamperInterpolationLaw law: Input parameter.
 
-    .. cpp:function:: OcaStatus GetGoal(OcaFloat64 &goal)
+    .. _ocaramper_getgoal:
 
-        This method has id ``3.13``.
+    .. cpp:function:: OcaStatus GetGoal(OcaFloat64 &goal)
 
         Retrieves ramp goal value. The return value indicates whether the
         duration was successfully retrieved.
 
+        This method has id ``3.13``.
+
         :param OcaFloat64 goal: Output parameter.
 
-    .. cpp:function:: OcaStatus SetGoal(OcaFloat64 goal)
+    .. _ocaramper_setgoal:
 
-        This method has id ``3.14``.
+    .. cpp:function:: OcaStatus SetGoal(OcaFloat64 goal)
 
         Sets ramp goal value. The return value indicates whether the duration
         was successfully set.
 
+        This method has id ``3.14``.
+
         :param OcaFloat64 goal: Input parameter.
 
+
+    Methods inherited from :ref:`OcaAgent <OcaAgent>`:
+    
+    - :ref:`OcaAgent::GetLabel(Label) <OcaAgent_GetLabel>`
+    
+    - :ref:`OcaAgent::SetLabel(Label) <OcaAgent_SetLabel>`
+    
+    - :ref:`OcaAgent::GetOwner(owner) <OcaAgent_GetOwner>`
+    
+    - :ref:`OcaAgent::GetPath(NamePath, ONoPath) <OcaAgent_GetPath>`
+    
+    
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    

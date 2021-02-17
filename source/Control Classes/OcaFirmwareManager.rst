@@ -3,7 +3,9 @@
 1.3.3  OcaFirmwareManager
 =========================
 
-Extends :ref:`OcaManager <ocamanager>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaManager <ocamanager>` :raw:html:`&rarr;` :ref:`OcaFirmwareManager <ocafirmwaremanager>` 
 
 .. cpp:class:: OcaFirmwareManager: OcaManager
 
@@ -32,42 +34,64 @@ Extends :ref:`OcaManager <ocamanager>`.
     recovery of the regular image) - Non-transactional based uploads that
     may lead to bricked devices
 
-    .. cpp:member:: OcaClassID ClassID
+    **Properties**:
 
-        This property has id ``3.1``.
+    .. _ocafirmwaremanager_classid:
+
+    .. cpp:member:: OcaClassID ClassID
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
         property is an override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocafirmwaremanager_classversion:
+
+    .. cpp:member:: OcaClassVersionNumber ClassVersion
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
         override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaList<OcaVersion> ComponentVersions
+        This property has id ``3.2``.
 
-        This property has id ``3.1``.
+    .. _ocafirmwaremanager_componentversions:
+
+    .. cpp:member:: OcaList<OcaVersion> ComponentVersions
 
         List of the versions of the components of the device. As of version 2
         of this class, component numbers are of datatype **OcaEnum,** rather
         than the previous **OcaUint16.**
 
-    .. cpp:function:: OcaStatus GetComponentVersions(OcaList<OcaVersion> &componentVersions)
+        This property has id ``3.1``.
 
-        This method has id ``3.1``.
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocafirmwaremanager_getcomponentversions:
+
+    .. cpp:function:: OcaStatus GetComponentVersions(OcaList<OcaVersion> &componentVersions)
 
         Gets the value of the ComponentVersions property. The return value
         indicates whether the property was successfully retrieved.
 
+        This method has id ``3.1``.
+
         :param OcaList<OcaVersion> componentVersions: Output parameter.
 
-    .. cpp:function:: OcaStatus StartUpdateProcess()
+    .. _ocafirmwaremanager_startupdateprocess:
 
-        This method has id ``3.2``.
+    .. cpp:function:: OcaStatus StartUpdateProcess()
 
         Marks the start of the update process of an OCA device, meaning one or
         more components will be updated. If the method succeeds the device
@@ -76,10 +100,12 @@ Extends :ref:`OcaManager <ocamanager>`.
         '03m08 EndUpdateProcess' method. The return value indicates if
         starting the update process succeeded.
 
+        This method has id ``3.2``.
+
+
+    .. _ocafirmwaremanager_beginactiveimageupdate:
 
     .. cpp:function:: OcaStatus BeginActiveImageUpdate(OcaComponent component)
-
-        This method has id ``3.3``.
 
         Starts an active update of a software/firmware image on the device.
         This generic interface can be used to update any component which can
@@ -91,11 +117,13 @@ Extends :ref:`OcaManager <ocamanager>`.
         03m04 VerifyImage and 03m05 EndActiveImageUpdate. The return value
         indicates if starting the active update succeeded.
 
+        This method has id ``3.3``.
+
         :param OcaComponent component: Input parameter.
 
-    .. cpp:function:: OcaStatus AddImageData(OcaUint32 id, OcaBlob imageData)
+    .. _ocafirmwaremanager_addimagedata:
 
-        This method has id ``3.4``.
+    .. cpp:function:: OcaStatus AddImageData(OcaUint32 id, OcaBlob imageData)
 
         Adds a new part of the software/firmware image to the upgrade memory
         as part of the active update. Where this data is stored, is up to the
@@ -104,21 +132,25 @@ Extends :ref:`OcaManager <ocamanager>`.
         architecture and requirements. The return value indicates whether the
         data is correctly received and the data is not out of order.
 
+        This method has id ``3.4``.
+
         :param OcaUint32 id: Input parameter.
         :param OcaBlob imageData: Input parameter.
 
-    .. cpp:function:: OcaStatus VerifyImage(OcaBlob verifyData)
+    .. _ocafirmwaremanager_verifyimage:
 
-        This method has id ``3.5``.
+    .. cpp:function:: OcaStatus VerifyImage(OcaBlob verifyData)
 
         Verifies the entire host processor image using the passed verification
         data.
 
+        This method has id ``3.5``.
+
         :param OcaBlob verifyData: Input parameter.
 
-    .. cpp:function:: OcaStatus EndActiveImageUpdate()
+    .. _ocafirmwaremanager_endactiveimageupdate:
 
-        This method has id ``3.6``.
+    .. cpp:function:: OcaStatus EndActiveImageUpdate()
 
         Ends the active software/firmware image update. This is needed to let
         the device know that the current active component has finished, and
@@ -126,10 +158,12 @@ Extends :ref:`OcaManager <ocamanager>`.
         process can be ended by invoking the '03m08 EndUpdateProcess' method).
         The return value indicates if ending the active update succeeded.
 
+        This method has id ``3.6``.
+
+
+    .. _ocafirmwaremanager_beginpassivecomponentupdate:
 
     .. cpp:function:: OcaStatus BeginPassiveComponentUpdate(OcaComponent component, OcaNetworkAddress serverAddress, OcaString updateFileName)
-
-        This method has id ``3.7``.
 
         Begin a passive software/firmware component update. This generic
         interface can be used for any component that can be passively updated,
@@ -143,13 +177,15 @@ Extends :ref:`OcaManager <ocamanager>`.
         depend on the implementation and may differ between components. Just
         the interface is standardized.
 
+        This method has id ``3.7``.
+
         :param OcaComponent component: Input parameter.
         :param OcaNetworkAddress serverAddress: Input parameter.
         :param OcaString updateFileName: Input parameter.
 
-    .. cpp:function:: OcaStatus EndUpdateProcess()
+    .. _ocafirmwaremanager_endupdateprocess:
 
-        This method has id ``3.8``.
+    .. cpp:function:: OcaStatus EndUpdateProcess()
 
         Ends the current update process in which one or more components haven
         been updated (actively or passively). This action will trigger the
@@ -159,4 +195,22 @@ Extends :ref:`OcaManager <ocamanager>`.
         will usually trigger a reset of the device in some cases no response
         parameter is used for this method.
 
+        This method has id ``3.8``.
 
+
+
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    

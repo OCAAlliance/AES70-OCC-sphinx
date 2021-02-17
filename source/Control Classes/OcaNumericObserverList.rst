@@ -3,7 +3,9 @@
 1.2.9  OcaNumericObserverList
 =============================
 
-Extends :ref:`OcaAgent <ocaagent>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaAgent <ocaagent>` :raw:html:`&rarr;` :ref:`OcaNumericObserverList <ocanumericobserverlist>` 
 
 .. cpp:class:: OcaNumericObserverList: OcaAgent
 
@@ -56,50 +58,64 @@ Extends :ref:`OcaAgent <ocaagent>`.
     readings of sensor readings, but may be used equally well for watching
     workers' parameter settings.
 
-    .. cpp:member:: OcaClassID ClassID
+    **Properties**:
 
-        This property has id ``3.1``.
+    .. _ocanumericobserverlist_classid:
+
+    .. cpp:member:: OcaClassID ClassID
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
         property is an override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocanumericobserverlist_classversion:
+
+    .. cpp:member:: OcaClassVersionNumber ClassVersion
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
         override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaObserverState State
+        This property has id ``3.2``.
 
-        This property has id ``3.1``.
+    .. _ocanumericobserverlist_state:
+
+    .. cpp:member:: OcaObserverState State
 
         State: triggered, not triggered
 
-    .. cpp:member:: OcaList<OcaProperty> ObservedProperties
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocanumericobserverlist_observedproperties:
+
+    .. cpp:member:: OcaList<OcaProperty> ObservedProperties
 
         List of identifiers of the properties are being observed.
 
-    .. cpp:member:: OcaFloat64 Threshold
+        This property has id ``3.2``.
 
-        This property has id ``3.3``.
+    .. _ocanumericobserverlist_threshold:
+
+    .. cpp:member:: OcaFloat64 Threshold
 
         Comparison value for raising the **Triggered** event.
 
-    .. cpp:member:: OcaRelationalOperator Operator
+        This property has id ``3.3``.
 
-        This property has id ``3.4``.
+    .. _ocanumericobserverlist_operator:
+
+    .. cpp:member:: OcaRelationalOperator Operator
 
         Relational operator used when comparing the value of the observed
         property to the threshold value.
 
-    .. cpp:member:: OcaBoolean TwoWay
+        This property has id ``3.4``.
 
-        This property has id ``3.5``.
+    .. _ocanumericobserverlist_twoway:
+
+    .. cpp:member:: OcaBoolean TwoWay
 
         True to emit a **Triggered** event upon crossing the threshold in
         either direction; false to emit only upon crossing in the primary
@@ -108,9 +124,11 @@ Extends :ref:`OcaAgent <ocaagent>`.
         or _LessThanOrEqual_ ; equality when **Operator** is set to _Equality_
         ; inequality when **Operator** is set to _Inequality_ ).
 
-    .. cpp:member:: OcaFloat64 Hysteresis
+        This property has id ``3.5``.
 
-        This property has id ``3.6``.
+    .. _ocanumericobserverlist_hysteresis:
+
+    .. cpp:member:: OcaFloat64 Hysteresis
 
         Hysteresis that is used when observing the property value. This
         indicates which amount must be added/subtracted from the **Threshold**
@@ -124,16 +142,39 @@ Extends :ref:`OcaAgent <ocaagent>`.
         Triggered** only if _all_ of the ObservedProperties no longer meet the
         ‘Threshold including Hysteresis’ **.**
 
-    .. cpp:member:: OcaTimeInterval Period
+        This property has id ``3.6``.
 
-        This property has id ``3.7``.
+    .. _ocanumericobserverlist_period:
+
+    .. cpp:member:: OcaTimeInterval Period
 
         Repetition period or zero. If nonzero, the observer will retrieve the
         value and emit
 
-    .. cpp:function:: OcaStatus GetLastObservation(OcaList<OcaFloat64> &Observation)
+        This property has id ``3.7``.
 
-        This method has id ``3.1``.
+    Properties inherited from :ref:`OcaAgent <OcaAgent>`:
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaAgent::Label <OcaAgent_Label>`
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaAgent::Owner <OcaAgent_Owner>`
+    
+    
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocanumericobserverlist_getlastobservation:
+
+    .. cpp:function:: OcaStatus GetLastObservation(OcaList<OcaFloat64> &Observation)
 
         Gets the values of the observed property that were reported by the
         most recently emitted Observation event. If the numeric observer has
@@ -145,20 +186,24 @@ Extends :ref:`OcaAgent <ocaagent>`.
         GetObservedProperties. The return status indicates whether the value
         has been successfully returned.
 
+        This method has id ``3.1``.
+
         :param OcaList<OcaFloat64> Observation: Output parameter.
 
-    .. cpp:function:: OcaStatus GetState(OcaObserverState &state)
+    .. _ocanumericobserverlist_getstate:
 
-        This method has id ``3.2``.
+    .. cpp:function:: OcaStatus GetState(OcaObserverState &state)
 
         Gets the observer's state. The return value indicates whether the
         state was successfully retrieved.
 
+        This method has id ``3.2``.
+
         :param OcaObserverState state: Output parameter.
 
-    .. cpp:function:: OcaStatus GetObservedProperties(OcaList<OcaProperty> &property)
+    .. _ocanumericobserverlist_getobservedproperties:
 
-        This method has id ``3.3``.
+    .. cpp:function:: OcaStatus GetObservedProperties(OcaList<OcaProperty> &property)
 
         Gets the identifications of the properties that the observer observes.
         The order of property identifications in the returned list is
@@ -167,11 +212,13 @@ Extends :ref:`OcaAgent <ocaagent>`.
         by GetLastObservation and the Observation event. The return value
         indicates whether the identifications were successfully retrieved.
 
+        This method has id ``3.3``.
+
         :param OcaList<OcaProperty> property: Output parameter.
 
-    .. cpp:function:: OcaStatus SetObservedProperties(OcaList<OcaProperty> property)
+    .. _ocanumericobserverlist_setobservedproperties:
 
-        This method has id ``3.4``.
+    .. cpp:function:: OcaStatus SetObservedProperties(OcaList<OcaProperty> property)
 
         Sets the identifications of the properties that the observer observes.
         The order of property identifications supplied determines the order of
@@ -180,95 +227,144 @@ Extends :ref:`OcaAgent <ocaagent>`.
         event. The return value indicates whether the identifications were
         successfully set.
 
+        This method has id ``3.4``.
+
         :param OcaList<OcaProperty> property: Input parameter.
 
-    .. cpp:function:: OcaStatus GetThreshold(OcaFloat64 &Threshold)
+    .. _ocanumericobserverlist_getthreshold:
 
-        This method has id ``3.5``.
+    .. cpp:function:: OcaStatus GetThreshold(OcaFloat64 &Threshold)
 
         Gets the value of the **Threshold** property. The return value
         indicates whether the threshold value was successfully retrieved.
 
+        This method has id ``3.5``.
+
         :param OcaFloat64 Threshold: Output parameter.
 
-    .. cpp:function:: OcaStatus SetThreshold(OcaFloat64 Threshold)
+    .. _ocanumericobserverlist_setthreshold:
 
-        This method has id ``3.6``.
+    .. cpp:function:: OcaStatus SetThreshold(OcaFloat64 Threshold)
 
         Sets the value of the **Threshold** property. The return value
         indicates whether the threshold value was successfully set.
 
+        This method has id ``3.6``.
+
         :param OcaFloat64 Threshold: Input parameter.
 
-    .. cpp:function:: OcaStatus GetOperator(OcaRelationalOperator &operator)
+    .. _ocanumericobserverlist_getoperator:
 
-        This method has id ``3.7``.
+    .. cpp:function:: OcaStatus GetOperator(OcaRelationalOperator &operator)
 
         Gets the value of the **Operator** property. The return value
         indicates whether the property was successfully retrieved.
 
+        This method has id ``3.7``.
+
         :param OcaRelationalOperator operator: Output parameter.
 
-    .. cpp:function:: OcaStatus SetOperator(OcaRelationalOperator operator)
+    .. _ocanumericobserverlist_setoperator:
 
-        This method has id ``3.8``.
+    .. cpp:function:: OcaStatus SetOperator(OcaRelationalOperator operator)
 
         Sets the value of the **Operator** property. The return value
         indicates whether the operator was successfully set.
 
+        This method has id ``3.8``.
+
         :param OcaRelationalOperator operator: Input parameter.
 
-    .. cpp:function:: OcaStatus GetTwoWay(OcaBoolean &twoWay)
+    .. _ocanumericobserverlist_gettwoway:
 
-        This method has id ``3.9``.
+    .. cpp:function:: OcaStatus GetTwoWay(OcaBoolean &twoWay)
 
         Gets the value of the **TwoWay** property. The return value indicates
         whether the property was successfully retrieved.
 
+        This method has id ``3.9``.
+
         :param OcaBoolean twoWay: Output parameter.
 
-    .. cpp:function:: OcaStatus SetTwoWay(OcaBoolean twoWay)
+    .. _ocanumericobserverlist_settwoway:
 
-        This method has id ``3.10``.
+    .. cpp:function:: OcaStatus SetTwoWay(OcaBoolean twoWay)
 
         Sets the value of the **TwoWay** property. The return value indicates
         whether the property was successfully set.
 
+        This method has id ``3.10``.
+
         :param OcaBoolean twoWay: Input parameter.
 
-    .. cpp:function:: OcaStatus GetHysteresis(OcaFloat64 &hysteresis)
+    .. _ocanumericobserverlist_gethysteresis:
 
-        This method has id ``3.11``.
+    .. cpp:function:: OcaStatus GetHysteresis(OcaFloat64 &hysteresis)
 
         Gets the value of the **Hysteresis** property. The return value
         indicates whether the property was successfully retrieved.
 
+        This method has id ``3.11``.
+
         :param OcaFloat64 hysteresis: Output parameter.
 
-    .. cpp:function:: OcaStatus SetHysteresis(OcaFloat64 hysteresis)
+    .. _ocanumericobserverlist_sethysteresis:
 
-        This method has id ``3.12``.
+    .. cpp:function:: OcaStatus SetHysteresis(OcaFloat64 hysteresis)
 
         Sets the value of the **Hysteresis** property. The return value
         indicates whether the property was successfully set.
 
+        This method has id ``3.12``.
+
         :param OcaFloat64 hysteresis: Input parameter.
 
-    .. cpp:function:: OcaStatus GetPeriod(OcaTimeInterval &period)
+    .. _ocanumericobserverlist_getperiod:
 
-        This method has id ``3.13``.
+    .. cpp:function:: OcaStatus GetPeriod(OcaTimeInterval &period)
 
         Gets the value of the **Period** property. The return value indicates
         whether the property was successfully retrieved.
 
+        This method has id ``3.13``.
+
         :param OcaTimeInterval period: Output parameter.
 
-    .. cpp:function:: OcaStatus SetPeriod(OcaTimeInterval period)
+    .. _ocanumericobserverlist_setperiod:
 
-        This method has id ``3.14``.
+    .. cpp:function:: OcaStatus SetPeriod(OcaTimeInterval period)
 
         Sets the value of the **Period** property. The return value indicates
         whether the property was successfully set.
 
+        This method has id ``3.14``.
+
         :param OcaTimeInterval period: Input parameter.
 
+
+    Methods inherited from :ref:`OcaAgent <OcaAgent>`:
+    
+    - :ref:`OcaAgent::GetLabel(Label) <OcaAgent_GetLabel>`
+    
+    - :ref:`OcaAgent::SetLabel(Label) <OcaAgent_SetLabel>`
+    
+    - :ref:`OcaAgent::GetOwner(owner) <OcaAgent_GetOwner>`
+    
+    - :ref:`OcaAgent::GetPath(NamePath, ONoPath) <OcaAgent_GetPath>`
+    
+    
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    

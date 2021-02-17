@@ -3,7 +3,9 @@
 1.1.4  OcaBlockFactory
 ======================
 
-Extends :ref:`OcaWorker <ocaworker>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaBlockFactory <ocablockfactory>` 
 
 .. cpp:class:: OcaBlockFactory: OcaWorker
 
@@ -35,165 +37,273 @@ Extends :ref:`OcaWorker <ocaworker>`.
     calls the factory's **DefineProtoMember(...), DefineProtoPort(...),
     and DefineProtoSignalPath(...** ) methods, respectively.
 
-    .. cpp:member:: OcaClassID ClassID
+    **Properties**:
 
-        This property has id ``3.1``.
+    .. _ocablockfactory_classid:
+
+    .. cpp:member:: OcaClassID ClassID
 
         This property is an override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocablockfactory_classversion:
+
+    .. cpp:member:: OcaClassVersionNumber ClassVersion
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
         override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaList<OcaProtoPort> ProtoPorts
+        This property has id ``3.2``.
 
-        This property has id ``3.1``.
+    .. _ocablockfactory_protoports:
+
+    .. cpp:member:: OcaList<OcaProtoPort> ProtoPorts
 
         List of proto-ports for built objects. The factory itself has no
         ports.
 
-    .. cpp:member:: OcaList<OcaProtoObjectIdentification> ProtoMembers
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocablockfactory_protomembers:
+
+    .. cpp:member:: OcaList<OcaProtoObjectIdentification> ProtoMembers
 
         List of prot-object identifiers of proto-members in the block.
 
-    .. cpp:member:: OcaMap<OcaUint16, OcaProtoSignalPath> ProtoSignalPaths
+        This property has id ``3.2``.
 
-        This property has id ``3.3``.
+    .. _ocablockfactory_protosignalpaths:
+
+    .. cpp:member:: OcaMap<OcaUint16, OcaProtoSignalPath> ProtoSignalPaths
 
         List of proto-signal paths in the block.
 
-    .. cpp:member:: OcaGlobalTypeIdentifier GlobalType
+        This property has id ``3.3``.
 
-        This property has id ``3.4``.
+    .. _ocablockfactory_globaltype:
+
+    .. cpp:member:: OcaGlobalTypeIdentifier GlobalType
 
         Global block type identifier for reusable blocks. **Added in version 2
         of this class.**
 
-    .. cpp:function:: OcaStatus DefineProtoPort(OcaString name, OcaPortMode portmode, OcaProtoPortID &id)
+        This property has id ``3.4``.
 
-        This method has id ``3.1``.
+    Properties inherited from :ref:`OcaWorker <OcaWorker>`:
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <OcaWorker_Enabled>`
+    
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <OcaWorker_Ports>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <OcaWorker_Label>`
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <OcaWorker_Owner>`
+    
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <OcaWorker_Latency>`
+    
+    
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocablockfactory_defineprotoport:
+
+    .. cpp:function:: OcaStatus DefineProtoPort(OcaString name, OcaPortMode portmode, OcaProtoPortID &id)
 
         Defines a proto-port in the factory. If proto-port already exists, it
         is replaced with the one from this call. The return value indicates
         whether the proto-port was successfully added.
 
+        This method has id ``3.1``.
+
         :param OcaString name: Input parameter.
         :param OcaPortMode portmode: Input parameter.
         :param OcaProtoPortID id: Output parameter.
 
-    .. cpp:function:: OcaStatus UndefineProtoPort(OcaProtoPortID ProtoPortID)
+    .. _ocablockfactory_undefineprotoport:
 
-        This method has id ``3.2``.
+    .. cpp:function:: OcaStatus UndefineProtoPort(OcaProtoPortID ProtoPortID)
 
         Deletes a proto-port from the factory. The return value indicates
         whether the proto-port was successfully deleted.
 
+        This method has id ``3.2``.
+
         :param OcaProtoPortID ProtoPortID: Input parameter.
 
-    .. cpp:function:: OcaStatus GetProtoPorts(OcaList<OcaProtoPort> &Ports)
+    .. _ocablockfactory_getprotoports:
 
-        This method has id ``3.3``.
+    .. cpp:function:: OcaStatus GetProtoPorts(OcaList<OcaProtoPort> &Ports)
 
         Gets the factory's list of proto-ports. The return value indicates
         whether the list was successfully retrieved.
 
+        This method has id ``3.3``.
+
         :param OcaList<OcaProtoPort> Ports: Output parameter.
 
-    .. cpp:function:: OcaStatus DefineProtoMember(OcaClassID ClassIdentification, ConstructionParameterDataType ConstructionParameters, OcaProtoONo &ProtoObjectNumber)
+    .. _ocablockfactory_defineprotomember:
 
-        This method has id ``3.4``.
+    .. cpp:function:: OcaStatus DefineProtoMember(OcaClassID ClassIdentification, ConstructionParameterDataType ConstructionParameters, OcaProtoONo &ProtoObjectNumber)
 
         Defines a proto-member of the given class in the factory. The most
         current version of the class is used. The return value indicates
         whether the proto-member was successfully defined.
 
+        This method has id ``3.4``.
+
         :param OcaClassID ClassIdentification: Input parameter.
         :param ConstructionParameterDataType ConstructionParameters: Input parameter.
         :param OcaProtoONo ProtoObjectNumber: Output parameter.
 
-    .. cpp:function:: OcaStatus DefineProtoMemberUsingFactory(OcaONo FactoryONo, OcaProtoONo &ProtoObjectNumber)
+    .. _ocablockfactory_defineprotomemberusingfactory:
 
-        This method has id ``3.5``.
+    .. cpp:function:: OcaStatus DefineProtoMemberUsingFactory(OcaONo FactoryONo, OcaProtoONo &ProtoObjectNumber)
 
         Defines a proto-member which will be instantiated by a specified
         factory when the block is built. The return value indicates whether
         the proto-member was successfully defined.
 
+        This method has id ``3.5``.
+
         :param OcaONo FactoryONo: Input parameter.
         :param OcaProtoONo ProtoObjectNumber: Output parameter.
 
-    .. cpp:function:: OcaStatus UndefineProtoMember(OcaProtoONo ProtoObjectNumber)
+    .. _ocablockfactory_undefineprotomember:
 
-        This method has id ``3.6``.
+    .. cpp:function:: OcaStatus UndefineProtoMember(OcaProtoONo ProtoObjectNumber)
 
         Deletes a proto-member from the factory. Deletes all proto-signal
         paths attached to its ports. The return value indicates whether the
         member was successfully deleted.
 
+        This method has id ``3.6``.
+
         :param OcaProtoONo ProtoObjectNumber: Input parameter.
 
-    .. cpp:function:: OcaStatus GetProtoMembers(OcaList<OcaProtoObjectIdentification> &Members)
+    .. _ocablockfactory_getprotomembers:
 
-        This method has id ``3.7``.
+    .. cpp:function:: OcaStatus GetProtoMembers(OcaList<OcaProtoObjectIdentification> &Members)
 
         Gets the factory's list of proto-members. Does not recurse inner
         proto-blocks. The return value indicates whether the list was
         successfully retrieved.
 
+        This method has id ``3.7``.
+
         :param OcaList<OcaProtoObjectIdentification> Members: Output parameter.
 
-    .. cpp:function:: OcaStatus DefineProtoSignalPath(OcaProtoSignalPath Path, OcaUint16 &Index)
+    .. _ocablockfactory_defineprotosignalpath:
 
-        This method has id ``3.8``.
+    .. cpp:function:: OcaStatus DefineProtoSignalPath(OcaProtoSignalPath Path, OcaUint16 &Index)
 
         Defines a proto-signal path in the factory. The return value indicates
         whether the proto-signal path was successfully defined.
 
+        This method has id ``3.8``.
+
         :param OcaProtoSignalPath Path: Input parameter.
         :param OcaUint16 Index: Output parameter.
 
-    .. cpp:function:: OcaStatus UndefineProtoSignalPath(OcaUint16 &Index)
+    .. _ocablockfactory_undefineprotosignalpath:
 
-        This method has id ``3.9``.
+    .. cpp:function:: OcaStatus UndefineProtoSignalPath(OcaUint16 &Index)
 
         Deletes a proto-signal path from the factory. The return value
         indicates whether the signal path was successfully added.
 
+        This method has id ``3.9``.
+
         :param OcaUint16 Index: Output parameter.
 
-    .. cpp:function:: OcaStatus GetProtoSignalPaths(OcaMap<OcaUint16, OcaProtoSignalPath> &Members)
+    .. _ocablockfactory_getprotosignalpaths:
 
-        This method has id ``3.10``.
+    .. cpp:function:: OcaStatus GetProtoSignalPaths(OcaMap<OcaUint16, OcaProtoSignalPath> &Members)
 
         Gets the factory's list of proto-signal paths. Map key is proto-signal
         path ID. Does not recurse inner proto-blocks. The return value
         indicates whether the list was successfully retrieved.
 
+        This method has id ``3.10``.
+
         :param OcaMap<OcaUint16, OcaProtoSignalPath> Members: Output parameter.
 
-    .. cpp:function:: OcaStatus GetGlobalType(OcaGlobalTypeIdentifier &GlobalType)
+    .. _ocablockfactory_getglobaltype:
 
-        This method has id ``3.11``.
+    .. cpp:function:: OcaStatus GetGlobalType(OcaGlobalTypeIdentifier &GlobalType)
 
         Gets the global type identifier for blocks created by this factory.
         The return value indicates whether the identifier was successfully
         retrieved. **Added in version 2 of this class.**
 
+        This method has id ``3.11``.
+
         :param OcaGlobalTypeIdentifier GlobalType: Output parameter.
 
-    .. cpp:function:: OcaStatus SetGlobalType(OcaGlobalTypeIdentifier GlobalType)
+    .. _ocablockfactory_setglobaltype:
 
-        This method has id ``3.12``.
+    .. cpp:function:: OcaStatus SetGlobalType(OcaGlobalTypeIdentifier GlobalType)
 
         Sets the global type identifier for blocks created by this factory.
         The return value indicates whether the identifier was successfully
         set. **Added in version 2 of this class.**
 
+        This method has id ``3.12``.
+
         :param OcaGlobalTypeIdentifier GlobalType: Input parameter.
 
+
+    Methods inherited from :ref:`OcaWorker <OcaWorker>`:
+    
+    - :ref:`OcaWorker::GetEnabled(enabled) <OcaWorker_GetEnabled>`
+    
+    - :ref:`OcaWorker::SetEnabled(enabled) <OcaWorker_SetEnabled>`
+    
+    - :ref:`OcaWorker::AddPort(Label, Mode, ID) <OcaWorker_AddPort>`
+    
+    - :ref:`OcaWorker::DeletePort(ID) <OcaWorker_DeletePort>`
+    
+    - :ref:`OcaWorker::GetPorts(OcaPorts) <OcaWorker_GetPorts>`
+    
+    - :ref:`OcaWorker::GetPortName(PortID, Name) <OcaWorker_GetPortName>`
+    
+    - :ref:`OcaWorker::SetPortName(PortID, Name) <OcaWorker_SetPortName>`
+    
+    - :ref:`OcaWorker::GetLabel(label) <OcaWorker_GetLabel>`
+    
+    - :ref:`OcaWorker::SetLabel(label) <OcaWorker_SetLabel>`
+    
+    - :ref:`OcaWorker::GetOwner(owner) <OcaWorker_GetOwner>`
+    
+    - :ref:`OcaWorker::GetLatency(latency) <OcaWorker_GetLatency>`
+    
+    - :ref:`OcaWorker::SetLatency(latency) <OcaWorker_SetLatency>`
+    
+    - :ref:`OcaWorker::GetPath(NamePath, ONoPath) <OcaWorker_GetPath>`
+    
+    
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    

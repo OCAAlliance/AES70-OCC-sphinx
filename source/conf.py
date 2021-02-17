@@ -57,3 +57,23 @@ html_theme_options = {
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+
+from docutils import nodes
+
+def generate_rawrole(format):
+    def role(typ, rawtext, text, lineno, inliner, options={}, content=[]):
+        return [nodes.raw('', text, format=format)], []
+
+    return role
+
+
+def on_builder_inited(app):
+    for format in app.config.rawrole_formats:
+        name = 'raw:%s' % format
+        app.add_role(name, generate_rawrole(format))
+
+
+def setup(app):
+    app.add_config_value('rawrole_formats', ['html', 'latex'], 'env')
+    app.connect('builder-inited', on_builder_inited)

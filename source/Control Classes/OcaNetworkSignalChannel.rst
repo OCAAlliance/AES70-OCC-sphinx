@@ -3,7 +3,9 @@
 1.1.6  OcaNetworkSignalChannel
 ==============================
 
-Extends :ref:`OcaWorker <ocaworker>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaNetworkSignalChannel <ocanetworksignalchannel>` 
 
 .. cpp:class:: OcaNetworkSignalChannel: OcaWorker
 
@@ -23,21 +25,27 @@ Extends :ref:`OcaWorker <ocaworker>`.
     **OcaStreamNetwork** object.
     
 
-    .. cpp:member:: OcaClassID ClassID
+    **Properties**:
 
-        This property has id ``3.1``.
+    .. _ocanetworksignalchannel_classid:
+
+    .. cpp:member:: OcaClassID ClassID
 
         ID of this class
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocanetworksignalchannel_classversion:
+
+    .. cpp:member:: OcaClassVersionNumber ClassVersion
 
         Version number of this class
 
-    .. cpp:member:: OcaMap<OcaONo, OcaStreamConnectorPinIndex> ConnectorPins
+        This property has id ``3.2``.
 
-        This property has id ``3.3``.
+    .. _ocanetworksignalchannel_connectorpins:
+
+    .. cpp:member:: OcaMap<OcaONo, OcaStreamConnectorPinIndex> ConnectorPins
 
         Map of object numbers of **OcaStreamConnector** objects to
         **OcaStreamConnectorPinIndex** of these connectors. This map
@@ -50,9 +58,11 @@ Extends :ref:`OcaWorker <ocaworker>`.
         **OcaNetworkSignalChannel** objects of type **Source** can have
         multiple entries in the map.
 
-    .. cpp:member:: OcaNetworkSignalChannelID IDAdvertised
+        This property has id ``3.3``.
 
-        This property has id ``3.1``.
+    .. _ocanetworksignalchannel_idadvertised:
+
+    .. cpp:member:: OcaNetworkSignalChannelID IDAdvertised
 
         Character name or binary identifier of the port that is advertised on
         the network to be found by other devices' discovery processes.
@@ -60,134 +70,189 @@ Extends :ref:`OcaWorker <ocaworker>`.
         be globally unique throughout the network, or only unique within the
         scope of the specific Network instance to which the port is attached.
 
-    .. cpp:member:: OcaONo Network
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocanetworksignalchannel_network:
+
+    .. cpp:member:: OcaONo Network
 
         Object number of stream network object ( **OcaStreamNetwork** or one
         of its subclasses) to which this signal channel belongs.
 
-    .. cpp:member:: OcaNetworkSignalChannelID RemoteChannelID
+        This property has id ``3.2``.
 
-        This property has id ``3.4``.
+    .. _ocanetworksignalchannel_remotechannelid:
+
+    .. cpp:member:: OcaNetworkSignalChannelID RemoteChannelID
 
         External ID of ultimate source or destination of signal.
 
-    .. cpp:member:: OcaNetworkMediaSourceOrSink SourceOrSink
+        This property has id ``3.4``.
 
-        This property has id ``3.5``.
+    .. _ocanetworksignalchannel_sourceorsink:
+
+    .. cpp:member:: OcaNetworkMediaSourceOrSink SourceOrSink
 
         Describes whether this signal channel is source (emits signals into
         the network) or sink (receives signals from the network). Sources are
         sometimes called "talkers", and sinks are sometimes called
         "listeners".
 
-    .. cpp:member:: OcaNetworkSignalChannelStatus Status
+        This property has id ``3.5``.
 
-        This property has id ``3.6``.
+    .. _ocanetworksignalchannel_status:
+
+    .. cpp:member:: OcaNetworkSignalChannelStatus Status
 
         Status of the port
 
-    .. cpp:function:: OcaStatus AddToConnector(OcaONo Connector, OcaStreamConnectorPinIndex Index)
+        This property has id ``3.6``.
 
-        This method has id ``3.6``.
+    Properties inherited from :ref:`OcaWorker <OcaWorker>`:
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <OcaWorker_Enabled>`
+    
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <OcaWorker_Ports>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <OcaWorker_Label>`
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <OcaWorker_Owner>`
+    
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <OcaWorker_Latency>`
+    
+    
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocanetworksignalchannel_addtoconnector:
+
+    .. cpp:function:: OcaStatus AddToConnector(OcaONo Connector, OcaStreamConnectorPinIndex Index)
 
         Adds the object number of the stream connector object to which this
         media port belongs, and specifies on what index of the stream
         connector this channel can be found. Return status indicates success
         of operation.
 
+        This method has id ``3.6``.
+
         :param OcaONo Connector: Input parameter.
         :param OcaStreamConnectorPinIndex Index: Input parameter.
 
-    .. cpp:function:: OcaStatus GetConnectorPins(OcaMap<OcaONo, OcaStreamConnectorPinIndex> &ConnectorPins)
+    .. _ocanetworksignalchannel_getconnectorpins:
 
-        This method has id ``3.5``.
+    .. cpp:function:: OcaStatus GetConnectorPins(OcaMap<OcaONo, OcaStreamConnectorPinIndex> &ConnectorPins)
 
         Gets the object number of the stream connector object to which this
         media port belongs, if any. If port does not belong to a stream
         connector, returns zero. Return status indicates success of operation.
 
+        This method has id ``3.5``.
+
         :param OcaMap<OcaONo, OcaStreamConnectorPinIndex> ConnectorPins: Output parameter.
 
-    .. cpp:function:: OcaStatus GetIDAdvertised(OcaNetworkSignalChannelID &IDAdvertised)
+    .. _ocanetworksignalchannel_getidadvertised:
 
-        This method has id ``3.1``.
+    .. cpp:function:: OcaStatus GetIDAdvertised(OcaNetworkSignalChannelID &IDAdvertised)
 
         Gets the value of the IDAdvertised property. Return status indicates
         success of operation.
 
+        This method has id ``3.1``.
+
         :param OcaNetworkSignalChannelID IDAdvertised: Output parameter.
 
-    .. cpp:function:: OcaStatus GetNetwork(OcaONo &Network)
+    .. _ocanetworksignalchannel_getnetwork:
 
-        This method has id ``3.3``.
+    .. cpp:function:: OcaStatus GetNetwork(OcaONo &Network)
 
         Gets the object number of the stream network object to which this
         media port belongs. Return status indicates success of operation.
 
+        This method has id ``3.3``.
+
         :param OcaONo Network: Output parameter.
 
-    .. cpp:function:: OcaStatus GetRemoteChannelID(OcaNetworkSignalChannelID &RemoteChannelID)
+    .. _ocanetworksignalchannel_getremotechannelid:
 
-        This method has id ``3.8``.
+    .. cpp:function:: OcaStatus GetRemoteChannelID(OcaNetworkSignalChannelID &RemoteChannelID)
 
         Gets the remote channel ID to which this channel is connected. Empty
         if the channel is not connected (at least not directly to another
         channel). For stream-oriented connection management this functionality
         is not used (i.e. the remote channel ID will always be empty).
 
+        This method has id ``3.8``.
+
         :param OcaNetworkSignalChannelID RemoteChannelID: Output parameter.
 
-    .. cpp:function:: OcaStatus GetSourceOrSink(OcaNetworkMediaSourceOrSink &SourceOrSink)
+    .. _ocanetworksignalchannel_getsourceorsink:
 
-        This method has id ``3.10``.
+    .. cpp:function:: OcaStatus GetSourceOrSink(OcaNetworkMediaSourceOrSink &SourceOrSink)
 
         Gets the value of the SourceOrSink property. Return status indicates
         success of operation.
 
+        This method has id ``3.10``.
+
         :param OcaNetworkMediaSourceOrSink SourceOrSink: Output parameter.
 
-    .. cpp:function:: OcaStatus GetStatus(OcaNetworkSignalChannelStatus &Status)
+    .. _ocanetworksignalchannel_getstatus:
 
-        This method has id ``3.11``.
+    .. cpp:function:: OcaStatus GetStatus(OcaNetworkSignalChannelStatus &Status)
 
         Gets the value of the Status property. Return status indicates success
         of operation.
 
+        This method has id ``3.11``.
+
         :param OcaNetworkSignalChannelStatus Status: Output parameter.
 
-    .. cpp:function:: OcaStatus RemoveFromConnector(OcaONo Connector)
+    .. _ocanetworksignalchannel_removefromconnector:
 
-        This method has id ``3.7``.
+    .. cpp:function:: OcaStatus RemoveFromConnector(OcaONo Connector)
 
         Removes this channel from the passed stream connector. Return status
         indicates success of operation.
 
+        This method has id ``3.7``.
+
         :param OcaONo Connector: Input parameter.
 
-    .. cpp:function:: OcaStatus SetIDAdvertised(OcaNetworkSignalChannelID IDAdvertised)
+    .. _ocanetworksignalchannel_setidadvertised:
 
-        This method has id ``3.2``.
+    .. cpp:function:: OcaStatus SetIDAdvertised(OcaNetworkSignalChannelID IDAdvertised)
 
         Sets the value of the IDAdvertised property. Return status indicates
         success of operation.
 
+        This method has id ``3.2``.
+
         :param OcaNetworkSignalChannelID IDAdvertised: Input parameter.
 
-    .. cpp:function:: OcaStatus SetNetwork(OcaONo Network)
+    .. _ocanetworksignalchannel_setnetwork:
 
-        This method has id ``3.4``.
+    .. cpp:function:: OcaStatus SetNetwork(OcaONo Network)
 
         Sets the object number of the stream network object to which this
         media port belongs. Return status indicates success of operation. Only
         implemented for reconfigurable devices.
 
+        This method has id ``3.4``.
+
         :param OcaONo Network: Input parameter.
 
-    .. cpp:function:: OcaStatus SetRemoteChannelID(OcaNetworkSignalChannelID RemoteChannelID)
+    .. _ocanetworksignalchannel_setremotechannelid:
 
-        This method has id ``3.9``.
+    .. cpp:function:: OcaStatus SetRemoteChannelID(OcaNetworkSignalChannelID RemoteChannelID)
 
         Sets the remote channel ID to which this channel must be connected.
         Only used for channel-oriented connection management. For
@@ -195,5 +260,52 @@ Extends :ref:`OcaWorker <ocaworker>`.
         Clearing the remote channel ID (i.e. tearing down the connection) can
         be done by passing an empty remote channel ID as parameter.
 
+        This method has id ``3.9``.
+
         :param OcaNetworkSignalChannelID RemoteChannelID: Input parameter.
 
+
+    Methods inherited from :ref:`OcaWorker <OcaWorker>`:
+    
+    - :ref:`OcaWorker::GetEnabled(enabled) <OcaWorker_GetEnabled>`
+    
+    - :ref:`OcaWorker::SetEnabled(enabled) <OcaWorker_SetEnabled>`
+    
+    - :ref:`OcaWorker::AddPort(Label, Mode, ID) <OcaWorker_AddPort>`
+    
+    - :ref:`OcaWorker::DeletePort(ID) <OcaWorker_DeletePort>`
+    
+    - :ref:`OcaWorker::GetPorts(OcaPorts) <OcaWorker_GetPorts>`
+    
+    - :ref:`OcaWorker::GetPortName(PortID, Name) <OcaWorker_GetPortName>`
+    
+    - :ref:`OcaWorker::SetPortName(PortID, Name) <OcaWorker_SetPortName>`
+    
+    - :ref:`OcaWorker::GetLabel(label) <OcaWorker_GetLabel>`
+    
+    - :ref:`OcaWorker::SetLabel(label) <OcaWorker_SetLabel>`
+    
+    - :ref:`OcaWorker::GetOwner(owner) <OcaWorker_GetOwner>`
+    
+    - :ref:`OcaWorker::GetLatency(latency) <OcaWorker_GetLatency>`
+    
+    - :ref:`OcaWorker::SetLatency(latency) <OcaWorker_SetLatency>`
+    
+    - :ref:`OcaWorker::GetPath(NamePath, ONoPath) <OcaWorker_GetPath>`
+    
+    
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    

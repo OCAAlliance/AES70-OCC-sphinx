@@ -3,7 +3,9 @@
 1.2.2  OcaGrouper
 =================
 
-Extends :ref:`OcaAgent <ocaagent>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaAgent <ocaagent>` :raw:html:`&rarr;` :ref:`OcaGrouper <ocagrouper>` 
 
 .. cpp:class:: OcaGrouper: OcaAgent
 
@@ -113,98 +115,141 @@ Extends :ref:`OcaAgent <ocaagent>`.
     re-attaches)
     
 
-    .. cpp:member:: OcaClassID ClassID
+    **Properties**:
 
-        This property has id ``3.1``.
+    .. _ocagrouper_classid:
+
+    .. cpp:member:: OcaClassID ClassID
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
         property is an override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocagrouper_classversion:
+
+    .. cpp:member:: OcaClassVersionNumber ClassVersion
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
         override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaBoolean ActuatorOrSensor
+        This property has id ``3.2``.
 
-        This property has id ``3.1``.
+    .. _ocagrouper_actuatororsensor:
+
+    .. cpp:member:: OcaBoolean ActuatorOrSensor
 
         True if Grouper is actuator grouper, false if sensor grouper.
 
-    .. cpp:member:: OcaList<OcaGrouperGroup> Groups
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocagrouper_groups:
+
+    .. cpp:member:: OcaList<OcaGrouperGroup> Groups
 
         List of groups in the grouper. Groups are added to and deleted from a
         grouper by the AdGroup and DeleteGroup methods of OcaGrouper.
 
-    .. cpp:member:: OcaList<OcaGrouperCitizen> Citizens
+        This property has id ``3.2``.
 
-        This property has id ``3.3``.
+    .. _ocagrouper_citizens:
+
+    .. cpp:member:: OcaList<OcaGrouperCitizen> Citizens
 
         List of citizens defined for this grouper.
 
-    .. cpp:member:: OcaList<OcaGrouperEnrollment> Enrollments
+        This property has id ``3.3``.
 
-        This property has id ``3.4``.
+    .. _ocagrouper_enrollments:
+
+    .. cpp:member:: OcaList<OcaGrouperEnrollment> Enrollments
 
         List of grouper's enrollments, i.e. which citizen(s) belong to which
         group(s).
 
-    .. cpp:member:: OcaGrouperMode Mode
+        This property has id ``3.4``.
 
-        This property has id ``3.5``.
+    .. _ocagrouper_mode:
+
+    .. cpp:member:: OcaGrouperMode Mode
 
         Switch that determines whether grouper is in master-slave mode or
         peer-to-peer mode.
 
-    .. cpp:function:: OcaStatus AddGroup(OcaString Name, OcaUint16 &Index, OcaONo &ProxyONo)
+        This property has id ``3.5``.
 
-        This method has id ``3.1``.
+    Properties inherited from :ref:`OcaAgent <OcaAgent>`:
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaAgent::Label <OcaAgent_Label>`
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaAgent::Owner <OcaAgent_Owner>`
+    
+    
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocagrouper_addgroup:
+
+    .. cpp:function:: OcaStatus AddGroup(OcaString Name, OcaUint16 &Index, OcaONo &ProxyONo)
 
         Adds a group to the grouper and returns its object number. (The
         group's network address will be the same as the grouper's). The return
         value indicates whether the group was successfully added.
 
+        This method has id ``3.1``.
+
         :param OcaString Name: Input parameter.
         :param OcaUint16 Index: Output parameter.
         :param OcaONo ProxyONo: Output parameter.
 
-    .. cpp:function:: OcaStatus DeleteGroup(OcaUint16 Index)
+    .. _ocagrouper_deletegroup:
 
-        This method has id ``3.2``.
+    .. cpp:function:: OcaStatus DeleteGroup(OcaUint16 Index)
 
         Deletes a group from the grouper. The return value indicates whether
         the group was successfully deleted. Note: index values of deleted
         groups are not reused during the lifetime of the grouper instance.
 
+        This method has id ``3.2``.
+
         :param OcaUint16 Index: Input parameter.
 
-    .. cpp:function:: OcaStatus GetGroupCount(OcaUint16 &Count)
+    .. _ocagrouper_getgroupcount:
 
-        This method has id ``3.3``.
+    .. cpp:function:: OcaStatus GetGroupCount(OcaUint16 &Count)
 
         Gets the count of groups owned by this grouper. The return value
         indicates whether the count was successfully retrieved.
 
+        This method has id ``3.3``.
+
         :param OcaUint16 Count: Output parameter.
 
-    .. cpp:function:: OcaStatus GetGroupList(OcaList<OcaGrouperGroup> &GroupList)
+    .. _ocagrouper_getgrouplist:
 
-        This method has id ``3.4``.
+    .. cpp:function:: OcaStatus GetGroupList(OcaList<OcaGrouperGroup> &GroupList)
 
         Gets the list of groups owned by this grouper. The return value
         indicates whether the list was successfully retrieved.
 
+        This method has id ``3.4``.
+
         :param OcaList<OcaGrouperGroup> GroupList: Output parameter.
 
-    .. cpp:function:: OcaStatus AddCitizen(OcaGrouperCitizen Citizen, OcaUint16 &CitizenIndex)
+    .. _ocagrouper_addcitizen:
 
-        This method has id ``3.5``.
+    .. cpp:function:: OcaStatus AddCitizen(OcaGrouperCitizen Citizen, OcaUint16 &CitizenIndex)
 
         Adds a target to the group. The return value indicates whether the
         target was successfully added. This method does not enroll the new
@@ -212,101 +257,150 @@ Extends :ref:`OcaAgent <ocaagent>`.
         available for enrollment. Group membership is controlled by the
         SetEnrollment method, q.v.
 
+        This method has id ``3.5``.
+
         :param OcaGrouperCitizen Citizen: Input parameter.
         :param OcaUint16 CitizenIndex: Output parameter.
 
-    .. cpp:function:: OcaStatus DeleteCitizen(OcaUint16 Index)
+    .. _ocagrouper_deletecitizen:
 
-        This method has id ``3.6``.
+    .. cpp:function:: OcaStatus DeleteCitizen(OcaUint16 Index)
 
         Delete a citizen from the grouper (and therefore from all of its
         groups). The return value indicates whether the citizen was
         successfully deleted. Note: index values of deleted citizens are not
         reused during the lifetime of the grouper instance.
 
+        This method has id ``3.6``.
+
         :param OcaUint16 Index: Input parameter.
 
-    .. cpp:function:: OcaStatus GetCitizenCount(OcaUint16 &Count)
+    .. _ocagrouper_getcitizencount:
 
-        This method has id ``3.7``.
+    .. cpp:function:: OcaStatus GetCitizenCount(OcaUint16 &Count)
 
         Gets the count of citizens registered in this grouper. The return
         value indicates whether the count was successfully retrieved.
 
+        This method has id ``3.7``.
+
         :param OcaUint16 Count: Output parameter.
 
-    .. cpp:function:: OcaStatus GetCitizenList(OcaList<OcaGrouperCitizen> &List)
+    .. _ocagrouper_getcitizenlist:
 
-        This method has id ``3.8``.
+    .. cpp:function:: OcaStatus GetCitizenList(OcaList<OcaGrouperCitizen> &List)
 
         Gets the list of citizens registered in this grouper. The return value
         indicates whether the list was successfully retrieved.
 
+        This method has id ``3.8``.
+
         :param OcaList<OcaGrouperCitizen> List: Output parameter.
 
-    .. cpp:function:: OcaStatus GetEnrollment(OcaGrouperEnrollment Enrollment, OcaBoolean &IsMember)
+    .. _ocagrouper_getenrollment:
 
-        This method has id ``3.9``.
+    .. cpp:function:: OcaStatus GetEnrollment(OcaGrouperEnrollment Enrollment, OcaBoolean &IsMember)
 
         Gets membership status for given target in given group. The return
         value indicates whether the status was successfully retrieved.
 
+        This method has id ``3.9``.
+
         :param OcaGrouperEnrollment Enrollment: Input parameter.
         :param OcaBoolean IsMember: Output parameter.
 
-    .. cpp:function:: OcaStatus SetEnrollment(OcaGrouperEnrollment Enrollment, OcaBoolean IsMember)
+    .. _ocagrouper_setenrollment:
 
-        This method has id ``3.10``.
+    .. cpp:function:: OcaStatus SetEnrollment(OcaGrouperEnrollment Enrollment, OcaBoolean IsMember)
 
         Sets membership status for given target in given group. The return
         value indicates whether the status was successfully set.
 
+        This method has id ``3.10``.
+
         :param OcaGrouperEnrollment Enrollment: Input parameter.
         :param OcaBoolean IsMember: Input parameter.
 
-    .. cpp:function:: OcaStatus GetGroupMemberList(OcaUint16 Index, OcaList<OcaGrouperCitizen> &Members)
+    .. _ocagrouper_getgroupmemberlist:
 
-        This method has id ``3.11``.
+    .. cpp:function:: OcaStatus GetGroupMemberList(OcaUint16 Index, OcaList<OcaGrouperCitizen> &Members)
 
         Gets the list of members of the given group. The return value
         indicates whether the list was successfully retrieved.
 
+        This method has id ``3.11``.
+
         :param OcaUint16 Index: Input parameter.
         :param OcaList<OcaGrouperCitizen> Members: Output parameter.
 
-    .. cpp:function:: OcaStatus GetActuatorOrSensor(OcaBoolean &ActuatorOrSensor)
+    .. _ocagrouper_getactuatororsensor:
 
-        This method has id ``3.12``.
+    .. cpp:function:: OcaStatus GetActuatorOrSensor(OcaBoolean &ActuatorOrSensor)
 
         Gets the value of the ActuatorOrSensor property. The return value
         indicates whether the value was successfully retrieved.
 
+        This method has id ``3.12``.
+
         :param OcaBoolean ActuatorOrSensor: Output parameter.
 
-    .. cpp:function:: OcaStatus SetActuatorOrSensor(OcaBoolean ActuatorOrSensor)
+    .. _ocagrouper_setactuatororsensor:
 
-        This method has id ``3.13``.
+    .. cpp:function:: OcaStatus SetActuatorOrSensor(OcaBoolean ActuatorOrSensor)
 
         Sets the value of the ActuatorOrSensor property. The return value
         indicates whether the value was successfully set.
 
+        This method has id ``3.13``.
+
         :param OcaBoolean ActuatorOrSensor: Input parameter.
 
-    .. cpp:function:: OcaStatus GetMode(OcaGrouperMode &Mode)
+    .. _ocagrouper_getmode:
 
-        This method has id ``3.14``.
+    .. cpp:function:: OcaStatus GetMode(OcaGrouperMode &Mode)
 
         Gets the value of the Mode property. The return value indicates
         whether the value was successfully retrieved.
 
+        This method has id ``3.14``.
+
         :param OcaGrouperMode Mode: Output parameter.
 
-    .. cpp:function:: OcaStatus SetMode(OcaGrouperMode Mode)
+    .. _ocagrouper_setmode:
 
-        This method has id ``3.15``.
+    .. cpp:function:: OcaStatus SetMode(OcaGrouperMode Mode)
 
         Sets the value of the Mode property. The return value indicates
         whether the value was successfully set.
 
+        This method has id ``3.15``.
+
         :param OcaGrouperMode Mode: Input parameter.
 
+
+    Methods inherited from :ref:`OcaAgent <OcaAgent>`:
+    
+    - :ref:`OcaAgent::GetLabel(Label) <OcaAgent_GetLabel>`
+    
+    - :ref:`OcaAgent::SetLabel(Label) <OcaAgent_SetLabel>`
+    
+    - :ref:`OcaAgent::GetOwner(owner) <OcaAgent_GetOwner>`
+    
+    - :ref:`OcaAgent::GetPath(NamePath, ONoPath) <OcaAgent_GetPath>`
+    
+    
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    

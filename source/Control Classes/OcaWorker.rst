@@ -3,33 +3,41 @@
 1.1  OcaWorker
 ==============
 
-Extends :ref:`OcaRoot <ocaroot>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` 
 
 .. cpp:class:: OcaWorker: OcaRoot
 
     Abstract base class for classes that represent the device's
     application and support functions.
 
-    .. cpp:member:: OcaClassID ClassID
+    **Properties**:
 
-        This property has id ``2.1``.
+    .. _ocaworker_classid:
+
+    .. cpp:member:: OcaClassID ClassID
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This is a
         class property instead of an object property. This property is an
         override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+        This property has id ``2.1``.
 
-        This property has id ``2.2``.
+    .. _ocaworker_classversion:
+
+    .. cpp:member:: OcaClassVersionNumber ClassVersion
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
         override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaBoolean Enabled
+        This property has id ``2.2``.
 
-        This property has id ``2.1``.
+    .. _ocaworker_enabled:
+
+    .. cpp:member:: OcaBoolean Enabled
 
         Read/write property that indicates whether the worker object is
         enabled in the device. If an object is disabled it cannot be used by
@@ -37,154 +45,218 @@ Extends :ref:`OcaRoot <ocaroot>`.
         on the object itself (e.g. a disabled chime generator is silent, a
         disabled equalizer is flat, etc.).
 
-    .. cpp:member:: OcaList<OcaPort> Ports
+        This property has id ``2.1``.
 
-        This property has id ``2.2``.
+    .. _ocaworker_ports:
+
+    .. cpp:member:: OcaList<OcaPort> Ports
 
         The list of (input and output) OCA ports the worker object has. Note
         that a worker object can have no ports (in which case the list is
         empty).
 
-    .. cpp:member:: OcaString Label
+        This property has id ``2.2``.
 
-        This property has id ``2.3``.
+    .. _ocaworker_label:
+
+    .. cpp:member:: OcaString Label
 
         Specific label of the worker. Can be used to provide human readable
         information about the worker. The label can be get and set over the
         network.
 
-    .. cpp:member:: OcaONo Owner
+        This property has id ``2.3``.
 
-        This property has id ``2.4``.
+    .. _ocaworker_owner:
+
+    .. cpp:member:: OcaONo Owner
 
         Object number of block that contains this worker.
 
-    .. cpp:member:: OcaTimeInterval Latency
+        This property has id ``2.4``.
 
-        This property has id ``2.5``.
+    .. _ocaworker_latency:
+
+    .. cpp:member:: OcaTimeInterval Latency
 
         Processing latency of this object. Optional. Readonly or readwrite,
         depending on implementation.
 
-    .. cpp:function:: OcaStatus GetEnabled(OcaBoolean &enabled)
+        This property has id ``2.5``.
 
-        This method has id ``2.1``.
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocaworker_getenabled:
+
+    .. cpp:function:: OcaStatus GetEnabled(OcaBoolean &enabled)
 
         Gets the value of the Enabled property. The return value indicates
         whether the property was successfully retrieved.
 
+        This method has id ``2.1``.
+
         :param OcaBoolean enabled: Output parameter.
 
-    .. cpp:function:: OcaStatus SetEnabled(OcaBoolean enabled)
+    .. _ocaworker_setenabled:
 
-        This method has id ``2.2``.
+    .. cpp:function:: OcaStatus SetEnabled(OcaBoolean enabled)
 
         Sets the value of the Enabled property. The return value indicates
         whether the property was successfully set.
 
+        This method has id ``2.2``.
+
         :param OcaBoolean enabled: Input parameter.
+
+    .. _ocaworker_addport:
 
     .. cpp:function:: OcaStatus AddPort(OcaString Label, OcaPortMode Mode, OcaPortID &ID)
 
-        This method has id ``2.3``.
-
         Adds an input or output port.. The return value indicates whether the
         port was successfully added.
+
+        This method has id ``2.3``.
 
         :param OcaString Label: Input parameter.
         :param OcaPortMode Mode: Input parameter.
         :param OcaPortID ID: Output parameter.
 
-    .. cpp:function:: OcaStatus DeletePort(OcaPortID ID)
+    .. _ocaworker_deleteport:
 
-        This method has id ``2.4``.
+    .. cpp:function:: OcaStatus DeletePort(OcaPortID ID)
 
         Deletes an input or output port.. The return value indicates whether
         the port was successfully deleted.
 
+        This method has id ``2.4``.
+
         :param OcaPortID ID: Input parameter.
 
-    .. cpp:function:: OcaStatus GetPorts(OcaList<OcaPort> &OcaPorts)
+    .. _ocaworker_getports:
 
-        This method has id ``2.5``.
+    .. cpp:function:: OcaStatus GetPorts(OcaList<OcaPort> &OcaPorts)
 
         Gets the list of ports owned by the Worker object. The return value
         indicates whether the list was successfully retrieved.
 
+        This method has id ``2.5``.
+
         :param OcaList<OcaPort> OcaPorts: Output parameter.
 
-    .. cpp:function:: OcaStatus GetPortName(OcaPortID PortID, OcaString &Name)
+    .. _ocaworker_getportname:
 
-        This method has id ``2.6``.
+    .. cpp:function:: OcaStatus GetPortName(OcaPortID PortID, OcaString &Name)
 
         Gets the name of the designated port. The return value indicates
         whether the name was successfully retrieved.
 
+        This method has id ``2.6``.
+
         :param OcaPortID PortID: Input parameter.
         :param OcaString Name: Output parameter.
 
-    .. cpp:function:: OcaStatus SetPortName(OcaPortID PortID, OcaString Name)
+    .. _ocaworker_setportname:
 
-        This method has id ``2.7``.
+    .. cpp:function:: OcaStatus SetPortName(OcaPortID PortID, OcaString Name)
 
         Sets the name of the designated port. The return value indicates
         whether the name was successfully set.
 
+        This method has id ``2.7``.
+
         :param OcaPortID PortID: Input parameter.
         :param OcaString Name: Input parameter.
 
-    .. cpp:function:: OcaStatus GetLabel(OcaString &label)
+    .. _ocaworker_getlabel:
 
-        This method has id ``2.8``.
+    .. cpp:function:: OcaStatus GetLabel(OcaString &label)
 
         Gets the value of the Label property. The return value indicates
         whether the property was successfully retrieved.
 
+        This method has id ``2.8``.
+
         :param OcaString label: Output parameter.
 
-    .. cpp:function:: OcaStatus SetLabel(OcaString label)
+    .. _ocaworker_setlabel:
 
-        This method has id ``2.9``.
+    .. cpp:function:: OcaStatus SetLabel(OcaString label)
 
         Sets the value of the Label property. The return value indicates
         whether the property was successfully set.
 
+        This method has id ``2.9``.
+
         :param OcaString label: Input parameter.
 
-    .. cpp:function:: OcaStatus GetOwner(OcaONo &owner)
+    .. _ocaworker_getowner:
 
-        This method has id ``2.10``.
+    .. cpp:function:: OcaStatus GetOwner(OcaONo &owner)
 
         Gets the value of the Owner property. The return value indicates
         whether the property was successfully retrieved.
 
+        This method has id ``2.10``.
+
         :param OcaONo owner: Output parameter.
 
-    .. cpp:function:: OcaStatus GetLatency(OcaTimeInterval &latency)
+    .. _ocaworker_getlatency:
 
-        This method has id ``2.11``.
+    .. cpp:function:: OcaStatus GetLatency(OcaTimeInterval &latency)
 
         Gets the value of the Latency property. The return value indicates
         whether the property was successfully retrieved.
 
+        This method has id ``2.11``.
+
         :param OcaTimeInterval latency: Output parameter.
 
-    .. cpp:function:: OcaStatus SetLatency(OcaTimeInterval latency)
+    .. _ocaworker_setlatency:
 
-        This method has id ``2.12``.
+    .. cpp:function:: OcaStatus SetLatency(OcaTimeInterval latency)
 
         Sets the value of the Latency property. The return value indicates
         whether the property was successfully set.
 
+        This method has id ``2.12``.
+
         :param OcaTimeInterval latency: Input parameter.
 
-    .. cpp:function:: OcaStatus GetPath(OcaNamePath &NamePath, OcaONoPath &ONoPath)
+    .. _ocaworker_getpath:
 
-        This method has id ``2.13``.
+    .. cpp:function:: OcaStatus GetPath(OcaNamePath &NamePath, OcaONoPath &ONoPath)
 
         Returns path from the given object down to root. The return value
         indicates whether the operation succeeded. Added in version 2.
 
+        This method has id ``2.13``.
+
         :param OcaNamePath NamePath: Output parameter.
         :param OcaONoPath ONoPath: Output parameter.
 
+
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    

@@ -3,7 +3,9 @@
 1.3.2  OcaSecurityManager
 =========================
 
-Extends :ref:`OcaManager <ocamanager>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaManager <ocamanager>` :raw:html:`&rarr;` :ref:`OcaSecurityManager <ocasecuritymanager>` 
 
 .. cpp:class:: OcaSecurityManager: OcaManager
 
@@ -20,31 +22,51 @@ Extends :ref:`OcaManager <ocamanager>`.
     - If instantiated, object number must be 2.
     
 
-    .. cpp:member:: OcaClassID ClassID
+    **Properties**:
 
-        This property has id ``3.1``.
+    .. _ocasecuritymanager_classid:
+
+    .. cpp:member:: OcaClassID ClassID
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
         property is an override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocasecuritymanager_classversion:
+
+    .. cpp:member:: OcaClassVersionNumber ClassVersion
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
         override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaBoolean secureControlData
+        This property has id ``3.2``.
 
-        This property has id ``3.1``.
+    .. _ocasecuritymanager_securecontroldata:
+
+    .. cpp:member:: OcaBoolean secureControlData
 
         Indicates whether the OCA control data in the system is secured.
 
-    .. cpp:function:: OcaStatus AddPreSharedKey(OcaString identity, OcaBlob key)
+        This property has id ``3.1``.
 
-        This method has id ``3.4``.
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocasecuritymanager_addpresharedkey:
+
+    .. cpp:function:: OcaStatus AddPreSharedKey(OcaString identity, OcaBlob key)
 
         Adds a pre-shared key (identified by the passed identity) to the
         device. By having multiple PSKs the device is able to participate in
@@ -53,24 +75,28 @@ Extends :ref:`OcaManager <ocamanager>`.
         control security has been turned on. If this is not the case the
         method will return DeviceError.
 
+        This method has id ``3.4``.
+
         :param OcaString identity: Input parameter.
         :param OcaBlob key: Input parameter.
 
-    .. cpp:function:: OcaStatus ChangePreSharedKey(OcaString identity, OcaBlob newKey)
+    .. _ocasecuritymanager_changepresharedkey:
 
-        This method has id ``3.3``.
+    .. cpp:function:: OcaStatus ChangePreSharedKey(OcaString identity, OcaBlob newKey)
 
         Changes the pre-shared key identified by the passed identity. Note
         that changing a PSK over the network will only work if the controller
         has a secure connection to the device and control security has been
         turned on. If this is not the case the method will return DeviceError.
 
+        This method has id ``3.3``.
+
         :param OcaString identity: Input parameter.
         :param OcaBlob newKey: Input parameter.
 
-    .. cpp:function:: OcaStatus DeletePreSharedKey(OcaString identity)
+    .. _ocasecuritymanager_deletepresharedkey:
 
-        This method has id ``3.5``.
+    .. cpp:function:: OcaStatus DeletePreSharedKey(OcaString identity)
 
         Deletes a pre-shared key (identified by the passed identity) on the
         device. After deleting the pre-shared key the device will no longer be
@@ -79,25 +105,47 @@ Extends :ref:`OcaManager <ocamanager>`.
         secure connection to the device and control security has been turned
         on. If this is not the case the method will return DeviceError.
 
+        This method has id ``3.5``.
+
         :param OcaString identity: Input parameter.
 
-    .. cpp:function:: OcaStatus DisableControlSecurity()
+    .. _ocasecuritymanager_disablecontrolsecurity:
 
-        This method has id ``3.2``.
+    .. cpp:function:: OcaStatus DisableControlSecurity()
 
         Disables security of control data (OCA messages). After calling this
         method all OCA messages can be sent and received both on insecure and
         secure connections. The return value indicates whether the operation
         succeeded. If the operation fails security is not disabled.
 
+        This method has id ``3.2``.
+
+
+    .. _ocasecuritymanager_enablecontrolsecurity:
 
     .. cpp:function:: OcaStatus EnableControlSecurity()
-
-        This method has id ``3.1``.
 
         Enables security of control data (OCA messages). After calling this
         method all OCA messages are sent and received using a secure
         connection. The return value indicates whether the operation
         succeeded. If the operation fails security is not enabled.
 
+        This method has id ``3.1``.
 
+
+
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    

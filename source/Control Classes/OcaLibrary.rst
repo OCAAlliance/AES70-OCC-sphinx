@@ -3,7 +3,9 @@
 1.2.5  OcaLibrary
 =================
 
-Extends :ref:`OcaAgent <ocaagent>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaAgent <ocaagent>` :raw:html:`&rarr;` :ref:`OcaLibrary <ocalibrary>` 
 
 .. cpp:class:: OcaLibrary: OcaAgent
 
@@ -26,123 +28,197 @@ Extends :ref:`OcaAgent <ocaagent>`.
     ParamSet library. However, the reverse is not true: a device may
     implement one or more ParamSet libraries without a Patch library.
 
-    .. cpp:member:: OcaClassID ClassID
+    **Properties**:
 
-        This property has id ``3.1``.
+    .. _ocalibrary_classid:
+
+    .. cpp:member:: OcaClassID ClassID
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
         property is an override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocalibrary_classversion:
+
+    .. cpp:member:: OcaClassVersionNumber ClassVersion
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
         override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaLibVolType VolumeType
+        This property has id ``3.2``.
 
-        This property has id ``3.1``.
+    .. _ocalibrary_volumetype:
+
+    .. cpp:member:: OcaLibVolType VolumeType
 
         Type of library volumes:
 
-    .. cpp:member:: OcaLibAccess Access
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocalibrary_access:
+
+    .. cpp:member:: OcaLibAccess Access
 
         Readonly, read-expand, or full.
 
-    .. cpp:member:: OcaMap<OcaLibVolID, OcaLibVol> Volumes
+        This property has id ``3.2``.
 
-        This property has id ``3.3``.
+    .. _ocalibrary_volumes:
+
+    .. cpp:member:: OcaMap<OcaLibVolID, OcaLibVol> Volumes
 
         Map of volumes held in the Library. Changed in version 2 because the
         definition of OcaLibVolMetaData, which is part of OcaLibVol, has
         changed, and because it is now a private property whose changes are
         signaled by the **OcaLibVolChanged** event.
 
-    .. cpp:function:: OcaStatus AddVolume(OcaLibVol Volume, OcaLibVolID &ID)
+        This property has id ``3.3``.
 
-        This method has id ``3.1``.
+    Properties inherited from :ref:`OcaAgent <OcaAgent>`:
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaAgent::Label <OcaAgent_Label>`
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaAgent::Owner <OcaAgent_Owner>`
+    
+    
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocalibrary_addvolume:
+
+    .. cpp:function:: OcaStatus AddVolume(OcaLibVol Volume, OcaLibVolID &ID)
 
         Adds a volume to the library and returns its volume ID. The return
         value indicates whether the volume was successfully added. Changed in
         version 2 because the definition of OcaLibVolMetaData, which is part
         of OcaLibVol, has changed.
 
+        This method has id ``3.1``.
+
         :param OcaLibVol Volume: Input parameter.
         :param OcaLibVolID ID: Output parameter.
 
-    .. cpp:function:: OcaStatus ReplaceVolume(OcaLibVolID ID, OcaLibVol Volume)
+    .. _ocalibrary_replacevolume:
 
-        This method has id ``3.2``.
+    .. cpp:function:: OcaStatus ReplaceVolume(OcaLibVolID ID, OcaLibVol Volume)
 
         Replaces a volume in the library at the given volume ID. The return
         value indicates whether the volume was successfully replaced. Changed
         in version 2 because the definition of OcaLibVolMetaData, which is
         part of OcaLibVol, has changed.
 
+        This method has id ``3.2``.
+
         :param OcaLibVolID ID: Input parameter.
         :param OcaLibVol Volume: Input parameter.
 
-    .. cpp:function:: OcaStatus DeleteVolume(OcaLibVolID ID)
+    .. _ocalibrary_deletevolume:
 
-        This method has id ``3.3``.
+    .. cpp:function:: OcaStatus DeleteVolume(OcaLibVolID ID)
 
         Deletes a volume from the library. The return value indicates whether
         the group was successfully deleted.
 
+        This method has id ``3.3``.
+
         :param OcaLibVolID ID: Input parameter.
 
-    .. cpp:function:: OcaStatus GetVolume(OcaLibVol &Volume)
+    .. _ocalibrary_getvolume:
 
-        This method has id ``3.4``.
+    .. cpp:function:: OcaStatus GetVolume(OcaLibVol &Volume)
 
         Retrieves a library volume. The return value indicates whether the
         volume was successfully retrieved. Changed in version 2 because the
         definition of OcaLibVolMetaData, which is part of OcaLibVol, has
         changed.
 
+        This method has id ``3.4``.
+
         :param OcaLibVol Volume: Output parameter.
 
-    .. cpp:function:: OcaStatus GetVolumeCount(OcaUint16 &Count)
+    .. _ocalibrary_getvolumecount:
 
-        This method has id ``3.5``.
+    .. cpp:function:: OcaStatus GetVolumeCount(OcaUint16 &Count)
 
         Gets the count of volumes in this library. The return value indicates
         whether the count was successfully retrieved.
 
+        This method has id ``3.5``.
+
         :param OcaUint16 Count: Output parameter.
 
-    .. cpp:function:: OcaStatus GetVolumes(OcaMap<OcaLibVolID, OcaLibVol> &Volumes)
+    .. _ocalibrary_getvolumes:
 
-        This method has id ``3.6``.
+    .. cpp:function:: OcaStatus GetVolumes(OcaMap<OcaLibVolID, OcaLibVol> &Volumes)
 
         Gets the list of volumes held in this library. The return value
         indicates whether the list was successfully retrieved. Changed in
         version 2 because the definition of OcaLibVolMetaData, which is part
         of OcaLibVol, has changed.
 
+        This method has id ``3.6``.
+
         :param OcaMap<OcaLibVolID, OcaLibVol> Volumes: Output parameter.
 
-    .. cpp:function:: OcaStatus GetAccess(OcaLibAccess &Access)
+    .. _ocalibrary_getaccess:
 
-        This method has id ``3.7``.
+    .. cpp:function:: OcaStatus GetAccess(OcaLibAccess &Access)
 
         Gets allowed access mode for this library. The return value indicates
         whether the property was successfully retrieved.
 
+        This method has id ``3.7``.
+
         :param OcaLibAccess Access: Output parameter.
 
-    .. cpp:function:: OcaStatus SetAccess(OcaLibAccess Access)
+    .. _ocalibrary_setaccess:
 
-        This method has id ``3.8``.
+    .. cpp:function:: OcaStatus SetAccess(OcaLibAccess Access)
 
         Sets allowed access mode for this library. The return value indicates
         whether the property was successfully set. Not implemented for static,
         manufacturer-supplied libraries.
 
+        This method has id ``3.8``.
+
         :param OcaLibAccess Access: Input parameter.
 
+
+    Methods inherited from :ref:`OcaAgent <OcaAgent>`:
+    
+    - :ref:`OcaAgent::GetLabel(Label) <OcaAgent_GetLabel>`
+    
+    - :ref:`OcaAgent::SetLabel(Label) <OcaAgent_SetLabel>`
+    
+    - :ref:`OcaAgent::GetOwner(owner) <OcaAgent_GetOwner>`
+    
+    - :ref:`OcaAgent::GetPath(NamePath, ONoPath) <OcaAgent_GetPath>`
+    
+    
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    

@@ -3,32 +3,42 @@
 1.4.2  OcaMediaTransportNetwork
 ===============================
 
-Extends :ref:`OcaApplicationNetwork <ocaapplicationnetwork>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaApplicationNetwork <ocaapplicationnetwork>` :raw:html:`&rarr;` :ref:`OcaMediaTransportNetwork <ocamediatransportnetwork>` 
 
 .. cpp:class:: OcaMediaTransportNetwork: OcaApplicationNetwork
 
 
+    **Properties**:
+
+    .. _ocamediatransportnetwork_classid:
+
     .. cpp:member:: OcaClassID ClassID
+
+        This property is an override of the **OcaRoot** property.
 
         This property has id ``3.1``.
 
-        This property is an override of the **OcaRoot** property.
+    .. _ocamediatransportnetwork_classversion:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
+        This property is an override of the **OcaRoot** property.
+
         This property has id ``3.2``.
 
-        This property is an override of the **OcaRoot** property.
+    .. _ocamediatransportnetwork_protocol:
 
     .. cpp:member:: OcaNetworkMediaProtocol Protocol
 
-        This property has id ``3.1``.
-
         Type of media transport protocol used by the network.
 
-    .. cpp:member:: OcaList<OcaPort> Ports
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocamediatransportnetwork_ports:
+
+    .. cpp:member:: OcaList<OcaPort> Ports
 
         The list of ports this network has. Note that these represent network
         channels of the media transport network. Each input port represents a
@@ -37,37 +47,47 @@ Extends :ref:`OcaApplicationNetwork <ocaapplicationnetwork>`.
         to the ports, so the first input port represents the first source
         network channel, etc.
 
-    .. cpp:member:: OcaUint16 MaxSourceConnectors
+        This property has id ``3.2``.
 
-        This property has id ``3.3``.
+    .. _ocamediatransportnetwork_maxsourceconnectors:
+
+    .. cpp:member:: OcaUint16 MaxSourceConnectors
 
         The maximum number of source connectors this media transport network
         can have (read-only property).
 
-    .. cpp:member:: OcaUint16 MaxSinkConnectors
+        This property has id ``3.3``.
 
-        This property has id ``3.4``.
+    .. _ocamediatransportnetwork_maxsinkconnectors:
+
+    .. cpp:member:: OcaUint16 MaxSinkConnectors
 
         The maximum number of sink connectors this media transport network can
         have (read-only property).
 
-    .. cpp:member:: OcaUint16 MaxPinsPerConnector
+        This property has id ``3.4``.
 
-        This property has id ``3.5``.
+    .. _ocamediatransportnetwork_maxpinsperconnector:
+
+    .. cpp:member:: OcaUint16 MaxPinsPerConnector
 
         The maximum number of pins (channels) in a connector that this network
         will support.
 
-    .. cpp:member:: OcaUint16 MaxPortsPerPin
+        This property has id ``3.5``.
 
-        This property has id ``3.6``.
+    .. _ocamediatransportnetwork_maxportsperpin:
+
+    .. cpp:member:: OcaUint16 MaxPortsPerPin
 
         The maximum number of ports per pin that this network will support.
         Value of zero indicates there is no specific limit.
 
-    .. cpp:member:: OcaDBFS AlignmentLevel
+        This property has id ``3.6``.
 
-        This property has id ``3.7``.
+    .. _ocamediatransportnetwork_alignmentlevel:
+
+    .. cpp:member:: OcaDBFS AlignmentLevel
 
         Default alignment level value for newly-created
         **OcaMedia{Source|Sink}Connector** elements. The min and max values of
@@ -75,9 +95,11 @@ Extends :ref:`OcaApplicationNetwork <ocaapplicationnetwork>`.
         level values that may be specified when adding connectors to this
         network.
 
-    .. cpp:member:: OcaDB AlignmentGain
+        This property has id ``3.7``.
 
-        This property has id ``3.8``.
+    .. _ocamediatransportnetwork_alignmentgain:
+
+    .. cpp:member:: OcaDB AlignmentGain
 
         Default value of AlignmentGain for newly-created
         OcaMediaSinkConnectors attached to this network. The min and max
@@ -85,158 +107,219 @@ Extends :ref:`OcaApplicationNetwork <ocaapplicationnetwork>`.
         alignment level values that may be specified when adding sink
         connectors to this network.
 
-    .. cpp:member:: OcaList<OcaMediaSinkConnector> SinkConnectors
+        This property has id ``3.8``.
 
-        This property has id ``3.0``.
+    .. _ocamediatransportnetwork_sinkconnectors:
+
+    .. cpp:member:: OcaList<OcaMediaSinkConnector> SinkConnectors
 
         The list of sink connectors this network has. This is a private
         property, so it does not generate property-change events. It may be
         accessed by the relevant methods.
 
-    .. cpp:member:: OcaList<OcaMediaSourceConnector> SourceConnectors
-
         This property has id ``3.0``.
+
+    .. _ocamediatransportnetwork_sourceconnectors:
+
+    .. cpp:member:: OcaList<OcaMediaSourceConnector> SourceConnectors
 
         The list of source connectors this network has. This is a private
         property, so it does not generate property-change events. It may be
         accessed by the relevant methods.
 
-    .. cpp:function:: OcaStatus GetMediaProtocol(OcaNetworkMediaProtocol &Protocol)
+        This property has id ``3.0``.
 
-        This method has id ``3.1``.
+    Properties inherited from :ref:`OcaApplicationNetwork <OcaApplicationNetwork>`:
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaApplicationNetwork::Label <OcaApplicationNetwork_Label>`
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaApplicationNetwork::Owner <OcaApplicationNetwork_Owner>`
+    
+    - :cpp:texpr:`OcaApplicationNetworkServiceID` :ref:`OcaApplicationNetwork::ServiceID <OcaApplicationNetwork_ServiceID>`
+    
+    - :cpp:texpr:`OcaList<OcaNetworkSystemInterfaceDescriptor>` :ref:`OcaApplicationNetwork::SystemInterfaces <OcaApplicationNetwork_SystemInterfaces>`
+    
+    - :cpp:texpr:`OcaApplicationNetworkState` :ref:`OcaApplicationNetwork::State <OcaApplicationNetwork_State>`
+    
+    - :cpp:texpr:`OcaUint16` :ref:`OcaApplicationNetwork::ErrorCode <OcaApplicationNetwork_ErrorCode>`
+    
+    
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocamediatransportnetwork_getmediaprotocol:
+
+    .. cpp:function:: OcaStatus GetMediaProtocol(OcaNetworkMediaProtocol &Protocol)
 
         Gets the network's Protocol property. Return status indicates whether
         the operation was successful.
 
+        This method has id ``3.1``.
+
         :param OcaNetworkMediaProtocol Protocol: Output parameter.
 
-    .. cpp:function:: OcaStatus GetPorts(OcaList<OcaPort> &OcaPorts)
+    .. _ocamediatransportnetwork_getports:
 
-        This method has id ``3.2``.
+    .. cpp:function:: OcaStatus GetPorts(OcaList<OcaPort> &OcaPorts)
 
         Gets the list of ports owned by the MediaTransportNetwork object
         (representing the source and sink network channels). The return value
         indicates whether the list was successfully retrieved.
 
+        This method has id ``3.2``.
+
         :param OcaList<OcaPort> OcaPorts: Output parameter.
 
-    .. cpp:function:: OcaStatus GetPortName(OcaPortID PortID, OcaString &Name)
+    .. _ocamediatransportnetwork_getportname:
 
-        This method has id ``3.3``.
+    .. cpp:function:: OcaStatus GetPortName(OcaPortID PortID, OcaString &Name)
 
         Gets the name of the designated port. The return value indicates
         whether the name was successfully retrieved.
 
+        This method has id ``3.3``.
+
         :param OcaPortID PortID: Input parameter.
         :param OcaString Name: Output parameter.
 
-    .. cpp:function:: OcaStatus SetPortName(OcaPortID PortID, OcaString Name)
+    .. _ocamediatransportnetwork_setportname:
 
-        This method has id ``3.4``.
+    .. cpp:function:: OcaStatus SetPortName(OcaPortID PortID, OcaString Name)
 
         Sets the name of the designated port. The return value indicates
         whether the name was successfully set.
 
+        This method has id ``3.4``.
+
         :param OcaPortID PortID: Input parameter.
         :param OcaString Name: Input parameter.
 
+    .. _ocamediatransportnetwork_getmaxsourceconnectors:
+
     .. cpp:function:: OcaStatus GetMaxSourceConnectors(OcaUint16 &MaxSourceConnectors)
+
+        Gets the maximum number of source connectors this media transport
+        network supports.
 
         This method has id ``3.5``.
 
-        Gets the maximum number of source connectors this media transport
-        network supports.
-
         :param OcaUint16 MaxSourceConnectors: Output parameter.
+
+    .. _ocamediatransportnetwork_getmaxsinkconnectors:
 
     .. cpp:function:: OcaStatus GetMaxSinkConnectors(OcaUint16 &MaxSinkConnectors)
 
-        This method has id ``3.6``.
-
         Gets the maximum number of source connectors this media transport
         network supports.
 
+        This method has id ``3.6``.
+
         :param OcaUint16 MaxSinkConnectors: Output parameter.
 
-    .. cpp:function:: OcaStatus GetMaxPinsPerConnector(OcaUint16 &MaxPins)
+    .. _ocamediatransportnetwork_getmaxpinsperconnector:
 
-        This method has id ``3.7``.
+    .. cpp:function:: OcaStatus GetMaxPinsPerConnector(OcaUint16 &MaxPins)
 
         Gets the maximum number of ports per pin this media transport network
         supports.
 
+        This method has id ``3.7``.
+
         :param OcaUint16 MaxPins: Output parameter.
 
-    .. cpp:function:: OcaStatus GetMaxPortsPerPin(OcaUint16 &MaxPins)
+    .. _ocamediatransportnetwork_getmaxportsperpin:
 
-        This method has id ``3.8``.
+    .. cpp:function:: OcaStatus GetMaxPortsPerPin(OcaUint16 &MaxPins)
 
         Gets the maximum number of pins (channels) per connector this media
         transport network supports.
 
+        This method has id ``3.8``.
+
         :param OcaUint16 MaxPins: Output parameter.
 
-    .. cpp:function:: OcaStatus GetSourceConnectors(OcaList<OcaMediaSourceConnector> &Connectors)
+    .. _ocamediatransportnetwork_getsourceconnectors:
 
-        This method has id ``3.9``.
+    .. cpp:function:: OcaStatus GetSourceConnectors(OcaList<OcaMediaSourceConnector> &Connectors)
 
         Gets the descriptors of all the source (output) connectors collected
         by this network object. Return status indicates success of the
         operation.
 
+        This method has id ``3.9``.
+
         :param OcaList<OcaMediaSourceConnector> Connectors: Output parameter.
 
-    .. cpp:function:: OcaStatus GetSourceConnector(OcaMediaConnectorID ID, OcaMediaSourceConnector &Connector)
+    .. _ocamediatransportnetwork_getsourceconnector:
 
-        This method has id ``3.10``.
+    .. cpp:function:: OcaStatus GetSourceConnector(OcaMediaConnectorID ID, OcaMediaSourceConnector &Connector)
 
         Retrieves the descriptor of a given source connector. Return status
         indicates the success of the operation.
 
+        This method has id ``3.10``.
+
         :param OcaMediaConnectorID ID: Input parameter.
         :param OcaMediaSourceConnector Connector: Output parameter.
 
-    .. cpp:function:: OcaStatus GetSinkConnectors(OcaList<OcaMediaSinkConnector> &Connectors)
+    .. _ocamediatransportnetwork_getsinkconnectors:
 
-        This method has id ``3.11``.
+    .. cpp:function:: OcaStatus GetSinkConnectors(OcaList<OcaMediaSinkConnector> &Connectors)
 
         Gets the descriptors of all the sink (output) connectors collected by
         this network object. Return status indicates success of the operation.
 
+        This method has id ``3.11``.
+
         :param OcaList<OcaMediaSinkConnector> Connectors: Output parameter.
 
-    .. cpp:function:: OcaStatus GetSinkConnector(OcaMediaConnectorID ID, OcaMediaSinkConnector &Connector)
+    .. _ocamediatransportnetwork_getsinkconnector:
 
-        This method has id ``3.12``.
+    .. cpp:function:: OcaStatus GetSinkConnector(OcaMediaConnectorID ID, OcaMediaSinkConnector &Connector)
 
         Retrieves the descriptor of a given sink connector. Return status
         indicates the success of the operation.
 
+        This method has id ``3.12``.
+
         :param OcaMediaConnectorID ID: Input parameter.
         :param OcaMediaSinkConnector Connector: Output parameter.
 
-    .. cpp:function:: OcaStatus GetConnectorsStatuses(OcaList<OcaMediaConnectorStatus> &Statuses)
+    .. _ocamediatransportnetwork_getconnectorsstatuses:
 
-        This method has id ``3.13``.
+    .. cpp:function:: OcaStatus GetConnectorsStatuses(OcaList<OcaMediaConnectorStatus> &Statuses)
 
         Gets the status of all the source and sink connectors collected by
         this network object. Return status indicates success of the operation.
 
+        This method has id ``3.13``.
+
         :param OcaList<OcaMediaConnectorStatus> Statuses: Output parameter.
 
-    .. cpp:function:: OcaStatus GetConnectorStatus(OcaMediaConnectorID ConnectorID, OcaMediaConnectorStatus &Status)
+    .. _ocamediatransportnetwork_getconnectorstatus:
 
-        This method has id ``3.14``.
+    .. cpp:function:: OcaStatus GetConnectorStatus(OcaMediaConnectorID ConnectorID, OcaMediaConnectorStatus &Status)
 
         Gets the status of a single connector. Return status indicates success
         of the operation.
 
+        This method has id ``3.14``.
+
         :param OcaMediaConnectorID ConnectorID: Input parameter.
         :param OcaMediaConnectorStatus Status: Output parameter.
 
-    .. cpp:function:: OcaStatus AddSourceConnector(OcaMediaSourceConnector Connector, OcaMediaConnectorState InitialStatus, OcaMediaSourceConnector &Connector_)
+    .. _ocamediatransportnetwork_addsourceconnector:
 
-        This method has id ``3.15``.
+    .. cpp:function:: OcaStatus AddSourceConnector(OcaMediaSourceConnector Connector, OcaMediaConnectorState InitialStatus, OcaMediaSourceConnector &Connector_)
 
         Adds a source connector to this network. Parameters of the new
         connector are given in the Connector parameter; device returns the
@@ -245,13 +328,15 @@ Extends :ref:`OcaApplicationNetwork <ocaapplicationnetwork>`.
         of this network's AlignmentLevel property will be used. Return status
         indicates the success of the operation.
 
+        This method has id ``3.15``.
+
         :param OcaMediaSourceConnector Connector: Input parameter.
         :param OcaMediaConnectorState InitialStatus: Input parameter.
         :param OcaMediaSourceConnector Connector_: Output parameter.
 
-    .. cpp:function:: OcaStatus AddSinkConnector(OcaMediaConnectorStatus InitialStatus, OcaMediaSinkConnector Connector, OcaMediaSinkConnector &Connector_)
+    .. _ocamediatransportnetwork_addsinkconnector:
 
-        This method has id ``3.16``.
+    .. cpp:function:: OcaStatus AddSinkConnector(OcaMediaConnectorStatus InitialStatus, OcaMediaSinkConnector Connector, OcaMediaSinkConnector &Connector_)
 
         Adds a sinkconnector to this network. Parameters of the new connector
         are given in the Connector parameter; device returns the same
@@ -262,63 +347,75 @@ Extends :ref:`OcaApplicationNetwork <ocaapplicationnetwork>`.
         network's AlignmentGain property will be used. Return status indicates
         the success of the operation.
 
+        This method has id ``3.16``.
+
         :param OcaMediaConnectorStatus InitialStatus: Input parameter.
         :param OcaMediaSinkConnector Connector: Input parameter.
         :param OcaMediaSinkConnector Connector_: Output parameter.
 
-    .. cpp:function:: OcaStatus ControlConnector(OcaMediaConnectorID ConnectorID, OcaMediaConnectorCommand Command)
+    .. _ocamediatransportnetwork_controlconnector:
 
-        This method has id ``3.17``.
+    .. cpp:function:: OcaStatus ControlConnector(OcaMediaConnectorID ConnectorID, OcaMediaConnectorCommand Command)
 
         Change the state of a given connector. Return status indicates the
         success of the operation.
 
+        This method has id ``3.17``.
+
         :param OcaMediaConnectorID ConnectorID: Input parameter.
         :param OcaMediaConnectorCommand Command: Input parameter.
 
-    .. cpp:function:: OcaStatus SetSourceConnectorPinMap(OcaMediaConnectorID ConnectorID, OcaMap<OcaUint16, OcaPortID> ChannelPinMap)
+    .. _ocamediatransportnetwork_setsourceconnectorpinmap:
 
-        This method has id ``3.18``.
+    .. cpp:function:: OcaStatus SetSourceConnectorPinMap(OcaMediaConnectorID ConnectorID, OcaMap<OcaUint16, OcaPortID> ChannelPinMap)
 
         Sets a source connector's channel pin map. Return status indicates the
         success of the operation.
 
+        This method has id ``3.18``.
+
         :param OcaMediaConnectorID ConnectorID: Input parameter.
         :param OcaMap<OcaUint16, OcaPortID> ChannelPinMap: Input parameter.
 
-    .. cpp:function:: OcaStatus SetSinkConnectorPinMap(OcaMediaConnectorID ConnectorID, OcaMultiMap<OcaUint16, OcaPortID> ChannelPinMap)
+    .. _ocamediatransportnetwork_setsinkconnectorpinmap:
 
-        This method has id ``3.19``.
+    .. cpp:function:: OcaStatus SetSinkConnectorPinMap(OcaMediaConnectorID ConnectorID, OcaMultiMap<OcaUint16, OcaPortID> ChannelPinMap)
 
         Sets a sink connector's channel pin map. Return status indicates the
         success of the operation.
 
+        This method has id ``3.19``.
+
         :param OcaMediaConnectorID ConnectorID: Input parameter.
         :param OcaMultiMap<OcaUint16, OcaPortID> ChannelPinMap: Input parameter.
 
-    .. cpp:function:: OcaStatus SetConnectorConnection(OcaMediaConnectorID ConnectorID, OcaMediaConnection Connection)
+    .. _ocamediatransportnetwork_setconnectorconnection:
 
-        This method has id ``3.20``.
+    .. cpp:function:: OcaStatus SetConnectorConnection(OcaMediaConnectorID ConnectorID, OcaMediaConnection Connection)
 
         Sets a connector's **Connection** property. Return status indicates
         the success of the operation.
 
+        This method has id ``3.20``.
+
         :param OcaMediaConnectorID ConnectorID: Input parameter.
         :param OcaMediaConnection Connection: Input parameter.
 
-    .. cpp:function:: OcaStatus SetConnectorCoding(OcaMediaConnectorID ConnectorID, OcaMediaCoding Coding)
+    .. _ocamediatransportnetwork_setconnectorcoding:
 
-        This method has id ``3.21``.
+    .. cpp:function:: OcaStatus SetConnectorCoding(OcaMediaConnectorID ConnectorID, OcaMediaCoding Coding)
 
         Sets the Coding field of the connection descriptor of the referenced
         connector. Return status indicates the success of the operation.
 
+        This method has id ``3.21``.
+
         :param OcaMediaConnectorID ConnectorID: Input parameter.
         :param OcaMediaCoding Coding: Input parameter.
 
-    .. cpp:function:: OcaStatus SetConnectorAlignmentLevel(OcaMediaConnectorID ConnectorID, OcaDBFS Level)
+    .. _ocamediatransportnetwork_setconnectoralignmentlevel:
 
-        This method has id ``3.22``.
+    .. cpp:function:: OcaStatus SetConnectorAlignmentLevel(OcaMediaConnectorID ConnectorID, OcaDBFS Level)
 
         Sets the Alignment Level field of a connector. Value must be between
         the min and max values of the AlignmentLevel property of this network.
@@ -326,12 +423,14 @@ Extends :ref:`OcaApplicationNetwork <ocaapplicationnetwork>`.
         AlignmentLevel property to be used. Return status indicates the
         success of the operation.
 
+        This method has id ``3.22``.
+
         :param OcaMediaConnectorID ConnectorID: Input parameter.
         :param OcaDBFS Level: Input parameter.
 
-    .. cpp:function:: OcaStatus SetConnectorAlignmentGain(OcaMediaConnectorID ConnectorID, OcaDB Gain)
+    .. _ocamediatransportnetwork_setconnectoralignmentgain:
 
-        This method has id ``3.23``.
+    .. cpp:function:: OcaStatus SetConnectorAlignmentGain(OcaMediaConnectorID ConnectorID, OcaDB Gain)
 
         For OcaMediaSinkConnectors only (not source). Sets the Alignment Gain
         field of the connection descriptor of the referenced connector. Value
@@ -340,39 +439,88 @@ Extends :ref:`OcaApplicationNetwork <ocaapplicationnetwork>`.
         network's AlignmentGain property to be used. Return status indicates
         the success of the operation.
 
+        This method has id ``3.23``.
+
         :param OcaMediaConnectorID ConnectorID: Input parameter.
         :param OcaDB Gain: Input parameter.
 
-    .. cpp:function:: OcaStatus DeleteConnector(OcaMediaConnectorID ID)
+    .. _ocamediatransportnetwork_deleteconnector:
 
-        This method has id ``3.24``.
+    .. cpp:function:: OcaStatus DeleteConnector(OcaMediaConnectorID ID)
 
         Deletes a connector from this network. Return status indicates the
         success of the operation.
 
+        This method has id ``3.24``.
+
         :param OcaMediaConnectorID ID: Input parameter.
 
-    .. cpp:function:: OcaStatus GetAlignmentLevel(OcaDBFS &Level, OcaDBFS &MinLevel, OcaDBFS &MaxLevel)
+    .. _ocamediatransportnetwork_getalignmentlevel:
 
-        This method has id ``3.25``.
+    .. cpp:function:: OcaStatus GetAlignmentLevel(OcaDBFS &Level, OcaDBFS &MinLevel, OcaDBFS &MaxLevel)
 
         Gets the default, min, and max alignment levels for
         OcaMedia{Source|Sink}Connectors attached to this network. Return
         status indicates success of the operation.
 
+        This method has id ``3.25``.
+
         :param OcaDBFS Level: Output parameter.
         :param OcaDBFS MinLevel: Output parameter.
         :param OcaDBFS MaxLevel: Output parameter.
 
-    .. cpp:function:: OcaStatus GetAlignmentGain(OcaDB &Gain, OcaDB &minGain, OcaDB &maxGain)
+    .. _ocamediatransportnetwork_getalignmentgain:
 
-        This method has id ``3.26``.
+    .. cpp:function:: OcaStatus GetAlignmentGain(OcaDB &Gain, OcaDB &minGain, OcaDB &maxGain)
 
         Gets the default, min, and max alignment gains for
         OcaMediaSinkConnectors attached to this network. Return status
         indicates success of the operation.
 
+        This method has id ``3.26``.
+
         :param OcaDB Gain: Output parameter.
         :param OcaDB minGain: Output parameter.
         :param OcaDB maxGain: Output parameter.
 
+
+    Methods inherited from :ref:`OcaApplicationNetwork <OcaApplicationNetwork>`:
+    
+    - :ref:`OcaApplicationNetwork::GetLabel(Label) <OcaApplicationNetwork_GetLabel>`
+    
+    - :ref:`OcaApplicationNetwork::SetLabel(Label) <OcaApplicationNetwork_SetLabel>`
+    
+    - :ref:`OcaApplicationNetwork::GetOwner(Owner) <OcaApplicationNetwork_GetOwner>`
+    
+    - :ref:`OcaApplicationNetwork::GetServiceID(Name) <OcaApplicationNetwork_GetServiceID>`
+    
+    - :ref:`OcaApplicationNetwork::SetServiceID(Name) <OcaApplicationNetwork_SetServiceID>`
+    
+    - :ref:`OcaApplicationNetwork::GetSystemInterfaces(SystemInterfaces) <OcaApplicationNetwork_GetSystemInterfaces>`
+    
+    - :ref:`OcaApplicationNetwork::SetSystemInterfaces(Descriptors) <OcaApplicationNetwork_SetSystemInterfaces>`
+    
+    - :ref:`OcaApplicationNetwork::GetState(State) <OcaApplicationNetwork_GetState>`
+    
+    - :ref:`OcaApplicationNetwork::GetErrorCode(ErrorCode) <OcaApplicationNetwork_GetErrorCode>`
+    
+    - :ref:`OcaApplicationNetwork::Control(Command) <OcaApplicationNetwork_Control>`
+    
+    - :ref:`OcaApplicationNetwork::GetPath(NamePath, ONoPath) <OcaApplicationNetwork_GetPath>`
+    
+    
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    

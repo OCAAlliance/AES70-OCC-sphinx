@@ -3,7 +3,9 @@
 1.2.1  OcaNetwork
 =================
 
-Extends :ref:`OcaAgent <ocaagent>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaAgent <ocaagent>` :raw:html:`&rarr;` :ref:`OcaNetwork <ocanetwork>` 
 
 .. cpp:class:: OcaNetwork: OcaAgent
 
@@ -14,30 +16,38 @@ Extends :ref:`OcaAgent <ocaagent>`.
     transport networks, and for networks that combine media transport and
     control, the **OcaStreamNetwork** class should be used instead.
 
+    **Properties**:
+
+    .. _ocanetwork_classid:
+
     .. cpp:member:: OcaClassID ClassID
+
+        This property is an override of the **OcaRoot** property.
 
         This property has id ``3.1``.
 
-        This property is an override of the **OcaRoot** property.
+    .. _ocanetwork_classversion:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``3.2``.
-
         This property is an override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaNetworkLinkType LinkType
+        This property has id ``3.2``.
 
-        This property has id ``3.1``.
+    .. _ocanetwork_linktype:
+
+    .. cpp:member:: OcaNetworkLinkType LinkType
 
         Network link type - e.g. wired Ethernet, USB, ... See the
         OcaNetworkType enum for details. This is a read-only property whose
         value is fixed to the class that is inherited from OcaNetwork to
         implement each specific type of network.
 
-    .. cpp:member:: OcaApplicationNetworkServiceID IDAdvertised
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocanetwork_idadvertised:
+
+    .. cpp:member:: OcaApplicationNetworkServiceID IDAdvertised
 
         ID by which this network object is known on the network, i.e. the name
         or GUID that this network object publishes in the network's
@@ -47,29 +57,37 @@ Extends :ref:`OcaAgent <ocaagent>`.
         For data network types that have host names (e.g. IP networks), the
         authoritative copy of the host name is in the system interface ID.
 
-    .. cpp:member:: OcaNetworkControlProtocol ControlProtocol
+        This property has id ``3.2``.
 
-        This property has id ``3.3``.
+    .. _ocanetwork_controlprotocol:
+
+    .. cpp:member:: OcaNetworkControlProtocol ControlProtocol
 
         Type of control protocol used by the network (OCAnn) or NONE if this
         network is not used for control.
 
-    .. cpp:member:: OcaNetworkMediaProtocol MediaProtocol
+        This property has id ``3.3``.
 
-        This property has id ``3.4``.
+    .. _ocanetwork_mediaprotocol:
+
+    .. cpp:member:: OcaNetworkMediaProtocol MediaProtocol
 
         Deprecated property. Always has value NONE. Media transport is managed
         by the **OcaStreamNetwork** class.
 
-    .. cpp:member:: OcaNetworkStatus Status
+        This property has id ``3.4``.
 
-        This property has id ``3.5``.
+    .. _ocanetwork_status:
+
+    .. cpp:member:: OcaNetworkStatus Status
 
         Operational status of the network.
 
-    .. cpp:member:: OcaList<OcaNetworkSystemInterfaceID> SystemInterfaces
+        This property has id ``3.5``.
 
-        This property has id ``3.6``.
+    .. _ocanetwork_systeminterfaces:
+
+    .. cpp:member:: OcaList<OcaNetworkSystemInterfaceID> SystemInterfaces
 
         Collection of identifiers of system interface(s) used by the network.
         A "system interface" is the system service through which network
@@ -78,129 +96,207 @@ Extends :ref:`OcaAgent <ocaagent>`.
         it is maintained as a variable-length blob which the protocol does not
         inspect.
 
-    .. cpp:member:: OcaList<OcaONo> MediaPorts
+        This property has id ``3.6``.
 
-        This property has id ``3.7``.
+    .. _ocanetwork_mediaports:
+
+    .. cpp:member:: OcaList<OcaONo> MediaPorts
 
         Deprecated property. Always is empty. Media transport is now managed
         by the class **OcaStreamNetwork.**
 
-    .. cpp:member:: OcaNetworkStatistics Statistics
+        This property has id ``3.7``.
 
-        This property has id ``3.8``.
+    .. _ocanetwork_statistics:
+
+    .. cpp:member:: OcaNetworkStatistics Statistics
 
         Error statistics for this network
 
-    .. cpp:function:: OcaStatus GetLinkType(OcaNetworkLinkType &Type)
+        This property has id ``3.8``.
 
-        This method has id ``3.1``.
+    Properties inherited from :ref:`OcaAgent <OcaAgent>`:
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaAgent::Label <OcaAgent_Label>`
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaAgent::Owner <OcaAgent_Owner>`
+    
+    
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocanetwork_getlinktype:
+
+    .. cpp:function:: OcaStatus GetLinkType(OcaNetworkLinkType &Type)
 
         Gets the network's link type (wired Ethernet, USB, etc.). Return
         status indicates whether the operation was successful.
 
+        This method has id ``3.1``.
+
         :param OcaNetworkLinkType Type: Output parameter.
 
-    .. cpp:function:: OcaStatus GetIDAdvertised(OcaApplicationNetworkServiceID &Name)
+    .. _ocanetwork_getidadvertised:
 
-        This method has id ``3.2``.
+    .. cpp:function:: OcaStatus GetIDAdvertised(OcaApplicationNetworkServiceID &Name)
 
         Gets the network's IDAdvertised. Return status indicates whether the
         operation was successful.
 
+        This method has id ``3.2``.
+
         :param OcaApplicationNetworkServiceID Name: Output parameter.
 
-    .. cpp:function:: OcaStatus SetIDAdvertised(OcaApplicationNetworkServiceID Name)
+    .. _ocanetwork_setidadvertised:
 
-        This method has id ``3.3``.
+    .. cpp:function:: OcaStatus SetIDAdvertised(OcaApplicationNetworkServiceID Name)
 
         Sets the network's IDAdvertised. Return status indicates whether the
         operation was successful.
 
+        This method has id ``3.3``.
+
         :param OcaApplicationNetworkServiceID Name: Input parameter.
 
-    .. cpp:function:: OcaStatus GetControlProtocol(OcaNetworkControlProtocol &Protocol)
+    .. _ocanetwork_getcontrolprotocol:
 
-        This method has id ``3.4``.
+    .. cpp:function:: OcaStatus GetControlProtocol(OcaNetworkControlProtocol &Protocol)
 
         Gets the network's ControlProtocol property. Return status indicates
         whether the operation was successful.
 
+        This method has id ``3.4``.
+
         :param OcaNetworkControlProtocol Protocol: Output parameter.
 
-    .. cpp:function:: OcaStatus GetMediaProtocol(OcaNetworkMediaProtocol &Protocol)
+    .. _ocanetwork_getmediaprotocol:
 
-        This method has id ``3.5``.
+    .. cpp:function:: OcaStatus GetMediaProtocol(OcaNetworkMediaProtocol &Protocol)
 
         Gets the network's MediaProtocol property. This is a deprecated method
         that always returns the value NONE.
 
+        This method has id ``3.5``.
+
         :param OcaNetworkMediaProtocol Protocol: Output parameter.
 
-    .. cpp:function:: OcaStatus GetStatus(OcaNetworkStatus &Status)
+    .. _ocanetwork_getstatus:
 
-        This method has id ``3.6``.
+    .. cpp:function:: OcaStatus GetStatus(OcaNetworkStatus &Status)
 
         Retrieves the network's status. Return status indicates whether the
         status was successfully retrieved.
 
+        This method has id ``3.6``.
+
         :param OcaNetworkStatus Status: Output parameter.
 
-    .. cpp:function:: OcaStatus GetStatistics(OcaNetworkStatistics &Status)
+    .. _ocanetwork_getstatistics:
 
-        This method has id ``3.7``.
+    .. cpp:function:: OcaStatus GetStatistics(OcaNetworkStatistics &Status)
 
         Retrieves network error statistics counter values. Return status
         indicates whether the values were successfully retrieved.
 
+        This method has id ``3.7``.
+
         :param OcaNetworkStatistics Status: Output parameter.
 
-    .. cpp:function:: OcaStatus ResetStatistics()
+    .. _ocanetwork_resetstatistics:
 
-        This method has id ``3.8``.
+    .. cpp:function:: OcaStatus ResetStatistics()
 
         Resets network error statistics counters. Return status indicates
         whether the counters were successfully reset.
 
+        This method has id ``3.8``.
+
+
+    .. _ocanetwork_getsysteminterfaces:
 
     .. cpp:function:: OcaStatus GetSystemInterfaces(OcaList<OcaNetworkSystemInterfaceID> &Interfaces)
-
-        This method has id ``3.9``.
 
         Gets the list of system interface IDs that this network is using.
         Return status indicates success of the operation.
 
+        This method has id ``3.9``.
+
         :param OcaList<OcaNetworkSystemInterfaceID> Interfaces: Output parameter.
 
-    .. cpp:function:: OcaStatus SetSystemInterfaces(OcaList<OcaNetworkSystemInterfaceID> Interfaces)
+    .. _ocanetwork_setsysteminterfaces:
 
-        This method has id ``3.10``.
+    .. cpp:function:: OcaStatus SetSystemInterfaces(OcaList<OcaNetworkSystemInterfaceID> Interfaces)
 
         Sets the list of system interface IDs that this network will use.
         Return status indicates success of the operation. This method is not
         implemented by all network implementations.
 
+        This method has id ``3.10``.
+
         :param OcaList<OcaNetworkSystemInterfaceID> Interfaces: Input parameter.
 
-    .. cpp:function:: OcaStatus GetMediaPorts(OcaList<OcaONo> &Ports)
+    .. _ocanetwork_getmediaports:
 
-        This method has id ``3.11``.
+    .. cpp:function:: OcaStatus GetMediaPorts(OcaList<OcaONo> &Ports)
 
         Deprecated method. Always returns status INVALID_REQUEST. Media
         transport is now managed by the class **OcaStreamNetwork.**
 
+        This method has id ``3.11``.
+
         :param OcaList<OcaONo> Ports: Output parameter.
+
+    .. _ocanetwork_startup:
 
     .. cpp:function:: OcaStatus Startup()
 
-        This method has id ``3.12``.
-
         Start up this network.
 
+        This method has id ``3.12``.
+
+
+    .. _ocanetwork_shutdown:
 
     .. cpp:function:: OcaStatus Shutdown()
 
-        This method has id ``3.13``.
-
         Shut down this network.
 
+        This method has id ``3.13``.
 
+
+
+    Methods inherited from :ref:`OcaAgent <OcaAgent>`:
+    
+    - :ref:`OcaAgent::GetLabel(Label) <OcaAgent_GetLabel>`
+    
+    - :ref:`OcaAgent::SetLabel(Label) <OcaAgent_SetLabel>`
+    
+    - :ref:`OcaAgent::GetOwner(owner) <OcaAgent_GetOwner>`
+    
+    - :ref:`OcaAgent::GetPath(NamePath, ONoPath) <OcaAgent_GetPath>`
+    
+    
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    

@@ -3,7 +3,9 @@
 1.3.12  OcaCodingManager
 ========================
 
-Extends :ref:`OcaManager <ocamanager>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaManager <ocamanager>` :raw:html:`&rarr;` :ref:`OcaCodingManager <ocacodingmanager>` 
 
 .. cpp:class:: OcaCodingManager: OcaManager
 
@@ -17,51 +19,93 @@ Extends :ref:`OcaManager <ocamanager>`.
     - If instantiated, object number must be 12.
     
 
-    .. cpp:member:: OcaClassID ClassID
+    **Properties**:
 
-        This property has id ``3.1``.
+    .. _ocacodingmanager_classid:
+
+    .. cpp:member:: OcaClassID ClassID
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
         property is an override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaUint16 ClassVersion
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocacodingmanager_classversion:
+
+    .. cpp:member:: OcaUint16 ClassVersion
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
         override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaMap<OcaMediaCodingSchemeID, OcaString> AvailableEncodingSchemes
+        This property has id ``3.2``.
 
-        This property has id ``3.1``.
+    .. _ocacodingmanager_availableencodingschemes:
+
+    .. cpp:member:: OcaMap<OcaMediaCodingSchemeID, OcaString> AvailableEncodingSchemes
 
         Map of names of media encoding schemes the device supports, indexed by
         scheme ID.
 
-    .. cpp:member:: OcaMap<OcaMediaCodingSchemeID, OcaString> AvailableDecodingSchemes
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocacodingmanager_availabledecodingschemes:
+
+    .. cpp:member:: OcaMap<OcaMediaCodingSchemeID, OcaString> AvailableDecodingSchemes
 
         Map of names of media decoding schemes the device supports, indexed by
         scheme ID.
 
-    .. cpp:function:: OcaStatus GetAvailableEncodingSchemes(OcaMap<OcaMediaCodingSchemeID, OcaString> &Schemes)
+        This property has id ``3.2``.
 
-        This method has id ``3.1``.
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocacodingmanager_getavailableencodingschemes:
+
+    .. cpp:function:: OcaStatus GetAvailableEncodingSchemes(OcaMap<OcaMediaCodingSchemeID, OcaString> &Schemes)
 
         Retrieves the map of available encoding schemes, indexed by scheme ID.
         Return value indicates success of the retrieval.
 
+        This method has id ``3.1``.
+
         :param OcaMap<OcaMediaCodingSchemeID, OcaString> Schemes: Output parameter.
 
-    .. cpp:function:: OcaStatus GetAvailableDecodingSchemes(OcaMap<OcaMediaCodingSchemeID, OcaString> &Schemes)
+    .. _ocacodingmanager_getavailabledecodingschemes:
 
-        This method has id ``3.2``.
+    .. cpp:function:: OcaStatus GetAvailableDecodingSchemes(OcaMap<OcaMediaCodingSchemeID, OcaString> &Schemes)
 
         Retrieves the map of available decoding schemes, indexed by scheme ID.
         Return value indicates success of the retrieval.
 
+        This method has id ``3.2``.
+
         :param OcaMap<OcaMediaCodingSchemeID, OcaString> Schemes: Output parameter.
 
+
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    

@@ -3,42 +3,54 @@
 1.4  OcaApplicationNetwork
 ==========================
 
-Extends :ref:`OcaRoot <ocaroot>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaApplicationNetwork <ocaapplicationnetwork>` 
 
 .. cpp:class:: OcaApplicationNetwork: OcaRoot
 
     Abstract base class from which the application network classes
     inherit.
 
+    **Properties**:
+
+    .. _ocaapplicationnetwork_classid:
+
     .. cpp:member:: OcaClassID ClassID
+
+        This property is an override of the **OcaRoot** property.
 
         This property has id ``2.1``.
 
-        This property is an override of the **OcaRoot** property.
+    .. _ocaapplicationnetwork_classversion:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property has id ``2.2``.
-
         This property is an override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaString Label
+        This property has id ``2.2``.
 
-        This property has id ``2.1``.
+    .. _ocaapplicationnetwork_label:
+
+    .. cpp:member:: OcaString Label
 
         Specific label of the network. Can be used to provide human readable
         information about the network. The label can be get and set over any
         network.
 
-    .. cpp:member:: OcaONo Owner
+        This property has id ``2.1``.
 
-        This property has id ``2.2``.
+    .. _ocaapplicationnetwork_owner:
+
+    .. cpp:member:: OcaONo Owner
 
         Object number of block that contains this network.
 
-    .. cpp:member:: OcaApplicationNetworkServiceID ServiceID
+        This property has id ``2.2``.
 
-        This property has id ``2.3``.
+    .. _ocaapplicationnetwork_serviceid:
+
+    .. cpp:member:: OcaApplicationNetworkServiceID ServiceID
 
         Name or GUID that this device publishes in the network's
         directory/discovery system to designate the services offered via this
@@ -47,9 +59,11 @@ Extends :ref:`OcaRoot <ocaroot>`.
         names (e.g. IP networks), the authoritative copy of the host name is
         in the system interface ID.
 
-    .. cpp:member:: OcaList<OcaNetworkSystemInterfaceDescriptor> SystemInterfaces
+        This property has id ``2.3``.
 
-        This property has id ``2.4``.
+    .. _ocaapplicationnetwork_systeminterfaces:
+
+    .. cpp:member:: OcaList<OcaNetworkSystemInterfaceDescriptor> SystemInterfaces
 
         Collection of identifiers of system interface descriptor(s) used by
         the network. A "system interface" is the system service through which
@@ -58,117 +72,173 @@ Extends :ref:`OcaRoot <ocaroot>`.
         purposes, it is maintained as a variable-length blob which the
         protocol does not inspect.
 
-    .. cpp:member:: OcaApplicationNetworkState State
+        This property has id ``2.4``.
 
-        This property has id ``2.5``.
+    .. _ocaapplicationnetwork_state:
+
+    .. cpp:member:: OcaApplicationNetworkState State
 
         Operational state of the network.
 
-    .. cpp:member:: OcaUint16 ErrorCode
+        This property has id ``2.5``.
 
-        This property has id ``2.6``.
+    .. _ocaapplicationnetwork_errorcode:
+
+    .. cpp:member:: OcaUint16 ErrorCode
 
         Most recent error code. 0=no error.
 
-    .. cpp:function:: OcaStatus GetLabel(OcaString &Label)
+        This property has id ``2.6``.
 
-        This method has id ``2.1``.
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocaapplicationnetwork_getlabel:
+
+    .. cpp:function:: OcaStatus GetLabel(OcaString &Label)
 
         Gets the network's user-specified label. Return status indicates
         whether the operation was successful.
 
+        This method has id ``2.1``.
+
         :param OcaString Label: Output parameter.
 
-    .. cpp:function:: OcaStatus SetLabel(OcaString Label)
+    .. _ocaapplicationnetwork_setlabel:
 
-        This method has id ``2.2``.
+    .. cpp:function:: OcaStatus SetLabel(OcaString Label)
 
         Sets the network's user-specified label. Return status indicates
         whether the operation was successful.
 
+        This method has id ``2.2``.
+
         :param OcaString Label: Input parameter.
 
-    .. cpp:function:: OcaStatus GetOwner(OcaONo &Owner)
+    .. _ocaapplicationnetwork_getowner:
 
-        This method has id ``2.3``.
+    .. cpp:function:: OcaStatus GetOwner(OcaONo &Owner)
 
         Gets the ONo of this network's containing block. Return status
         indicates whether the operation was successful.
 
+        This method has id ``2.3``.
+
         :param OcaONo Owner: Output parameter.
 
-    .. cpp:function:: OcaStatus GetServiceID(OcaApplicationNetworkServiceID &Name)
+    .. _ocaapplicationnetwork_getserviceid:
 
-        This method has id ``2.4``.
+    .. cpp:function:: OcaStatus GetServiceID(OcaApplicationNetworkServiceID &Name)
 
         Gets the network's IDAdvertised. Return status indicates whether the
         operation was successful.
 
+        This method has id ``2.4``.
+
         :param OcaApplicationNetworkServiceID Name: Output parameter.
 
-    .. cpp:function:: OcaStatus SetServiceID(OcaApplicationNetworkServiceID Name)
+    .. _ocaapplicationnetwork_setserviceid:
 
-        This method has id ``2.5``.
+    .. cpp:function:: OcaStatus SetServiceID(OcaApplicationNetworkServiceID Name)
 
         Sets the network's IDAdvertised. Return status indicates whether the
         operation was successful.
 
+        This method has id ``2.5``.
+
         :param OcaApplicationNetworkServiceID Name: Input parameter.
 
-    .. cpp:function:: OcaStatus GetSystemInterfaces(OcaList<OcaNetworkSystemInterfaceDescriptor> &SystemInterfaces)
+    .. _ocaapplicationnetwork_getsysteminterfaces:
 
-        This method has id ``2.6``.
+    .. cpp:function:: OcaStatus GetSystemInterfaces(OcaList<OcaNetworkSystemInterfaceDescriptor> &SystemInterfaces)
 
         Retrieves the list of this network's system interface descriptor.
         Return status indicates whether the list was successfully retrieved.
 
+        This method has id ``2.6``.
+
         :param OcaList<OcaNetworkSystemInterfaceDescriptor> SystemInterfaces: Output parameter.
 
-    .. cpp:function:: OcaStatus SetSystemInterfaces(OcaList<OcaNetworkSystemInterfaceDescriptor> Descriptors)
+    .. _ocaapplicationnetwork_setsysteminterfaces:
 
-        This method has id ``2.7``.
+    .. cpp:function:: OcaStatus SetSystemInterfaces(OcaList<OcaNetworkSystemInterfaceDescriptor> Descriptors)
 
         Sets the network's System Interface Descriptor(s). Return status
         indicates whether the operation was successful. Optional method;
         System Interface Descriptor may be set at construction time.
 
+        This method has id ``2.7``.
+
         :param OcaList<OcaNetworkSystemInterfaceDescriptor> Descriptors: Input parameter.
 
-    .. cpp:function:: OcaStatus GetState(OcaApplicationNetworkState &State)
+    .. _ocaapplicationnetwork_getstate:
 
-        This method has id ``2.8``.
+    .. cpp:function:: OcaStatus GetState(OcaApplicationNetworkState &State)
 
         Retrieves the network's state. Return status indicates whether the
         status was successfully retrieved.
 
+        This method has id ``2.8``.
+
         :param OcaApplicationNetworkState State: Output parameter.
 
-    .. cpp:function:: OcaStatus GetErrorCode(OcaUint16 &ErrorCode)
+    .. _ocaapplicationnetwork_geterrorcode:
 
-        This method has id ``2.9``.
+    .. cpp:function:: OcaStatus GetErrorCode(OcaUint16 &ErrorCode)
 
         Retrieves the most recent error code. Return status indicates whether
         the operation was successful. Note that a second parameter 'Reset' is
         removed in v02 of this class.
 
+        This method has id ``2.9``.
+
         :param OcaUint16 ErrorCode: Output parameter.
 
-    .. cpp:function:: OcaStatus Control(OcaApplicationNetworkCommand Command)
+    .. _ocaapplicationnetwork_control:
 
-        This method has id ``2.10``.
+    .. cpp:function:: OcaStatus Control(OcaApplicationNetworkCommand Command)
 
         Control the application network. Return value indicates success of
         command execution.
 
+        This method has id ``2.10``.
+
         :param OcaApplicationNetworkCommand Command: Input parameter.
 
-    .. cpp:function:: OcaStatus GetPath(OcaNamePath &NamePath, OcaONoPath &ONoPath)
+    .. _ocaapplicationnetwork_getpath:
 
-        This method has id ``2.11``.
+    .. cpp:function:: OcaStatus GetPath(OcaNamePath &NamePath, OcaONoPath &ONoPath)
 
         Returns path from given object down to root. The return value
         indicates whether the operation succeeded.
 
+        This method has id ``2.11``.
+
         :param OcaNamePath NamePath: Output parameter.
         :param OcaONoPath ONoPath: Output parameter.
 
+
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    

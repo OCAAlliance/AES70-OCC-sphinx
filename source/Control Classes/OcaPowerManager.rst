@@ -3,7 +3,9 @@
 1.3.5  OcaPowerManager
 ======================
 
-Extends :ref:`OcaManager <ocamanager>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaManager <ocamanager>` :raw:html:`&rarr;` :ref:`OcaPowerManager <ocapowermanager>` 
 
 .. cpp:class:: OcaPowerManager: OcaManager
 
@@ -15,94 +17,130 @@ Extends :ref:`OcaManager <ocamanager>`.
     - If instantiated, object number must be 5.
     
 
-    .. cpp:member:: OcaClassID ClassID
+    **Properties**:
 
-        This property has id ``3.1``.
+    .. _ocapowermanager_classid:
+
+    .. cpp:member:: OcaClassID ClassID
 
         Number that uniquely identifies the class. Note that this differs from
         the object number, which identifies the instantiated object. This
         property is an override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocapowermanager_classversion:
+
+    .. cpp:member:: OcaClassVersionNumber ClassVersion
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an
         override of the **OcaRoot** property.
 
-    .. cpp:member:: OcaPowerState State
+        This property has id ``3.2``.
 
-        This property has id ``3.1``.
+    .. _ocapowermanager_state:
+
+    .. cpp:member:: OcaPowerState State
 
         Current power state of device. Readonly.
 
-    .. cpp:member:: OcaList<OcaONo> PowerSupplies
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocapowermanager_powersupplies:
+
+    .. cpp:member:: OcaList<OcaONo> PowerSupplies
 
         List of object numbers of available power supplies.
 
-    .. cpp:member:: OcaList<OcaONo> ActivePowerSupplies
+        This property has id ``3.2``.
 
-        This property has id ``3.3``.
+    .. _ocapowermanager_activepowersupplies:
+
+    .. cpp:member:: OcaList<OcaONo> ActivePowerSupplies
 
         Object number(s) of power suppl(ies) currently in use.
 
-    .. cpp:member:: OcaBoolean AutoState
+        This property has id ``3.3``.
 
-        This property has id ``3.4``.
+    .. _ocapowermanager_autostate:
+
+    .. cpp:member:: OcaBoolean AutoState
 
         True if current state was invoked automatically, not by a controller
         action.
 
-    .. cpp:member:: OcaPowerState TargetState
+        This property has id ``3.4``.
 
-        This property has id ``3.5``.
+    .. _ocapowermanager_targetstate:
+
+    .. cpp:member:: OcaPowerState TargetState
 
         Power state to which the device is transitioning. If no transition is
         in progress, has value None. Readonly.
 
-    .. cpp:function:: OcaStatus GetState(OcaPowerState &State)
+        This property has id ``3.5``.
 
-        This method has id ``3.1``.
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocapowermanager_getstate:
+
+    .. cpp:function:: OcaStatus GetState(OcaPowerState &State)
 
         Retrieve the value of property **03p01 State** , the current power
         state of the device. Return value indicates whether the value was
         successfully retrieved.
 
+        This method has id ``3.1``.
+
         :param OcaPowerState State: Output parameter.
 
-    .. cpp:function:: OcaStatus SetState(OcaPowerState State)
+    .. _ocapowermanager_setstate:
 
-        This method has id ``3.2``.
+    .. cpp:function:: OcaStatus SetState(OcaPowerState State)
 
         Change the device power state. The return value indicates whether the
         requested change has been successfully made.
 
+        This method has id ``3.2``.
+
         :param OcaPowerState State: Input parameter.
 
-    .. cpp:function:: OcaStatus GetPowerSupplies(OcaList<OcaONo> &psuList)
+    .. _ocapowermanager_getpowersupplies:
 
-        This method has id ``3.3``.
+    .. cpp:function:: OcaStatus GetPowerSupplies(OcaList<OcaONo> &psuList)
 
         Retrieves list of object number(s) of all power supply(ies). Return
         value indicates whether the data was successfully retrieved.
 
+        This method has id ``3.3``.
+
         :param OcaList<OcaONo> psuList: Output parameter.
 
-    .. cpp:function:: OcaStatus GetActivePowerSupplies(OcaList<OcaONo> &psuList)
+    .. _ocapowermanager_getactivepowersupplies:
 
-        This method has id ``3.4``.
+    .. cpp:function:: OcaStatus GetActivePowerSupplies(OcaList<OcaONo> &psuList)
 
         Retrieves list of object number(s) of active power supply(ies). Return
         value indicates whether the data was successfully retrieved.
 
+        This method has id ``3.4``.
+
         :param OcaList<OcaONo> psuList: Output parameter.
 
-    .. cpp:function:: OcaStatus ExchangePowerSupply(OcaONo oldPsu, OcaONo newPsu, OcaBoolean powerOffOld)
+    .. _ocapowermanager_exchangepowersupply:
 
-        This method has id ``3.5``.
+    .. cpp:function:: OcaStatus ExchangePowerSupply(OcaONo oldPsu, OcaONo newPsu, OcaBoolean powerOffOld)
 
         Deactivate one power supply and activate another. An option switch
         indicates whether the previously active power supply is to be turned
@@ -110,16 +148,36 @@ Extends :ref:`OcaManager <ocamanager>`.
         state. The return value indicates whether the requested exchange has
         been successfully made.
 
+        This method has id ``3.5``.
+
         :param OcaONo oldPsu: Input parameter.
         :param OcaONo newPsu: Input parameter.
         :param OcaBoolean powerOffOld: Input parameter.
 
-    .. cpp:function:: OcaStatus GetAutoState(OcaBoolean &state)
+    .. _ocapowermanager_getautostate:
 
-        This method has id ``3.6``.
+    .. cpp:function:: OcaStatus GetAutoState(OcaBoolean &state)
 
         Gets the value of the **AutoState** property. The return value
         indicates whether the value was successfully retrieved.
 
+        This method has id ``3.6``.
+
         :param OcaBoolean state: Output parameter.
 
+
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    

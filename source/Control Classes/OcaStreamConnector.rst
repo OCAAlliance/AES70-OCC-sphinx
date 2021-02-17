@@ -3,7 +3,9 @@
 1.2.11  OcaStreamConnector
 ==========================
 
-Extends :ref:`OcaAgent <ocaagent>`.
+Class Hirarchy:
+
+:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaAgent <ocaagent>` :raw:html:`&rarr;` :ref:`OcaStreamConnector <ocastreamconnector>` 
 
 .. cpp:class:: OcaStreamConnector: OcaAgent
 
@@ -36,29 +38,37 @@ Extends :ref:`OcaAgent <ocaagent>`.
     stream network object via some internal means.
     This class may be subclassed to support various network types.
 
-    .. cpp:member:: OcaClassID ClassID
+    **Properties**:
 
-        This property has id ``3.1``.
+    .. _ocastreamconnector_classid:
+
+    .. cpp:member:: OcaClassID ClassID
 
         ID of this class
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+        This property has id ``3.1``.
 
-        This property has id ``3.2``.
+    .. _ocastreamconnector_classversion:
+
+    .. cpp:member:: OcaClassVersionNumber ClassVersion
 
         Version number of this class
 
-    .. cpp:member:: OcaStreamConnectorID IDAdvertised
-
         This property has id ``3.2``.
+
+    .. _ocastreamconnector_idadvertised:
+
+    .. cpp:member:: OcaStreamConnectorID IDAdvertised
 
         Character name or binary identifier of this connector. This ID is
         advertised on the network to be found by other devices' discovery
         processes.
 
-    .. cpp:member:: OcaONo OwnerNetwork
+        This property has id ``3.2``.
 
-        This property has id ``3.1``.
+    .. _ocastreamconnector_ownernetwork:
+
+    .. cpp:member:: OcaONo OwnerNetwork
 
         Object number of stream network object ( **OcaStreamNetwork** or one
         of its subclasses) to which this connector belongs. In reconfigurable
@@ -68,9 +78,11 @@ Extends :ref:`OcaAgent <ocaagent>`.
         **Owner** property, the terminus object will by internal means
         register itself with the identified stream network.
 
-    .. cpp:member:: OcaMap<OcaStreamConnectorPinIndex, OcaONo> Pins
+        This property has id ``3.1``.
 
-        This property has id ``3.5``.
+    .. _ocastreamconnector_pins:
+
+    .. cpp:member:: OcaMap<OcaStreamConnectorPinIndex, OcaONo> Pins
 
         The map of connector pin indexes to
         **OcaNetworkSignalChannel[Source|Sink]** objects collected by this
@@ -79,127 +91,203 @@ Extends :ref:`OcaAgent <ocaagent>`.
         connector is created). If a certain pin in the connector is currently
         not attached the OcaONo of that index is 0.
 
-    .. cpp:member:: OcaNetworkMediaSourceOrSink SourceOrSink
+        This property has id ``3.5``.
 
-        This property has id ``3.3``.
+    .. _ocastreamconnector_sourceorsink:
+
+    .. cpp:member:: OcaNetworkMediaSourceOrSink SourceOrSink
 
         Specifies whether this connector is for output (source) or input
         (sink) signal channels.
 
-    .. cpp:member:: OcaStreamConnectorStatus Status
+        This property has id ``3.3``.
 
-        This property has id ``3.6``.
+    .. _ocastreamconnector_status:
+
+    .. cpp:member:: OcaStreamConnectorStatus Status
 
         Status of this terminus.
 
-    .. cpp:member:: OcaMap<OcaStreamIndex, OcaStream> Streams
+        This property has id ``3.6``.
 
-        This property has id ``3.4``.
+    .. _ocastreamconnector_streams:
+
+    .. cpp:member:: OcaMap<OcaStreamIndex, OcaStream> Streams
 
         The list of **OcaStream** data objects contained in (i.e. connected
         to) this connector.
 
-    .. cpp:function:: OcaStatus ConnectStream(OcaStream Stream, OcaStreamIndex &Index)
+        This property has id ``3.4``.
 
-        This method has id ``3.7``.
+    Properties inherited from :ref:`OcaAgent <OcaAgent>`:
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaAgent::Label <OcaAgent_Label>`
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaAgent::Owner <OcaAgent_Owner>`
+    
+    
+    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
+    
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
+    
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
+    
+    
+
+    **Methods**:
+
+    .. _ocastreamconnector_connectstream:
+
+    .. cpp:function:: OcaStatus ConnectStream(OcaStream Stream, OcaStreamIndex &Index)
 
         Connects a stream to this connector. Return status indicates success
         of operation.
 
+        This method has id ``3.7``.
+
         :param OcaStream Stream: Input parameter.
         :param OcaStreamIndex Index: Output parameter.
 
-    .. cpp:function:: OcaStatus DisconnectStream(OcaStreamIndex StreamID)
+    .. _ocastreamconnector_disconnectstream:
 
-        This method has id ``3.8``.
+    .. cpp:function:: OcaStatus DisconnectStream(OcaStreamIndex StreamID)
 
         Disconnects a stream from this connector. Return status indicates
         success of operation.
 
+        This method has id ``3.8``.
+
         :param OcaStreamIndex StreamID: Input parameter.
 
-    .. cpp:function:: OcaStatus GetIDAdvertised(OcaStreamConnectorID &IDAdvertised)
+    .. _ocastreamconnector_getidadvertised:
 
-        This method has id ``3.3``.
+    .. cpp:function:: OcaStatus GetIDAdvertised(OcaStreamConnectorID &IDAdvertised)
 
         Gets the value of the IDAdvertised property. Return status indicates
         success of operation.
 
+        This method has id ``3.3``.
+
         :param OcaStreamConnectorID IDAdvertised: Output parameter.
 
-    .. cpp:function:: OcaStatus GetOwnerNetwork(OcaONo &Network)
+    .. _ocastreamconnector_getownernetwork:
 
-        This method has id ``3.1``.
+    .. cpp:function:: OcaStatus GetOwnerNetwork(OcaONo &Network)
 
         Gets the object number of the **OcaStreamNetwork** object to which
         this connector belongs. Return status indicates success of operation.
 
+        This method has id ``3.1``.
+
         :param OcaONo Network: Output parameter.
 
-    .. cpp:function:: OcaStatus GetPins(OcaMap<OcaStreamConnectorPinIndex, OcaONo> &Pins)
+    .. _ocastreamconnector_getpins:
 
-        This method has id ``3.10``.
+    .. cpp:function:: OcaStatus GetPins(OcaMap<OcaStreamConnectorPinIndex, OcaONo> &Pins)
 
         Gets the list of object numbers of **OcaNetworkSignalChannel** objects
         connected to this connector. Return status indicates success of
         operation.
 
+        This method has id ``3.10``.
+
         :param OcaMap<OcaStreamConnectorPinIndex, OcaONo> Pins: Output parameter.
 
-    .. cpp:function:: OcaStatus GetSourceOrSink(OcaNetworkMediaSourceOrSink &SourceOrSink)
+    .. _ocastreamconnector_getsourceorsink:
 
-        This method has id ``3.5``.
+    .. cpp:function:: OcaStatus GetSourceOrSink(OcaNetworkMediaSourceOrSink &SourceOrSink)
 
         Gets the value of the SourceOrSink property. Return status indicates
         success of operation.
 
+        This method has id ``3.5``.
+
         :param OcaNetworkMediaSourceOrSink SourceOrSink: Output parameter.
 
-    .. cpp:function:: OcaStatus GetStatus(OcaStreamConnectorStatus &Status)
+    .. _ocastreamconnector_getstatus:
 
-        This method has id ``3.11``.
+    .. cpp:function:: OcaStatus GetStatus(OcaStreamConnectorStatus &Status)
 
         Gets the value of the Status property. Return status indicates success
         of operation.
 
+        This method has id ``3.11``.
+
         :param OcaStreamConnectorStatus Status: Output parameter.
 
-    .. cpp:function:: OcaStatus GetStreams(OcaMap<OcaStreamIndex, OcaStream> &Streams)
+    .. _ocastreamconnector_getstreams:
 
-        This method has id ``3.9``.
+    .. cpp:function:: OcaStatus GetStreams(OcaMap<OcaStreamIndex, OcaStream> &Streams)
 
         Gets the map of OcaStream items connected to this connector. Return
         status indicates success of operation.
 
+        This method has id ``3.9``.
+
         :param OcaMap<OcaStreamIndex, OcaStream> Streams: Output parameter.
 
-    .. cpp:function:: OcaStatus SetIDAdvertised(OcaStreamConnectorID IDAdvertised)
+    .. _ocastreamconnector_setidadvertised:
 
-        This method has id ``3.4``.
+    .. cpp:function:: OcaStatus SetIDAdvertised(OcaStreamConnectorID IDAdvertised)
 
         Sets the value of the IDAdvertised property. Return status indicates
         success of operation.
 
+        This method has id ``3.4``.
+
         :param OcaStreamConnectorID IDAdvertised: Input parameter.
 
-    .. cpp:function:: OcaStatus SetOwnerNetwork(OcaONo Network)
+    .. _ocastreamconnector_setownernetwork:
 
-        This method has id ``3.2``.
+    .. cpp:function:: OcaStatus SetOwnerNetwork(OcaONo Network)
 
         Sets the object number of the **OcaStreamNetwork** object to which
         this connector belongs. Return status indicates success of operation.
         Only implemented for reconfigurable devices.
 
+        This method has id ``3.2``.
+
         :param OcaONo Network: Input parameter.
 
-    .. cpp:function:: OcaStatus SetSourceOrSink(OcaNetworkMediaSourceOrSink SourceOrSink)
+    .. _ocastreamconnector_setsourceorsink:
 
-        This method has id ``3.6``.
+    .. cpp:function:: OcaStatus SetSourceOrSink(OcaNetworkMediaSourceOrSink SourceOrSink)
 
         Sets the value of the SourceOrSink property. Return status indicates
         success of operation. Only implemented for reconfigurable devices.
         Note that this method can only be called when the SignalChannels
         property is empty, i.e. does not contain any actual channels.
 
+        This method has id ``3.6``.
+
         :param OcaNetworkMediaSourceOrSink SourceOrSink: Input parameter.
 
+
+    Methods inherited from :ref:`OcaAgent <OcaAgent>`:
+    
+    - :ref:`OcaAgent::GetLabel(Label) <OcaAgent_GetLabel>`
+    
+    - :ref:`OcaAgent::SetLabel(Label) <OcaAgent_SetLabel>`
+    
+    - :ref:`OcaAgent::GetOwner(owner) <OcaAgent_GetOwner>`
+    
+    - :ref:`OcaAgent::GetPath(NamePath, ONoPath) <OcaAgent_GetPath>`
+    
+    
+    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
+    
+    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
+    
+    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
+    
+    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
+    
+    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
+    
+    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
+    
+    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
+    
+    
