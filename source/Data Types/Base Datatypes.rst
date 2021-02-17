@@ -7,7 +7,7 @@ Base Datatypes
 OcaBaseDataType
 ===============
 
-.. cpp:enum-struct:: OcaBaseDataType
+.. cpp:enum:: OcaBaseDataType : uint8_t
 
     Enum that describes all available base datatypes.
 
@@ -271,7 +271,7 @@ OcaBlobFixedLen
 
         The value is an array of bytes with the most significant bit of the
         first byte being bit number 0. Size of the array is determined by the
-        template parameter &lt;Len&gt;.
+        template parameter :raw:html:`&lt;`Len:raw:html:`&gt;`.
 
 
 OCP.1 Encoding

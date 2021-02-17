@@ -69,7 +69,7 @@ ErrorCode OcaUint16   2
 OcaTaskState
 ============
 
-.. cpp:enum-struct:: OcaTaskState
+.. cpp:enum:: OcaTaskState : uint8_t
 
     States of OcaTask object. State values change as a result of the
     object's having received a comment or encountering processing events
@@ -185,7 +185,7 @@ ApplicationSpecificParameters.Data     OcaUint8    1 * Count
 OcaTaskCommand
 ==============
 
-.. cpp:enum-struct:: OcaTaskCommand
+.. cpp:enum:: OcaTaskCommand : uint8_t
 
     Commands controllers can send to OcaTasks to change their states
 
@@ -227,7 +227,7 @@ OcaTaskCommand
 OcaTaskManagerState
 ===================
 
-.. cpp:enum-struct:: OcaTaskManagerState
+.. cpp:enum:: OcaTaskManagerState : uint8_t
 
     States of **OcaTaskManager** object. These states represent the
     overall state of task processing in the device.
@@ -268,7 +268,7 @@ OcaTaskManagerState
 OcaRamperInterpolationLaw
 =========================
 
-.. cpp:enum-struct:: OcaRamperInterpolationLaw
+.. cpp:enum:: OcaRamperInterpolationLaw : uint8_t
 
     Interpolation law for ramper to use.
 

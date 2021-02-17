@@ -75,7 +75,7 @@ Name.Value string      variable
 OcaPortMode
 ===========
 
-.. cpp:enum-struct:: OcaPortMode
+.. cpp:enum:: OcaPortMode : uint8_t
 
     Enum that describes whether a port is for input or output.
 

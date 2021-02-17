@@ -216,7 +216,7 @@ ErrorCode         OcaUint16   2
 OcaMediaConnectorState
 ======================
 
-.. cpp:enum-struct:: OcaMediaConnectorState
+.. cpp:enum:: OcaMediaConnectorState : uint8_t
 
     Status options for a stream connector.
 
@@ -242,7 +242,7 @@ OcaMediaConnectorState
 OcaMediaConnectorCommand
 ========================
 
-.. cpp:enum-struct:: OcaMediaConnectorCommand
+.. cpp:enum:: OcaMediaConnectorCommand : uint8_t
 
     Command values for OcaMediaNetwork.ControlConnector(...)
 

@@ -7,7 +7,7 @@ Library Datatypes
 OcaLibVolStandardTypeID
 =======================
 
-.. cpp:enum-struct:: OcaLibVolStandardTypeID
+.. cpp:enum:: OcaLibVolStandardTypeID : uint8_t
 
     Enum that describes type of data in a standard library volume.
 
@@ -129,7 +129,7 @@ ID.Value    OcaUint32  4
 OcaLibAccess
 ============
 
-.. cpp:enum-struct:: OcaLibAccess
+.. cpp:enum:: OcaLibAccess : uint8_t
 
     Library volume access modes
 

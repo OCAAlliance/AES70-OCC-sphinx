@@ -111,7 +111,7 @@ CitizenIndex OcaUint16  2
 OcaGrouperMode
 ==============
 
-.. cpp:enum-struct:: OcaGrouperMode
+.. cpp:enum:: OcaGrouperMode : uint8_t
 
     Select mode of **OcaGrouper** : master-slave or peer-to-peer
 
@@ -126,7 +126,7 @@ OcaGrouperMode
 OcaObserverState
 ================
 
-.. cpp:enum-struct:: OcaObserverState
+.. cpp:enum:: OcaObserverState : uint8_t
 
     Interpolation law for ramper to use.
 
@@ -141,7 +141,7 @@ OcaObserverState
 OcaRelationalOperator
 =====================
 
-.. cpp:enum-struct:: OcaRelationalOperator
+.. cpp:enum:: OcaRelationalOperator : uint8_t
 
     Enumeration of relational operators that can be used in OCA classes.
 
@@ -155,22 +155,22 @@ OcaRelationalOperator
         The inequality (!=) operator.
     .. cpp:enumerator:: GreaterThan = 3
 
-        The greater than (&gt;) operator.
+        The greater than (:raw:html:`&gt;`) operator.
     .. cpp:enumerator:: GreaterThanOrEqual = 4
 
-        The greater than or equal (&gt;=) operator.
+        The greater than or equal (:raw:html:`&gt;`=) operator.
     .. cpp:enumerator:: LessThan = 5
 
-        The less than (&lt;) operator
+        The less than (:raw:html:`&lt;`) operator
     .. cpp:enumerator:: LessThanOrEqual = 6
 
-        The less than or equal (&lt;=) operator.
+        The less than or equal (:raw:html:`&lt;`=) operator.
 .. _OcaPowerSupplyType:
 
 OcaPowerSupplyType
 ==================
 
-.. cpp:enum-struct:: OcaPowerSupplyType
+.. cpp:enum:: OcaPowerSupplyType : uint8_t
 
     Type of power supply.
 
@@ -194,7 +194,7 @@ OcaPowerSupplyType
 OcaPowerSupplyLocation
 ======================
 
-.. cpp:enum-struct:: OcaPowerSupplyLocation
+.. cpp:enum:: OcaPowerSupplyLocation : uint8_t
 
     Physical location of a device power supply.
 
@@ -212,7 +212,7 @@ OcaPowerSupplyLocation
 OcaPowerSupplyState
 ===================
 
-.. cpp:enum-struct:: OcaPowerSupplyState
+.. cpp:enum:: OcaPowerSupplyState : uint8_t
 
     Status of a device power supply.
 
@@ -233,7 +233,7 @@ OcaPowerSupplyState
 OcaRamperCommand
 ================
 
-.. cpp:enum-struct:: OcaRamperCommand
+.. cpp:enum:: OcaRamperCommand : uint8_t
 
     Command repertoire of OcaRamper's **Control** method.
 
@@ -252,7 +252,7 @@ OcaRamperCommand
 OcaRamperState
 ==============
 
-.. cpp:enum-struct:: OcaRamperState
+.. cpp:enum:: OcaRamperState : uint8_t
 
     States of the ramper. Here are the rules for ramper state change:
     

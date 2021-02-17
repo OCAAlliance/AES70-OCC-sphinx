@@ -66,7 +66,7 @@ StreamChannelCount              OcaUint16   2
 OcaMediaStreamCastMode
 ======================
 
-.. cpp:enum-struct:: OcaMediaStreamCastMode
+.. cpp:enum:: OcaMediaStreamCastMode : uint8_t
 
     Type of media endpoint: unicast or multicast.
 

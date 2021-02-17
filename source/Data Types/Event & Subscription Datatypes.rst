@@ -165,7 +165,7 @@ ChangeType               OcaEnumItem 1
 OcaPropertyChangeType
 =====================
 
-.. cpp:enum-struct:: OcaPropertyChangeType
+.. cpp:enum:: OcaPropertyChangeType : uint8_t
 
     Enum describing property change type.
 
@@ -485,7 +485,7 @@ Reading                  OcaList<OcaFloat64> (2 + 8 * Count)
 OcaGrouperStatusChangeType
 ==========================
 
-.. cpp:enum-struct:: OcaGrouperStatusChangeType
+.. cpp:enum:: OcaGrouperStatusChangeType : uint8_t
 
     Enum describing status change types, as used in **OcaGrouper's
     StatusChange** event.
@@ -559,7 +559,7 @@ changeType               OcaEnumItem 1
 OcaNotificationDeliveryMode
 ===========================
 
-.. cpp:enum-struct:: OcaNotificationDeliveryMode
+.. cpp:enum:: OcaNotificationDeliveryMode : uint8_t
 
     Enum for subscriptions that specifies whether its notification
     messages are to be delivered by reliable means (e.g. TCP) or fast
@@ -576,7 +576,7 @@ OcaNotificationDeliveryMode
 OcaSubscriptionManagerState
 ===========================
 
-.. cpp:enum-struct:: OcaSubscriptionManagerState
+.. cpp:enum:: OcaSubscriptionManagerState : uint8_t
 
     Enum describing **OcaSubscriptionManager** states.
 

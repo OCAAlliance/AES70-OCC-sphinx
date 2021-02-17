@@ -44,14 +44,15 @@ Class Hirarchy:
     2. Controller calls the matrix proxy's **Set** method for the target
     property. This action causes the **OcaMatrix** instance to: - decode
     the posted x1 and y1 values into a list of target member ONos, as
-    follows: If x1 &gt; 0 and y1 &gt; 0, the list will be the single ONo
-    of the addressed cell. If x1 = 0 and y1 &gt; 0, the list will be the
-    list of ONos of the cells in row y1 . If x1 &gt; 0 and y1 = 0, the
-    list will be the list of ONos of the cells in column x1. If x1 = 0 and
-    y1 = 0, the list will be the list of ONos of all cells of the matrix.
-    - call the given **Set** method for each target member in the ONo
-    list. - aggregate the **OcaResult** from each **Set** call into a
-    consolidated **OcaResult** . - unlock the **OcaMatrix** instance.
+    follows: If x1 :raw:html:`&gt;` 0 and y1 :raw:html:`&gt;` 0, the list
+    will be the single ONo of the addressed cell. If x1 = 0 and y1
+    :raw:html:`&gt;` 0, the list will be the list of ONos of the cells in
+    row y1 . If x1 :raw:html:`&gt;` 0 and y1 = 0, the list will be the
+    list of ONos of the cells in column x1. If x1 = 0 and y1 = 0, the list
+    will be the list of ONos of all cells of the matrix. - call the given
+    **Set** method for each target member in the ONo list. - aggregate the
+    **OcaResult** from each **Set** call into a consolidated **OcaResult**
+    . - unlock the **OcaMatrix** instance.
 
     **Properties**:
 

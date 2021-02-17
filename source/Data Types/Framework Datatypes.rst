@@ -466,7 +466,7 @@ Descriptor.SetterMethodID.MethodIndex OcaUint16   2
 OcaStatus
 =========
 
-.. cpp:enum-struct:: OcaStatus
+.. cpp:enum:: OcaStatus : uint8_t
 
     Standard status codes returned from method calls.
 
@@ -548,7 +548,7 @@ OcaParameterMask
 OcaStringComparisonType
 =======================
 
-.. cpp:enum-struct:: OcaStringComparisonType
+.. cpp:enum:: OcaStringComparisonType : uint8_t
 
     Type of string comparison.
 
@@ -667,7 +667,7 @@ Values[5]        OcaFloat32  4
 OcaPositionCoordinateSystem
 ===========================
 
-.. cpp:enum-struct:: OcaPositionCoordinateSystem
+.. cpp:enum:: OcaPositionCoordinateSystem : uint8_t
 
     Enumeration that designates the type of position coordinate system
     used. For details, see the AES70-1 description of the
@@ -675,9 +675,9 @@ OcaPositionCoordinateSystem
 
     .. cpp:enumerator:: Robotic = 1
 
-        Six-axis robotic coordinates: {X, Y, Z, rX, rY, rZ} . r&lt;axis&gt; is
-        anticlockwise rotation around the given axis - X, Y, or Z. For
-        details, see AES70-1, section 5.5.9.
+        Six-axis robotic coordinates: {X, Y, Z, rX, rY, rZ} .
+        r:raw:html:`&lt;`axis:raw:html:`&gt;` is anticlockwise rotation around
+        the given axis - X, Y, or Z. For details, see AES70-1, section 5.5.9.
     .. cpp:enumerator:: ItuAudioObjectBasedPolar = 2
 
         Object-based audio, polar version, per section 8 of the ITU radio

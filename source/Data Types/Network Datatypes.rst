@@ -15,7 +15,7 @@ OcaNetworkAddress
 OcaNetworkLinkType
 ==================
 
-.. cpp:enum-struct:: OcaNetworkLinkType
+.. cpp:enum:: OcaNetworkLinkType : uint8_t
 
     Types of layer 2 networks.
 
@@ -80,7 +80,7 @@ MyNetworkAddress.Value.Data        OcaUint8   1 * Count
 OcaApplicationNetworkState
 ==========================
 
-.. cpp:enum-struct:: OcaApplicationNetworkState
+.. cpp:enum:: OcaApplicationNetworkState : uint8_t
 
     Network states.
 
@@ -126,7 +126,7 @@ OcaApplicationNetworkState
 OcaApplicationNetworkCommand
 ============================
 
-.. cpp:enum-struct:: OcaApplicationNetworkCommand
+.. cpp:enum:: OcaApplicationNetworkCommand : uint8_t
 
     Command values for OcaMediaNetwork.Control().
 
@@ -159,7 +159,7 @@ OcaApplicationNetworkCommand
 OcaNetworkMediaProtocol
 =======================
 
-.. cpp:enum-struct:: OcaNetworkMediaProtocol
+.. cpp:enum:: OcaNetworkMediaProtocol : uint8_t
 
     Media transport protocols available.
 
@@ -196,7 +196,7 @@ OcaNetworkMediaProtocol
 OcaNetworkControlProtocol
 =========================
 
-.. cpp:enum-struct:: OcaNetworkControlProtocol
+.. cpp:enum:: OcaNetworkControlProtocol : uint8_t
 
     Network control protocols available.
 
@@ -427,7 +427,7 @@ ErrorCode         OcaUint16   2
 OcaMediaConnectorState
 ======================
 
-.. cpp:enum-struct:: OcaMediaConnectorState
+.. cpp:enum:: OcaMediaConnectorState : uint8_t
 
     Status options for a stream connector.
 
@@ -453,7 +453,7 @@ OcaMediaConnectorState
 OcaMediaConnectorCommand
 ========================
 
-.. cpp:enum-struct:: OcaMediaConnectorCommand
+.. cpp:enum:: OcaMediaConnectorCommand : uint8_t
 
     Command values for OcaMediaNetwork.ControlConnector(...)
 
@@ -532,7 +532,7 @@ StreamChannelCount              OcaUint16   2
 OcaMediaStreamCastMode
 ======================
 
-.. cpp:enum-struct:: OcaMediaStreamCastMode
+.. cpp:enum:: OcaMediaStreamCastMode : uint8_t
 
     Type of media endpoint: unicast or multicast.
 

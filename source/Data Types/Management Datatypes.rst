@@ -196,7 +196,7 @@ Version.Value      string     variable
 OcaResetCause
 =============
 
-.. cpp:enum-struct:: OcaResetCause
+.. cpp:enum:: OcaResetCause : uint8_t
 
     Enumeration of reasons for device reset.
 
@@ -218,11 +218,12 @@ OcaResetCause
 OcaComponent
 ============
 
-.. cpp:enum-struct:: OcaComponent
+.. cpp:enum:: OcaComponent : uint16_t
 
-    Enumeration (16-bit) for of software &amp; firmware components in the
-    device. Except for the boot loader, all other values of this enum are
-    device-specific and will be specified by subclassing this class.
+    Enumeration (16-bit) for of software :raw:html:`&amp;` firmware
+    components in the device. Except for the boot loader, all other values
+    of this enum are device-specific and will be specified by subclassing
+    this class.
 
     .. cpp:enumerator:: BootLoader = 0
 
@@ -232,7 +233,7 @@ OcaComponent
 OcaPowerState
 =============
 
-.. cpp:enum-struct:: OcaPowerState
+.. cpp:enum:: OcaPowerState : uint8_t
 
     Enumeration defining the power states that OCA devices can be in. The
     state is returned by the device's Power Manager on request.

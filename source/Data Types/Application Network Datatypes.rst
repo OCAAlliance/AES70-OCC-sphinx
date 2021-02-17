@@ -7,7 +7,7 @@ Application Network Datatypes
 OcaNetworkLinkType
 ==================
 
-.. cpp:enum-struct:: OcaNetworkLinkType
+.. cpp:enum:: OcaNetworkLinkType : uint8_t
 
     Types of layer 2 networks.
 
@@ -72,7 +72,7 @@ MyNetworkAddress.Value.Data        OcaUint8   1 * Count
 OcaApplicationNetworkState
 ==========================
 
-.. cpp:enum-struct:: OcaApplicationNetworkState
+.. cpp:enum:: OcaApplicationNetworkState : uint8_t
 
     Network states.
 
@@ -118,7 +118,7 @@ OcaApplicationNetworkState
 OcaApplicationNetworkCommand
 ============================
 
-.. cpp:enum-struct:: OcaApplicationNetworkCommand
+.. cpp:enum:: OcaApplicationNetworkCommand : uint8_t
 
     Command values for OcaMediaNetwork.Control().
 
@@ -151,7 +151,7 @@ OcaApplicationNetworkCommand
 OcaNetworkMediaProtocol
 =======================
 
-.. cpp:enum-struct:: OcaNetworkMediaProtocol
+.. cpp:enum:: OcaNetworkMediaProtocol : uint8_t
 
     Media transport protocols available.
 
@@ -188,7 +188,7 @@ OcaNetworkMediaProtocol
 OcaNetworkControlProtocol
 =========================
 
-.. cpp:enum-struct:: OcaNetworkControlProtocol
+.. cpp:enum:: OcaNetworkControlProtocol : uint8_t
 
     Network control protocols available.
 

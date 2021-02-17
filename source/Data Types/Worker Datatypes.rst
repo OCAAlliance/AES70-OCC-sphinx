@@ -133,7 +133,7 @@ Phase     OcaFloat32 4
 OcaMuteState
 ============
 
-.. cpp:enum-struct:: OcaMuteState
+.. cpp:enum:: OcaMuteState : uint8_t
 
     Mute states
 
@@ -146,7 +146,7 @@ OcaMuteState
 OcaPolarityState
 ================
 
-.. cpp:enum-struct:: OcaPolarityState
+.. cpp:enum:: OcaPolarityState : uint8_t
 
     Polarity states
 
@@ -159,7 +159,7 @@ OcaPolarityState
 OcaDelayUnit
 ============
 
-.. cpp:enum-struct:: OcaDelayUnit
+.. cpp:enum:: OcaDelayUnit : uint8_t
 
     Enumeration of types of delay units that are available in OCA.
 
@@ -281,7 +281,7 @@ OcaPeriod
 OcaClassicalFilterShape
 =======================
 
-.. cpp:enum-struct:: OcaClassicalFilterShape
+.. cpp:enum:: OcaClassicalFilterShape : uint8_t
 
     Enumeration of classicalr filter types that can be used by OCA
     objects.
@@ -303,7 +303,7 @@ OcaClassicalFilterShape
 OcaFilterPassband
 =================
 
-.. cpp:enum-struct:: OcaFilterPassband
+.. cpp:enum:: OcaFilterPassband : uint8_t
 
     Enumeration of passband types that can be used by OCA objects.
 
@@ -327,7 +327,7 @@ OcaFilterPassband
 OcaParametricEQShape
 ====================
 
-.. cpp:enum-struct:: OcaParametricEQShape
+.. cpp:enum:: OcaParametricEQShape : uint8_t
 
     Enumeration of curve shapes used by OcaFilterParametric.
 
@@ -375,7 +375,7 @@ OcaParametricEQShape
 OcaDynamicsFunction
 ===================
 
-.. cpp:enum-struct:: OcaDynamicsFunction
+.. cpp:enum:: OcaDynamicsFunction : uint8_t
 
     Enumeration of the types of dynamics functions available from class
     OcaDynamics.
@@ -437,7 +437,7 @@ PollInterval.Period       OcaUint32  4
 OcaWaveformType
 ===============
 
-.. cpp:enum-struct:: OcaWaveformType
+.. cpp:enum:: OcaWaveformType : uint8_t
 
     Enumeration of waveform types that can be used by OCA objects.
 
@@ -470,7 +470,7 @@ OcaWaveformType
 OcaSweepType
 ============
 
-.. cpp:enum-struct:: OcaSweepType
+.. cpp:enum:: OcaSweepType : uint8_t
 
     Enumeration of waveform types that can be used by OCA objects.
 
@@ -488,7 +488,7 @@ OcaSweepType
 OcaUnitOfMeasure
 ================
 
-.. cpp:enum-struct:: OcaUnitOfMeasure
+.. cpp:enum:: OcaUnitOfMeasure : uint8_t
 
     Enumeration of units of measure that can be used in OCA classes. Only
     SI (base or derived) units are specified, so that internal
@@ -519,7 +519,7 @@ OcaUnitOfMeasure
 OcaPresentationUnit
 ===================
 
-.. cpp:enum-struct:: OcaPresentationUnit
+.. cpp:enum:: OcaPresentationUnit : uint8_t
 
     Enumeration of presentation units that can be used in OCA classes.
     Property values of OCA objects are always in SI units (unless
@@ -553,7 +553,7 @@ OcaTemperature
 OcaLevelDetectionLaw
 ====================
 
-.. cpp:enum-struct:: OcaLevelDetectionLaw
+.. cpp:enum:: OcaLevelDetectionLaw : uint8_t
 
     Enumeration of the types of level detector characteristics. Used in
     dynamics classes and for sensors.
@@ -572,7 +572,7 @@ OcaLevelDetectionLaw
 OcaSensorReadingState
 =====================
 
-.. cpp:enum-struct:: OcaSensorReadingState
+.. cpp:enum:: OcaSensorReadingState : uint8_t
 
     Enum that describes whether an **OcaSensor** 's current reading value
     can be trusted, and if not, why not.
@@ -598,7 +598,7 @@ OcaSensorReadingState
 OcaLevelMeterLaw
 ================
 
-.. cpp:enum-struct:: OcaLevelMeterLaw
+.. cpp:enum:: OcaLevelMeterLaw : uint8_t
 
     Enumeration of level meter laws.
 
