@@ -147,3 +147,16 @@ Class Hirarchy:
 
 
 
+
+
+    **Events**:
+
+    .. _ocaroot_propertychanged:
+
+    .. cpp:function:: void PropertyChanged(OcaPropertyChangedEventData eventData)
+
+        General event that is emitted when a property changes. In each setter
+        method (of derived classes) this event must be raised with the proper
+        derived event data structure.
+
+

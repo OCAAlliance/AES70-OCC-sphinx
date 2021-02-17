@@ -524,3 +524,29 @@ Class Hirarchy:
     - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
     
     
+
+
+    **Events**:
+
+    .. _ocamediatransportnetwork_sourceconnectorchanged:
+
+    .. cpp:function:: void SourceConnectorChanged(OcaMediaSourceConnectorChangedEventData eventData)
+
+        Event indicating that a media source connector has changed. The change
+        type indicates if the connector was added, deleted or changed.
+
+    .. _ocamediatransportnetwork_sinkconnectorchanged:
+
+    .. cpp:function:: void SinkConnectorChanged(OcaMediaSinkConnectorChangedEventData eventData)
+
+        Event indicating that a media sink connector has changed. The change
+        type indicates if the connector was added, deleted or changed.
+
+    .. _ocamediatransportnetwork_connectorstatuschanged:
+
+    .. cpp:function:: void ConnectorStatusChanged(OcaMediaConnectorStatusChangedEventData eventData)
+
+        Event indicating that the status of a source or sink connector has
+        changed.
+
+

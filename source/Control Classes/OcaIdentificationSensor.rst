@@ -116,3 +116,15 @@ Class Hirarchy:
     - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
     
     
+
+
+    **Events**:
+
+    .. _ocaidentificationsensor_identify:
+
+    .. cpp:function:: void Identify(OcaEventData eventData)
+
+        Event that is emitted when someone actuates the device identification
+        control.
+
+

@@ -222,3 +222,15 @@ Class Hirarchy:
     - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
     
     
+
+
+    **Events**:
+
+    .. _ocalibrary_ocalibvolchanged:
+
+    .. cpp:function:: void OcaLibVolChanged(OcaLibVolChangedEventData eventData)
+
+        Event that is raised whenever private property **Volumes** changes.
+        Added in OcaLibrary Version 2.
+
+

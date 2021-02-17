@@ -241,3 +241,13 @@ Class Hirarchy:
     - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
     
     
+
+
+    **Events**:
+
+    .. _ocataskmanager_taskstatechanged:
+
+    .. cpp:function:: void TaskStateChanged(OcaTaskStateChangedEventData eventData)
+
+
+

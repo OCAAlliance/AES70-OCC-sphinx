@@ -404,3 +404,36 @@ Class Hirarchy:
     - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
     
     
+
+
+    **Events**:
+
+    .. _ocagrouper_statuschange:
+
+    .. cpp:function:: void StatusChange(OcaGrouperStatusChangeEventData eventData)
+
+        Event that is emitted whenever key aspects of a group's status change.
+        Status events include:
+        
+        - Citizen joins grouper
+        
+        
+        - Citizen leaves grouper
+        
+        
+        - Citizen fails to execute grouper value change request
+        
+        
+        - Connection to online citizen is lost
+        
+        
+        - Connection to offline citizen is reestablished
+        
+        
+        - Citizen enrolls in group
+        
+        
+        - Citizen de-enrolls from group
+        
+
+

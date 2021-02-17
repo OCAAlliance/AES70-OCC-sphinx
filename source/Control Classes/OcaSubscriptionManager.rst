@@ -210,3 +210,24 @@ Class Hirarchy:
     - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
     
     
+
+
+    **Events**:
+
+    .. _ocasubscriptionmanager_notificationsdisabled:
+
+    .. cpp:function:: void NotificationsDisabled(OcaEventData eventData)
+
+        Event that is raised when the value of the **State** property changes
+        from **Normal ** to **EventsDisabled.**
+
+    .. _ocasubscriptionmanager_synchronizestate:
+
+    .. cpp:function:: void SynchronizeState(OcaObjectListEventData eventData)
+
+        Event that is raised when the value of the **State** property changes
+        from **EventsDisabled ** to **Normal.** Event data includes a lists of
+        which objects changed state during the period that notifications were
+        disabled.
+
+

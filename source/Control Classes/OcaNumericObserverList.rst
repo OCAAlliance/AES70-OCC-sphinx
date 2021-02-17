@@ -368,3 +368,21 @@ Class Hirarchy:
     - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
     
     
+
+
+    **Events**:
+
+    .. _ocanumericobserverlist_observation:
+
+    .. cpp:function:: void Observation(OcaObservationListEventData eventData)
+
+        Event emitted to signal an asynchronous, periodic, or
+        conditional-periodic observation. This event returns the complete list
+        of values being observed, regardless of which one(s) may have
+        triggered it in the first place. The order of values in the returned
+        list is determined by the order of values set by
+        SetObservedProperties, and is the same as the order of values returned
+        by GetLastObservation, and the same as the order of object
+        identifications returned by GetObservedProperties.
+
+

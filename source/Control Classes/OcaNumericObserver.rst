@@ -350,3 +350,15 @@ Class Hirarchy:
     - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
     
     
+
+
+    **Events**:
+
+    .. _ocanumericobserver_observation:
+
+    .. cpp:function:: void Observation(OcaObservationEventData eventData)
+
+        Event emitted to signal an asynchronous, periodic, or
+        conditional-periodic observation.
+
+
