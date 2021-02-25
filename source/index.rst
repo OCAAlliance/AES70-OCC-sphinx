@@ -6,7 +6,7 @@
 AES70-OCC
 =========
 
-This document is a html version of AES70 Part 3. It describes the object model
+This document is a html version of AES70 Part 2. It describes the object model
 of AES70.
 
 .. toctree::
