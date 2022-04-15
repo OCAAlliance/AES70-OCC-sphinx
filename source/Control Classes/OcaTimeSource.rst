@@ -15,7 +15,7 @@ Class Hirarchy:
 
     .. _ocatimesource_classid:
 
-    .. cpp:member:: OcaClassID ClassID
+    .. cpp:member:: static const OcaClassID ClassID = "1.2.16"
 
         This property is an override of the  **OcaRoot** property.
 
@@ -23,7 +23,7 @@ Class Hirarchy:
 
     .. _ocatimesource_classversion:
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 1
 
         Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 

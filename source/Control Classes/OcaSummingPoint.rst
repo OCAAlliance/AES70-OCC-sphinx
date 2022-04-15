@@ -15,7 +15,7 @@ Class Hirarchy:
 
     .. _ocasummingpoint_classid:
 
-    .. cpp:member:: OcaClassID ClassID
+    .. cpp:member:: static const OcaClassID ClassID = "1.1.1.22"
 
         This property is an override of the  **OcaRoot** property.
 
@@ -23,7 +23,7 @@ Class Hirarchy:
 
     .. _ocasummingpoint_classversion:
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 1
 
         This property is an override of the  **OcaRoot** property.
 

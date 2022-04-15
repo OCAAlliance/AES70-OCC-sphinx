@@ -15,7 +15,7 @@ Class Hirarchy:
 
     .. _ocaphysicalposition_classid:
 
-    .. cpp:member:: OcaClassID ClassID
+    .. cpp:member:: static const OcaClassID ClassID = "1.2.17"
 
         This property is an override of the  **OcaRoot** property.
 
@@ -23,7 +23,7 @@ Class Hirarchy:
 
     .. _ocaphysicalposition_classversion:
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 1
 
         Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
@@ -31,7 +31,7 @@ Class Hirarchy:
 
     .. _ocaphysicalposition_coordinatesystem:
 
-    .. cpp:member:: OcaPositionCoordinateSystem CoordinateSystem
+    .. cpp:member:: const OcaPositionCoordinateSystem CoordinateSystem
 
         Type of physical coordinate system this object uses. Read-only, set at object construction time.
 
@@ -39,7 +39,7 @@ Class Hirarchy:
 
     .. _ocaphysicalposition_positiondescriptorfieldflags:
 
-    .. cpp:member:: OcaPositionDescriptorFieldFlags PositionDescriptorFieldFlags
+    .. cpp:member:: const OcaPositionDescriptorFieldFlags PositionDescriptorFieldFlags
 
         Position descriptor field flags. Describe which position descriptor fields are used by this object. Read-only, set at object construction time.
 

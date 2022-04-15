@@ -21,7 +21,7 @@ Class Hirarchy:
 
     .. _ocacodingmanager_classid:
 
-    .. cpp:member:: OcaClassID ClassID
+    .. cpp:member:: static const OcaClassID ClassID = "1.3.12"
 
         Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
@@ -29,7 +29,7 @@ Class Hirarchy:
 
     .. _ocacodingmanager_classversion:
 
-    .. cpp:member:: OcaUint16 ClassVersion
+    .. cpp:member:: static const OcaUint16 ClassVersion = 1
 
         Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 

@@ -15,7 +15,7 @@ Class Hirarchy:
 
     .. _ocanetwork_classid:
 
-    .. cpp:member:: OcaClassID ClassID
+    .. cpp:member:: static const OcaClassID ClassID = "1.2.1"
 
         This property is an override of the  **OcaRoot** property.
 
@@ -23,7 +23,7 @@ Class Hirarchy:
 
     .. _ocanetwork_classversion:
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
 
         This property is an override of the  **OcaRoot** property.
 
@@ -31,7 +31,7 @@ Class Hirarchy:
 
     .. _ocanetwork_linktype:
 
-    .. cpp:member:: OcaNetworkLinkType LinkType
+    .. cpp:member:: const OcaNetworkLinkType LinkType
 
         Network link type - e.g. wired Ethernet, USB, ... See the OcaNetworkType enum for details. This is a read-only property whose value is fixed to the class that is inherited from OcaNetwork to implement each specific type of network.
 

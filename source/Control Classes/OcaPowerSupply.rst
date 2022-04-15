@@ -15,7 +15,7 @@ Class Hirarchy:
 
     .. _ocapowersupply_classid:
 
-    .. cpp:member:: OcaClassID ClassID
+    .. cpp:member:: static const OcaClassID ClassID = "1.2.7"
 
         Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
@@ -23,7 +23,7 @@ Class Hirarchy:
 
     .. _ocapowersupply_classversion:
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
@@ -63,7 +63,7 @@ Class Hirarchy:
 
     .. _ocapowersupply_loadfractionavailable:
 
-    .. cpp:member:: OcaFloat32 LoadFractionAvailable
+    .. cpp:member:: const OcaFloat32 LoadFractionAvailable
 
         Fraction of power supply's load capacity that is currently not being used. Readonly. Normal value range 0...1. A negative value indicates this data is not available.
 
@@ -71,7 +71,7 @@ Class Hirarchy:
 
     .. _ocapowersupply_storagefractionavailable:
 
-    .. cpp:member:: OcaFloat32 StorageFractionAvailable
+    .. cpp:member:: const OcaFloat32 StorageFractionAvailable
 
         Fraction of power supply's energy storage that remains available. For battery supplies. Readonly. Normal value range 0...1. A negative value indicates this data is not available.
 
@@ -79,7 +79,7 @@ Class Hirarchy:
 
     .. _ocapowersupply_location:
 
-    .. cpp:member:: OcaPowerSupplyLocation Location
+    .. cpp:member:: const OcaPowerSupplyLocation Location
 
         Physical location of power supply - internal or external.
 

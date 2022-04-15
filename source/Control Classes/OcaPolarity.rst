@@ -15,7 +15,7 @@ Class Hirarchy:
 
     .. _ocapolarity_classid:
 
-    .. cpp:member:: OcaClassID ClassID
+    .. cpp:member:: static const OcaClassID ClassID = "1.1.1.3"
 
         Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
@@ -23,7 +23,7 @@ Class Hirarchy:
 
     .. _ocapolarity_classversion:
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
 
         Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
@@ -31,7 +31,7 @@ Class Hirarchy:
 
     .. _ocapolarity_state:
 
-    .. cpp:member:: OcaPolarityState State
+    .. cpp:member:: OcaPolarityState State = NonInverted
 
         Current state of the inverter - {noninverted, inverted].
 

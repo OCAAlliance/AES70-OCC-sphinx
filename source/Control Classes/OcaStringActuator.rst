@@ -15,7 +15,7 @@ Class Hirarchy:
 
     .. _ocastringactuator_classid:
 
-    .. cpp:member:: OcaClassID ClassID
+    .. cpp:member:: static const OcaClassID ClassID = "1.1.1.1.12"
 
         Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
@@ -23,7 +23,7 @@ Class Hirarchy:
 
     .. _ocastringactuator_classversion:
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
 
         Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
@@ -39,7 +39,7 @@ Class Hirarchy:
 
     .. _ocastringactuator_maxlen:
 
-    .. cpp:member:: OcaUint16 MaxLen
+    .. cpp:member:: const OcaUint16 MaxLen
 
         Maximum string length that this object can accept.
 

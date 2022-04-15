@@ -15,7 +15,7 @@ Class Hirarchy:
 
     .. _ocablock_classid:
 
-    .. cpp:member:: OcaClassID ClassID
+    .. cpp:member:: static const OcaClassID ClassID = "1.1.3"
 
         Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This is a class property instead of an object property. This property is an override of the  **OcaRoot** property.
 
@@ -23,7 +23,7 @@ Class Hirarchy:
 
     .. _ocablock_classversion:
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
 
         Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
@@ -31,7 +31,7 @@ Class Hirarchy:
 
     .. _ocablock_type:
 
-    .. cpp:member:: OcaONo Type
+    .. cpp:member:: const OcaONo Type
 
         Readonly block type. For statically-defined blocks, this value is a Uint32 with a value corresponding to the unique configuration of this block. For dynamically-defined blocks, this value is the object number of the block's factory. For the root block, the value of this property is 1.
 
@@ -63,7 +63,7 @@ Class Hirarchy:
 
     .. _ocablock_globaltype:
 
-    .. cpp:member:: OcaGlobalTypeIdentifier GlobalType
+    .. cpp:member:: const OcaGlobalTypeIdentifier GlobalType
 
         Global block type identifier for reusable blocks.  **Added in version 2 of this class.** 
 
@@ -71,7 +71,7 @@ Class Hirarchy:
 
     .. _ocablock_onomap:
 
-    .. cpp:member:: OcaMap<OcaProtoONo, OcaONo> ONoMap
+    .. cpp:member:: const OcaMap<OcaProtoONo, OcaONo> ONoMap
 
         For blocks constructed by factories. Map that indicates the actual ONos allocated to the constructing OcaBlockFactory's prototype ONos. Key is prototype ONo, value is actual ONo.  **Added in version 2 of this class.** 
 

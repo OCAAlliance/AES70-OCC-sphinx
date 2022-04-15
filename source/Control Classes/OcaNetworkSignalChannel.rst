@@ -21,7 +21,7 @@ Class Hirarchy:
 
     .. _ocanetworksignalchannel_classid:
 
-    .. cpp:member:: OcaClassID ClassID
+    .. cpp:member:: static const OcaClassID ClassID = "1.1.6"
 
         ID of this class
 
@@ -29,7 +29,7 @@ Class Hirarchy:
 
     .. _ocanetworksignalchannel_classversion:
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
 
         Version number of this class
 

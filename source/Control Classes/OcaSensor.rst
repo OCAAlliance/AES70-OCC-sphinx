@@ -15,7 +15,7 @@ Class Hirarchy:
 
     .. _ocasensor_classid:
 
-    .. cpp:member:: OcaClassID ClassID
+    .. cpp:member:: static const OcaClassID ClassID = "1.1.2"
 
         Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This is a class property instead of an object property. This property is an override of the  **OcaRoot** property.
 
@@ -23,7 +23,7 @@ Class Hirarchy:
 
     .. _ocasensor_classversion:
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
 
         Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
@@ -31,7 +31,7 @@ Class Hirarchy:
 
     .. _ocasensor_readingstate:
 
-    .. cpp:member:: OcaSensorReadingState ReadingState
+    .. cpp:member:: static OcaSensorReadingState ReadingState
 
         Enum that describes whether current reading value is valid and if not, why not. Readonly.
 

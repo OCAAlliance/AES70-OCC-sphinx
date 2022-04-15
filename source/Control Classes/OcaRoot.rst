@@ -15,7 +15,7 @@ Class Hirarchy:
 
     .. _ocaroot_classid:
 
-    .. cpp:member:: OcaClassID ClassID
+    .. cpp:member:: static const OcaClassID ClassID = "1"
 
         Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This is a class property instead of an object property. This property will be overridden by each descendant class, in order to specify that class's ClassID.
 
@@ -23,7 +23,7 @@ Class Hirarchy:
 
     .. _ocaroot_classversion:
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
 
         Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property will be overridden by each descendant class, in order to specify that class's ClassVersion.
 
@@ -31,7 +31,7 @@ Class Hirarchy:
 
     .. _ocaroot_objectnumber:
 
-    .. cpp:member:: OcaONo ObjectNumber
+    .. cpp:member:: const OcaONo ObjectNumber
 
         The object number that uniquely identifies the instantiated object. This read-only property must be set at creation of the object. Derived objects can hardcode the object number in its constructor, or offer a constructor with object number parameter for dynamic allocation of object numbers.
 
@@ -39,7 +39,7 @@ Class Hirarchy:
 
     .. _ocaroot_lockable:
 
-    .. cpp:member:: OcaBoolean Lockable
+    .. cpp:member:: const OcaBoolean Lockable
 
         Read-only property that indicates whether the object is lockable or non-lockable. The property value must be set during construction of the object.
 
@@ -47,7 +47,7 @@ Class Hirarchy:
 
     .. _ocaroot_role:
 
-    .. cpp:member:: OcaString Role
+    .. cpp:member:: const OcaString Role
 
         Read-only text property that describes object's role in the device. Particularly useful for workers, e.g. "Input 1 Gain".
 

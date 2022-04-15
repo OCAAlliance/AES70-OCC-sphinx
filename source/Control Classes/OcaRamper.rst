@@ -24,7 +24,7 @@ Class Hirarchy:
 
     .. _ocaramper_classid:
 
-    .. cpp:member:: OcaClassID ClassID
+    .. cpp:member:: static const OcaClassID ClassID = "1.2.3"
 
         This property is an override of the  **OcaRoot** property.
 
@@ -32,7 +32,7 @@ Class Hirarchy:
 
     .. _ocaramper_classversion:
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
 
         This property is an override of the  **OcaRoot** property.
 
@@ -56,7 +56,7 @@ Class Hirarchy:
 
     .. _ocaramper_timemode:
 
-    .. cpp:member:: OcaTimeMode TimeMode
+    .. cpp:member:: OcaTimeMode TimeMode = Relative
 
         Absolute or Relative time.
 

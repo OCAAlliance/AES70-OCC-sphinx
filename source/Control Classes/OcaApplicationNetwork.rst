@@ -15,7 +15,7 @@ Class Hirarchy:
 
     .. _ocaapplicationnetwork_classid:
 
-    .. cpp:member:: OcaClassID ClassID
+    .. cpp:member:: static const OcaClassID ClassID = "1.4"
 
         This property is an override of the  **OcaRoot** property.
 
@@ -23,7 +23,7 @@ Class Hirarchy:
 
     .. _ocaapplicationnetwork_classversion:
 
-    .. cpp:member:: OcaClassVersionNumber ClassVersion
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 1
 
         This property is an override of the  **OcaRoot** property.
 
@@ -31,7 +31,7 @@ Class Hirarchy:
 
     .. _ocaapplicationnetwork_label:
 
-    .. cpp:member:: OcaString Label
+    .. cpp:member:: static OcaString Label
 
         Specific label of the network. Can be used to provide human readable information about the network. The label can be get and set over any network.
 
@@ -39,7 +39,7 @@ Class Hirarchy:
 
     .. _ocaapplicationnetwork_owner:
 
-    .. cpp:member:: OcaONo Owner
+    .. cpp:member:: static OcaONo Owner
 
         Object number of block that contains this network.
 
