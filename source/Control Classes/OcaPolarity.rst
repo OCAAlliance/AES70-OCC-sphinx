@@ -17,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -27,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 
@@ -70,8 +66,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetState(OcaPolarityState &state)
 
-        Gets the current inverter state. The return value indicates whether
-        the state was successfully retrieved.
+        Gets the current inverter state. The return value indicates whether the state was successfully retrieved.
 
         This method has id ``4.1``.
 
@@ -81,8 +76,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetState(OcaPolarityState state)
 
-        Sets the inversion state (i.e. value of the State property). The
-        return value indicates whether the state was successfully set.
+        Sets the inversion state (i.e. value of the State property). The return value indicates whether the state was successfully set.
 
         This method has id ``4.2``.
 

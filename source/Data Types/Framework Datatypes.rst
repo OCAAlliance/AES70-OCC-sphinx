@@ -9,10 +9,7 @@ OcaOrganizationID
 
 .. cpp:type:: OcaOrganizationID = OcaBlobFixedLen<3>
 
-    Globally unique identifier of an organization. Equal to the
-    organization's IEEE OUI or CID. Note that the IEEE defines the OUI
-    space and the CID space as disjoint, the this OCA identifier is always
-    completely unique.
+    Globally unique identifier of an organization. Equal to the organization's IEEE OUI or CID. Note that the IEEE defines the OUI space and the CID space as disjoint, the this OCA identifier is always completely unique.
 .. _OcaClassAuthorityID:
 
 OcaClassAuthorityID
@@ -20,8 +17,7 @@ OcaClassAuthorityID
 
 .. cpp:struct:: OcaClassAuthorityID
     
-    Class authority identifier. Identifies the authority for a class's
-    definition.
+    Class authority identifier. Identifies the authority for a class's definition.
 
     .. cpp:member:: OcaUint16 Sentinel
 
@@ -33,9 +29,7 @@ OcaClassAuthorityID
 
     .. cpp:member:: OcaOrganizationID OrganizationID
 
-        Authority's IEEE public Company ID (public CID) or IEEE Organizational
-        Unique Identifier (OUI), or the value zero, which signifies the
-        Authority of this AES70 standard.
+        Authority's IEEE public Company ID (public CID) or IEEE Organizational Unique Identifier (OUI), or the value zero, which signifies the Authority of this AES70 standard.
 
 
 OCP.1 Encoding
@@ -57,11 +51,7 @@ OcaClassIDField
 
 .. cpp:type:: OcaClassIDField = FieldType
 
-    Class identifier field. There is one of these for each level in the
-    ClassID. The normative definition of the Class identifier is given in
-    Part 1 of this standard, in the section entitled "Class identifiers".
-    The UML definition given here is intended to be identical, but in the
-    case of any discrepancy, Part 1 shall be definitive.
+    Class identifier field. There is one of these for each level in the ClassID. The normative definition of the Class identifier is given in Part 1 of this standard, in the section entitled "Class identifiers". The UML definition given here is intended to be identical, but in the case of any discrepancy, Part 1 shall be definitive.
 .. _OcaClassID:
 
 OcaClassID
@@ -69,24 +59,15 @@ OcaClassID
 
 .. cpp:struct:: OcaClassID
     
-    Class identifier : vector that describes the class's ancestry. The
-    normative definition of the Class identifier is given in Part 1 of
-    this standard, in the section entitled "Class identifiers". The UML
-    definition given here is intended to be identical, but in the case of
-    any discrepancy, Part 1 shall be definitive..
+    Class identifier : vector that describes the class's ancestry. The normative definition of the Class identifier is given in Part 1 of this standard, in the section entitled "Class identifiers". The UML definition given here is intended to be identical, but in the case of any discrepancy, Part 1 shall be definitive..
 
     .. cpp:member:: OcaUint16 FieldCount
 
-        Identifies the number of fields of the ClassID, i.e. the level of the
-        class tree the class is in. For example if this field count is 3, the
-        ClassID is of the form 'n.m.p'. The minimum field count is 1 (OcaRoot
-        class). A field count of zero is invalid.
+        Identifies the number of fields of the ClassID, i.e. the level of the class tree the class is in. For example if this field count is 3, the ClassID is of the form 'n.m.p'. The minimum field count is 1 (OcaRoot class). A field count of zero is invalid.
 
     .. cpp:member:: OcaClassIDField[] Fields
 
-        Array of actual fields of the ClassID. The array has 'FieldCount'
-        entries. If for example the field count is 3 and the Fields array has
-        value {1, 2, 3} the ClassID is '1.2.3'.
+        Array of actual fields of the ClassID. The array has 'FieldCount' entries. If for example the field count is 3 and the Fields array has value {1, 2, 3} the ClassID is '1.2.3'.
 
 
 OCP.1 Encoding
@@ -106,8 +87,7 @@ OcaVersion
 
 .. cpp:struct:: OcaVersion
     
-    Representation of a version number of a (hardware/software) component
-    of a device in the form of Major.Minor.Build (e.g. 1.0.123).
+    Representation of a version number of a (hardware/software) component of a device in the form of Major.Minor.Build (e.g. 1.0.123).
 
     .. cpp:member:: OcaUint32 Major
 
@@ -119,8 +99,7 @@ OcaVersion
 
     .. cpp:member:: OcaUint32 Build
 
-        The build number. May be 0 if it is not used (e.g. for a hardware
-        component).
+        The build number. May be 0 if it is not used (e.g. for a hardware component).
 
     .. cpp:member:: OcaComponent Component
 
@@ -162,8 +141,7 @@ OcaEnumItem16
 
 .. cpp:type:: OcaEnumItem16
 
-    The datatype of an enumeration choice. Long format, used if normal
-    8-bit format isn't going to be big enough.
+    The datatype of an enumeration choice. Long format, used if normal 8-bit format isn't going to be big enough.
 .. _OcaClassIdentification:
 
 OcaClassIdentification
@@ -198,7 +176,7 @@ OcaClassVersionNumber
 
 .. cpp:type:: OcaClassVersionNumber = OcaUint16
 
-    Class version number, ascending from **1.**
+    Class version number, ascending from  **1.** 
 .. _OcaONo:
 
 OcaONo
@@ -214,8 +192,7 @@ OcaOPath
 
 .. cpp:struct:: OcaOPath
     
-    Object address. Composite of network address in which object resides,
-    and object number.
+    Object address. Composite of network address in which object resides, and object number.
 
     .. cpp:member:: OcaNetworkHostID HostID
 
@@ -229,12 +206,13 @@ OcaOPath
 OCP.1 Encoding
 --------------
 
-======= ================ ===========
-Field   Basic type       Byte length
-======= ================ ===========
-HostID  OcaNetworkHostID variable   
-ONo.ONo OcaUint32        4          
-======= ================ ===========
+===================== ========== ===========
+Field                 Basic type Byte length
+===================== ========== ===========
+HostID.Value.DataSize OcaUint16  2          
+HostID.Value.Data     OcaUint8   1 * Count  
+ONo.ONo               OcaUint32  4          
+===================== ========== ===========
 
 
 .. _OcaNamePath:
@@ -244,9 +222,7 @@ OcaNamePath
 
 .. cpp:type:: OcaNamePath = OcaList<OcaString>
 
-    Role-name path from a containing block up to an object. If the
-    containing block is the Root Block the path is an absolute path; if
-    not, it is a relative path.
+    Role-name path from a containing block up to an object. If the containing block is the Root Block the path is an absolute path; if not, it is a relative path.
 .. _OcaONoPath:
 
 OcaONoPath
@@ -254,9 +230,7 @@ OcaONoPath
 
 .. cpp:type:: OcaONoPath = OcaList<OcaONo>
 
-    ONo path from a containing block up to an object. If the containing
-    block is the Root Block the path is an absolute path; if not, it is a
-    relative path.
+    ONo path from a containing block up to an object. If the containing block is the Root Block the path is an absolute path; if not, it is a relative path.
 .. _OcaObjectIdentification:
 
 OcaObjectIdentification
@@ -264,8 +238,7 @@ OcaObjectIdentification
 
 .. cpp:struct:: OcaObjectIdentification
     
-    Object identification. Composite of object number and object's class.
-    Used mainly in discovery processes.
+    Object identification. Composite of object number and object's class. Used mainly in discovery processes.
 
     .. cpp:member:: OcaONo ONo
 
@@ -295,9 +268,7 @@ OcaMethodID
 
 .. cpp:struct:: OcaMethodID
     
-    Representation of an OCA method ID. A class may define at most 255
-    methods of its own. Additional methods may be inherited, so the total
-    number may exceed 255.
+    Representation of an OCA method ID. A class may define at most 255 methods of its own. Additional methods may be inherited, so the total number may exceed 255.
 
     .. cpp:member:: OcaUint16 DefLevel
 
@@ -326,9 +297,7 @@ OcaPropertyID
 
 .. cpp:struct:: OcaPropertyID
     
-    Representation of an OCA property ID. A class may define at most 255
-    properties of its own. Additional properties may be inherited, so the
-    total number may exceed 255.
+    Representation of an OCA property ID. A class may define at most 255 properties of its own. Additional properties may be inherited, so the total number may exceed 255.
 
     .. cpp:member:: OcaUint16 DefLevel
 
@@ -357,9 +326,7 @@ OcaEventID
 
 .. cpp:struct:: OcaEventID
     
-    Representation of an OCA event ID. A class may define at most 255
-    events of its own. Additional events may be inherited, so the total
-    number may exceed 255.
+    Representation of an OCA event ID. A class may define at most 255 events of its own. Additional events may be inherited, so the total number may exceed 255.
 
     .. cpp:member:: OcaUint16 DefLevel
 
@@ -388,16 +355,14 @@ OcaPropertyDescriptor
 
 .. cpp:struct:: OcaPropertyDescriptor
     
-    Description of an OCA property, including property ID, Get and Set
-    method IDs, and datatype.
+    Description of an OCA property, including property ID, Get and Set method IDs, and datatype.
 
     .. cpp:member:: OcaPropertyID PropertyID
 
 
     .. cpp:member:: OcaBaseDataType BaseDataType
 
-        The base datatype of the property. Chosen from an enum datatype that
-        represents the available set of basedatatypes **.**
+        The base datatype of the property. Chosen from an enum datatype that represents the available set of basedatatypes **.** 
 
     .. cpp:member:: OcaMethodID GetterMethodID
 
@@ -431,9 +396,7 @@ OcaProperty
 
 .. cpp:struct:: OcaProperty
     
-    Template for complete identification of an OCA property instance,
-    including object number, property ID, Get and Set method IDs, and
-    datatype.
+    Template for complete identification of an OCA property instance, including object number, property ID, Get and Set method IDs, and datatype.
 
     .. cpp:member:: OcaONo ONo
 
@@ -507,19 +470,15 @@ OcaGlobalTypeIdentifier
 
 .. cpp:struct:: OcaGlobalTypeIdentifier
     
-    Globally unique identifier of something that belongs to an
-    organization.
+    Globally unique identifier of something that belongs to an organization.
 
     .. cpp:member:: OcaOrganizationID Authority
 
-        Unique identifier of organization that has authority over this
-        reusable block type. A zero value indicates a global type defined by
-        the AES70 standard itself.
+        Unique identifier of organization that has authority over this reusable block type. A zero value indicates a global type defined by the AES70 standard itself.
 
     .. cpp:member:: OcaUint32 ID
 
-        ID of library volume type defined by given Authority. Value is unique
-        within the given Authority.
+        ID of library volume type defined by given Authority. Value is unique within the given Authority.
 
 
 OCP.1 Encoding
@@ -540,9 +499,7 @@ OcaParameterMask
 
 .. cpp:type:: OcaParameterMask = OcaBitSet16
 
-    Bitset to indicate which method parameters contain valid data. The
-    position of a bit in the bitset shall correspond to the ordinal
-    position of the respective parameter of the method in question.
+    Bitset to indicate which method parameters contain valid data. The position of a bit in the bitset shall correspond to the ordinal position of the respective parameter of the method in question.
 .. _OcaStringComparisonType:
 
 OcaStringComparisonType
@@ -557,8 +514,7 @@ OcaStringComparisonType
         Exact comparison, Case-sensitive.
     .. cpp:enumerator:: Substring = 1
 
-        Match all strings whose initial substrings equal the given key.
-        Case-sensitive.
+        Match all strings whose initial substrings equal the given key. Case-sensitive.
     .. cpp:enumerator:: Contains = 2
 
         Match all strings that contain the given key. Case-sensitive.
@@ -567,8 +523,7 @@ OcaStringComparisonType
         Exact comparison. Case-insensitive.
     .. cpp:enumerator:: SubstringCaseInsensitive = 4
 
-        Match all strings whose initial substrings equal the given key.
-        Case-insensitive.
+        Match all strings whose initial substrings equal the given key. Case-insensitive.
     .. cpp:enumerator:: ContainsCaseInsensitive = 5
 
         Match all strings that contain the given key. Case-insensitive.
@@ -579,9 +534,7 @@ OcaPositionDescriptorFieldFlags
 
 .. cpp:type:: OcaPositionDescriptorFieldFlags = OcaBitSet16
 
-    BItset that specifies which fields in **OcaPositionAndOrientation**
-    are used. A "1" value signifies that the corresponding
-    **OcaPositionAndOrientation** field is used.
+    BItset that specifies which fields in  **OcaPositionAndOrientation**  are used. A "1" value signifies that the corresponding  **OcaPositionAndOrientation** field is used.
 .. _OcaPositionDescriptor:
 
 OcaPositionDescriptor
@@ -589,48 +542,43 @@ OcaPositionDescriptor
 
 .. cpp:struct:: OcaPositionDescriptor
     
-    A six-axis c1,c2,c3,c4,c5,c6) coordinate. For mechanical systems,
-    these axes shall be interpreted as follows:
+    A six-axis c1,c2,c3,c4,c5,c6) coordinate. For mechanical systems, these axes shall be interpreted as follows:  
     
-    - c1 = X; axial (fore-and-aft) position
+     - c1 = X; axial (fore-and-aft) position
+     
     
+     - c2 = Y; lateral (side-to-side) position
+     
     
-    - c2 = Y; lateral (side-to-side) position
+     - c3 = Z; vertical position
+     
     
+     - c4 = rX; rotation around the X-axis, also known as  *Roll* 
+     
     
-    - c3 = Z; vertical position
+     - c5 = rY; rotation around the Y-axis, also known as  *Pitch* 
+     
     
+     - c6 = rZ; rotation around the Z-axis. also known as  *Yaw* 
+      Rotation angles are measured according to the  *right-hand rule:*  if the right hand "holds" an axis with the thumb pointing in the direction of ascending coordinate values, then the fingers point in the direction of ascending angle values. For GPS systems, these axes shall be interpreted as follows:  
     
-    - c4 = rX; rotation around the X-axis, also known as *Roll*
+     - c1 = longitude
+     
     
+     - c2 = latitude
+     
     
-    - c5 = rY; rotation around the Y-axis, also known as *Pitch*
+     - c3 = altitude
+     
     
+     - c4 : not used
+     
     
-    - c6 = rZ; rotation around the Z-axis. also known as *Yaw*
-    Rotation angles are measured according to the *right-hand rule:* if
-    the right hand "holds" an axis with the thumb pointing in the
-    direction of ascending coordinate values, then the fingers point in
-    the direction of ascending angle values. For GPS systems, these axes
-    shall be interpreted as follows:
+     - c5 : not used
+     
     
-    - c1 = longitude
-    
-    
-    - c2 = latitude
-    
-    
-    - c3 = altitude
-    
-    
-    - c4 : not used
-    
-    
-    - c5 : not used
-    
-    
-    - c6 : not used
-    
+     - c6 : not used
+     
 
     .. cpp:member:: OcaPositionCoordinateSystem CoordinateSystem
 
@@ -669,48 +617,32 @@ OcaPositionCoordinateSystem
 
 .. cpp:enum:: OcaPositionCoordinateSystem : uint8_t
 
-    Enumeration that designates the type of position coordinate system
-    used. For details, see the AES70-1 description of the
-    **OcaPhysicalPosition** class.
+    Enumeration that designates the type of position coordinate system used. For details, see the AES70-1 description of the  **OcaPhysicalPosition** class.
 
     .. cpp:enumerator:: Robotic = 1
 
-        Six-axis robotic coordinates: {X, Y, Z, rX, rY, rZ} .
-        r:raw:html:`&lt;`axis:raw:html:`&gt;` is anticlockwise rotation around
-        the given axis - X, Y, or Z. For details, see AES70-1, section 5.5.9.
+        Six-axis robotic coordinates: {X, Y, Z, rX, rY, rZ} . r:raw:html:`&lt;`axis:raw:html:`&gt;` is anticlockwise rotation around the given axis - X, Y, or Z. For details, see AES70-1, section 5.5.9.
     .. cpp:enumerator:: ItuAudioObjectBasedPolar = 2
 
-        Object-based audio, polar version, per section 8 of the ITU radio
-        Audio Definition Model defined in ITU-R BS.2076-1. For details, see
-        the ITU standard and AES70-1, section 5.5.9.
+        Object-based audio, polar version, per section 8 of the ITU radio Audio Definition Model defined in ITU-R BS.2076-1. For details, see the ITU standard and AES70-1, section 5.5.9.  
         
-        - Azimuth is angle in the horizontal plane with 0 degrees as straight
-        ahead, and positive angles to the left (or anti-clockwise) when viewed
-        from above.
+         - Azimuth is angle in the horizontal plane with 0 degrees as straight ahead, and positive angles to the left (or anti-clockwise) when viewed from above.
+           
         
-        
-        - Elevation is angle in the vertical plane with 0 degrees horizontally
-        ahead, and positive angles going up.
-        
+         - Elevation is angle in the vertical plane with 0 degrees horizontally ahead, and positive angles going up.
+         
     .. cpp:enumerator:: ItuAudioObjectBasedCartesian = 3
 
-        Object-based audio, Cartesian version, per section 8 of the ITU radio
-        Audio Definition Model defined in ITU-R BS.2076-1. For details, see
-        the ITU standard and AES70-1, section 5.5.9.
+        Object-based audio, Cartesian version, per section 8 of the ITU radio Audio Definition Model defined in ITU-R BS.2076-1. For details, see the ITU standard and AES70-1, section 5.5.9.
     .. cpp:enumerator:: ItuAudioSceneBasedPolar = 4
 
-        Scene-based audio, polar version, per section 8 of the ITU radio Audio
-        Definition Model defined in ITU-R BS.2076-1. For details, see the ITU
-        standard and AES70-1, section 5.5.9.
+        Scene-based audio, polar version, per section 8 of the ITU radio Audio Definition Model defined in ITU-R BS.2076-1. For details, see the ITU standard and AES70-1, section 5.5.9.
     .. cpp:enumerator:: ItuAudioSceneBasedCartesian = 5
 
-        Scene-based audio, Cartesian version, per section 8 of the ITU radio
-        Audio Definition Model defined in ITU-R BS.2076-1. For details, see
-        the ITU standard and AES70-1, section 5.5.9.
+        Scene-based audio, Cartesian version, per section 8 of the ITU radio Audio Definition Model defined in ITU-R BS.2076-1. For details, see the ITU standard and AES70-1, section 5.5.9.
     .. cpp:enumerator:: NAV = 6
 
         Terrestrial navigation format: {Longitude, Latitude, Altitude}.
     .. cpp:enumerator:: ProprietaryBase = 128
 
-        Base value for proprietary extensions. Proprietary extensions shall be
-        numbered starting from this value.
+        Base value for proprietary extensions. Proprietary extensions shall be numbered starting from this value.

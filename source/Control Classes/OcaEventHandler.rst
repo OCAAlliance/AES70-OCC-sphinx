@@ -9,11 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaEventHandler: OcaAgent
 
-    Base class for event handler objects. This class applies to
-    controllers that subscribe to events and receive notifications for
-    them. Controller developers can derive from this class and add
-    specific callback methods that perform processing and/or have specific
-    event data structures.
+    Base class for event handler objects. This class applies to controllers that subscribe to events and receive notifications for them. Controller developers can derive from this class and add specific callback methods that perform processing and/or have specific event data structures.
 
     **Properties**:
 
@@ -21,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -31,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -60,8 +52,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus OnEvent(OcaBlob Context, OcaEventData eventData)
 
-        Generic empty callback method for events. Application developers can
-        override this method in a derived class to add behavior.
+        Generic empty callback method for events. Application developers can override this method in a derived class to add behavior.
 
         This method has id ``3.1``.
 

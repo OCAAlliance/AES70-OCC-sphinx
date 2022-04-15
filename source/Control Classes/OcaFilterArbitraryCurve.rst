@@ -9,8 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaFilterArbitraryCurve: OcaActuator
 
-    An arbitrary-curve filter, with transfer function specified as
-    amplitude and phase versus frequency.
+    An arbitrary-curve filter, with transfer function specified as amplitude and phase versus frequency.
 
     **Properties**:
 
@@ -18,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -28,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 
@@ -46,8 +41,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaFrequency SampleRate
 
-        Sample rate inside the filter. We can't assume it's the same as the
-        device input or output rate.
+        Sample rate inside the filter. We can't assume it's the same as the device input or output rate.
 
         This property has id ``4.2``.
 
@@ -138,8 +132,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetTFMinLength(OcaUint16 &Min)
 
-        Returns the minimum number of required points in the specified
-        transfer function.
+        Returns the minimum number of required points in the specified transfer function.
 
         This method has id ``4.5``.
 
@@ -149,8 +142,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetTFMaxLength(OcaUint16 &Max)
 
-        Returns the maximum number of allowed points in the specified transfer
-        function.
+        Returns the maximum number of allowed points in the specified transfer function.
 
         This method has id ``4.6``.
 

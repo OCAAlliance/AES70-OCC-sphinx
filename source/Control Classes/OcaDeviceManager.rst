@@ -9,14 +9,13 @@ Class Hirarchy:
 
 .. cpp:class:: OcaDeviceManager: OcaManager
 
-    Mandatory manager that contains information relevant to the whole
-    device.
+    Mandatory manager that contains information relevant to the whole device.  
     
-    - Must be instantiated once in every device.
+     - Must be instantiated once in every device.
+     
     
-    
-    - Must have object number 1.
-    
+     - Must have object number 1.
+     
 
     **Properties**:
 
@@ -24,9 +23,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -34,9 +31,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -44,10 +39,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaModelGUID ModelGUID
 
-        Read-only property that identifies the model of the device. Note this
-        property is not equivalent to a MAC address, because (a) MAC addresses
-        identify individual devices, not models, and (b) MAC addresses are
-        Ethernet-specific, but an OCA device need not have an Ethernet port.
+        Read-only property that identifies the model of the device. Note this property is not equivalent to a MAC address, because (a) MAC addresses identify individual devices, not models, and (b) MAC addresses are Ethernet-specific, but an OCA device need not have an Ethernet port.
 
         This property has id ``3.1``.
 
@@ -55,8 +47,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaString SerialNumber
 
-        Read-only property that identifies the serial number of the CAP
-        device.
+        Read-only property that identifies the serial number of the CAP device.
 
         This property has id ``3.2``.
 
@@ -64,8 +55,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaModelDescription ModelDescription
 
-        Read-only property that contains text names for this model, its
-        manufacturer, and its version.
+        Read-only property that contains text names for this model, its manufacturer, and its version.
 
         This property has id ``3.3``.
 
@@ -73,8 +63,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaString DeviceName
 
-        Name of the device. Should be unique manufacturer-qualified
-        identifier.
+        Name of the device. Should be unique manufacturer-qualified identifier.
 
         This property has id ``3.4``.
 
@@ -82,8 +71,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaUint16 OcaVersion
 
-        Read-only property that indicates the AES70 version number used by the
-        device.
+        Read-only property that indicates the AES70 version number used by the device.
 
         This property has id ``3.5``.
 
@@ -123,8 +111,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaBoolean Busy
 
-        True iff device is working on something and is not available for OCA
-        command activity. Readonly.
+        True iff device is working on something and is not available for OCA command activity. Readonly.
 
         This property has id ``3.10``.
 
@@ -140,8 +127,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaString Message
 
-        Arbitrary text message provided by controller. Display and handling of
-        the text is device-dependent and not defined by OCA.
+        Arbitrary text message provided by controller. Display and handling of the text is device-dependent and not defined by OCA.
 
         This property has id ``3.12``.
 
@@ -157,9 +143,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaString DeviceRevisionID
 
-        Overall device revision identifier. Format of string is
-        manufacturer-specific. Readonly. May be changed by proprietery
-        functions of firmware upload processes.
+        Overall device revision identifier. Format of string is manufacturer-specific. Readonly. May be changed by proprietery functions of firmware upload processes.
 
         This property has id ``3.14``.
 
@@ -179,8 +163,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetOcaVersion(OcaUint16 &OcaVersion)
 
-        Gets the value of the OcaVersion property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the OcaVersion property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``3.1``.
 
@@ -190,8 +173,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetModelGUID(OcaModelGUID &GUID)
 
-        Gets the model GUID. The return value indicates whether the GUID was
-        successfully retrieved.
+        Gets the model GUID. The return value indicates whether the GUID was successfully retrieved.
 
         This method has id ``3.2``.
 
@@ -201,8 +183,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSerialNumber(OcaString &serialNumber)
 
-        Gets the value of the SerialNumber property. The return value
-        indicates whether the property was successfully retrieved.
+        Gets the value of the SerialNumber property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``3.3``.
 
@@ -212,8 +193,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetDeviceName(OcaString &Name)
 
-        Gets the device name. The return value indicates whether the property
-        was successfully retrieved.
+        Gets the device name. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``3.4``.
 
@@ -223,8 +203,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetDeviceName(OcaString Name)
 
-        Sets the device name. The return value indicates whether the property
-        was successfully set.
+        Sets the device name. The return value indicates whether the property was successfully set.
 
         This method has id ``3.5``.
 
@@ -234,8 +213,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetModelDescription(OcaModelDescription &Description)
 
-        Gets the model description. The return value indicates whether the
-        description was successfully retrieved.
+        Gets the model description. The return value indicates whether the description was successfully retrieved.
 
         This method has id ``3.6``.
 
@@ -245,8 +223,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetDeviceRole(OcaString &role)
 
-        Gets the value of the Role property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Role property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``3.7``.
 
@@ -256,8 +233,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetDeviceRole(OcaString role)
 
-        Sets the value of the Role property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Role property. The return value indicates whether the property was successfully set.
 
         This method has id ``3.8``.
 
@@ -267,8 +243,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetUserInventoryCode(OcaString &Code)
 
-        Gets the value of the UserInventoryCode property. The return value
-        indicates whether the property was successfully retrieved.
+        Gets the value of the UserInventoryCode property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``3.9``.
 
@@ -278,8 +253,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetUserInventoryCode(OcaString Code)
 
-        Sets the value of the UserInventoryCode property. The return value
-        indicates whether the property was successfully set.
+        Sets the value of the UserInventoryCode property. The return value indicates whether the property was successfully set.
 
         This method has id ``3.10``.
 
@@ -289,8 +263,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetEnabled(OcaBoolean &enabled)
 
-        Gets the value of the Enabled property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Enabled property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``3.11``.
 
@@ -300,8 +273,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetEnabled(OcaBoolean enabled)
 
-        Sets the value of the Enabled property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Enabled property. The return value indicates whether the property was successfully set.
 
         This method has id ``3.12``.
 
@@ -311,8 +283,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetState(OcaDeviceState &state)
 
-        Gets the value of the State property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the State property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``3.13``.
 
@@ -322,11 +293,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetResetKey(OcaBlobFixedLen<16> Key, OcaNetworkAddress Address)
 
-        Sets the value of the reset key of the device. The return value
-        indicates whether the property was successfully set. Note that the
-        device manager must inform the CAP gateway of this key (via the host
-        interface), since the CAP gateway will check for and handle the
-        special reset message.
+        Sets the value of the reset key of the device. The return value indicates whether the property was successfully set. Note that the device manager must inform the CAP gateway of this key (via the host interface), since the CAP gateway will check for and handle the special reset message.
 
         This method has id ``3.14``.
 
@@ -337,8 +304,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetResetCause(OcaResetCause &resetCause)
 
-        Gets the value of the ResetCause property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the ResetCause property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``3.15``.
 
@@ -348,14 +314,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus ClearResetCause()
 
-        Clears the ResetCause property, i.e. resets it to the default value
-        'PowerOn'. Must be used after the reset cause has been read out to
-        ensure differentation between reconnects due to network loss and
-        reconnects due to external or internal reset. Offered as a separate
-        method (instead of implicitly clearing the cause after it has been
-        read out) to accomodate systems that have multiple controllers. The
-        return value indicates whether the property was successfully
-        retrieved.
+        Clears the ResetCause property, i.e. resets it to the default value 'PowerOn'. Must be used after the reset cause has been read out to ensure differentation between reconnects due to network loss and reconnects due to external or internal reset. Offered as a separate method (instead of implicitly clearing the cause after it has been read out) to accomodate systems that have multiple controllers. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``3.16``.
 
@@ -364,8 +323,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetMessage(OcaString &Message)
 
-        Gets the value of property **Message** . Return value indicates
-        whether value was successfully retrieved.
+        Gets the value of property  **Message** . Return value indicates whether value was successfully retrieved.
 
         This method has id ``3.17``.
 
@@ -375,8 +333,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetMessage(OcaString Text)
 
-        Set arbitrary text message into **Message** property. The return value
-        indicates whether the value was successfully set.
+        Set arbitrary text message into  **Message** property. The return value indicates whether the value was successfully set.
 
         This method has id ``3.18``.
 
@@ -386,9 +343,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetManagers(OcaList<OcaManagerDescriptor> &Managers)
 
-        Retrive the list of descriptors of managers instantiated in this
-        device. The return value indicates whether the retrieval was
-        successful.
+        Retrive the list of descriptors of managers instantiated in this device. The return value indicates whether the retrieval was successful.
 
         This method has id ``3.19``.
 
@@ -398,8 +353,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetDeviceRevisionID(OcaString &ID)
 
-        Gets the value of property **DeviceRevisionID** . Return value
-        indicates whether value was successfully retrieved.
+        Gets the value of property  **DeviceRevisionID** . Return value indicates whether value was successfully retrieved.
 
         This method has id ``3.20``.
 

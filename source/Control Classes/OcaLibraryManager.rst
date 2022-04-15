@@ -9,14 +9,13 @@ Class Hirarchy:
 
 .. cpp:class:: OcaLibraryManager: OcaManager
 
-    Optional manager for handling device presets -- Patch and ParamSet
-    libraries.
+    Optional manager for handling device presets -- Patch and ParamSet libraries.  
     
-    - May be instantiated once in any device.
+     - May be instantiated once in any device.
+       
     
-    
-    - If instantiated, object number must be 8.
-    
+     - If instantiated, object number must be 8.
+     
 
     **Properties**:
 
@@ -24,9 +23,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -34,9 +31,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -52,9 +47,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaLibVolIdentifier CurrentPatch
 
-        Library volume identifier of the most-recently applied patch in this
-        device. Changing the value of this property applies the patch
-        represented by the new value.
+        Library volume identifier of the most-recently applied patch in this device. Changing the value of this property applies the patch represented by the new value.
 
         This property has id ``3.2``.
 
@@ -74,8 +67,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus AddLibrary(OcaLibVolType Type, OcaLibraryIdentifier &Identifier)
 
-        Adds a library to the device. Return value indicates whether the
-        library was successfully added.
+        Adds a library to the device. Return value indicates whether the library was successfully added.
 
         This method has id ``3.1``.
 
@@ -96,8 +88,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLibraryCount(OcaLibVolType Type, OcaUint16 &Count)
 
-        Returns the number of libraries of the given type that are
-        instantiated in the device..
+        Returns the number of libraries of the given type that are instantiated in the device..
 
         This method has id ``3.3``.
 
@@ -108,8 +99,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLibraryList(OcaLibVolType Type, OcaList<OcaLibraryIdentifier> &Libraries)
 
-        Returns the list of object numbers of libraries of libraries of the
-        given type that are instantiated in the device.
+        Returns the list of object numbers of libraries of libraries of the given type that are instantiated in the device.
 
         This method has id ``3.4``.
 
@@ -120,8 +110,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetCurrentPatch(OcaLibVolIdentifier &ID)
 
-        Return the identifier of the most recently applied patch. The return
-        value indicates whether the method succeeded.
+        Return the identifier of the most recently applied patch. The return value indicates whether the method succeeded.
 
         This method has id ``3.5``.
 

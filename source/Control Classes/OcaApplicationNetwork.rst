@@ -9,8 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaApplicationNetwork: OcaRoot
 
-    Abstract base class from which the application network classes
-    inherit.
+    Abstract base class from which the application network classes inherit.
 
     **Properties**:
 
@@ -18,7 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property is an override of the **OcaRoot** property.
+        This property is an override of the  **OcaRoot** property.
 
         This property has id ``2.1``.
 
@@ -26,7 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property is an override of the **OcaRoot** property.
+        This property is an override of the  **OcaRoot** property.
 
         This property has id ``2.2``.
 
@@ -34,9 +33,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaString Label
 
-        Specific label of the network. Can be used to provide human readable
-        information about the network. The label can be get and set over any
-        network.
+        Specific label of the network. Can be used to provide human readable information about the network. The label can be get and set over any network.
 
         This property has id ``2.1``.
 
@@ -52,12 +49,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaApplicationNetworkServiceID ServiceID
 
-        Name or GUID that this device publishes in the network's
-        directory/discovery system to designate the services offered via this
-        application network object. This may or may not be the same as the
-        device's host name, if any. For data network types that have host
-        names (e.g. IP networks), the authoritative copy of the host name is
-        in the system interface ID.
+        Name or GUID that this device publishes in the network's directory/discovery system to designate the services offered via this application network object. This may or may not be the same as the device's host name, if any. For data network types that have host names (e.g. IP networks), the authoritative copy of the host name is in the system interface ID.
 
         This property has id ``2.3``.
 
@@ -65,12 +57,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaList<OcaNetworkSystemInterfaceDescriptor> SystemInterfaces
 
-        Collection of identifiers of system interface descriptor(s) used by
-        the network. A "system interface" is the system service through which
-        network traffic passes into and out of the device -- e.g. a socket.
-        The descriptor format is system and network dependent; for OCA
-        purposes, it is maintained as a variable-length blob which the
-        protocol does not inspect.
+        Collection of identifiers of system interface descriptor(s) used by the network. A "system interface" is the system service through which network traffic passes into and out of the device -- e.g. a socket. The descriptor format is system and network dependent; for OCA purposes, it is maintained as a variable-length blob which the protocol does not inspect.
 
         This property has id ``2.4``.
 
@@ -106,8 +93,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLabel(OcaString &Label)
 
-        Gets the network's user-specified label. Return status indicates
-        whether the operation was successful.
+        Gets the network's user-specified label. Return status indicates whether the operation was successful.
 
         This method has id ``2.1``.
 
@@ -117,8 +103,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetLabel(OcaString Label)
 
-        Sets the network's user-specified label. Return status indicates
-        whether the operation was successful.
+        Sets the network's user-specified label. Return status indicates whether the operation was successful.
 
         This method has id ``2.2``.
 
@@ -128,8 +113,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetOwner(OcaONo &Owner)
 
-        Gets the ONo of this network's containing block. Return status
-        indicates whether the operation was successful.
+        Gets the ONo of this network's containing block. Return status indicates whether the operation was successful.
 
         This method has id ``2.3``.
 
@@ -139,8 +123,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetServiceID(OcaApplicationNetworkServiceID &Name)
 
-        Gets the network's IDAdvertised. Return status indicates whether the
-        operation was successful.
+        Gets the network's IDAdvertised. Return status indicates whether the operation was successful.
 
         This method has id ``2.4``.
 
@@ -150,8 +133,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetServiceID(OcaApplicationNetworkServiceID Name)
 
-        Sets the network's IDAdvertised. Return status indicates whether the
-        operation was successful.
+        Sets the network's IDAdvertised. Return status indicates whether the operation was successful.
 
         This method has id ``2.5``.
 
@@ -161,8 +143,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSystemInterfaces(OcaList<OcaNetworkSystemInterfaceDescriptor> &SystemInterfaces)
 
-        Retrieves the list of this network's system interface descriptor.
-        Return status indicates whether the list was successfully retrieved.
+        Retrieves the list of this network's system interface descriptor. Return status indicates whether the list was successfully retrieved.
 
         This method has id ``2.6``.
 
@@ -172,9 +153,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetSystemInterfaces(OcaList<OcaNetworkSystemInterfaceDescriptor> Descriptors)
 
-        Sets the network's System Interface Descriptor(s). Return status
-        indicates whether the operation was successful. Optional method;
-        System Interface Descriptor may be set at construction time.
+        Sets the network's System Interface Descriptor(s). Return status indicates whether the operation was successful. Optional method; System Interface Descriptor may be set at construction time.
 
         This method has id ``2.7``.
 
@@ -184,8 +163,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetState(OcaApplicationNetworkState &State)
 
-        Retrieves the network's state. Return status indicates whether the
-        status was successfully retrieved.
+        Retrieves the network's state. Return status indicates whether the status was successfully retrieved.
 
         This method has id ``2.8``.
 
@@ -195,9 +173,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetErrorCode(OcaUint16 &ErrorCode)
 
-        Retrieves the most recent error code. Return status indicates whether
-        the operation was successful. Note that a second parameter 'Reset' is
-        removed in v02 of this class.
+        Retrieves the most recent error code. Return status indicates whether the operation was successful. Note that a second parameter 'Reset' is removed in v02 of this class.
 
         This method has id ``2.9``.
 
@@ -207,8 +183,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus Control(OcaApplicationNetworkCommand Command)
 
-        Control the application network. Return value indicates success of
-        command execution.
+        Control the application network. Return value indicates success of command execution.
 
         This method has id ``2.10``.
 
@@ -218,8 +193,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetPath(OcaNamePath &NamePath, OcaONoPath &ONoPath)
 
-        Returns path from given object down to root. The return value
-        indicates whether the operation succeeded.
+        Returns path from given object down to root. The return value indicates whether the operation succeeded.
 
         This method has id ``2.11``.
 

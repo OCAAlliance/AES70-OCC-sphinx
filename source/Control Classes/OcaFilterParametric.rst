@@ -17,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -27,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 
@@ -53,8 +49,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaFloat32 WidthParameter
 
-        Width parameter. For normal parametric implementations, this is the Q
-        of the filter.
+        Width parameter. For normal parametric implementations, this is the Q of the filter.
 
         This property has id ``4.3``.
 
@@ -70,9 +65,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaFloat32 ShapeParameter
 
-        Width parameter. For certain filter types, this parameter may be used
-        to represent extra information about the shape of the transfer
-        function.
+        Width parameter. For certain filter types, this parameter may be used to represent extra information about the shape of the transfer function.
 
         This property has id ``4.5``.
 
@@ -105,8 +98,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetFrequency(OcaFrequency &Frequency, OcaFrequency &minFrequency, OcaFrequency &maxFrequency)
 
-        Gets the equalizer frequency setpoint. The return value indicates
-        whether the data was successfully retrieved.
+        Gets the equalizer frequency setpoint. The return value indicates whether the data was successfully retrieved.
 
         This method has id ``4.1``.
 
@@ -118,8 +110,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetFrequency(OcaFrequency Frequency)
 
-        Sets the equalizer frequency. The return value indicates whether the
-        value was successfully set.
+        Sets the equalizer frequency. The return value indicates whether the value was successfully set.
 
         This method has id ``4.2``.
 
@@ -129,8 +120,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetShape(OcaParametricEQShape &type)
 
-        Gets the curve shape of the equalizer. The return value indicates
-        whether the data was successfully retrieved.
+        Gets the curve shape of the equalizer. The return value indicates whether the data was successfully retrieved.
 
         This method has id ``4.3``.
 
@@ -140,8 +130,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetShape(OcaParametricEQShape type)
 
-        Sets the curve shape shape of the equalizer. The return value
-        indicates whether the shape was successfully set.
+        Sets the curve shape shape of the equalizer. The return value indicates whether the shape was successfully set.
 
         This method has id ``4.4``.
 
@@ -151,8 +140,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetWidthParameter(OcaFloat32 &Width, OcaFloat32 &minWidth, OcaFloat32 &maxWidth)
 
-        Gets the width parameter property of the equalizer. The return value
-        indicates whether the data was successfully retrieved.
+        Gets the width parameter property of the equalizer. The return value indicates whether the data was successfully retrieved.
 
         This method has id ``4.5``.
 
@@ -164,8 +152,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetWidthParameter(OcaFloat32 Width)
 
-        Sets the width parameter property of the equalizer. The return value
-        indicates whether the Q was successfully set.
+        Sets the width parameter property of the equalizer. The return value indicates whether the Q was successfully set.
 
         This method has id ``4.6``.
 
@@ -175,8 +162,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetInbandGain(OcaDB &gain, OcaDB &minGain, OcaDB &maxGain)
 
-        Returns the in-band gain of the equalizer. The return value indicates
-        whether the data was successfully retrieved.
+        Returns the in-band gain of the equalizer. The return value indicates whether the data was successfully retrieved.
 
         This method has id ``4.7``.
 
@@ -188,8 +174,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetInbandGain(OcaDB gain)
 
-        Sets the in-band gain of the equalizer. The return value indicates
-        whether the gain was successfully set.
+        Sets the in-band gain of the equalizer. The return value indicates whether the gain was successfully set.
 
         This method has id ``4.8``.
 
@@ -199,8 +184,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetShapeParameter(OcaFloat32 &shape, OcaFloat32 &minShape, OcaFloat32 &maxShape)
 
-        Returns the shape parameter of the equalizer. The return value
-        indicates whether the data was successfully retrieved.
+        Returns the shape parameter of the equalizer. The return value indicates whether the data was successfully retrieved.
 
         This method has id ``4.9``.
 
@@ -212,8 +196,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetShapeParameter(OcaFloat32 shape)
 
-        Sets the shape parameter of the equalizer. The return value indicates
-        whether the parameter was successfully set.
+        Sets the shape parameter of the equalizer. The return value indicates whether the parameter was successfully set.
 
         This method has id ``4.10``.
 
@@ -223,9 +206,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetMultiple(OcaParameterMask Mask, OcaFrequency Frequency, OcaParametricEQShape Shape, OcaFloat32 WidthParameter, OcaDB InBandGain, OcaFloat32 ShapeParameter)
 
-        Sets some or all filter parameters. The return value indicates if the
-        parameters were successfully set. The action of this method is atomic
-        - if any of the value changes fails, none of the changes are made.
+        Sets some or all filter parameters. The return value indicates if the parameters were successfully set. The action of this method is atomic - if any of the value changes fails, none of the changes are made.
 
         This method has id ``4.11``.
 

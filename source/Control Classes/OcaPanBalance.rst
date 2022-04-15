@@ -17,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -27,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 
@@ -37,8 +33,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaFloat32 Position
 
-        Pan position. Range = -1.0 to +1.0. -1.0 is 100% left, +1.0 is 100%
-        right.
+        Pan position. Range = -1.0 to +1.0. -1.0 is 100% left, +1.0 is 100% right.
 
         This property has id ``4.1``.
 
@@ -46,8 +41,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaDB MidpointGain
 
-        Midpoint gain. Normally, max=0dB, min=-6dB. May be readonly for
-        pan/balance objects with fixed midpoint gains.
+        Midpoint gain. Normally, max=0dB, min=-6dB. May be readonly for pan/balance objects with fixed midpoint gains.
 
         This property has id ``4.2``.
 
@@ -80,8 +74,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetPosition(OcaFloat32 &Position, OcaFloat32 &minPosition, OcaFloat32 &maxPosition)
 
-        Gets the value and limits of the Position property. The return value
-        indicates whether the data was successfully retrieved.
+        Gets the value and limits of the Position property. The return value indicates whether the data was successfully retrieved.
 
         This method has id ``4.1``.
 
@@ -93,8 +86,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetPosition(OcaFloat32 Position)
 
-        Sets the value of the Position property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Position property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.2``.
 
@@ -104,8 +96,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetMidpointGain(OcaDB &Gain, OcaDB &minGain, OcaDB &maxGain)
 
-        Gets the value and limits of the MidpointGain property. The return
-        value indicates whether the data was successfully retrieved.
+        Gets the value and limits of the MidpointGain property. The return value indicates whether the data was successfully retrieved.
 
         This method has id ``4.3``.
 
@@ -117,8 +108,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetMidpointGain(OcaDB Gain)
 
-        Sets the value of the MidpointGain property. The return value
-        indicates whether the property was successfully set.
+        Sets the value of the MidpointGain property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.4``.
 

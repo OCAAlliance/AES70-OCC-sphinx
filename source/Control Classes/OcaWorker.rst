@@ -9,8 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaWorker: OcaRoot
 
-    Abstract base class for classes that represent the device's
-    application and support functions.
+    Abstract base class for classes that represent the device's application and support functions.
 
     **Properties**:
 
@@ -18,10 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This is a
-        class property instead of an object property. This property is an
-        override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This is a class property instead of an object property. This property is an override of the  **OcaRoot** property.
 
         This property has id ``2.1``.
 
@@ -29,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``2.2``.
 
@@ -39,11 +33,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaBoolean Enabled
 
-        Read/write property that indicates whether the worker object is
-        enabled in the device. If an object is disabled it cannot be used by
-        the application. Note that the behavior of a disabled object depends
-        on the object itself (e.g. a disabled chime generator is silent, a
-        disabled equalizer is flat, etc.).
+        Read/write property that indicates whether the worker object is enabled in the device. If an object is disabled it cannot be used by the application. Note that the behavior of a disabled object depends on the object itself (e.g. a disabled chime generator is silent, a disabled equalizer is flat, etc.).
 
         This property has id ``2.1``.
 
@@ -51,9 +41,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaList<OcaPort> Ports
 
-        The list of (input and output) OCA ports the worker object has. Note
-        that a worker object can have no ports (in which case the list is
-        empty).
+        The list of (input and output) OCA ports the worker object has. Note that a worker object can have no ports (in which case the list is empty).
 
         This property has id ``2.2``.
 
@@ -61,9 +49,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaString Label
 
-        Specific label of the worker. Can be used to provide human readable
-        information about the worker. The label can be get and set over the
-        network.
+        Specific label of the worker. Can be used to provide human readable information about the worker. The label can be get and set over the network.
 
         This property has id ``2.3``.
 
@@ -79,8 +65,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaTimeInterval Latency
 
-        Processing latency of this object. Optional. Readonly or readwrite,
-        depending on implementation.
+        Processing latency of this object. Optional. Readonly or readwrite, depending on implementation.
 
         This property has id ``2.5``.
 
@@ -100,8 +85,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetEnabled(OcaBoolean &enabled)
 
-        Gets the value of the Enabled property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Enabled property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``2.1``.
 
@@ -111,8 +95,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetEnabled(OcaBoolean enabled)
 
-        Sets the value of the Enabled property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Enabled property. The return value indicates whether the property was successfully set.
 
         This method has id ``2.2``.
 
@@ -122,8 +105,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus AddPort(OcaString Label, OcaPortMode Mode, OcaPortID &ID)
 
-        Adds an input or output port.. The return value indicates whether the
-        port was successfully added.
+        Adds an input or output port.. The return value indicates whether the port was successfully added.
 
         This method has id ``2.3``.
 
@@ -135,8 +117,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus DeletePort(OcaPortID ID)
 
-        Deletes an input or output port.. The return value indicates whether
-        the port was successfully deleted.
+        Deletes an input or output port.. The return value indicates whether the port was successfully deleted.
 
         This method has id ``2.4``.
 
@@ -146,8 +127,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetPorts(OcaList<OcaPort> &OcaPorts)
 
-        Gets the list of ports owned by the Worker object. The return value
-        indicates whether the list was successfully retrieved.
+        Gets the list of ports owned by the Worker object. The return value indicates whether the list was successfully retrieved.
 
         This method has id ``2.5``.
 
@@ -157,8 +137,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetPortName(OcaPortID PortID, OcaString &Name)
 
-        Gets the name of the designated port. The return value indicates
-        whether the name was successfully retrieved.
+        Gets the name of the designated port. The return value indicates whether the name was successfully retrieved.
 
         This method has id ``2.6``.
 
@@ -169,8 +148,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetPortName(OcaPortID PortID, OcaString Name)
 
-        Sets the name of the designated port. The return value indicates
-        whether the name was successfully set.
+        Sets the name of the designated port. The return value indicates whether the name was successfully set.
 
         This method has id ``2.7``.
 
@@ -181,8 +159,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLabel(OcaString &label)
 
-        Gets the value of the Label property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Label property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``2.8``.
 
@@ -192,8 +169,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetLabel(OcaString label)
 
-        Sets the value of the Label property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Label property. The return value indicates whether the property was successfully set.
 
         This method has id ``2.9``.
 
@@ -203,8 +179,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetOwner(OcaONo &owner)
 
-        Gets the value of the Owner property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Owner property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``2.10``.
 
@@ -214,8 +189,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLatency(OcaTimeInterval &latency)
 
-        Gets the value of the Latency property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Latency property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``2.11``.
 
@@ -225,8 +199,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetLatency(OcaTimeInterval latency)
 
-        Sets the value of the Latency property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Latency property. The return value indicates whether the property was successfully set.
 
         This method has id ``2.12``.
 
@@ -236,8 +209,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetPath(OcaNamePath &NamePath, OcaONoPath &ONoPath)
 
-        Returns path from the given object down to root. The return value
-        indicates whether the operation succeeded. Added in version 2.
+        Returns path from the given object down to root. The return value indicates whether the operation succeeded. Added in version 2.
 
         This method has id ``2.13``.
 

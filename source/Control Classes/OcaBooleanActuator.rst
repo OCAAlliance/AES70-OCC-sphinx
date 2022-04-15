@@ -17,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``5.1``.
 
@@ -27,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``5.2``.
 
@@ -70,8 +66,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSetting(OcaBoolean &Setting)
 
-        Gets the **Setting** property. The return value indicates whether the
-        data was successfully retrieved.
+        Gets the  **Setting** property. The return value indicates whether the data was successfully retrieved.
 
         This method has id ``5.1``.
 
@@ -81,8 +76,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetSetting(OcaBoolean Setting)
 
-        Sets the **Setting** property. The return value indicates whether the
-        property was successfully set.
+        Sets the  **Setting** property. The return value indicates whether the property was successfully set.
 
         This method has id ``5.2``.
 

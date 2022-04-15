@@ -17,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -27,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 
@@ -61,8 +57,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaWaveformType Waveform
 
-        The waveform type this generator generates (e.g. sine, square, noise,
-        etc.).
+        The waveform type this generator generates (e.g. sine, square, noise, etc.).
 
         This property has id ``4.4``.
 
@@ -70,8 +65,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaSweepType SweepType
 
-        The sweep type of the signal generator: None for no sweep, linear or
-        logarithmic if sweep is generated.
+        The sweep type of the signal generator: None for no sweep, linear or logarithmic if sweep is generated.
 
         This property has id ``4.5``.
 
@@ -95,8 +89,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaBoolean Generating
 
-        Read-only property that indicates whether the generator is producing
-        output (true) or not (false).
+        Read-only property that indicates whether the generator is producing output (true) or not (false).
 
         This property has id ``4.8``.
 
@@ -129,8 +122,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetFrequency1(OcaFrequency &frequency, OcaFrequency &minFrequency, OcaFrequency &maxFrequency)
 
-        Gets the value of the Frequency1 property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Frequency1 property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``4.1``.
 
@@ -142,8 +134,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetFrequency1(OcaFrequency frequency)
 
-        Sets the value of the Frequency1 property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Frequency1 property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.2``.
 
@@ -153,8 +144,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetFrequency2(OcaFrequency &frequency, OcaFrequency &minFrequency, OcaFrequency &maxFrequency)
 
-        Gets the value of the Frequency2 property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Frequency2 property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``4.3``.
 
@@ -166,8 +156,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetFrequency2(OcaFrequency frequency)
 
-        Sets the value of the Frequency2 property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Frequency2 property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.4``.
 
@@ -177,8 +166,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLevel(OcaDBz &Level, OcaDBz &minLevel, OcaDBz &maxLevel)
 
-        Gets the value of the Level property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Level property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``4.5``.
 
@@ -190,8 +178,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetLevel(OcaDBz Level)
 
-        Sets the value of the Level property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Level property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.6``.
 
@@ -201,8 +188,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetWaveform(OcaWaveformType &waveform)
 
-        Gets the value of the Waveform property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Waveform property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``4.7``.
 
@@ -212,8 +198,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetWaveform(OcaWaveformType waveform)
 
-        Sets the value of the Waveform property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Waveform property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.8``.
 
@@ -223,8 +208,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSweepType(OcaSweepType &sweepType)
 
-        Gets the value of the SweepType property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the SweepType property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``4.9``.
 
@@ -234,8 +218,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetSweepType(OcaSweepType sweepType)
 
-        Sets the value of the SweepType property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the SweepType property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.10``.
 
@@ -245,8 +228,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSweepTime(OcaTimeInterval &sweepTime, OcaTimeInterval &minSweepTime, OcaTimeInterval &maxSweepTime)
 
-        Gets the value of the SweepTime property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the SweepTime property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``4.11``.
 
@@ -258,8 +240,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetSweepTime(OcaTimeInterval sweepTime)
 
-        Sets the value of the SweepTime property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the SweepTime property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.12``.
 
@@ -269,8 +250,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSweepRepeat(OcaBoolean &sweepRepeat)
 
-        Gets the value of the SweepRepeat property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the SweepRepeat property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``4.13``.
 
@@ -280,8 +260,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetSweepRepeat(OcaBoolean sweepRepeat)
 
-        Sets the value of the SweepRepeat property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the SweepRepeat property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.14``.
 
@@ -291,8 +270,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetGenerating(OcaBoolean &generating)
 
-        Gets the value of the Generating property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Generating property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``4.15``.
 
@@ -302,8 +280,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus Start()
 
-        Starts the signal generator. The return value indicates whether the
-        signal generator was successfully started.
+        Starts the signal generator. The return value indicates whether the signal generator was successfully started.
 
         This method has id ``4.16``.
 
@@ -312,8 +289,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus Stop()
 
-        Stops the signal generator. The return value indicates whether the
-        signal generator was successfully stopped.
+        Stops the signal generator. The return value indicates whether the signal generator was successfully stopped.
 
         This method has id ``4.17``.
 
@@ -322,10 +298,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetMultiple(OcaParameterMask Mask, OcaFrequency Frequency1, OcaFrequency Frequency2, OcaDBz Level, OcaWaveformType Waveform, OcaSweepType SweepType, OcaTimeInterval SweepTime, OcaBoolean SweepRepeat)
 
-        Sets some or all signal generation parameters. The return value
-        indicates if the parameters were successfully set. The action of this
-        method is atomic - if any of the value changes fails, none of the
-        changes are made.
+        Sets some or all signal generation parameters. The return value indicates if the parameters were successfully set. The action of this method is atomic - if any of the value changes fails, none of the changes are made.
 
         This method has id ``4.18``.
 

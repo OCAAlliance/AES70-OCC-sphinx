@@ -9,9 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaActuator: OcaWorker
 
-    Abstract base class for all actuators (i.e. devices that affect the
-    routing and/or content of the audio signal, or provide ancillary
-    functions such as power).
+    Abstract base class for all actuators (i.e. devices that affect the routing and/or content of the audio signal, or provide ancillary functions such as power).
 
     **Properties**:
 
@@ -19,7 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property is an override of the **OcaRoot** property.
+        This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -27,7 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property is an override of the **OcaRoot** property.
+        This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 

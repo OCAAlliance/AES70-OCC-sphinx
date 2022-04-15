@@ -9,13 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaStreamNetwork: OcaAgent
 
-    **DEPRECATED CLASS** *Replaced by class* **OcaMediaTransportNetwork **
-    *in version 3 of Connection Management (CM3)* Abstract base class for
-    defining network classes to which this device belongs. May be a media
-    transport network, a control and monitoring network, or a network that
-    does both. There shall be one OcaStreamNetwork instance for each
-    network to which the device belongs. This class may be subclassed to
-    support networks of various types.
+     **DEPRECATED CLASS**   *Replaced by class*  **OcaMediaTransportNetwork **  *in version 3 of Connection Management (CM3)*  Abstract base class for defining network classes to which this device belongs. May be a media transport network, a control and monitoring network, or a network that does both. There shall be one OcaStreamNetwork instance for each network to which the device belongs. This class may be subclassed to support networks of various types.
 
     **Properties**:
 
@@ -23,7 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property is an override of the **OcaRoot** property.
+        This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -31,7 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property is an override of the **OcaRoot** property.
+        This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -39,8 +33,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaNetworkControlProtocol ControlProtocol
 
-        Type of control protocol used by the network (OCAnn) or NONE if this
-        network is not used for control.
+        Type of control protocol used by the network (OCAnn) or NONE if this network is not used for control.
 
         This property has id ``3.3``.
 
@@ -48,9 +41,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaNetworkNodeID IDAdvertised
 
-        ID by which this device is known on the network, i.e. the host name or
-        GUID that this device publishes in the network's directory/discovery
-        system.
+        ID by which this device is known on the network, i.e. the host name or GUID that this device publishes in the network's directory/discovery system.
 
         This property has id ``3.2``.
 
@@ -58,10 +49,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaNetworkLinkType LinkType
 
-        Network link type - e.g. wired Ethernet, USB, ... See the
-        OcaNetworkType enum for details. This is a read-only property whose
-        value is fixed to the class that is inherited from OcaNetwork to
-        implement each specific type of network.
+        Network link type - e.g. wired Ethernet, USB, ... See the OcaNetworkType enum for details. This is a read-only property whose value is fixed to the class that is inherited from OcaNetwork to implement each specific type of network.
 
         This property has id ``3.1``.
 
@@ -69,8 +57,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaNetworkMediaProtocol MediaProtocol
 
-        Type of media transport protocol used by the network, or NONE if this
-        network is not used for media transport.
+        Type of media transport protocol used by the network, or NONE if this network is not used for media transport.
 
         This property has id ``3.4``.
 
@@ -78,8 +65,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaList<OcaONo> SignalChannelsSink
 
-        List of object numbers of _sink_ **OcaNetworkSignalChannel** objects
-        collected by this network.
+        List of object numbers of  _sink_  **OcaNetworkSignalChannel** objects collected by this network.
 
         This property has id ``3.10``.
 
@@ -87,8 +73,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaList<OcaONo> SignalChannelsSource
 
-        List of object numbers of _source_ **OcaNetworkSignalChannel** objects
-        collected by this network.
+        List of object numbers of  _source_  **OcaNetworkSignalChannel** objects collected by this network.
 
         This property has id ``3.9``.
 
@@ -112,8 +97,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaList<OcaONo> StreamConnectorsSink
 
-        List of object numbers of _sink_ **OcaStreamConnector** objects
-        collected by this network.
+        List of object numbers of  _sink_  **OcaStreamConnector** objects collected by this network.
 
         This property has id ``3.8``.
 
@@ -121,8 +105,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaList<OcaONo> StreamConnectorsSource
 
-        List of object numbers of _source_ **OcaStreamConnector** objects
-        collected by this network.
+        List of object numbers of  _source_  **OcaStreamConnector** objects collected by this network.
 
         This property has id ``3.7``.
 
@@ -130,12 +113,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaList<OcaNetworkSystemInterfaceID> SystemInterfaces
 
-        Collection of identifiers of system interface(s) used by the network.
-        A "system interface" is the system service through which network
-        traffic passes into and out of the device -- e.g. a socket. The
-        identifier format is system and network dependent; for OCA purposes,
-        it is maintained as a variable-length blob which the protocol does not
-        inspect.
+        Collection of identifiers of system interface(s) used by the network. A "system interface" is the system service through which network traffic passes into and out of the device -- e.g. a socket. The identifier format is system and network dependent; for OCA purposes, it is maintained as a variable-length blob which the protocol does not inspect.
 
         This property has id ``3.6``.
 
@@ -162,8 +140,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLinkType(OcaNetworkLinkType &Type)
 
-        Gets the network's link type (wired Ethernet, USB, etc.). Return
-        status indicates whether the operation was successful.
+        Gets the network's link type (wired Ethernet, USB, etc.). Return status indicates whether the operation was successful.
 
         This method has id ``3.1``.
 
@@ -173,8 +150,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetIDAdvertised(OcaNetworkNodeID &Name)
 
-        Gets the network's IDAdvertised. Return status indicates whether the
-        operation was successful.
+        Gets the network's IDAdvertised. Return status indicates whether the operation was successful.
 
         This method has id ``3.2``.
 
@@ -184,8 +160,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetIDAdvertised(OcaNetworkNodeID Name)
 
-        Sets the network's IDAdvertised. Return status indicates whether the
-        operation was successful.
+        Sets the network's IDAdvertised. Return status indicates whether the operation was successful.
 
         This method has id ``3.3``.
 
@@ -195,8 +170,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetControlProtocol(OcaNetworkControlProtocol &Protocol)
 
-        Gets the network's ControlProtocol property. Return status indicates
-        whether the operation was successful.
+        Gets the network's ControlProtocol property. Return status indicates whether the operation was successful.
 
         This method has id ``3.4``.
 
@@ -206,8 +180,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetMediaProtocol(OcaNetworkMediaProtocol &Protocol)
 
-        Gets the network's MediaProtocol property. Return status indicates
-        whether the operation was successful.
+        Gets the network's MediaProtocol property. Return status indicates whether the operation was successful.
 
         This method has id ``3.5``.
 
@@ -217,8 +190,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetStatus(OcaNetworkStatus &Status)
 
-        Retrieves the network's status. Return status indicates whether the
-        status was successfully retrieved.
+        Retrieves the network's status. Return status indicates whether the status was successfully retrieved.
 
         This method has id ``3.6``.
 
@@ -228,8 +200,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetStatistics(OcaNetworkStatistics &Status)
 
-        Retrieves network error statistics counter values. Return status
-        indicates whether the values were successfully retrieved.
+        Retrieves network error statistics counter values. Return status indicates whether the values were successfully retrieved.
 
         This method has id ``3.7``.
 
@@ -239,8 +210,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus ResetStatistics()
 
-        Resets network error statistics counters. Return status indicates
-        whether the counters were successfully reset.
+        Resets network error statistics counters. Return status indicates whether the counters were successfully reset.
 
         This method has id ``3.8``.
 
@@ -249,8 +219,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSystemInterfaces(OcaList<OcaNetworkSystemInterfaceID> &Interfaces)
 
-        Gets the list of system interface IDs that this network is using.
-        Return status indicates success of the operation.
+        Gets the list of system interface IDs that this network is using. Return status indicates success of the operation.
 
         This method has id ``3.9``.
 
@@ -260,9 +229,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetSystemInterfaces(OcaList<OcaNetworkSystemInterfaceID> Interfaces)
 
-        Sets the list of system interface IDs that this network will use.
-        Return status indicates success of the operation. This method is not
-        implemented by all network implementations.
+        Sets the list of system interface IDs that this network will use. Return status indicates success of the operation. This method is not implemented by all network implementations.
 
         This method has id ``3.10``.
 
@@ -272,15 +239,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetStreamConnectorsSource(OcaList<OcaONo> &StreamConnectors)
 
-        Gets the list of object numbers of Source **OcaStreamConnector**
-        objects owned by this network. Return status indicates success of the
-        operation. If the value of the network's MediaProtocol property is
-        NONE, this method will return the status value InvalidRequest. Members
-        are added to and deleted from this list when **OcaStreamConnector**
-        objects' **Owner** properties are updated, or when
-        **OcaStreamConnector** objects are deleted. For reconfigurable
-        devices, such changes may be initiated by controllers during device
-        operation.
+        Gets the list of object numbers of Source  **OcaStreamConnector** objects owned by this network. Return status indicates success of the operation. If the value of the network's MediaProtocol property is NONE, this method will return the status value InvalidRequest. Members are added to and deleted from this list when  **OcaStreamConnector** objects'  **Owner**  properties are updated, or when  **OcaStreamConnector**  objects are deleted. For reconfigurable devices, such changes may be initiated by controllers during device operation.
 
         This method has id ``3.11``.
 
@@ -290,15 +249,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetStreamConnectorsSource(OcaList<OcaONo> StreamConnectors)
 
-        Sets the list of object numbers of Source **OcaStreamConnector**
-        objects owned by this network. Return status indicates success of the
-        operation. If the value of the network's MediaProtocol property is
-        NONE, this method will return the status value InvalidRequest. Members
-        are added to and deleted from this list when **OcaStreamConnector**
-        objects' **Owner** properties are updated, or when
-        **OcaStreamConnector** objects are deleted. For reconfigurable
-        devices, such changes may be initiated by controllers during device
-        operation.
+        Sets the list of object numbers of Source  **OcaStreamConnector** objects owned by this network. Return status indicates success of the operation. If the value of the network's MediaProtocol property is NONE, this method will return the status value InvalidRequest. Members are added to and deleted from this list when  **OcaStreamConnector** objects'  **Owner**  properties are updated, or when  **OcaStreamConnector**  objects are deleted. For reconfigurable devices, such changes may be initiated by controllers during device operation.
 
         This method has id ``3.12``.
 
@@ -308,15 +259,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetStreamConnectorsSink(OcaList<OcaONo> &StreamConnectors)
 
-        Gets the list of object numbers of Sink **OcaStreamConnector** objects
-        owned by this network. Return status indicates success of the
-        operation. If the value of the network's MediaProtocol property is
-        NONE, this method will return the status value InvalidRequest. Members
-        are added to and deleted from this list when **OcaStreamConnector**
-        objects' **Owner** properties are updated, or when
-        **OcaStreamConnector** objects are deleted. For reconfigurable
-        devices, such changes may be initiated by controllers during device
-        operation.
+        Gets the list of object numbers of Sink  **OcaStreamConnector** objects owned by this network. Return status indicates success of the operation. If the value of the network's MediaProtocol property is NONE, this method will return the status value InvalidRequest. Members are added to and deleted from this list when  **OcaStreamConnector**  objects'  **Owner**  properties are updated, or when  **OcaStreamConnector** objects are deleted. For reconfigurable devices, such changes may be initiated by controllers during device operation.
 
         This method has id ``3.13``.
 
@@ -326,15 +269,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetStreamConnectorsSink(OcaList<OcaONo> StreamConnectors)
 
-        Sets the list of object numbers of Sink **OcaStreamConnector** objects
-        owned by this network. Return status indicates success of the
-        operation. If the value of the network's MediaProtocol property is
-        NONE, this method will return the status value InvalidRequest. Members
-        are added to and deleted from this list when **OcaStreamConnector**
-        objects' **Owner** properties are updated, or when
-        **OcaStreamConnector** objects are deleted. For reconfigurable
-        devices, such changes may be initiated by controllers during device
-        operation.
+        Sets the list of object numbers of Sink  **OcaStreamConnector** objects owned by this network. Return status indicates success of the operation. If the value of the network's MediaProtocol property is NONE, this method will return the status value InvalidRequest. Members are added to and deleted from this list when  **OcaStreamConnector**  objects'  **Owner**  properties are updated, or when  **OcaStreamConnector**  objects are deleted. For reconfigurable devices, such changes may be initiated by controllers during device operation.
 
         This method has id ``3.14``.
 
@@ -344,15 +279,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSignalChannelsSource(OcaList<OcaONo> &SignalChannels)
 
-        Gets the list of object numbers of Source **OcaNetworkSignalChannel**
-        objects owned by this network. Return status indicates success of the
-        operation. If the value of the network's MediaProtocol property is
-        NONE, this method will return the status value InvalidRequest. Members
-        are added to and deleted from this list when
-        **OcaNetworkSignalChannel** objects' **Owner** properties are updated,
-        or when **OcaNetworkSignalChannel** objects are deleted. For
-        reconfigurable devices, such changes may be initiated by controllers
-        during device operation.
+        Gets the list of object numbers of Source  **OcaNetworkSignalChannel** objects owned by this network. Return status indicates success of the operation. If the value of the network's MediaProtocol property is NONE, this method will return the status value InvalidRequest. Members are added to and deleted from this list when  **OcaNetworkSignalChannel**  objects'  **Owner**  properties are updated, or when  **OcaNetworkSignalChannel**  objects are deleted. For reconfigurable devices, such changes may be initiated by controllers during device operation.
 
         This method has id ``3.15``.
 
@@ -362,15 +289,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetSignalChannelsSource(OcaList<OcaONo> SignalChannels)
 
-        Sets the list of object numbers of Source **OcaNetworkSignalChannel**
-        objects owned by this network. Return status indicates success of the
-        operation. If the value of the network's MediaProtocol property is
-        NONE, this method will return the status value InvalidRequest. Members
-        are added to and deleted from this list when
-        **OcaNetworkSignalChannel** objects' **Owner** properties are updated,
-        or when **OcaNetworkSignalChannel** objects are deleted. For
-        reconfigurable devices, such changes may be initiated by controllers
-        during device operation.
+        Sets the list of object numbers of Source  **OcaNetworkSignalChannel** objects owned by this network. Return status indicates success of the operation. If the value of the network's MediaProtocol property is NONE, this method will return the status value InvalidRequest. Members are added to and deleted from this list when  **OcaNetworkSignalChannel**  objects'  **Owner**  properties are updated, or when  **OcaNetworkSignalChannel**  objects are deleted. For reconfigurable devices, such changes may be initiated by controllers during device operation.
 
         This method has id ``3.16``.
 
@@ -380,15 +299,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSignalChannelsSink(OcaList<OcaONo> &SignalChannels)
 
-        Gets the list of object numbers of Sink **OcaNetworkSignalChannel**
-        objects owned by this network. Return status indicates success of the
-        operation. If the value of the network's MediaProtocol property is
-        NONE, this method will return the status value InvalidRequest. Members
-        are added to and deleted from this list when
-        **OcaNetworkSignalChannel** objects' **Owner** properties are updated,
-        or when **OcaNetworkSignalChannel** objects are deleted. For
-        reconfigurable devices, such changes may be initiated by controllers
-        during device operation.
+        Gets the list of object numbers of Sink  **OcaNetworkSignalChannel** objects owned by this network. Return status indicates success of the operation. If the value of the network's MediaProtocol property is NONE, this method will return the status value InvalidRequest. Members are added to and deleted from this list when  **OcaNetworkSignalChannel**  objects'  **Owner**  properties are updated, or when  **OcaNetworkSignalChannel**  objects are deleted. For reconfigurable devices, such changes may be initiated by controllers during device operation.
 
         This method has id ``3.17``.
 
@@ -398,15 +309,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetSignalChannelsSink(OcaList<OcaONo> SignalChannels)
 
-        Sets the list of object numbers of Sink **OcaNetworkSignalChannel**
-        objects owned by this network. Return status indicates success of the
-        operation. If the value of the network's MediaProtocol property is
-        NONE, this method will return the status value InvalidRequest. Members
-        are added to and deleted from this list when
-        **OcaNetworkSignalChannel** objects' **Owner** properties are updated,
-        or when **OcaNetworkSignalChannel** objects are deleted. For
-        reconfigurable devices, such changes may be initiated by controllers
-        during device operation.
+        Sets the list of object numbers of Sink  **OcaNetworkSignalChannel** objects owned by this network. Return status indicates success of the operation. If the value of the network's MediaProtocol property is NONE, this method will return the status value InvalidRequest. Members are added to and deleted from this list when  **OcaNetworkSignalChannel**  objects'  **Owner**  properties are updated, or when  **OcaNetworkSignalChannel**  objects are deleted. For reconfigurable devices, such changes may be initiated by controllers during device operation.
 
         This method has id ``3.18``.
 

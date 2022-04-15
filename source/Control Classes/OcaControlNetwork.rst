@@ -16,7 +16,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property is an override of the **OcaRoot** property.
+        This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -24,7 +24,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property is an override of the **OcaRoot** property.
+        This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -32,8 +32,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaNetworkControlProtocol Protocol
 
-        Type of control protocol used by the network (OCAnn). Read-only
-        property.
+        Type of control protocol used by the network (OCAnn). Read-only property.
 
         This property has id ``3.1``.
 
@@ -68,8 +67,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetControlProtocol(OcaNetworkControlProtocol &Protocol)
 
-        Gets the network's Protocol property. Return status indicates whether
-        the operation was successful.
+        Gets the network's Protocol property. Return status indicates whether the operation was successful.
 
         This method has id ``3.1``.
 

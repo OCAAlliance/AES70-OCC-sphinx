@@ -17,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -27,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 
@@ -37,8 +33,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaUint32 Length
 
-        Length of the filter, in samples. Readonly. Value is set when
-        SetCoefficients(...) method executes.
+        Length of the filter, in samples. Readonly. Value is set when SetCoefficients(...) method executes.
 
         This property has id ``4.1``.
 
@@ -46,8 +41,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaList<OcaFloat32> Coefficients
 
-        Array of FIR Coefficients. The size of the array (number of entries)
-        is equal to the Order property plus 1.
+        Array of FIR Coefficients. The size of the array (number of entries) is equal to the Order property plus 1.
 
         This property has id ``4.2``.
 
@@ -55,8 +49,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaFrequency SampleRate
 
-        Sample rate inside the filter. We can't assume it's the same as the
-        device input or output rate.
+        Sample rate inside the filter. We can't assume it's the same as the device input or output rate.
 
         This property has id ``4.3``.
 
@@ -89,8 +82,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLength(OcaUint32 &Length, OcaUint32 &minLength, OcaUint32 &maxLength)
 
-        Gets the length of the FIR filter. The return value indicates whether
-        the value was successfully retrieved.
+        Gets the length of the FIR filter. The return value indicates whether the value was successfully retrieved.
 
         This method has id ``4.1``.
 
@@ -102,8 +94,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetCoefficients(OcaList<OcaFloat32> &Coefficients)
 
-        Gets the coefficients of the FIR filter. The return value indicates
-        whether the coefficients were successfully retrieved.
+        Gets the coefficients of the FIR filter. The return value indicates whether the coefficients were successfully retrieved.
 
         This method has id ``4.2``.
 
@@ -113,8 +104,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetCoefficients(OcaList<OcaFloat32> Coefficients)
 
-        Sets the value of the properties of the FIR filter. The return value
-        indicates whether the properties were successfully set.
+        Sets the value of the properties of the FIR filter. The return value indicates whether the properties were successfully set.
 
         This method has id ``4.3``.
 
@@ -124,8 +114,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSampleRate(OcaFrequency &Rate, OcaFrequency &minRate, OcaFrequency &maxRate)
 
-        Gets the sample rate of the FIR filter. The return value indicates
-        whether the data was successfully retrieved.
+        Gets the sample rate of the FIR filter. The return value indicates whether the data was successfully retrieved.
 
         This method has id ``4.4``.
 
@@ -137,8 +126,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetSampleRate(OcaFrequency Rate)
 
-        Sets the sample rate of the FIR filter. The return value indicates
-        whether the rate was successfully set.
+        Sets the sample rate of the FIR filter. The return value indicates whether the rate was successfully set.
 
         This method has id ``4.5``.
 

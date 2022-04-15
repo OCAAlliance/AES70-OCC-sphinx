@@ -17,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``5.1``.
 
@@ -27,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``5.2``.
 
@@ -70,8 +66,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetNrBits(OcaUint16 &nrBits)
 
-        Gets the number of bits in the string. The return value indicates
-        whether the property was successfully gathered.
+        Gets the number of bits in the string. The return value indicates whether the property was successfully gathered.
 
         This method has id ``5.1``.
 
@@ -81,8 +76,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetBit(OcaUint16 bitNr, OcaBoolean &Value)
 
-        Gets the bit value of the given bit. The return value indicates
-        whether the property was successfully gathered.
+        Gets the bit value of the given bit. The return value indicates whether the property was successfully gathered.
 
         This method has id ``5.2``.
 
@@ -93,8 +87,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetBit(OcaUint16 bitNr, OcaBoolean Value)
 
-        Sets the bit value of the given bit. The return value indicates
-        whether the property was successfully set.
+        Sets the bit value of the given bit. The return value indicates whether the property was successfully set.
 
         This method has id ``5.3``.
 
@@ -105,8 +98,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetBitstring(OcaBitstring &BitString)
 
-        Gets the entire bitstring.The return value indicates whether the
-        property was successfully gathered.
+        Gets the entire bitstring.The return value indicates whether the property was successfully gathered.
 
         This method has id ``5.4``.
 
@@ -116,8 +108,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetBitstring(OcaBitstring BitString)
 
-        Sets the entire bitstring. The return value indicates whether the
-        property was successfully set.
+        Sets the entire bitstring. The return value indicates whether the property was successfully set.
 
         This method has id ``5.5``.
 

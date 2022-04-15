@@ -9,28 +9,25 @@ Class Hirarchy:
 
 .. cpp:class:: OcaIdentificationActuator: OcaActuator
 
-    Represents a function that turns on some kind of human-detectable
-    indicator for purposes of device identification during network setup.
-    Physical form of indicator is not defined by OCA, so it could be
-    anything, e.g.
+    Represents a function that turns on some kind of human-detectable indicator for purposes of device identification during network setup. Physical form of indicator is not defined by OCA, so it could be anything, e.g.  
     
-    - LED
+     - LED
+     
     
+     - Foghorn
+     
     
-    - Foghorn
+     - Smoke emitter
+     
     
+     - Little waving robot hand wearing white glove
+     
     
-    - Smoke emitter
+     - Jack-in-the-box popout
+     
     
-    
-    - Little waving robot hand wearing white glove
-    
-    
-    - Jack-in-the-box popout
-    
-    
-    - et cetera
-    
+     - et cetera
+     
 
     **Properties**:
 
@@ -38,9 +35,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -48,9 +43,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 
@@ -91,8 +84,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetActive(OcaBoolean &active)
 
-        Gets the current identification indicator activity state. The return
-        value indicates whether the state was successfully retrieved.
+        Gets the current identification indicator activity state. The return value indicates whether the state was successfully retrieved.
 
         This method has id ``4.1``.
 
@@ -102,8 +94,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetActive(OcaBoolean active)
 
-        Sets the Active state (i.e. value of the Active property). The return
-        value indicates whether the state was successfully set.
+        Sets the Active state (i.e. value of the Active property). The return value indicates whether the state was successfully set.
 
         This method has id ``4.2``.
 

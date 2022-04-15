@@ -9,8 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaFilterPolynomial: OcaActuator
 
-    A generic Z-domain rational polynomial filter section: _A(0) + A(1)z +
-    A(2)z^2 + A(3)z^3 + ..._ B(0) + B(1)z + B(2)z^2 + B(3)z^3 + ...
+    A generic Z-domain rational polynomial filter section:  _A(0) + A(1)z + A(2)z^2 + A(3)z^3 + ..._  B(0) + B(1)z + B(2)z^2 + B(3)z^3 + ...
 
     **Properties**:
 
@@ -18,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -28,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 
@@ -54,8 +49,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaFrequency SampleRate
 
-        Sample rate inside the filter. We can't assume it's the same as the
-        device input or output rate.
+        Sample rate inside the filter. We can't assume it's the same as the device input or output rate.
 
         This property has id ``4.3``.
 
@@ -63,8 +57,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaUint8 MaxOrder
 
-        Maximum order of A[] and B[], i.e. the maximum size of the A[] and B[]
-        arrays. Readonly.
+        Maximum order of A[] and B[], i.e. the maximum size of the A[] and B[] arrays. Readonly.
 
         This property has id ``4.4``.
 
@@ -141,8 +134,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetMaxOrder(OcaUint8 &Order)
 
-        Gets the maximum allowable order (= max number of array elements in
-        numerator and for denominator arrays)
+        Gets the maximum allowable order (= max number of array elements in numerator and for denominator arrays)
 
         This method has id ``4.5``.
 

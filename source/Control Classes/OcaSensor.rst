@@ -17,10 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This is a
-        class property instead of an object property. This property is an
-        override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This is a class property instead of an object property. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -28,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -38,8 +33,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaSensorReadingState ReadingState
 
-        Enum that describes whether current reading value is valid and if not,
-        why not. Readonly.
+        Enum that describes whether current reading value is valid and if not, why not. Readonly.
 
         This property has id ``3.1``.
 
@@ -72,8 +66,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetReadingState(OcaSensorReadingState &state)
 
-        Gets the current reading state of the sensor. The return value
-        indicates whether the state was successfully retrived.
+        Gets the current reading state of the sensor. The return value indicates whether the state was successfully retrived.
 
         This method has id ``3.1``.
 

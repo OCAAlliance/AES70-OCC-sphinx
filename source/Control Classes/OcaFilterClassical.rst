@@ -9,9 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaFilterClassical: OcaActuator
 
-    A classical analog-style filter - highpass, lowpass, bandpass, etc.,
-    with shape characteristics such as Butterworth, Chebyshev, Bessel, and
-    Linkwitz-Riley. Frequently used in loudspeaker crossover networks.
+    A classical analog-style filter - highpass, lowpass, bandpass, etc., with shape characteristics such as Butterworth, Chebyshev, Bessel, and Linkwitz-Riley. Frequently used in loudspeaker crossover networks.
 
     **Properties**:
 
@@ -19,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -29,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 
@@ -71,8 +65,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaFloat32 Parameter
 
-        Ripple or other filter parameter, depending on shape. Not used by some
-        shapes.
+        Ripple or other filter parameter, depending on shape. Not used by some shapes.
 
         This property has id ``4.5``.
 
@@ -105,8 +98,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetFrequency(OcaFrequency &Frequency, OcaFrequency &minFrequency, OcaFrequency &maxFrequency)
 
-        Gets the value of the Frequency property. The return value indicates
-        if the property was successfully retrieved.
+        Gets the value of the Frequency property. The return value indicates if the property was successfully retrieved.
 
         This method has id ``4.1``.
 
@@ -118,8 +110,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetFrequency(OcaFrequency frequency)
 
-        Sets the value of the Frequency property. The return value indicates
-        if the property was successfully set.
+        Sets the value of the Frequency property. The return value indicates if the property was successfully set.
 
         This method has id ``4.2``.
 
@@ -129,8 +120,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetPassband(OcaFilterPassband &Passband)
 
-        Returns the passband specification of the filter object. The return
-        value indicates if the specification was successfully retrieved.
+        Returns the passband specification of the filter object. The return value indicates if the specification was successfully retrieved.
 
         This method has id ``4.3``.
 
@@ -140,8 +130,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetPassband(OcaFilterPassband Passband)
 
-        Sets the passband specification of the filter object. The return value
-        indicates if the specification was successfully set.
+        Sets the passband specification of the filter object. The return value indicates if the specification was successfully set.
 
         This method has id ``4.4``.
 
@@ -151,8 +140,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetShape(OcaClassicalFilterShape &Shape)
 
-        Returns the Shape property of the filter. The return value indicates
-        if the property was successfully retrieved.
+        Returns the Shape property of the filter. The return value indicates if the property was successfully retrieved.
 
         This method has id ``4.5``.
 
@@ -162,8 +150,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetShape(OcaClassicalFilterShape Shape)
 
-        Sets the Shape property of the filter. The return value indicates if
-        the property was successfully set.
+        Sets the Shape property of the filter. The return value indicates if the property was successfully set.
 
         This method has id ``4.6``.
 
@@ -173,8 +160,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetOrder(OcaUint16 &Order, OcaUint16 &minOrder, OcaUint16 &maxOrder)
 
-        Returns the order of the filter. The return value indicates if the
-        property was successfully retrieved.
+        Returns the order of the filter. The return value indicates if the property was successfully retrieved.
 
         This method has id ``4.7``.
 
@@ -186,8 +172,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetOrder(OcaUint16 Order)
 
-        Sets the order of the filter. The return value indicates if the
-        property was successfully set.
+        Sets the order of the filter. The return value indicates if the property was successfully set.
 
         This method has id ``4.8``.
 
@@ -197,8 +182,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetParameter(OcaFloat32 &Parameter, OcaFloat32 &minParameter, OcaFloat32 &maxParameter)
 
-        Returns the filter parameter. The return value indicates if the
-        property was successfully retrieved.
+        Returns the filter parameter. The return value indicates if the property was successfully retrieved.
 
         This method has id ``4.9``.
 
@@ -210,8 +194,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetParameter(OcaFloat32 Parameter)
 
-        Sets the filter parameter. The return value indicates if the parameter
-        was successfully set.
+        Sets the filter parameter. The return value indicates if the parameter was successfully set.
 
         This method has id ``4.10``.
 
@@ -221,9 +204,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetMultiple(OcaParameterMask Mask, OcaFrequency Frequency, OcaFilterPassband Passband, OcaClassicalFilterShape Shape, OcaUint16 Order, OcaFloat32 Parameter)
 
-        Sets some or all filter parameter. The return value indicates if the
-        parameters were successfully set. The action of this method is atomic
-        - if any of the value changes fails, none of the changes are made.
+        Sets some or all filter parameter. The return value indicates if the parameters were successfully set. The action of this method is atomic - if any of the value changes fails, none of the changes are made.
 
         This method has id ``4.11``.
 

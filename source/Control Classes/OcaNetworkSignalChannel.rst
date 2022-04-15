@@ -9,21 +9,13 @@ Class Hirarchy:
 
 .. cpp:class:: OcaNetworkSignalChannel: OcaWorker
 
-    **DEPRECATED CLASS** *Replaced by features of the*
-    **OcaMediaSinkConnector ** *and* **OcaMediaSourceConnector **
-    *datatypes in version 3 of Connection Management (CM3)* Worker that
-    allows connection of one or more internal signal paths to a network
-    signal channel.
+     **DEPRECATED CLASS**   *Replaced by features of the*  **OcaMediaSinkConnector **  *and*  **OcaMediaSourceConnector **  *datatypes in version 3 of Connection Management (CM3)*  Worker that allows connection of one or more internal signal paths to a network signal channel.  
     
-    - For stream-oriented media connection management such as used by AVB,
-    this worker will be linked to an **OcaStreamConnector** object and to
-    the appropriate **OcaStreamNetwork** object.
+     - For stream-oriented media connection management such as used by AVB, this worker will be linked to an  **OcaStreamConnector**  object and to the appropriate  **OcaStreamNetwork** object.
+     
     
-    
-    - For channel-oriented media connection management, such as the Dante
-    name-based routing mechanism, this worker will be linked only to the
-    **OcaStreamNetwork** object.
-    
+     - For channel-oriented media connection management, such as the Dante name-based routing mechanism, this worker will be linked only to the  **OcaStreamNetwork** object.
+     
 
     **Properties**:
 
@@ -47,16 +39,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaMap<OcaONo, OcaStreamConnectorPinIndex> ConnectorPins
 
-        Map of object numbers of **OcaStreamConnector** objects to
-        **OcaStreamConnectorPinIndex** of these connectors. This map
-        identifies which **OcaStreamConnector** objects contain this network
-        signal channel, and indicates at what pin of the connector this
-        channel is found. If the **OcaNetworkSignalChannel** object is not
-        part of any **OcaStreamConnector** this map is empty. Note that
-        **OcaNetworkSignalChannel** objects of type **Sink** cannot have more
-        than one entry in the map, else it would implicitly perform mixing.
-        **OcaNetworkSignalChannel** objects of type **Source** can have
-        multiple entries in the map.
+        Map of object numbers of  **OcaStreamConnector**  objects to  **OcaStreamConnectorPinIndex** of these connectors. This map identifies which  **OcaStreamConnector**  objects contain this network signal channel, and indicates at what pin of the connector this channel is found. If the  **OcaNetworkSignalChannel**  object is not part of any  **OcaStreamConnector** this map is empty. Note that  **OcaNetworkSignalChannel**  objects of type  **Sink**  cannot have more than one entry in the map, else it would implicitly perform mixing.  **OcaNetworkSignalChannel** objects of type  **Source**  can have multiple entries in the map.
 
         This property has id ``3.3``.
 
@@ -64,11 +47,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaNetworkSignalChannelID IDAdvertised
 
-        Character name or binary identifier of the port that is advertised on
-        the network to be found by other devices' discovery processes.
-        Depending on the media transport architecture being used, this ID may
-        be globally unique throughout the network, or only unique within the
-        scope of the specific Network instance to which the port is attached.
+        Character name or binary identifier of the port that is advertised on the network to be found by other devices' discovery processes. Depending on the media transport architecture being used, this ID may be globally unique throughout the network, or only unique within the scope of the specific Network instance to which the port is attached.
 
         This property has id ``3.1``.
 
@@ -76,8 +55,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaONo Network
 
-        Object number of stream network object ( **OcaStreamNetwork** or one
-        of its subclasses) to which this signal channel belongs.
+        Object number of stream network object ( **OcaStreamNetwork**  or one of its subclasses) to which this signal channel belongs.
 
         This property has id ``3.2``.
 
@@ -93,10 +71,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaNetworkMediaSourceOrSink SourceOrSink
 
-        Describes whether this signal channel is source (emits signals into
-        the network) or sink (receives signals from the network). Sources are
-        sometimes called "talkers", and sinks are sometimes called
-        "listeners".
+        Describes whether this signal channel is source (emits signals into the network) or sink (receives signals from the network). Sources are sometimes called "talkers", and sinks are sometimes called "listeners".
 
         This property has id ``3.5``.
 
@@ -137,10 +112,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus AddToConnector(OcaONo Connector, OcaStreamConnectorPinIndex Index)
 
-        Adds the object number of the stream connector object to which this
-        media port belongs, and specifies on what index of the stream
-        connector this channel can be found. Return status indicates success
-        of operation.
+        Adds the object number of the stream connector object to which this media port belongs, and specifies on what index of the stream connector this channel can be found. Return status indicates success of operation.
 
         This method has id ``3.6``.
 
@@ -151,9 +123,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetConnectorPins(OcaMap<OcaONo, OcaStreamConnectorPinIndex> &ConnectorPins)
 
-        Gets the object number of the stream connector object to which this
-        media port belongs, if any. If port does not belong to a stream
-        connector, returns zero. Return status indicates success of operation.
+        Gets the object number of the stream connector object to which this media port belongs, if any. If port does not belong to a stream connector, returns zero. Return status indicates success of operation.
 
         This method has id ``3.5``.
 
@@ -163,8 +133,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetIDAdvertised(OcaNetworkSignalChannelID &IDAdvertised)
 
-        Gets the value of the IDAdvertised property. Return status indicates
-        success of operation.
+        Gets the value of the IDAdvertised property. Return status indicates success of operation.
 
         This method has id ``3.1``.
 
@@ -174,8 +143,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetNetwork(OcaONo &Network)
 
-        Gets the object number of the stream network object to which this
-        media port belongs. Return status indicates success of operation.
+        Gets the object number of the stream network object to which this media port belongs. Return status indicates success of operation.
 
         This method has id ``3.3``.
 
@@ -185,10 +153,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetRemoteChannelID(OcaNetworkSignalChannelID &RemoteChannelID)
 
-        Gets the remote channel ID to which this channel is connected. Empty
-        if the channel is not connected (at least not directly to another
-        channel). For stream-oriented connection management this functionality
-        is not used (i.e. the remote channel ID will always be empty).
+        Gets the remote channel ID to which this channel is connected. Empty if the channel is not connected (at least not directly to another channel). For stream-oriented connection management this functionality is not used (i.e. the remote channel ID will always be empty).
 
         This method has id ``3.8``.
 
@@ -198,8 +163,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSourceOrSink(OcaNetworkMediaSourceOrSink &SourceOrSink)
 
-        Gets the value of the SourceOrSink property. Return status indicates
-        success of operation.
+        Gets the value of the SourceOrSink property. Return status indicates success of operation.
 
         This method has id ``3.10``.
 
@@ -209,8 +173,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetStatus(OcaNetworkSignalChannelStatus &Status)
 
-        Gets the value of the Status property. Return status indicates success
-        of operation.
+        Gets the value of the Status property. Return status indicates success of operation.
 
         This method has id ``3.11``.
 
@@ -220,8 +183,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus RemoveFromConnector(OcaONo Connector)
 
-        Removes this channel from the passed stream connector. Return status
-        indicates success of operation.
+        Removes this channel from the passed stream connector. Return status indicates success of operation.
 
         This method has id ``3.7``.
 
@@ -231,8 +193,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetIDAdvertised(OcaNetworkSignalChannelID IDAdvertised)
 
-        Sets the value of the IDAdvertised property. Return status indicates
-        success of operation.
+        Sets the value of the IDAdvertised property. Return status indicates success of operation.
 
         This method has id ``3.2``.
 
@@ -242,9 +203,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetNetwork(OcaONo Network)
 
-        Sets the object number of the stream network object to which this
-        media port belongs. Return status indicates success of operation. Only
-        implemented for reconfigurable devices.
+        Sets the object number of the stream network object to which this media port belongs. Return status indicates success of operation. Only implemented for reconfigurable devices.
 
         This method has id ``3.4``.
 
@@ -254,11 +213,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetRemoteChannelID(OcaNetworkSignalChannelID RemoteChannelID)
 
-        Sets the remote channel ID to which this channel must be connected.
-        Only used for channel-oriented connection management. For
-        stream-oriented connection management this method is not used.
-        Clearing the remote channel ID (i.e. tearing down the connection) can
-        be done by passing an empty remote channel ID as parameter.
+        Sets the remote channel ID to which this channel must be connected. Only used for channel-oriented connection management. For stream-oriented connection management this method is not used. Clearing the remote channel ID (i.e. tearing down the connection) can be done by passing an empty remote channel ID as parameter.
 
         This method has id ``3.9``.
 

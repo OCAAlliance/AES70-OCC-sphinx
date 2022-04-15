@@ -17,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``2.1``.
 
@@ -27,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``2.2``.
 
@@ -65,8 +61,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLabel(OcaString &Label)
 
-        Gets the value of the Label property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Label property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``2.1``.
 
@@ -76,8 +71,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetLabel(OcaString Label)
 
-        Sets the value of the Label property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Label property. The return value indicates whether the property was successfully set.
 
         This method has id ``2.2``.
 
@@ -87,8 +81,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetOwner(OcaONo &owner)
 
-        Gets the value of the Owner property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Owner property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``2.3``.
 
@@ -98,8 +91,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetPath(OcaNamePath &NamePath, OcaONoPath &ONoPath)
 
-        Returns path from the given object down to root. The return value
-        indicates whether the operation succeeded. Added in version 2.
+        Returns path from the given object down to root. The return value indicates whether the operation succeeded. Added in version 2.
 
         This method has id ``2.4``.
 

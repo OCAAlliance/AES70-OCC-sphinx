@@ -9,10 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaManager: OcaRoot
 
-    Abstract base class for classes that represent non-audio (i.e. control
-    and monitoring) functions. All concrete manager objects are lockable
-    (the constructor of this class initializes the Root object with
-    property Lockable true).
+    Abstract base class for classes that represent non-audio (i.e. control and monitoring) functions. All concrete manager objects are lockable (the constructor of this class initializes the Root object with property Lockable true).
 
     **Properties**:
 
@@ -20,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``2.1``.
 
@@ -30,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``2.2``.
 

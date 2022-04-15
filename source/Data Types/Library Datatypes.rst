@@ -34,15 +34,11 @@ OcaLibVolType
 
     .. cpp:member:: OcaOrganizationID Authority
 
-        Unique identifier of organization that has authority over this library
-        volume type. A zero value indicates a standard library volume type
-        defined by the AES70 standard.
+        Unique identifier of organization that has authority over this library volume type. A zero value indicates a standard library volume type defined by the AES70 standard.
 
     .. cpp:member:: OcaUint32 ID
 
-        ID of library volume type defined by given Authority. Value is unique
-        within the given Authority. If Authority=0, the values of this
-        property are given by enum **OcaLibVolStandardID.**
+        ID of library volume type defined by given Authority. Value is unique within the given Authority. If Authority=0, the values of this property are given by enum  **OcaLibVolStandardID.** 
 
 
 OCP.1 Encoding
@@ -63,8 +59,7 @@ OcaLibraryIdentifier
 
 .. cpp:struct:: OcaLibraryIdentifier
     
-    Full identifier (type + object number) of Library (i.e. of an
-    **OcaLibrary** instance)
+    Full identifier (type + object number) of Library (i.e. of an  **OcaLibrary** instance)
 
     .. cpp:member:: OcaLibVolType Type
 
@@ -152,7 +147,7 @@ OcaLibVolMetadata
 
 .. cpp:struct:: OcaLibVolMetadata
     
-    Descriptor of a library volume. See **03 OcaLibrary** for explanation.
+    Descriptor of a library volume. See  **03 OcaLibrary**  for explanation.
 
     .. cpp:member:: OcaString Name
 
@@ -193,7 +188,9 @@ Access                  OcaEnumItem        1
 Version                 OcaUint32          4          
 Creator.Len             OcaUint16          2          
 Creator.Value           string             variable   
-UpDate                  OcaTimePTP         variable   
+UpDate.Negative         OcaBoolean         1          
+UpDate.Seconds.Value    OcaUint64          8          
+UpDate.Nanoseconds      OcaUint32          4          
 ======================= ================== ===========
 
 
@@ -204,8 +201,7 @@ OcaLibVol
 
 .. cpp:struct:: OcaLibVol
     
-    Library volume. template. Template parameter is datatype of the
-    volume. See **03 OcaLibrary** for explanation.
+    Library volume. template. Template parameter is datatype of the volume. See  **03 OcaLibrary**  for explanation.
 
     .. cpp:member:: OcaLibVolMetadata Metadata
 
@@ -230,7 +226,9 @@ Metadata.Access                  OcaEnumItem        1
 Metadata.Version                 OcaUint32          4          
 Metadata.Creator.Len             OcaUint16          2          
 Metadata.Creator.Value           string             variable   
-Metadata.UpDate                  OcaTimePTP         variable   
+Metadata.UpDate.Negative         OcaBoolean         1          
+Metadata.UpDate.Seconds.Value    OcaUint64          8          
+Metadata.UpDate.Nanoseconds      OcaUint32          4          
 Data.DataSize                    OcaUint16          2          
 Data.Data                        OcaUint8           1 * Count  
 ================================ ================== ===========
@@ -243,19 +241,11 @@ OcaLibVolData_ParamSet
 
 .. cpp:struct:: OcaLibVolData_ParamSet
     
-    Library volume data for a Parset (short for Parameter Set) volume. A
-    Parset is a collection of operating parameter settings that can be
-    applied to a block. Each Parset is associated with a specific block
-    type, but not with a specific instance of that type. A Parset may be
-    applied to any block instance of the associated type. A block's type
-    is a the object number of its factory or, for factory-defined blocks,
-    a unique identifier set at time of manufacture.
+    Library volume data for a Parset (short for Parameter Set) volume. A Parset is a collection of operating parameter settings that can be applied to a block. Each Parset is associated with a specific block type, but not with a specific instance of that type. A Parset may be applied to any block instance of the associated type. A block's type is a the object number of its factory or, for factory-defined blocks, a unique identifier set at time of manufacture.
 
     .. cpp:member:: OcaONo TargetBlockType
 
-        Block type to which this paramset applies. A block's type is a the
-        object number of its factory or, for factory-defined blocks, a unique
-        identifier set at time of manufacture
+        Block type to which this paramset applies. A block's type is a the object number of its factory or, for factory-defined blocks, a unique identifier set at time of manufacture
 
     .. cpp:member:: OcaBlob ParData
 
@@ -281,8 +271,7 @@ OcaLibParamSetAssignment
 
 .. cpp:struct:: OcaLibParamSetAssignment
     
-    A ParamSet assigment is the description of a binding of a ParamSet to
-    a block instance.
+    A ParamSet assigment is the description of a binding of a ParamSet to a block instance.
 
     .. cpp:member:: OcaLibVolIdentifier ParamSetIdentifier
 
@@ -312,11 +301,7 @@ OcaLibVolData_Patch
 
 .. cpp:type:: OcaLibVolData_Patch = OcaList<OcaLibParamSetAssignment>
 
-    Library volume data for a Patch volume. A Patch a collection of
-    ParamSet assignments. A ParamSet assigment is the description of a
-    binding of a ParamSet to a block instance. To "apply" a Patch is to
-    apply all of its assignments. To apply an assignment is to set all of
-    its ParamSet's parameter values into its block.
+    Library volume data for a Patch volume. A Patch a collection of ParamSet assignments. A ParamSet assigment is the description of a binding of a ParamSet to a block instance. To "apply" a Patch is to apply all of its assignments. To apply an assignment is to set all of its ParamSet's parameter values into its block.
 .. _OcaLibVolData_Program:
 
 OcaLibVolData_Program
@@ -324,5 +309,4 @@ OcaLibVolData_Program
 
 .. cpp:type:: OcaLibVolData_Program = OcaBlob
 
-    Library volume data for a Program volume. A Program is an executable
-    program or script that may be run by an OcaTask.
+    Library volume data for a Program volume. A Program is an executable program or script that may be run by an OcaTask.

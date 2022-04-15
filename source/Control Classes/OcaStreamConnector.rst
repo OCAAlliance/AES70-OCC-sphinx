@@ -9,34 +9,13 @@ Class Hirarchy:
 
 .. cpp:class:: OcaStreamConnector: OcaAgent
 
-    **DEPRECATED CLASS** *Replaced by the* **OcaMediaSinkConnector **
-    *and* **OcaMediaSourceConnector ** *datatypes in version 3 of
-    Connection Management (CM3)* Agent class for objects ("connectors")
-    that allow connection of streams to the device. Streams may be single
-    channels or multichannel groups. A connector is either a *source* or a
-    *sink.* Sources are sometimes called "talkers". Sinks are sometimes
-    called "listeners". Each connector links to zero or more **OcaStream**
-    data objects. Each **OcaStream** object represents a signal flow to or
-    from a local connector to a remote connector. The remote connector is
-    usually, but not necessarily, in a different node. Each connector
-    collects zero or more *signal channels* . A signal channel is an
-    instance of **OcaNetworkSignalChannel.** Each signal channel exposes
-    one media channel of the stream to the interior of the device. A
-    signal channel therefore is a Worker that contains exactly one
-    **OcaPort** data object. Each **OcaStreamConnector** object belongs to
-    a particular instance of **OcaStreamNetwork** or a subclass of
-    **OcaStreamNetwork** **.** Each **OcaStreamConnector** is linked to
-    its network through the **Owner** property.
+     **DEPRECATED CLASS**   *Replaced by the*  **OcaMediaSinkConnector **  *and*  **OcaMediaSourceConnector **  *datatypes in version 3 of Connection Management (CM3)*  Agent class for objects ("connectors") that allow connection of streams to the device. Streams may be single channels or multichannel groups. A connector is either a  *source*  or a  *sink.*  Sources are sometimes called "talkers". Sinks are sometimes called "listeners". Each connector links to zero or more  **OcaStream**  data objects. Each  **OcaStream**  object represents a signal flow to or from a local connector to a remote connector. The remote connector is usually, but not necessarily, in a different node. Each connector collects zero or more  *signal channels* . A signal channel is an instance of  **OcaNetworkSignalChannel.**  Each signal channel exposes one media channel of the stream to the interior of the device. A signal channel therefore is a Worker that contains exactly one  **OcaPort**  data object. Each  **OcaStreamConnector** object belongs to a particular instance of  **OcaStreamNetwork**  or a subclass of  **OcaStreamNetwork**   **.**  Each  **OcaStreamConnector** is linked to its network through the  **Owner**  property.  
     
-    - When a controller creates an **OcaStreamConnector** object
-    dynamically, the controller must store the Object Number of the
-    corresponding **OcaStreamNetwork** object in the **Owner** property.
+     - When a controller creates an  **OcaStreamConnector** object dynamically, the controller must store the Object Number of the corresponding  **OcaStreamNetwork** object in the  **Owner**  property.
+     
     
-    
-    - Upon receiving the **Owner** property change, the
-    **OcaStreamConnector** object must register itself with the given
-    stream network object via some internal means.
-    This class may be subclassed to support various network types.
+     - Upon receiving the  **Owner**  property change, the  **OcaStreamConnector** object must register itself with the given stream network object via some internal means.
+      This class may be subclassed to support various network types. 
 
     **Properties**:
 
@@ -60,9 +39,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaStreamConnectorID IDAdvertised
 
-        Character name or binary identifier of this connector. This ID is
-        advertised on the network to be found by other devices' discovery
-        processes.
+        Character name or binary identifier of this connector. This ID is advertised on the network to be found by other devices' discovery processes.
 
         This property has id ``3.2``.
 
@@ -70,13 +47,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaONo OwnerNetwork
 
-        Object number of stream network object ( **OcaStreamNetwork** or one
-        of its subclasses) to which this connector belongs. In reconfigurable
-        devices, a controller that creates an **OcaStreamConnector** object
-        must store the appropriate stream network object number into this
-        property. It is assumed that, upon receiving a value into its
-        **Owner** property, the terminus object will by internal means
-        register itself with the identified stream network.
+        Object number of stream network object ( **OcaStreamNetwork**  or one of its subclasses) to which this connector belongs. In reconfigurable devices, a controller that creates an  **OcaStreamConnector** object must store the appropriate stream network object number into this property. It is assumed that, upon receiving a value into its  **Owner**  property, the terminus object will by internal means register itself with the identified stream network.
 
         This property has id ``3.1``.
 
@@ -84,12 +55,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaMap<OcaStreamConnectorPinIndex, OcaONo> Pins
 
-        The map of connector pin indexes to
-        **OcaNetworkSignalChannel[Source|Sink]** objects collected by this
-        connector. The pin indexes are _fixed indexes_ 1 to n, where n is the
-        number of channels the connector accommodates (determined when the
-        connector is created). If a certain pin in the connector is currently
-        not attached the OcaONo of that index is 0.
+        The map of connector pin indexes to  **OcaNetworkSignalChannel[Source|Sink]** objects collected by this connector. The pin indexes are  _fixed indexes_  1 to n, where n is the number of channels the connector accommodates (determined when the connector is created). If a certain pin in the connector is currently not attached the OcaONo of that index is 0.
 
         This property has id ``3.5``.
 
@@ -97,8 +63,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaNetworkMediaSourceOrSink SourceOrSink
 
-        Specifies whether this connector is for output (source) or input
-        (sink) signal channels.
+        Specifies whether this connector is for output (source) or input (sink) signal channels.
 
         This property has id ``3.3``.
 
@@ -114,8 +79,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaMap<OcaStreamIndex, OcaStream> Streams
 
-        The list of **OcaStream** data objects contained in (i.e. connected
-        to) this connector.
+        The list of  **OcaStream** data objects contained in (i.e. connected to) this connector.
 
         This property has id ``3.4``.
 
@@ -142,8 +106,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus ConnectStream(OcaStream Stream, OcaStreamIndex &Index)
 
-        Connects a stream to this connector. Return status indicates success
-        of operation.
+        Connects a stream to this connector. Return status indicates success of operation.
 
         This method has id ``3.7``.
 
@@ -154,8 +117,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus DisconnectStream(OcaStreamIndex StreamID)
 
-        Disconnects a stream from this connector. Return status indicates
-        success of operation.
+        Disconnects a stream from this connector. Return status indicates success of operation.
 
         This method has id ``3.8``.
 
@@ -165,8 +127,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetIDAdvertised(OcaStreamConnectorID &IDAdvertised)
 
-        Gets the value of the IDAdvertised property. Return status indicates
-        success of operation.
+        Gets the value of the IDAdvertised property. Return status indicates success of operation.
 
         This method has id ``3.3``.
 
@@ -176,8 +137,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetOwnerNetwork(OcaONo &Network)
 
-        Gets the object number of the **OcaStreamNetwork** object to which
-        this connector belongs. Return status indicates success of operation.
+        Gets the object number of the  **OcaStreamNetwork** object to which this connector belongs. Return status indicates success of operation.
 
         This method has id ``3.1``.
 
@@ -187,9 +147,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetPins(OcaMap<OcaStreamConnectorPinIndex, OcaONo> &Pins)
 
-        Gets the list of object numbers of **OcaNetworkSignalChannel** objects
-        connected to this connector. Return status indicates success of
-        operation.
+        Gets the list of object numbers of  **OcaNetworkSignalChannel** objects connected to this connector. Return status indicates success of operation.
 
         This method has id ``3.10``.
 
@@ -199,8 +157,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSourceOrSink(OcaNetworkMediaSourceOrSink &SourceOrSink)
 
-        Gets the value of the SourceOrSink property. Return status indicates
-        success of operation.
+        Gets the value of the SourceOrSink property. Return status indicates success of operation.
 
         This method has id ``3.5``.
 
@@ -210,8 +167,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetStatus(OcaStreamConnectorStatus &Status)
 
-        Gets the value of the Status property. Return status indicates success
-        of operation.
+        Gets the value of the Status property. Return status indicates success of operation.
 
         This method has id ``3.11``.
 
@@ -221,8 +177,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetStreams(OcaMap<OcaStreamIndex, OcaStream> &Streams)
 
-        Gets the map of OcaStream items connected to this connector. Return
-        status indicates success of operation.
+        Gets the map of OcaStream items connected to this connector. Return status indicates success of operation.
 
         This method has id ``3.9``.
 
@@ -232,8 +187,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetIDAdvertised(OcaStreamConnectorID IDAdvertised)
 
-        Sets the value of the IDAdvertised property. Return status indicates
-        success of operation.
+        Sets the value of the IDAdvertised property. Return status indicates success of operation.
 
         This method has id ``3.4``.
 
@@ -243,9 +197,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetOwnerNetwork(OcaONo Network)
 
-        Sets the object number of the **OcaStreamNetwork** object to which
-        this connector belongs. Return status indicates success of operation.
-        Only implemented for reconfigurable devices.
+        Sets the object number of the  **OcaStreamNetwork** object to which this connector belongs. Return status indicates success of operation. Only implemented for reconfigurable devices.
 
         This method has id ``3.2``.
 
@@ -255,10 +207,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetSourceOrSink(OcaNetworkMediaSourceOrSink SourceOrSink)
 
-        Sets the value of the SourceOrSink property. Return status indicates
-        success of operation. Only implemented for reconfigurable devices.
-        Note that this method can only be called when the SignalChannels
-        property is empty, i.e. does not contain any actual channels.
+        Sets the value of the SourceOrSink property. Return status indicates success of operation. Only implemented for reconfigurable devices. Note that this method can only be called when the SignalChannels property is empty, i.e. does not contain any actual channels.
 
         This method has id ``3.6``.
 

@@ -17,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -27,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 
@@ -37,10 +33,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaUint16 Position
 
-        The current position of the switch. Positions shall be numbered from
-        minPosition to (including) maxPosition. If the object does not return
-        the optional parameters minPosition and maxPosition in its GetPosition
-        method the positions shall be numbered from 1 to n.
+        The current position of the switch. Positions shall be numbered from minPosition to (including) maxPosition. If the object does not return the optional parameters minPosition and maxPosition in its GetPosition method the positions shall be numbered from 1 to n.
 
         This property has id ``4.1``.
 
@@ -56,9 +49,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaList<OcaBoolean> PositionEnableds
 
-        Vector of booleans which enable or disable corresponding switch
-        positions. Default values are a construction parameter. The usual
-        default value is True.
+        Vector of booleans which enable or disable corresponding switch positions. Default values are a construction parameter. The usual default value is True.
 
         This property has id ``4.3``.
 
@@ -91,9 +82,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetPosition(OcaUint16 &position, OcaUint16 &minPosition, OcaUint16 &maxPosition)
 
-        Gets the value of the Position property and, optionally, its
-        implementation min and max. The return value indicates whether the
-        data was successfully retrieved.
+        Gets the value of the Position property and, optionally, its implementation min and max. The return value indicates whether the data was successfully retrieved.
 
         This method has id ``4.1``.
 
@@ -105,8 +94,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetPosition(OcaUint16 position)
 
-        Sets the value of the Position property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Position property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.2``.
 
@@ -116,8 +104,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetPositionName(OcaUint16 Index, OcaString &Name)
 
-        Gets the name assigned to a given switch position. The return value
-        indicates whether the name was successfully retrieved.
+        Gets the name assigned to a given switch position. The return value indicates whether the name was successfully retrieved.
 
         This method has id ``4.3``.
 
@@ -128,8 +115,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetPositionName(OcaUint16 Index, OcaString Name)
 
-        Assigns a name to a given switch position. The return value indicates
-        whether the name was successfully assigned.
+        Assigns a name to a given switch position. The return value indicates whether the name was successfully assigned.
 
         This method has id ``4.4``.
 
@@ -140,8 +126,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetPositionNames(OcaList<OcaString> &Names)
 
-        Gets list of names assigned to the switch's positions. The return
-        value indicates whether the names were successfully retrieved.
+        Gets list of names assigned to the switch's positions. The return value indicates whether the names were successfully retrieved.
 
         This method has id ``4.5``.
 
@@ -151,8 +136,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetPositionNames(OcaList<OcaString> Names)
 
-        Assigns names to the switch's positions. The return value indicates
-        whether the names were successfully assigned.
+        Assigns names to the switch's positions. The return value indicates whether the names were successfully assigned.
 
         This method has id ``4.6``.
 
@@ -162,8 +146,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetPositionEnabled(OcaUint16 Index, OcaBoolean &enabled)
 
-        Gets the Enabled flag assigned to a given switch position. The return
-        value indicates whether the flag was successfully retrieved.
+        Gets the Enabled flag assigned to a given switch position. The return value indicates whether the flag was successfully retrieved.
 
         This method has id ``4.7``.
 
@@ -174,8 +157,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetPositionEnabled(OcaUint16 Index, OcaBoolean enabled)
 
-        Sets the Enabled flag assigned to a given switch position. The return
-        value indicates whether the flag was successfully set.
+        Sets the Enabled flag assigned to a given switch position. The return value indicates whether the flag was successfully set.
 
         This method has id ``4.8``.
 
@@ -186,8 +168,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetPositionEnableds(OcaList<OcaBoolean> &enableds)
 
-        Gets list of Enabled flags assigned to the switch's positions. The
-        return value indicates whether the flags were successfully retrieved.
+        Gets list of Enabled flags assigned to the switch's positions. The return value indicates whether the flags were successfully retrieved.
 
         This method has id ``4.9``.
 
@@ -197,8 +178,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetPositionEnableds(OcaList<OcaBoolean> enableds)
 
-        Sets list of Enabled flags for the switch's positions. The return
-        value indicates whether the flags were successfully set.
+        Sets list of Enabled flags for the switch's positions. The return value indicates whether the flags were successfully set.
 
         This method has id ``4.10``.
 

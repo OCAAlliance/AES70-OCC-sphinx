@@ -9,12 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaDynamics: OcaActuator
 
-    A multipurpose dynamics processor. Can be configured as compressor,
-    limiter, expander, or gate. This class is expected to handle the
-    majority of the basic cases. More complex devices may be described in
-    a different manner, using one or more **OcaDynamicsDetector** and
-    **OcaDynamicsCurve** objects, in conjunction with other Worker objects
-    as needed.
+    A multipurpose dynamics processor. Can be configured as compressor, limiter, expander, or gate. This class is expected to handle the majority of the basic cases. More complex devices may be described in a different manner, using one or more  **OcaDynamicsDetector**  and  **OcaDynamicsCurve**  objects, in conjunction with other Worker objects as needed.
 
     **Properties**:
 
@@ -22,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -32,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 
@@ -42,10 +33,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaBoolean Triggered
 
-        Read-only property that indicates whether the dynamics processor is
-        currently triggered (i.e. the signal level is above upper threshold or
-        below lower threshold). This property can be monitored via a periodic
-        event subscription.
+        Read-only property that indicates whether the dynamics processor is currently triggered (i.e. the signal level is above upper threshold or below lower threshold). This property can be monitored via a periodic event subscription.
 
         This property has id ``4.1``.
 
@@ -69,10 +57,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaFloat32 Ratio
 
-        DEPRECATED PROPERTY - please use property **Slope** instead.
-        Compression or expansion ratio. For Function = Compress or Limit,
-        value is d(input amplitude)/d(output amplitude). For Function = Expand
-        or Gate, value is d(output amplitude)/d(input amplitude).
+        DEPRECATED PROPERTY - please use property  **Slope** instead. Compression or expansion ratio. For Function = Compress or Limit, value is d(input amplitude)/d(output amplitude). For Function = Expand or Gate, value is d(output amplitude)/d(input amplitude).
 
         This property has id ``4.4``.
 
@@ -151,10 +136,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaFloat32 Slope
 
-        Slope of transfer function = d(output amplitude) / d(input amplitude).
-        See notes for class OcaDynamicsCurve for further detail. Note that the
-        definition of this value does not depend on the value of property
-        Function.
+        Slope of transfer function = d(output amplitude) / d(input amplitude). See notes for class OcaDynamicsCurve for further detail. Note that the definition of this value does not depend on the value of property Function.
 
         This property has id ``4.14``.
 
@@ -187,8 +169,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetTriggered(OcaBoolean &triggered)
 
-        Gets the value of the Triggered property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Triggered property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``4.1``.
 
@@ -198,8 +179,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetDynamicGain(OcaDB &Gain)
 
-        Gets the value of the DynamicGain property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the DynamicGain property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``4.2``.
 
@@ -209,8 +189,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetFunction(OcaDynamicsFunction &Func)
 
-        Sets the value of the Function property. The return value indicates
-        whether the property was successfully retrieved.
+        Sets the value of the Function property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``4.3``.
 
@@ -220,8 +199,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetFunction(OcaDynamicsFunction Func)
 
-        Sets the value of the Function property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Function property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.4``.
 
@@ -231,9 +209,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetRatio(OcaFloat32 &Ratio, OcaFloat32 &minRatio, OcaFloat32 &maxRatio)
 
-        Gets the value of the Ratio property. The return value indicates
-        whether the property was successfully retrieved. GetRatio() is a
-        DEPRECATED method. Please use **GetSlope()** instead.
+        Gets the value of the Ratio property. The return value indicates whether the property was successfully retrieved. GetRatio() is a DEPRECATED method. Please use  **GetSlope()**  instead.
 
         This method has id ``4.5``.
 
@@ -245,9 +221,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetRatio(OcaFloat32 Ratio)
 
-        Sets the value of the Ratio property. The return value indicates
-        whether the property was successfully set. SetRatio() is a DEPRECATED
-        method. Please use **SetSlope()** instead.
+        Sets the value of the Ratio property. The return value indicates whether the property was successfully set. SetRatio() is a DEPRECATED method. Please use  **SetSlope()**  instead.
 
         This method has id ``4.6``.
 
@@ -257,8 +231,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetThreshold(OcaDBr &Threshold, OcaDBz &minThreshold, OcaDBz &maxThreshold)
 
-        Gets the value of the Threshold property. The return value indicates
-        if the value was successfully retrieved.
+        Gets the value of the Threshold property. The return value indicates if the value was successfully retrieved.
 
         This method has id ``4.7``.
 
@@ -270,8 +243,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetThreshold(OcaDBr threshold)
 
-        Sets the value of the Threshold property. The return value indicates
-        if the value was successfully set.
+        Sets the value of the Threshold property. The return value indicates if the value was successfully set.
 
         This method has id ``4.8``.
 
@@ -281,8 +253,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetThresholdPresentationUnits(OcaPresentationUnit &Units)
 
-        Gets the value of the ThresholdPresentationUnits property. The return
-        value indicates if the value was successfully retrieved.
+        Gets the value of the ThresholdPresentationUnits property. The return value indicates if the value was successfully retrieved.
 
         This method has id ``4.9``.
 
@@ -292,8 +263,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetThresholdPresentationUnits(OcaPresentationUnit Units)
 
-        Sets the value of the ThresholdPresentationUnits property. The return
-        value indicates if the value was successfully set.
+        Sets the value of the ThresholdPresentationUnits property. The return value indicates if the value was successfully set.
 
         This method has id ``4.10``.
 
@@ -303,8 +273,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetDetectorLaw(OcaLevelDetectionLaw &Law)
 
-        Sets the value of the DetectorLaw property. The return value indicates
-        if the value was successfully set.
+        Sets the value of the DetectorLaw property. The return value indicates if the value was successfully set.
 
         This method has id ``4.11``.
 
@@ -314,8 +283,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetDetectorLaw(OcaLevelDetectionLaw Law)
 
-        Sets the value of the DetectorLaw property. The return value indicates
-        if the value was successfully set.
+        Sets the value of the DetectorLaw property. The return value indicates if the value was successfully set.
 
         This method has id ``4.12``.
 
@@ -325,8 +293,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetAttackTime(OcaTimeInterval &Time, OcaTimeInterval &minTime, OcaTimeInterval &maxTime)
 
-        Gets the value of the AttackTime property. The return value indicates
-        if the value was successfully retrieved.
+        Gets the value of the AttackTime property. The return value indicates if the value was successfully retrieved.
 
         This method has id ``4.13``.
 
@@ -338,8 +305,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetAttackTime(OcaTimeInterval Time)
 
-        Sets the value of the AttackTime property. The return value indicates
-        if the value was successfully set.
+        Sets the value of the AttackTime property. The return value indicates if the value was successfully set.
 
         This method has id ``4.14``.
 
@@ -349,8 +315,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetReleaseTime(OcaTimeInterval &Time, OcaTimeInterval &minTime, OcaTimeInterval &maxTime)
 
-        Gets the value of the ReleaseTime property. The return value indicates
-        if the value was successfully retrieved.
+        Gets the value of the ReleaseTime property. The return value indicates if the value was successfully retrieved.
 
         This method has id ``4.15``.
 
@@ -362,8 +327,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetReleaseTime(OcaTimeInterval Time)
 
-        Sets the value of the ReleaseTime property. The return value indicates
-        if the value was successfully set.
+        Sets the value of the ReleaseTime property. The return value indicates if the value was successfully set.
 
         This method has id ``4.16``.
 
@@ -373,8 +337,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetHoldTime(OcaTimeInterval &Time, OcaTimeInterval &minTime, OcaTimeInterval &maxTime)
 
-        Gets the value of the HoldTime property. The return value indicates if
-        the value was successfully retrieved.
+        Gets the value of the HoldTime property. The return value indicates if the value was successfully retrieved.
 
         This method has id ``4.17``.
 
@@ -386,8 +349,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetHoldTime(OcaTimeInterval Time)
 
-        Sets the value of the HoldTime property. The return value indicates if
-        the value was successfully set.
+        Sets the value of the HoldTime property. The return value indicates if the value was successfully set.
 
         This method has id ``4.18``.
 
@@ -397,8 +359,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetDynamicGainFloor(OcaDB &Limit, OcaDB &minLimit, OcaDB &maxLimit)
 
-        Gets the value of the DynamicGainFLoor property. The return value
-        indicates if the value was successfully retrieved.
+        Gets the value of the DynamicGainFLoor property. The return value indicates if the value was successfully retrieved.
 
         This method has id ``4.19``.
 
@@ -410,8 +371,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetDynamicGainFloor(OcaDB Limit)
 
-        Sets the value of the DynamicGainFloor property. The return value
-        indicates if the value was successfully set.
+        Sets the value of the DynamicGainFloor property. The return value indicates if the value was successfully set.
 
         This method has id ``4.20``.
 
@@ -421,8 +381,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetDynamicGainCeiling(OcaDB &Limit, OcaDB &minLimit, OcaDB &maxLimit)
 
-        Gets the value of the DynamicGainCeiling property. The return value
-        indicates if the value was successfully retrieved.
+        Gets the value of the DynamicGainCeiling property. The return value indicates if the value was successfully retrieved.
 
         This method has id ``4.21``.
 
@@ -434,8 +393,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetDynamicGainCeiling(OcaDB Limit)
 
-        Sets the value of the DynamicGainCeiling property. The return value
-        indicates if the value was successfully set.
+        Sets the value of the DynamicGainCeiling property. The return value indicates if the value was successfully set.
 
         This method has id ``4.22``.
 
@@ -445,8 +403,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetKneeParameter(OcaFloat32 &Parameter, OcaFloat32 &minParameter, OcaFloat32 &maxParameter)
 
-        Gets the value of the KneeParameter property. The return value
-        indicates if the value was successfully retrieved.
+        Gets the value of the KneeParameter property. The return value indicates if the value was successfully retrieved.
 
         This method has id ``4.23``.
 
@@ -458,8 +415,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetKneeParameter(OcaFloat32 Parameter)
 
-        Sets the value of the KneeParameter property. The return value
-        indicates if the value was successfully set.
+        Sets the value of the KneeParameter property. The return value indicates if the value was successfully set.
 
         This method has id ``4.24``.
 
@@ -469,8 +425,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSlope(OcaFloat32 &Slope, OcaFloat32 &minSlope, OcaFloat32 &maxSlope)
 
-        Gets the value of the Slope property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Slope property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``4.25``.
 
@@ -482,8 +437,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetSlope(OcaFloat32 Slope)
 
-        Sets the value of the Slope property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Slope property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.26``.
 
@@ -493,10 +447,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetMultiple(OcaParameterMask Mask, OcaDynamicsFunction Function, OcaDBr Threshold, OcaPresentationUnit ThresholdPresentationUnits, OcaLevelDetectionLaw DetectorLaw, OcaTimeInterval AttackTime, OcaTimeInterval ReleaseTime, OcaTimeInterval HoldTime, OcaDB DynamicGainCeiling, OcaDB DynamicGainFloor, OcaFloat32 Slope, OcaFloat32 KneeParameter)
 
-        Sets some or all dynamics parameters. The return value indicates if
-        the parameters were successfully set. The action of this method is
-        atomic - if any of the value changes fails, none of the changes are
-        made.
+        Sets some or all dynamics parameters. The return value indicates if the parameters were successfully set. The action of this method is atomic - if any of the value changes fails, none of the changes are made.
 
         This method has id ``4.27``.
 

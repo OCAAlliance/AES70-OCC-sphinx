@@ -17,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``5.1``.
 
@@ -27,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``5.2``.
 
@@ -75,8 +71,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetNrBits(OcaUint16 &NrBits)
 
-        Gets the number of bits of the bitmask data. Returned status indicates
-        success or failure of the retrieval.
+        Gets the number of bits of the bitmask data. Returned status indicates success or failure of the retrieval.
 
         This method has id ``5.1``.
 
@@ -86,8 +81,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetBit(OcaUint16 bitNr, OcaUint8 &bit)
 
-        Gets the value of the given bit. Return status indicates success or
-        failure of the retrieval.
+        Gets the value of the given bit. Return status indicates success or failure of the retrieval.
 
         This method has id ``5.2``.
 
@@ -98,8 +92,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetBitString(OcaBitstring &BitString)
 
-        Gets the entire bitstring. Return status indicates success or failure
-        of the retrieval.
+        Gets the entire bitstring. Return status indicates success or failure of the retrieval.
 
         This method has id ``5.3``.
 

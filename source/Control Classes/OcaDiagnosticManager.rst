@@ -9,15 +9,13 @@ Class Hirarchy:
 
 .. cpp:class:: OcaDiagnosticManager: OcaManager
 
-    Optional manager that provides application diagnostic aids. Unlike
-    other manager classes, OcaDiagnosticManager may be subclassed to
-    provide proprietary application diagnostic enhancements.
+    Optional manager that provides application diagnostic aids. Unlike other manager classes, OcaDiagnosticManager may be subclassed to provide proprietary application diagnostic enhancements.  
     
-    - May be instantiated once in any device.
+     - May be instantiated once in any device.
+     
     
-    
-    - If instantiated, object number must be 13.
-    
+     - If instantiated, object number must be 13.
+     
 
     **Properties**:
 
@@ -25,9 +23,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -35,9 +31,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -57,8 +51,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLockStatus(OcaONo ONo, OcaString &StatusDescription)
 
-        Retrieves a text description of the given object's lock status. Return
-        value indicates success of the retrieval.
+        Retrieves a text description of the given object's lock status. Return value indicates success of the retrieval.
 
         This method has id ``3.1``.
 

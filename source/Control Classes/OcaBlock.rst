@@ -9,14 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaBlock: OcaWorker
 
-    A block is an object with three aspects: - It can contain other
-    blocks. - It can contain workers. - It can contain agents. - It can
-    contain data networks. - It can contain application networks. - It has
-    a signal flow topology. We refer to an object inside a block as a
-    **member** of that block. We refer to the block which contains an
-    object as the object's **container.** **1** Normally, a block contains
-    a set of members that together function as a processing unit -- for
-    example, a crossover channel or mixer strip.
+    A block is an object with three aspects: - It can contain other blocks. - It can contain workers. - It can contain agents. - It can contain data networks. - It can contain application networks. - It has a signal flow topology. We refer to an object inside a block as a  **member**  of that block. We refer to the block which contains an object as the object's  **container.**  **1**  Normally, a block contains a set of members that together function as a processing unit -- for example, a crossover channel or mixer strip.
 
     **Properties**:
 
@@ -24,10 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This is a
-        class property instead of an object property. This property is an
-        override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This is a class property instead of an object property. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -35,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -45,11 +33,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaONo Type
 
-        Readonly block type. For statically-defined blocks, this value is a
-        Uint32 with a value corresponding to the unique configuration of this
-        block. For dynamically-defined blocks, this value is the object number
-        of the block's factory. For the root block, the value of this property
-        is 1.
+        Readonly block type. For statically-defined blocks, this value is a Uint32 with a value corresponding to the unique configuration of this block. For dynamically-defined blocks, this value is the object number of the block's factory. For the root block, the value of this property is 1.
 
         This property has id ``3.1``.
 
@@ -73,8 +57,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaLibVolIdentifier MostRecentParamSetIdentifier
 
-        Library volume identifier of the paramset most recently applied to
-        this block.
+        Library volume identifier of the paramset most recently applied to this block.
 
         This property has id ``3.4``.
 
@@ -82,8 +65,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaGlobalTypeIdentifier GlobalType
 
-        Global block type identifier for reusable blocks. **Added in version 2
-        of this class.**
+        Global block type identifier for reusable blocks.  **Added in version 2 of this class.** 
 
         This property has id ``3.5``.
 
@@ -91,10 +73,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaMap<OcaProtoONo, OcaONo> ONoMap
 
-        For blocks constructed by factories. Map that indicates the actual
-        ONos allocated to the constructing OcaBlockFactory's prototype ONos.
-        Key is prototype ONo, value is actual ONo. **Added in version 2 of
-        this class.**
+        For blocks constructed by factories. Map that indicates the actual ONos allocated to the constructing OcaBlockFactory's prototype ONos. Key is prototype ONo, value is actual ONo.  **Added in version 2 of this class.** 
 
         This property has id ``3.6``.
 
@@ -127,11 +106,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetType(OcaONo &Type)
 
-        Gets the block type. For statically-defined blocks, the block type is
-        a Uint32 with a value corresponding to the unique configuration of
-        this block. For dynamically-defined blocks, the block type is the
-        object number of the block's factory. For the root block, the value of
-        this property is 1.
+        Gets the block type. For statically-defined blocks, the block type is a Uint32 with a value corresponding to the unique configuration of this block. For dynamically-defined blocks, the block type is the object number of the block's factory. For the root block, the value of this property is 1.
 
         This method has id ``3.1``.
 
@@ -141,9 +116,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus ConstructMember(OcaClassID ClassID, variant[n] ConstructionParameters, OcaONo &ObjectNumber)
 
-        Constructs an object according to the given construction specification
-        and adds it to the block. The return value indicates whether the
-        member was successfully created and added.
+        Constructs an object according to the given construction specification and adds it to the block. The return value indicates whether the member was successfully created and added.
 
         This method has id ``3.2``.
 
@@ -155,9 +128,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus ConstructMemberUsingFactory(OcaONo FactoryONo, OcaONo &ObjectNumber)
 
-        Invokes a factory to construct an instance of the given class, then
-        adds it to the block. The return value indicates whether the member
-        was successfully created and added.
+        Invokes a factory to construct an instance of the given class, then adds it to the block. The return value indicates whether the member was successfully created and added.
 
         This method has id ``3.3``.
 
@@ -168,9 +139,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus DeleteMember(OcaONo ObjectNumber)
 
-        Removes a member from the block and destroys the object. . Deletes all
-        signal paths attached to its ports. The return value indicates whether
-        the member was successfully removed and destroyed.
+        Removes a member from the block and destroys the object. . Deletes all signal paths attached to its ports. The return value indicates whether the member was successfully removed and destroyed.
 
         This method has id ``3.4``.
 
@@ -180,10 +149,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetMembers(OcaList<OcaObjectIdentification> &Members)
 
-        Gets the list of block members. Does not recurse inner blocks. Each
-        inner block is included in the returned list as a single object -- its
-        contents are not enumerated. The return value indicates whether the
-        list was successfully retrieved.
+        Gets the list of block members. Does not recurse inner blocks. Each inner block is included in the returned list as a single object -- its contents are not enumerated. The return value indicates whether the list was successfully retrieved.
 
         This method has id ``3.5``.
 
@@ -193,10 +159,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetMembersRecursive(OcaList<OcaBlockMember> &Members)
 
-        Gets the list of block members. Recurses inner blocks. Each inner
-        block is included in the returned list as a single object, amd its
-        contents are enumerated. The return value indicates whether the list
-        was successfully retrieved.
+        Gets the list of block members. Recurses inner blocks. Each inner block is included in the returned list as a single object, amd its contents are enumerated. The return value indicates whether the list was successfully retrieved.
 
         This method has id ``3.6``.
 
@@ -206,8 +169,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus AddSignalPath(OcaSignalPath Path, OcaUint16 &Index)
 
-        Adds a signal path to the block. The return value indicates whether
-        the signal path was successfully added.
+        Adds a signal path to the block. The return value indicates whether the signal path was successfully added.
 
         This method has id ``3.7``.
 
@@ -218,8 +180,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus DeleteSignalPath(OcaUint16 Index)
 
-        Deletes a signal path from the block. The return value indicates
-        whether the signal path was successfully added.
+        Deletes a signal path from the block. The return value indicates whether the signal path was successfully added.
 
         This method has id ``3.8``.
 
@@ -229,9 +190,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSignalPaths(OcaMap<OcaUint16, OcaSignalPath> &Members)
 
-        Gets the map of signal paths in the block. Does not recurse inner
-        blocks. The return value indicates whether the list was successfully
-        retrieved.
+        Gets the map of signal paths in the block. Does not recurse inner blocks. The return value indicates whether the list was successfully retrieved.
 
         This method has id ``3.9``.
 
@@ -241,8 +200,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSignalPathsRecursive(OcaMap<OcaUint16, OcaSignalPath> &Members)
 
-        Gets the mapof signal paths in the block. Recurses inner blocks. The
-        return value indicates whether the list was successfully retrieved.
+        Gets the mapof signal paths in the block. Recurses inner blocks. The return value indicates whether the list was successfully retrieved.
 
         This method has id ``3.10``.
 
@@ -252,8 +210,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetMostRecentParamSetIdentifier(OcaLibVolIdentifier &Identifier)
 
-        Gets the identifier of the paramset most recently applied to this
-        block.
+        Gets the identifier of the paramset most recently applied to this block.
 
         This method has id ``3.11``.
 
@@ -263,9 +220,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus ApplyParamSet(OcaLibVolIdentifier &Identifier)
 
-        Applies the referenced paramset to this block, and sets the
-        MostRecentParamSet property. The return value indicates whether the
-        paramset was successfully applied.
+        Applies the referenced paramset to this block, and sets the MostRecentParamSet property. The return value indicates whether the paramset was successfully applied.
 
         This method has id ``3.12``.
 
@@ -275,8 +230,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetCurrentParamSetData(OcaLibVolData_ParamSet &Data)
 
-        Returns a paramset library volume data block which represents the
-        current state of the block -- i.e. a "snapshot".
+        Returns a paramset library volume data block which represents the current state of the block -- i.e. a "snapshot".
 
         This method has id ``3.13``.
 
@@ -286,9 +240,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus StoreCurrentParamSetData(OcaLibVolIdentifier LibVolIdentifier)
 
-        Stores a paramset library volume data block which represents the
-        current state of the block ("snapshot") in the given library.
-        **Replaces** the library volume at the specified LibVolIdentifier.
+        Stores a paramset library volume data block which represents the current state of the block ("snapshot") in the given library.  **Replaces** the library volume at the specified LibVolIdentifier.
 
         This method has id ``3.14``.
 
@@ -298,10 +250,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetGlobalType(OcaGlobalTypeIdentifier &GlobalType)
 
-        Gets the global blocktype. The return value indicates whether the type
-        was successfully retrieved. If this block has no global blocktype, the
-        **Authority** field of the returned **GlobalType** parameter will be
-        zero. **Added in version 2 of this class.**
+        Gets the global blocktype. The return value indicates whether the type was successfully retrieved. If this block has no global blocktype, the  **Authority**  field of the returned  **GlobalType**  parameter will be zero.  **Added in version 2 of this class.** 
 
         This method has id ``3.15``.
 
@@ -311,8 +260,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetONoMap(OcaMap<OcaProtoONo, OcaONo> &ONoMap)
 
-        Gets the block's ONo map. The return value indicates whether the map
-        was successfully retrieved. **Added in version 2 of this class.**
+        Gets the block's ONo map. The return value indicates whether the map was successfully retrieved.  **Added in version 2 of this class.** 
 
         This method has id ``3.16``.
 
@@ -322,9 +270,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus FindObjectsByRole(OcaString SearchName, OcaStringComparisonType NameComparisonType, OcaClassID SearchClassID, OcaObjectSearchResultFlags ResultFlags, OcaList<OcaObjectSearchResult> &Result)
 
-        Returns object identifications of all objects in the block that match
-        the given Role search string and Class ID. Return value indicates
-        whether the method succeeded. **Added in version 2 of this class.**
+        Returns object identifications of all objects in the block that match the given Role search string and Class ID. Return value indicates whether the method succeeded.  **Added in version 2 of this class.** 
 
         This method has id ``3.17``.
 
@@ -338,9 +284,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus FindObjectsByRoleRecursive(OcaString SearchName, OcaStringComparisonType NameComparisonType, OcaClassID SearchClassID, OcaObjectSearchResultFlags ResultFlags, OcaList<OcaObjectSearchResult> &Result)
 
-        Returns block member descriptors of all objects in the block and all
-        contained blocks that match the given Role search string and Class ID.
-        **Added in version 2 of this class.**
+        Returns block member descriptors of all objects in the block and all contained blocks that match the given Role search string and Class ID.  **Added in version 2 of this class.** 
 
         This method has id ``3.18``.
 
@@ -354,8 +298,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus FindObjectsByPath(OcaNamePath SearchPath, OcaObjectSearchResultFlags ResultFlags, OcaList<OcaObjectSearchResult> &Result)
 
-        Returns object identifications of all objects with the given name
-        path. **Added in version 2 of this class.**
+        Returns object identifications of all objects with the given name path.  **Added in version 2 of this class.** 
 
         This method has id ``3.20``.
 
@@ -367,9 +310,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus FindObjectsByLabelRecursive(OcaString SearchName, OcaStringComparisonType NameComparisonType, OcaClassID SearchClassID, OcaObjectSearchResultFlags ResultFlags, OcaList<OcaObjectSearchResult> &Result)
 
-        Returns block member descriptors of all objects in the block and all
-        contained blocks that match the given Label search string and Class
-        ID. **Added in version 2 of this class.**
+        Returns block member descriptors of all objects in the block and all contained blocks that match the given Label search string and Class ID.  **Added in version 2 of this class.** 
 
         This method has id ``3.19``.
 

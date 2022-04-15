@@ -17,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``5.1``.
 
@@ -27,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``5.2``.
 
@@ -45,8 +41,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaUint16 MaxLen
 
-        Maximum length of the returned string. May be readonly in some
-        implementations.
+        Maximum length of the returned string. May be readonly in some implementations.
 
         This property has id ``5.2``.
 
@@ -84,8 +79,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetString(OcaString &String)
 
-        Gets the entire string. Return status indicates success or failure of
-        the retrieval.
+        Gets the entire string. Return status indicates success or failure of the retrieval.
 
         This method has id ``5.1``.
 
@@ -95,8 +89,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetMaxLen(OcaUint16 &maxLen)
 
-        Gets the maximum number of bytes that may be returned. Returned status
-        indicates success or failure of the retrieval.
+        Gets the maximum number of bytes that may be returned. Returned status indicates success or failure of the retrieval.
 
         This method has id ``5.2``.
 
@@ -106,8 +99,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetMaxLen(OcaUint16 maxLen)
 
-        Sets the maximum number of bytes that the object may return. Returned
-        status indicates success or failure of the set.
+        Sets the maximum number of bytes that the object may return. Returned status indicates success or failure of the set.
 
         This method has id ``5.3``.
 

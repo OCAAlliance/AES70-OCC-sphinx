@@ -9,14 +9,13 @@ Class Hirarchy:
 
 .. cpp:class:: OcaAudioProcessingManager: OcaManager
 
-    Placeholder for optional manager that in future versions of the
-    standard will hold various global audio processing parameters.
+    Placeholder for optional manager that in future versions of the standard will hold various global audio processing parameters.  
     
-    - May be instantiated once in any device.
+     - May be instantiated once in any device.
+       
     
-    
-    - If instantiated, object number must be 9.
-    
+     - If instantiated, object number must be 9.
+     
 
     **Properties**:
 
@@ -24,9 +23,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -34,9 +31,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 

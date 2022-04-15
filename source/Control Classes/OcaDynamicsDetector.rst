@@ -17,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -27,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 
@@ -94,8 +90,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLaw(OcaLevelDetectionLaw &Law)
 
-        Gets the value of the Law property. Return status indicates whether
-        the value was successfully retrieved.
+        Gets the value of the Law property. Return status indicates whether the value was successfully retrieved.
 
         This method has id ``4.1``.
 
@@ -105,8 +100,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetLaw(OcaLevelDetectionLaw Law)
 
-        Sets the value of the Law property. Return status indicates whether
-        the value was successfully set.
+        Sets the value of the Law property. Return status indicates whether the value was successfully set.
 
         This method has id ``4.2``.
 
@@ -116,8 +110,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetAttackTime(OcaTimeInterval &Time, OcaTimeInterval &minTime, OcaTimeInterval &maxTime)
 
-        Gets the value of the AttackTime property. The return value indicates
-        if the value was successfully retrieved.
+        Gets the value of the AttackTime property. The return value indicates if the value was successfully retrieved.
 
         This method has id ``4.3``.
 
@@ -129,8 +122,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetAttackTime(OcaTimeInterval Time)
 
-        Sets the value of the AttackTime property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the AttackTime property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.4``.
 
@@ -140,8 +132,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetReleaseTime(OcaTimeInterval &Time, OcaTimeInterval &minTime, OcaTimeInterval &maxTime)
 
-        Gets the value of the ReleaseTime property. The return value indicates
-        if the value was successfully retrieved.
+        Gets the value of the ReleaseTime property. The return value indicates if the value was successfully retrieved.
 
         This method has id ``4.5``.
 
@@ -153,8 +144,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetReleaseTime(OcaTimeInterval Time)
 
-        Sets the value of the ReleaseTime property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the ReleaseTime property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.6``.
 
@@ -164,8 +154,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetHoldTime(OcaTimeInterval &Time, OcaTimeInterval &minTime, OcaTimeInterval &maxTime)
 
-        Gets the value of the HoldTime property. The return value indicates if
-        the value was successfully retrieved.
+        Gets the value of the HoldTime property. The return value indicates if the value was successfully retrieved.
 
         This method has id ``4.7``.
 
@@ -177,8 +166,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetHoldTime(OcaTimeInterval Time)
 
-        Sets the value of the HoldTime property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the HoldTime property. The return value indicates whether the property was successfully set.
 
         This method has id ``4.8``.
 
@@ -188,10 +176,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetMultiple(OcaParameterMask Mask, OcaLevelDetectionLaw Law, OcaTimeInterval AttackTime, OcaTimeInterval ReleaseTime, OcaTimeInterval HoldTime)
 
-        Sets some or all detector parameters. The return value indicates if
-        the parameters were successfully set. The action of this method is
-        atomic - if any of the value changes fails, none of the changes are
-        made.
+        Sets some or all detector parameters. The return value indicates if the parameters were successfully set. The action of this method is atomic - if any of the value changes fails, none of the changes are made.
 
         This method has id ``4.9``.
 

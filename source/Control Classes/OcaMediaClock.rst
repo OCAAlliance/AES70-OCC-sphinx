@@ -9,8 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaMediaClock: OcaAgent
 
-    **DEPRECATED CLASS** *Replaced by* **OcaMediaClock3** A media clock,
-    internal or external.
+     **DEPRECATED CLASS**   *Replaced by*  **OcaMediaClock3**  A media clock, internal or external.
 
     **Properties**:
 
@@ -18,7 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property is an override of the **OcaRoot** property.
+        This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -26,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -95,8 +92,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetType(OcaMediaClockType &Type)
 
-        Gets the value of the **Type** property. The return value indicates
-        whether the value was successfully retrieved.
+        Gets the value of the  **Type** property. The return value indicates whether the value was successfully retrieved.
 
         This method has id ``3.1``.
 
@@ -106,9 +102,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetType(OcaMediaClockType Type)
 
-        Sets the value of the **Type** property. The return value indicates
-        whether the value was successfully set. Optional method, may not be
-        supported in all implementations.
+        Sets the value of the  **Type** property. The return value indicates whether the value was successfully set. Optional method, may not be supported in all implementations.
 
         This method has id ``3.2``.
 
@@ -118,8 +112,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetDomainID(OcaUint16 &ID)
 
-        Gets the value of the **DomainID** property. The return value
-        indicates whether the value was successfully retrieved.
+        Gets the value of the  **DomainID** property. The return value indicates whether the value was successfully retrieved.
 
         This method has id ``3.3``.
 
@@ -129,9 +122,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetDomainID(OcaUint16 ID)
 
-        Sets the value of the **DomainID** property. The return value
-        indicates whether the value was successfully set. Optional method, may
-        not be supported in all implementations.
+        Sets the value of the  **DomainID** property. The return value indicates whether the value was successfully set. Optional method, may not be supported in all implementations.
 
         This method has id ``3.4``.
 
@@ -141,8 +132,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSupportedRates(OcaList<OcaMediaClockRate> &ID)
 
-        Gets the list of supported sampling rates. The return value indicates
-        whether the list was successfully retrieved.
+        Gets the list of supported sampling rates. The return value indicates whether the list was successfully retrieved.
 
         This method has id ``3.5``.
 
@@ -152,8 +142,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetCurrentRate(OcaMediaClockRate &rate)
 
-        Gets the current sampling rate. The return value indicates whether the
-        value was successfully retrieved.
+        Gets the current sampling rate. The return value indicates whether the value was successfully retrieved.
 
         This method has id ``3.6``.
 
@@ -163,8 +152,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetCurrentRate(OcaMediaClockRate rate)
 
-        Sets the sampling rate. The return value indicates whether the rate
-        was successfully set.
+        Sets the sampling rate. The return value indicates whether the rate was successfully set.
 
         This method has id ``3.7``.
 
@@ -174,8 +162,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLockState(OcaMediaClockLockState &state)
 
-        Gets the current media clock lock state. The return value indicates
-        whether the value was successfully retrieved.
+        Gets the current media clock lock state. The return value indicates whether the value was successfully retrieved.
 
         This method has id ``3.8``.
 

@@ -25,19 +25,16 @@ OcaTaskStatus
 
 .. cpp:struct:: OcaTaskStatus
     
-    Status of an OcaTask: task state plus a nonspecific blob named
-    Parameter which the application can use, or not.
+    Status of an OcaTask: task state plus a nonspecific blob named Parameter which the application can use, or not.  
     
-    - The initial value of Parameter is null.
+     - The initial value of Parameter is null.
+     
     
+     - The controller sets the value of Parameter via the Control() method.
+     
     
-    - The controller sets the value of Parameter via the Control() method.
-    
-    
-    - If the task's state changes due to an internal event (examples: task
-    duration value reached; or failure due to an error), Parameter is not
-    changed.
-    
+     - If the task's state changes due to an internal event (examples: task duration value reached; or failure due to an error), Parameter is not changed.
+     
 
     .. cpp:member:: OcaTaskID ID
 
@@ -71,9 +68,7 @@ OcaTaskState
 
 .. cpp:enum:: OcaTaskState : uint8_t
 
-    States of OcaTask object. State values change as a result of the
-    object's having received a comment or encountering processing events
-    (e.g. completion).
+    States of OcaTask object. State values change as a result of the object's having received a comment or encountering processing events (e.g. completion).
 
     .. cpp:enumerator:: None = 0
 
@@ -98,10 +93,10 @@ OcaTaskState
         Task has terminated unsuccessfully.
     .. cpp:enumerator:: Stopped = 7
 
-        Task was gracefully stopped by a **Stop** command.
+        Task was gracefully stopped by a  **Stop** command.
     .. cpp:enumerator:: Aborted = 8
 
-        Task was forcibly terminated by an **Abort** command.
+        Task was forcibly terminated by an  **Abort** command.
 .. _OcaTask:
 
 OcaTask
@@ -109,9 +104,7 @@ OcaTask
 
 .. cpp:struct:: OcaTask
     
-    An execution thread that runs an AES70 Program. Programs are
-    OcaLibrary volumes that contain application-specific execution
-    instructions.
+    An execution thread that runs an AES70 Program. Programs are OcaLibrary volumes that contain application-specific execution instructions.
 
     .. cpp:member:: OcaTaskID ID
 
@@ -134,29 +127,19 @@ OcaTask
 
     .. cpp:member:: OcaONo TimeSourceONo
 
-        ONo of relevant **OcaTimeSource** object or zero to use device time
-        (see **OcaDeviceTimeManager** ).
+        ONo of relevant  **OcaTimeSource** object or zero to use device time (see  **OcaDeviceTimeManager** ).
 
     .. cpp:member:: OcaTimePTP StartTime
 
-        Time at which to start task, or zero if task will be manually started.
-        If **TimeMode=Relative** , the actual event start time equals the
-        value of **StartTime** plus the absolute time that **StartTime** was
-        most recently set. Datatype shall depend on value of **TimeUnits** : -
-        If **TimeUnits** is seconds, datatype shall be **OcaTimePTP;** - If
-        TimeUnits is samples, datatype shall be **OcaUint64** . If
-        **TimeMode=Absolute** , the actual event start time equals the value
-        of **StartTime**
+        Time at which to start task, or zero if task will be manually started. If  **TimeMode=Relative** , the actual event start time equals the value of  **StartTime**  plus the absolute time that  **StartTime**  was most recently set. Datatype shall depend on value of  **TimeUnits** : - If  **TimeUnits** is seconds, datatype shall be  **OcaTimePTP;**  - If TimeUnits is samples, datatype shall be  **OcaUint64** . If  **TimeMode=Absolute** , the actual event start time equals the value of  **StartTime** 
 
     .. cpp:member:: OcaTimePTP Duration
 
-        Duration of task execution, or zero to run until complete or
-        explicitly stopped.
+        Duration of task execution, or zero to run until complete or explicitly stopped.
 
     .. cpp:member:: OcaBlob ApplicationSpecificParameters
 
-        Arbitrary application-specific parameters for the Task and its
-        Program.
+        Arbitrary application-specific parameters for the Task and its Program.
 
 
 OCP.1 Encoding
@@ -171,10 +154,14 @@ Label.Value                            string      variable
 ProgramID.Library.ONo                  OcaUint32   4          
 ProgramID.ID.Value                     OcaUint32   4          
 GroupID.Value                          OcaUint16   2          
-TimeMode                               OcaTimeMode variable   
+TimeMode                               OcaEnumItem 1          
 TimeSourceONo.ONo                      OcaUint32   4          
-StartTime                              OcaTimePTP  variable   
-Duration                               OcaTimePTP  variable   
+StartTime.Negative                     OcaBoolean  1          
+StartTime.Seconds.Value                OcaUint64   8          
+StartTime.Nanoseconds                  OcaUint32   4          
+Duration.Negative                      OcaBoolean  1          
+Duration.Seconds.Value                 OcaUint64   8          
+Duration.Nanoseconds                   OcaUint32   4          
 ApplicationSpecificParameters.DataSize OcaUint16   2          
 ApplicationSpecificParameters.Data     OcaUint8    1 * Count  
 ====================================== =========== ===========
@@ -194,34 +181,25 @@ OcaTaskCommand
         No (invalid) encoding.
     .. cpp:enumerator:: Prepare = 1
 
-        Initialize task. If successful, resulting task state is **Disabled** .
-        In this state, a prescheduled task will not automatically run, nor can
-        the task be started with a **Start** command.
+        Initialize task. If successful, resulting task state is  **Disabled** . In this state, a prescheduled task will not automatically run, nor can the task be started with a  **Start** command.
     .. cpp:enumerator:: Enable = 2
 
-        Make task available for scheduled or manual start. If successful,
-        resulting task state is **Enabled** . In this state, the task can be
-        started manually or at a scheduled time.
+        Make task available for scheduled or manual start. If successful, resulting task state is  **Enabled** . In this state, the task can be started manually or at a scheduled time.
     .. cpp:enumerator:: Start = 3
 
-        Start task execution immediately. If successful, resulting task state
-        is **Running** .
+        Start task execution immediately. If successful, resulting task state is  **Running** .
     .. cpp:enumerator:: Stop = 4
 
-        Stop task gracefully. If successful, resulting task state is
-        **Stopped** .
+        Stop task gracefully. If successful, resulting task state is  **Stopped** .
     .. cpp:enumerator:: Abort = 5
 
-        Unconditionally terminate task immediately. Resulting task status is
-        **Aborted** .
+        Unconditionally terminate task immediately. Resulting task status is  **Aborted** .
     .. cpp:enumerator:: Disable = 6
 
-        Place task into **Disabled** state. In this state, a prescheduled task
-        will not automatically run, nor can the task be started with a
-        **Start** command.
+        Place task into  **Disabled** state. In this state, a prescheduled task will not automatically run, nor can the task be started with a  **Start** command.
     .. cpp:enumerator:: Clear = 7
 
-        De-initialize task. Place it into the **NotPrepared** state.
+        De-initialize task. Place it into the  **NotPrepared** state.
 .. _OcaTaskManagerState:
 
 OcaTaskManagerState
@@ -229,30 +207,25 @@ OcaTaskManagerState
 
 .. cpp:enum:: OcaTaskManagerState : uint8_t
 
-    States of **OcaTaskManager** object. These states represent the
-    overall state of task processing in the device.
+    States of  **OcaTaskManager** object. These states represent the overall state of task processing in the device.  
     
-    - Device task processing state is **Enabled** by default. In
-    **Enabled** state, tasks may be running.
+     - Device task processing state is  **Enabled** by default. In  **Enabled** state, tasks may be running.
+       
     
+     - Device task processing state may be  **Disabled** by the  **OcaTaskManager Disable** command.
+     
     
-    - Device task processing state may be **Disabled** by the
-    **OcaTaskManager Disable** command.
+     - The  **Disable** command will succeed only if no tasks are running.
+      Tasks may be stopped by:  
     
+     - passing the  **OcaTaskManager** a  **Stop** or  **Abort** command, which will stop all tasks in the device; or
+     
     
-    - The **Disable** command will succeed only if no tasks are running.
-    Tasks may be stopped by:
+     - passing a  **Stop** or  **Abort** command to each  **OcaTaskGroup** agent, which will stop all the tasks in the given task groups; or
+     
     
-    - passing the **OcaTaskManager** a **Stop** or **Abort** command,
-    which will stop all tasks in the device; or
-    
-    
-    - passing a **Stop** or **Abort** command to each **OcaTaskGroup**
-    agent, which will stop all the tasks in the given task groups; or
-    
-    
-    - passing a **Stop** or **Abort** command to each task individually.
-    
+     - passing a  **Stop** or  **Abort** command to each task individually.
+     
 
     .. cpp:enumerator:: None = 0
 

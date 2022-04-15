@@ -21,8 +21,7 @@ OcaMediaCoding
 
     .. cpp:member:: OcaONo ClockONo
 
-        Object number of OcaMediaClock3 object to use for this coding scheme.
-        May be zero if no OcaMediaClock3 object is used.
+        Object number of OcaMediaClock3 object to use for this coding scheme. May be zero if no OcaMediaClock3 object is used.
 
 
 OCP.1 Encoding

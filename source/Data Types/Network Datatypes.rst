@@ -49,13 +49,11 @@ OcaNetworkSystemInterfaceDescriptor
 
 .. cpp:struct:: OcaNetworkSystemInterfaceDescriptor
     
-    Descriptor of a system interface used by a network. Format is data
-    network type dependent.
+    Descriptor of a system interface used by a network. Format is data network type dependent.
 
     .. cpp:member:: OcaBlob SystemInterfaceParameters
 
-        Parameters for the operating system interface the network uses to do
-        I/O.
+        Parameters for the operating system interface the network uses to do I/O.
 
     .. cpp:member:: OcaNetworkAddress MyNetworkAddress
 
@@ -89,38 +87,28 @@ OcaApplicationNetworkState
         State is not known.
     .. cpp:enumerator:: NotReady = 1
 
-        Application network is not connected to host data network and is
-        therefore not ready for connection establishng or application data
-        transfer.
+        Application network is not connected to host data network and is therefore not ready for connection establishng or application data transfer.
     .. cpp:enumerator:: Readying = 2
 
-        Application network is in the process of connecting to the host data
-        network and is therefore not ready for connection establishing or
-        application data transfer.
+        Application network is in the process of connecting to the host data network and is therefore not ready for connection establishing or application data transfer.
     .. cpp:enumerator:: Ready = 3
 
-        Application network is connected to host data network and is ready for
-        connection establishing and application data transfer.
+        Application network is connected to host data network and is ready for connection establishing and application data transfer.
     .. cpp:enumerator:: Running = 4
 
-        Application network is connected to host data network and is executing
-        connection establishment and application data transfer.
+        Application network is connected to host data network and is executing connection establishment and application data transfer.
     .. cpp:enumerator:: Paused = 5
 
-        All application data transfer is paused, but connections are still in
-        place.
+        All application data transfer is paused, but connections are still in place.
     .. cpp:enumerator:: Stopping = 6
 
-        Network is in the process of stopping all media application data
-        transport activity and is deleting all media transport connections.
+        Network is in the process of stopping all media application data transport activity and is deleting all media transport connections.
     .. cpp:enumerator:: Stopped = 7
 
-        No application data transport connections exist, but application
-        network is still connected to host data network.
+        No application data transport connections exist, but application network is still connected to host data network.
     .. cpp:enumerator:: Fault = 8
 
-        Application network has ceased all activity due to an error, but
-        operating storage elements have not been freed.
+        Application network has ceased all activity due to an error, but operating storage elements have not been freed.
 .. _OcaApplicationNetworkCommand:
 
 OcaApplicationNetworkCommand
@@ -135,25 +123,19 @@ OcaApplicationNetworkCommand
         No-op. State is not changed.
     .. cpp:enumerator:: Prepare = 1
 
-        Open a connection to the host data network, but do not make any media
-        connections. Resulting state = Ready.
+        Open a connection to the host data network, but do not make any media connections. Resulting state = Ready.
     .. cpp:enumerator:: Start = 2
 
-        Commence media data connection-making and data transfer. Resulting
-        state = Running.
+        Commence media data connection-making and data transfer. Resulting state = Running.
     .. cpp:enumerator:: Pause = 3
 
-        Temporarily halt all media data transfer, but preserve media
-        connections. Resulting state = Paused. nb To unpause, a Start command
-        should be used.
+        Temporarily halt all media data transfer, but preserve media connections. Resulting state = Paused. nb To unpause, a Start command should be used.
     .. cpp:enumerator:: Stop = 4
 
-        Cease data transfer and delete all media connections. Resulting state
-        = Stopped.
+        Cease data transfer and delete all media connections. Resulting state = Stopped.
     .. cpp:enumerator:: Reset = 5
 
-        Cease all media transfer, delete all media transport connections, and
-        disconnect from the host data network. Resulting state = NotReady.
+        Cease all media transfer, delete all media transport connections, and disconnect from the host data network. Resulting state = NotReady.
 .. _OcaNetworkMediaProtocol:
 
 OcaNetworkMediaProtocol
@@ -189,8 +171,7 @@ OcaNetworkMediaProtocol
         LiveWire media transport
     .. cpp:enumerator:: ExtensionPoint = 65
 
-        Base value for addition of nonstandard (e.g. proprietary) protocol
-        options
+        Base value for addition of nonstandard (e.g. proprietary) protocol options
 .. _OcaNetworkControlProtocol:
 
 OcaNetworkControlProtocol
@@ -211,8 +192,7 @@ OcaNetworkControlProtocol
         OCP.2 - OCA protocol for USB links.
     .. cpp:enumerator:: OCP03 = 3
 
-        OCP.3 - Character XML or JSON (tbd) version of OCA protocol, for
-        serial links and other purposes.
+        OCP.3 - Character XML or JSON (tbd) version of OCA protocol, for serial links and other purposes.
 .. _OcaMediaSinkConnector:
 
 OcaMediaSinkConnector
@@ -220,8 +200,7 @@ OcaMediaSinkConnector
 
 .. cpp:struct:: OcaMediaSinkConnector
     
-    Media sink (i.e. input) connector. Connects to an inbound stream.
-    Collected by **OcaMediaTransportNetwork** .
+    Media sink (i.e. input) connector. Connects to an inbound stream. Collected by  **OcaMediaTransportNetwork** .
 
     .. cpp:member:: OcaMediaConnectorID IDInternal
 
@@ -229,14 +208,11 @@ OcaMediaSinkConnector
 
     .. cpp:member:: OcaString IDExternal
 
-        Public name of connector. May be published to the media transport
-        network, depending on the type of network.
+        Public name of connector. May be published to the media transport network, depending on the type of network.
 
     .. cpp:member:: OcaMediaConnection Connection
 
-        Descriptor of the stream connection to this connector. If there is no
-        stream connected to this controller, (i.e. property Connected =
-        FALSE), the value of this property is undefined.
+        Descriptor of the stream connection to this connector. If there is no stream connected to this controller, (i.e. property Connected = FALSE), the value of this property is undefined.
 
     .. cpp:member:: OcaList<OcaMediaCoding> AvailableCodings
 
@@ -248,27 +224,15 @@ OcaMediaSinkConnector
 
     .. cpp:member:: OcaMultiMap<OcaUint16, OcaPortID> ChannelPinMap
 
-        Map of stream pins (sink channels) to OCA ports (output ports) of the
-        owning **OcaMediaNetwork** object. This defines what pins that are
-        received from the network are sent to what OCA ports. A pin can only
-        carry one network channel, but can be sent to multiple ports. That is
-        why this data member is a multimap, a pin identifier can map to
-        multiple ports. A pin is identified by an OcaUint16 with value
-        1..MaxPinCount. Not having a certain pin identifier in this map means
-        that the pin is empty (i.e. not carrying a sink channel). A pin
-        identifier cannot be part of the map more than MaxChannelsPerPin
-        times, unless MaxChannelsPerPin is zero.
+        Map of stream pins (sink channels) to OCA ports (output ports) of the owning  **OcaMediaNetwork** object. This defines what pins that are received from the network are sent to what OCA ports. A pin can only carry one network channel, but can be sent to multiple ports. That is why this data member is a multimap, a pin identifier can map to multiple ports. A pin is identified by an OcaUint16 with value 1..MaxPinCount. Not having a certain pin identifier in this map means that the pin is empty (i.e. not carrying a sink channel). A pin identifier cannot be part of the map more than MaxChannelsPerPin times, unless MaxChannelsPerPin is zero.
 
     .. cpp:member:: OcaDBFS AlignmentLevel
 
-        Alignment level of the interface. Note that the dBFS value is
-        referenced to the *interface's* fullscale value, not to device's
-        internal fullscale value.
+        Alignment level of the interface. Note that the dBFS value is referenced to the  *interface's* fullscale value, not to device's internal fullscale value.
 
     .. cpp:member:: OcaDB AlignmentGain
 
-        Alignment gain for the connector. This value will be applied to all
-        signals incoming through all pins.
+        Alignment gain for the connector. This value will be applied to all signals incoming through all pins.
 
     .. cpp:member:: OcaMediaCoding CurrentCoding
 
@@ -308,8 +272,7 @@ OcaMediaSourceConnector
 
 .. cpp:struct:: OcaMediaSourceConnector
     
-    Media source (i.e. output) connector. Connects to an outbound stream.
-    Collected by **OcaMediaTransportNetwork** .
+    Media source (i.e. output) connector. Connects to an outbound stream. Collected by  **OcaMediaTransportNetwork** .
 
     .. cpp:member:: OcaMediaConnectorID IDInternal
 
@@ -317,14 +280,11 @@ OcaMediaSourceConnector
 
     .. cpp:member:: OcaString IDExternal
 
-        Public name of connector. May be published to the media transport
-        network, depending on the type of network.
+        Public name of connector. May be published to the media transport network, depending on the type of network.
 
     .. cpp:member:: OcaMediaConnection Connection
 
-        Descriptor of the stream connection to this connector. If there is no
-        stream connected to this controller, (i.e. property Connected =
-        FALSE), the value of this property is undefined.
+        Descriptor of the stream connection to this connector. If there is no stream connected to this controller, (i.e. property Connected = FALSE), the value of this property is undefined.
 
     .. cpp:member:: OcaList<OcaMediaCoding> AvailableCodings
 
@@ -336,17 +296,11 @@ OcaMediaSourceConnector
 
     .. cpp:member:: OcaMap<OcaUint16, OcaPortID> ChannelPinMap
 
-        Map of stream pins (source channels) to OCA ports (input ports) of the
-        owning **OcaMediaNetwork** object. This defines what source channels
-        are sent to the network. A pin is identified by an OcaUint16 with
-        value 1..MaxPinCount. Not having a certain pin identifier in this map
-        means that the pin is empty (i.e. not carrying a source channel).
+        Map of stream pins (source channels) to OCA ports (input ports) of the owning  **OcaMediaNetwork** object. This defines what source channels are sent to the network. A pin is identified by an OcaUint16 with value 1..MaxPinCount. Not having a certain pin identifier in this map means that the pin is empty (i.e. not carrying a source channel).
 
     .. cpp:member:: OcaDBFS AlignmentLevel
 
-        Alignment level of the interface. Note that the dBFS value is
-        referenced to the *interface's* fullscale value, not to device's
-        internal fullscale value.
+        Alignment level of the interface. Note that the dBFS value is referenced to the  *interface's* fullscale value, not to device's internal fullscale value.
 
     .. cpp:member:: OcaMediaCoding CurrentCoding
 
@@ -385,8 +339,7 @@ OcaMediaConnectorID
 
 .. cpp:type:: OcaMediaConnectorID = OcaUint16
 
-    Internal ID of media connector. Unique within its owner, which will be
-    an OcaMediaTransportNetwork instance.
+    Internal ID of media connector. Unique within its owner, which will be an OcaMediaTransportNetwork instance.
 .. _OcaMediaConnectorStatus:
 
 OcaMediaConnectorStatus
@@ -406,8 +359,7 @@ OcaMediaConnectorStatus
 
     .. cpp:member:: OcaUint16 ErrorCode
 
-        Indicates what type of error the connector is in (only relevant if the
-        State is Fault).
+        Indicates what type of error the connector is in (only relevant if the State is Fault).
 
 
 OCP.1 Encoding
@@ -433,8 +385,7 @@ OcaMediaConnectorState
 
     .. cpp:enumerator:: Stopped = 0
 
-        Connector has no media connection and no media data is being
-        transferred.
+        Connector has no media connection and no media data is being transferred.
     .. cpp:enumerator:: SettingUp = 1
 
         Stream connection is being set up. Media data is not flowing.
@@ -446,8 +397,7 @@ OcaMediaConnectorState
         Media transfer is stopped. Existing connection is intact.
     .. cpp:enumerator:: Fault = 4
 
-        Data transfer has been halted due to errors. Working storage has not
-        been freed.
+        Data transfer has been halted due to errors. Working storage has not been freed.
 .. _OcaMediaConnectorCommand:
 
 OcaMediaConnectorCommand
@@ -462,12 +412,10 @@ OcaMediaConnectorCommand
         No-op. State is not changed.
     .. cpp:enumerator:: Start = 1
 
-        Commence media data connection-making and data transfer. Resulting
-        state = Running.
+        Commence media data connection-making and data transfer. Resulting state = Running.
     .. cpp:enumerator:: Pause = 2
 
-        Pause transferring media data, but preserve media connections.
-        Resulting state = Paused.
+        Pause transferring media data, but preserve media connections. Resulting state = Paused.
 .. _OcaMediaConnection:
 
 OcaMediaConnection
@@ -475,25 +423,13 @@ OcaMediaConnection
 
 .. cpp:struct:: OcaMediaConnection
     
-    A single-channel or multichannel connection between a local media
-    connector (i.e. **OcaMedia(Source/Sink)Connector** instance) of an
-    **OcaMediaTransportNetwork** object in this node and another
-    ("remote") media source or sink. Normally, the remote source or sink
-    is in another node. The remote end may or may not be an OCA-compliant
-    device. A connection is unidirectional. Its direction is determined by
-    the connector that owns the connection. Its direction is either:
+    A single-channel or multichannel connection between a local media connector (i.e.  **OcaMedia(Source/Sink)Connector** instance) of an  **OcaMediaTransportNetwork** object in this node and another ("remote") media source or sink. Normally, the remote source or sink is in another node. The remote end may or may not be an OCA-compliant device. A connection is unidirectional. Its direction is determined by the connector that owns the connection. Its direction is either:  
     
-    - *Outbound:* A signal flow from a **source** connector to an external
-    destination; or
+     -  *Outbound:* A signal flow from a  **source** connector to an external destination; or
+     
     
-    
-    - *Inbound:* A signal flow from an external source to a **sink**
-    connector.
-    An **OcaMediaConnection** object may represent a connection to either
-    a unicast or a multicast stream. Any given
-    **OcaMedia(Source/Sink)Connector** object will only have one media
-    connection. In non-OCA documents, connections are sometimes referred
-    to as *streams* or *flows.*
+     -  *Inbound:* A signal flow from an external source to a  **sink** connector.
+      An  **OcaMediaConnection** object may represent a connection to either a unicast or a multicast stream. Any given  **OcaMedia(Source/Sink)Connector** object will only have one media connection. In non-OCA documents, connections are sometimes referred to as  *streams*  or  *flows.* 
 
     .. cpp:member:: OcaBoolean Secure
 
@@ -501,8 +437,7 @@ OcaMediaConnection
 
     .. cpp:member:: OcaMediaStreamParameters StreamParameters
 
-        Stream parameters (encoding, sampling, etc). Format is media network
-        type dependent.
+        Stream parameters (encoding, sampling, etc). Format is media network type dependent.
 
     .. cpp:member:: OcaMediaStreamCastMode StreamCastMode
 
@@ -552,8 +487,7 @@ OcaMediaStreamParameters
 
 .. cpp:type:: OcaMediaStreamParameters = OcaBlob
 
-    Media stream parameters. Definition is media transport type dependent.
-    Appropriate subclasses will be defined for specific X210 adaptations.
+    Media stream parameters. Definition is media transport type dependent. Appropriate subclasses will be defined for specific X210 adaptations.
 .. _OcaMediaCoding:
 
 OcaMediaCoding
@@ -573,8 +507,7 @@ OcaMediaCoding
 
     .. cpp:member:: OcaONo ClockONo
 
-        Object number of OcaMediaClock3 object to use for this coding scheme.
-        May be zero if no OcaMediaClock3 object is used.
+        Object number of OcaMediaClock3 object to use for this coding scheme. May be zero if no OcaMediaClock3 object is used.
 
 
 OCP.1 Encoding

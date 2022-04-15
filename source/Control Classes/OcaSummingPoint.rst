@@ -9,8 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaSummingPoint: OcaActuator
 
-    Actuator with no control parameters, used as a simple node to
-    represent summations in block signal flows.
+    Actuator with no control parameters, used as a simple node to represent summations in block signal flows.
 
     **Properties**:
 
@@ -18,7 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property is an override of the **OcaRoot** property.
+        This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -26,7 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property is an override of the **OcaRoot** property.
+        This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 

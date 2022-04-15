@@ -41,13 +41,11 @@ OcaNetworkSystemInterfaceDescriptor
 
 .. cpp:struct:: OcaNetworkSystemInterfaceDescriptor
     
-    Descriptor of a system interface used by a network. Format is data
-    network type dependent.
+    Descriptor of a system interface used by a network. Format is data network type dependent.
 
     .. cpp:member:: OcaBlob SystemInterfaceParameters
 
-        Parameters for the operating system interface the network uses to do
-        I/O.
+        Parameters for the operating system interface the network uses to do I/O.
 
     .. cpp:member:: OcaNetworkAddress MyNetworkAddress
 
@@ -81,38 +79,28 @@ OcaApplicationNetworkState
         State is not known.
     .. cpp:enumerator:: NotReady = 1
 
-        Application network is not connected to host data network and is
-        therefore not ready for connection establishng or application data
-        transfer.
+        Application network is not connected to host data network and is therefore not ready for connection establishng or application data transfer.
     .. cpp:enumerator:: Readying = 2
 
-        Application network is in the process of connecting to the host data
-        network and is therefore not ready for connection establishing or
-        application data transfer.
+        Application network is in the process of connecting to the host data network and is therefore not ready for connection establishing or application data transfer.
     .. cpp:enumerator:: Ready = 3
 
-        Application network is connected to host data network and is ready for
-        connection establishing and application data transfer.
+        Application network is connected to host data network and is ready for connection establishing and application data transfer.
     .. cpp:enumerator:: Running = 4
 
-        Application network is connected to host data network and is executing
-        connection establishment and application data transfer.
+        Application network is connected to host data network and is executing connection establishment and application data transfer.
     .. cpp:enumerator:: Paused = 5
 
-        All application data transfer is paused, but connections are still in
-        place.
+        All application data transfer is paused, but connections are still in place.
     .. cpp:enumerator:: Stopping = 6
 
-        Network is in the process of stopping all media application data
-        transport activity and is deleting all media transport connections.
+        Network is in the process of stopping all media application data transport activity and is deleting all media transport connections.
     .. cpp:enumerator:: Stopped = 7
 
-        No application data transport connections exist, but application
-        network is still connected to host data network.
+        No application data transport connections exist, but application network is still connected to host data network.
     .. cpp:enumerator:: Fault = 8
 
-        Application network has ceased all activity due to an error, but
-        operating storage elements have not been freed.
+        Application network has ceased all activity due to an error, but operating storage elements have not been freed.
 .. _OcaApplicationNetworkCommand:
 
 OcaApplicationNetworkCommand
@@ -127,25 +115,19 @@ OcaApplicationNetworkCommand
         No-op. State is not changed.
     .. cpp:enumerator:: Prepare = 1
 
-        Open a connection to the host data network, but do not make any media
-        connections. Resulting state = Ready.
+        Open a connection to the host data network, but do not make any media connections. Resulting state = Ready.
     .. cpp:enumerator:: Start = 2
 
-        Commence media data connection-making and data transfer. Resulting
-        state = Running.
+        Commence media data connection-making and data transfer. Resulting state = Running.
     .. cpp:enumerator:: Pause = 3
 
-        Temporarily halt all media data transfer, but preserve media
-        connections. Resulting state = Paused. nb To unpause, a Start command
-        should be used.
+        Temporarily halt all media data transfer, but preserve media connections. Resulting state = Paused. nb To unpause, a Start command should be used.
     .. cpp:enumerator:: Stop = 4
 
-        Cease data transfer and delete all media connections. Resulting state
-        = Stopped.
+        Cease data transfer and delete all media connections. Resulting state = Stopped.
     .. cpp:enumerator:: Reset = 5
 
-        Cease all media transfer, delete all media transport connections, and
-        disconnect from the host data network. Resulting state = NotReady.
+        Cease all media transfer, delete all media transport connections, and disconnect from the host data network. Resulting state = NotReady.
 .. _OcaNetworkMediaProtocol:
 
 OcaNetworkMediaProtocol
@@ -181,8 +163,7 @@ OcaNetworkMediaProtocol
         LiveWire media transport
     .. cpp:enumerator:: ExtensionPoint = 65
 
-        Base value for addition of nonstandard (e.g. proprietary) protocol
-        options
+        Base value for addition of nonstandard (e.g. proprietary) protocol options
 .. _OcaNetworkControlProtocol:
 
 OcaNetworkControlProtocol
@@ -203,5 +184,4 @@ OcaNetworkControlProtocol
         OCP.2 - OCA protocol for USB links.
     .. cpp:enumerator:: OCP03 = 3
 
-        OCP.3 - Character XML or JSON (tbd) version of OCA protocol, for
-        serial links and other purposes.
+        OCP.3 - Character XML or JSON (tbd) version of OCA protocol, for serial links and other purposes.

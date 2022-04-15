@@ -9,21 +9,13 @@ Class Hirarchy:
 
 .. cpp:class:: OcaDeviceTimeManager: OcaManager
 
-    Manager that allows controlling and monitoring a device's time-of-day
-    clock, and that collects the device's time source objects.
+    Manager that allows controlling and monitoring a device's time-of-day clock, and that collects the device's time source objects.  
     
-    - Must be instantiated once in every device that has more than one
-    time source object. In this context, a "time source object" is an
-    instance of **OcaTimeSource** or a subclass of it.
+     - Must be instantiated once in every device that has more than one time source object. In this context, a "time source object" is an instance of  **OcaTimeSource** or a subclass of it.
+       
     
-    
-    - If instantiated, object number must be 10.
-    Note: The clock value is accessible via Get and Set methods, but has
-    not been defined as a public property because its value is volatile
-    and should not cause property-change events. The current value of the
-    **OcaTimeSource** object designated by the **CurrentDeviceTimeSource**
-    property of this Manager is known as the **Device Time** . The
-    property **TimeSources** was added in version 2 of this class.
+     - If instantiated, object number must be 10.
+      Note: The clock value is accessible via Get and Set methods, but has not been defined as a public property because its value is volatile and should not cause property-change events. The current value of the  **OcaTimeSource** object designated by the  **CurrentDeviceTimeSource** property of this Manager is known as the  **Device Time** . The property  **TimeSources** was added in version 2 of this class.
 
     **Properties**:
 
@@ -31,9 +23,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -41,9 +31,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -59,8 +47,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaONo CurrentDeviceTimeSource
 
-        The current time source for this device's device time, or zero if
-        none.
+        The current time source for this device's device time, or zero if none.
 
         This property has id ``3.2``.
 
@@ -68,8 +55,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaTimePTP DeviceTimePTP
 
-        The current device time. Defined as a private property so that clock
-        updates don't generate property-change events.
+        The current device time. Defined as a private property so that clock updates don't generate property-change events.
 
         This property has id ``3.0``.
 
@@ -89,9 +75,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetDeviceTimeNTP(OcaTimeNTP &DeviceTime)
 
-        Get current value of device time-of-day clock in NTP format. Return
-        value indicates whether value was successfully retrieved. This method
-        is _optional_ and _deprecated_ .
+        Get current value of device time-of-day clock in NTP format. Return value indicates whether value was successfully retrieved. This method is  _optional_ and  _deprecated_ .
 
         This method has id ``3.1``.
 
@@ -101,10 +85,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetDeviceTimeNTP(OcaTimeNTP DeviceTime)
 
-        Sets device time-of-day clock in NTP format. Return value indicates
-        whether value was successfully set. Not available if a time source is
-        identified in property CurrentDeviceTimeSource. This method is
-        _optional_ and _deprecated_ .
+        Sets device time-of-day clock in NTP format. Return value indicates whether value was successfully set. Not available if a time source is identified in property CurrentDeviceTimeSource. This method is  _optional_ and  _deprecated_ .
 
         This method has id ``3.2``.
 
@@ -114,9 +95,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetTimeSources(OcaList<OcaONo> &TimeSourceONos)
 
-        Returns list of object numbers of OcaTimeSource instances in this
-        device. Return value indicates whether list was successfully
-        retrieved.
+        Returns list of object numbers of OcaTimeSource instances in this device. Return value indicates whether list was successfully retrieved.
 
         This method has id ``3.3``.
 
@@ -126,8 +105,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetCurrentDeviceTimeSource(OcaONo &TimeSourceONo)
 
-        Retrieves ONo of current time source object, or zero if none. Return
-        value indicates whether value was successfully retrieved.
+        Retrieves ONo of current time source object, or zero if none. Return value indicates whether value was successfully retrieved.
 
         This method has id ``3.4``.
 
@@ -137,8 +115,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetCurrentDeviceTimeSource(OcaONo TimeSourceONo)
 
-        Sets ONo of current time source object, or zero if none. Return value
-        indicates whether value was successfully retrieved.
+        Sets ONo of current time source object, or zero if none. Return value indicates whether value was successfully retrieved.
 
         This method has id ``3.5``.
 
@@ -148,8 +125,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetDeviceTimePTP(OcaTimePTP &DeviceTime)
 
-        Get current value of device time-of-day clock in PTP format. Return
-        value indicates whether value was successfully retrieved.
+        Get current value of device time-of-day clock in PTP format. Return value indicates whether value was successfully retrieved.
 
         This method has id ``3.6``.
 
@@ -159,9 +135,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetDeviceTimePTP(OcaTimePTP DeviceTime)
 
-        Sets device time-of-day clock in PTP format. Return value indicates
-        whether value was successfully set. Not available if a time source is
-        identified in property CurrentDeviceTimeSource.
+        Sets device time-of-day clock in PTP format. Return value indicates whether value was successfully set. Not available if a time source is identified in property CurrentDeviceTimeSource.
 
         This method has id ``3.7``.
 

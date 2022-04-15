@@ -9,8 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaTimeSource: OcaAgent
 
-    A time source, internal or external. See RFC 7273 for a detailed
-    discussion of time sources.
+    A time source, internal or external. See RFC 7273 for a detailed discussion of time sources.
 
     **Properties**:
 
@@ -18,7 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property is an override of the **OcaRoot** property.
+        This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -26,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -52,9 +49,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaSDPString Parameters
 
-        Parameters (identifiers, modifiers, etc.) for this time source .
-        Content is an SDP timestamp reference specification as defined in
-        RFC7273, section 4.8.
+        Parameters (identifiers, modifiers, etc.) for this time source . Content is an SDP timestamp reference specification as defined in RFC7273, section 4.8.
 
         This property has id ``3.3``.
 
@@ -70,8 +65,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaString ReferenceID
 
-        Identifier of reference to which this time source is synced, if any.
-        Not needed for all reference types.
+        Identifier of reference to which this time source is synced, if any. Not needed for all reference types.
 
         This property has id ``3.5``.
 
@@ -106,8 +100,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetAvailability(OcaTimeSourceAvailability &Availability)
 
-        Gets the value of the **Availability** property. The return value
-        indicates whether the value was successfully retrieved.
+        Gets the value of the  **Availability** property. The return value indicates whether the value was successfully retrieved.
 
         This method has id ``3.1``.
 
@@ -117,8 +110,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetProtocol(OcaTimeProtocol &Protocol)
 
-        Gets the value of the **Protocol** property. The return value
-        indicates whether the value was successfully retrieved.
+        Gets the value of the  **Protocol** property. The return value indicates whether the value was successfully retrieved.
 
         This method has id ``3.2``.
 
@@ -128,8 +120,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetProtocol(OcaTimeProtocol Protocol)
 
-        Sets the value of the **Protocol** property. The return value
-        indicates whether the value was successfully set.
+        Sets the value of the  **Protocol** property. The return value indicates whether the value was successfully set.
 
         This method has id ``3.3``.
 
@@ -139,8 +130,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetParameters(OcaSDPString &Parameters)
 
-        Gets the value of the **Parameters** property. The return value
-        indicates whether the value was successfully retrieved.
+        Gets the value of the  **Parameters** property. The return value indicates whether the value was successfully retrieved.
 
         This method has id ``3.4``.
 
@@ -150,9 +140,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetParameters(OcaSDPString Parameters)
 
-        Sets the value of the **Parameters** property. The return value
-        indicates whether the value was successfully set. Optional method, may
-        not be supported in all implementations.
+        Sets the value of the  **Parameters** property. The return value indicates whether the value was successfully set. Optional method, may not be supported in all implementations.
 
         This method has id ``3.5``.
 
@@ -162,8 +150,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetReferenceType(OcaTimeReferenceType &ReferenceType)
 
-        Gets the time reference type. The return value indicates whether the
-        value was successfully retrieved.
+        Gets the time reference type. The return value indicates whether the value was successfully retrieved.
 
         This method has id ``3.6``.
 
@@ -173,9 +160,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetReferenceType(OcaTimeReferenceType ReferenceType)
 
-        Sets the time reference type. The return value indicates whether the
-        value was successfully set. Optional method, may not be supported in
-        all implementations.
+        Sets the time reference type. The return value indicates whether the value was successfully set. Optional method, may not be supported in all implementations.
 
         This method has id ``3.7``.
 
@@ -185,9 +170,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetReferenceID(OcaString &ID)
 
-        Gets the timing source ID. The return value indicates whether the
-        value was successfully retrieved. Optional method, not required for
-        all time reference types.
+        Gets the timing source ID. The return value indicates whether the value was successfully retrieved. Optional method, not required for all time reference types.
 
         This method has id ``3.8``.
 
@@ -197,9 +180,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetReferenceID(OcaString ID)
 
-        Sets the time reference ID. The return value indicates whether the ID
-        was successfully set. Optional method, not required for all time
-        reference types.
+        Sets the time reference ID. The return value indicates whether the ID was successfully set. Optional method, not required for all time reference types.
 
         This method has id ``3.9``.
 
@@ -209,8 +190,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetSyncStatus(OcaTimeSourceSyncStatus &SyncStatus)
 
-        Gets the synchronization status of this time source. The return value
-        indicates whether the value was successfully retrieved.
+        Gets the synchronization status of this time source. The return value indicates whether the value was successfully retrieved.
 
         This method has id ``3.10``.
 
@@ -220,8 +200,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus Reset()
 
-        Resets this time source. Initiates a new synchronization sequence. The
-        return value indicates whether the reset was successful.
+        Resets this time source. Initiates a new synchronization sequence. The return value indicates whether the reset was successful.
 
         This method has id ``3.11``.
 

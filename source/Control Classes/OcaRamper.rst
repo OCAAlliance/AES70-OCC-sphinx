@@ -9,26 +9,16 @@ Class Hirarchy:
 
 .. cpp:class:: OcaRamper: OcaAgent
 
-    Agent that gradually changes a property setting from one value to
-    another. Works on a scalar numeric or boolean property of a specified
-    object. Does not work for array, list, map, struct, or string
-    properties. Contains timer features to allow ramps to start
-    immediately or at any time in the future. This is a weakly typed
-    class. All ramping parameters are specified as a **OcaFloat64**
-    numbers.
+    Agent that gradually changes a property setting from one value to another. Works on a scalar numeric or boolean property of a specified object. Does not work for array, list, map, struct, or string properties. Contains timer features to allow ramps to start immediately or at any time in the future. This is a weakly typed class. All ramping parameters are specified as a  **OcaFloat64** numbers.  
     
-    - For unsigned integer targets, the ramping parameters are coerced to
-    **OcaUint64** before comparing.
+     - For unsigned integer targets, the ramping parameters are coerced to  **OcaUint64** before comparing.
+     
     
+     - For signed integer targets, the ramping parameters are coerced to  **OcaInt64** before comparing.
+     
     
-    - For signed integer targets, the ramping parameters are coerced to
-    **OcaInt64** before comparing.
-    
-    
-    - For boolean values, the the ramping parameters are coerced to
-    **OcaUint8.** True is assigned the value One, False is assigned the
-    value Zero.
-    
+     - For boolean values, the the ramping parameters are coerced to  **OcaUint8.** True is assigned the value One, False is assigned the value Zero.
+     
 
     **Properties**:
 
@@ -36,7 +26,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        This property is an override of the **OcaRoot** property.
+        This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -44,7 +34,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        This property is an override of the **OcaRoot** property.
+        This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -76,11 +66,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaTimeNTP StartTime
 
-        Time at which to start ramp. If **TimeMode=Relative** , the actual
-        event start time equals the value of **StartTime** plus the absolute
-        time that **StartTime** was most recently set. If
-        **TimeMode=Absolute** , the actual event start time equals the value
-        of **StartTime**
+        Time at which to start ramp. If  **TimeMode=Relative** , the actual event start time equals the value of  **StartTime**  plus the absolute time that  **StartTime**  was most recently set. If  **TimeMode=Absolute** , the actual event start time equals the value of  **StartTime** 
 
         This property has id ``3.4``.
 
@@ -131,8 +117,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus Control(OcaRamperCommand Command)
 
-        Executes the given ramper command. The return value indicates whether
-        the command was successfully executed.
+        Executes the given ramper command. The return value indicates whether the command was successfully executed.
 
         This method has id ``3.1``.
 
@@ -142,8 +127,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetState(OcaRamperState &State)
 
-        Gets current state of ramper. The return value indicates whether the
-        state was successfully retrieved.
+        Gets current state of ramper. The return value indicates whether the state was successfully retrieved.
 
         This method has id ``3.2``.
 
@@ -153,8 +137,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetRampedProperty(OcaProperty &property)
 
-        Gets definition of ramped property. The return value indicates whether
-        the object number was successfully retrieved.
+        Gets definition of ramped property. The return value indicates whether the object number was successfully retrieved.
 
         This method has id ``3.3``.
 
@@ -164,8 +147,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetRampedProperty(OcaProperty property)
 
-        Defines property to be ramped. The return value indicates whether the
-        definition was successful.
+        Defines property to be ramped. The return value indicates whether the definition was successful.
 
         This method has id ``3.4``.
 
@@ -175,8 +157,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetTimeMode(OcaTimeMode &TimeMode)
 
-        Gets ramper time mode (absolute or relative). The return value
-        indicates whether the time mode was successfully retrieved.
+        Gets ramper time mode (absolute or relative). The return value indicates whether the time mode was successfully retrieved.
 
         This method has id ``3.5``.
 
@@ -186,8 +167,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetTimeMode(OcaTimeMode TimeMode)
 
-        Sets ramper time mode (absolute or relative). The return value
-        indicates whether the time mode was successfully set.
+        Sets ramper time mode (absolute or relative). The return value indicates whether the time mode was successfully set.
 
         This method has id ``3.6``.
 
@@ -197,8 +177,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetStartTime(OcaTimeNTP &StartTime)
 
-        Gets ramp start time. The return value indicates whether the start
-        time was successfully retrieved.
+        Gets ramp start time. The return value indicates whether the start time was successfully retrieved.
 
         This method has id ``3.7``.
 
@@ -208,8 +187,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetStartTime(OcaTimeNTP TimeMode)
 
-        Sets ramper start time. The return value indicates whether the start
-        time was successfully set.
+        Sets ramper start time. The return value indicates whether the start time was successfully set.
 
         This method has id ``3.8``.
 
@@ -219,8 +197,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetDuration(OcaTimeInterval &Duration, OcaTimeInterval &miinDuration, OcaTimeInterval &maxDuration)
 
-        Gets ramp duration. The return value indicates whether the duration
-        was successfully retrieved.
+        Gets ramp duration. The return value indicates whether the duration was successfully retrieved.
 
         This method has id ``3.9``.
 
@@ -232,8 +209,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetDuration(OcaTimeInterval Duration)
 
-        Sets ramp duration. The return value indicates whether the duration
-        was successfully set.
+        Sets ramp duration. The return value indicates whether the duration was successfully set.
 
         This method has id ``3.10``.
 
@@ -243,8 +219,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetInterpolationLaw(OcaRamperInterpolationLaw &law)
 
-        Retrieves interpolation law setting. The return value indicates
-        whether the setting was successfully retrieved.
+        Retrieves interpolation law setting. The return value indicates whether the setting was successfully retrieved.
 
         This method has id ``3.11``.
 
@@ -254,8 +229,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetInterpolationLaw(OcaRamperInterpolationLaw law)
 
-        Sets ramp interpolation law. The return value indicates whether the
-        law was successfully set.
+        Sets ramp interpolation law. The return value indicates whether the law was successfully set.
 
         This method has id ``3.12``.
 
@@ -265,8 +239,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetGoal(OcaFloat64 &goal)
 
-        Retrieves ramp goal value. The return value indicates whether the
-        duration was successfully retrieved.
+        Retrieves ramp goal value. The return value indicates whether the duration was successfully retrieved.
 
         This method has id ``3.13``.
 
@@ -276,8 +249,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetGoal(OcaFloat64 goal)
 
-        Sets ramp goal value. The return value indicates whether the duration
-        was successfully set.
+        Sets ramp goal value. The return value indicates whether the duration was successfully set.
 
         This method has id ``3.14``.
 

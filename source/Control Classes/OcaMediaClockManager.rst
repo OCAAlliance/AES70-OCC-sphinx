@@ -9,16 +9,13 @@ Class Hirarchy:
 
 .. cpp:class:: OcaMediaClockManager: OcaManager
 
-    Optional manager that collects all media clocks the device uses.
+    Optional manager that collects all media clocks the device uses.  
     
-    - Must be instantiated once for every device that has more than one
-    media clock object. In this context, "media clock" means an instance
-    of **OcaMediaClock** , **OcaMediaClock3** , or any subclass of these
-    classes.
+     - Must be instantiated once for every device that has more than one media clock object. In this context, "media clock" means an instance of  **OcaMediaClock** ,  **OcaMediaClock3** , or any subclass of these classes.
+       
     
-    
-    - If instantiated, object number must be 7.
-    
+     - If instantiated, object number must be 7.
+     
 
     **Properties**:
 
@@ -26,9 +23,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -36,9 +31,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -46,12 +39,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaList<OcaMediaClockType> ClockSourceTypesSupported
 
-        List of clock source types supported by **OcaMediaClock** objects in
-        this device. Note: In AES70-2017, this method is deprecated. It only
-        reflects the clock types of **OcaMediaClock** objects, which are now
-        deprecated. It does not apply to **OcaMediaClock3** objects, since
-        these do not have type attributes. If the number of **OcaMediaClock**
-        objects in the device is zero, this property is empty.
+        List of clock source types supported by  **OcaMediaClock** objects in this device. Note: In AES70-2017, this method is deprecated. It only reflects the clock types of  **OcaMediaClock** objects, which are now deprecated. It does not apply to  **OcaMediaClock3** objects, since these do not have type attributes. If the number of  **OcaMediaClock** objects in the device is zero, this property is empty.
 
         This property has id ``3.1``.
 
@@ -59,9 +47,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaList<OcaONo> Clocks
 
-        Object numbers of **OcaMediaClock** objects, one for each clock which
-        this device uses and/or sources. Note: In AES70-2017, this property is
-        deprecated.
+        Object numbers of  **OcaMediaClock** objects, one for each clock which this device uses and/or sources. Note: In AES70-2017, this property is deprecated.
 
         This property has id ``3.2``.
 
@@ -69,8 +55,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaList<OcaONo> Clock3s
 
-        Object numbers of **OcaMediaClock3** objects, one for each clock which
-        this device uses and/or sources.
+        Object numbers of  **OcaMediaClock3** objects, one for each clock which this device uses and/or sources.
 
         This property has id ``3.3``.
 
@@ -90,9 +75,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetClocks(OcaList<OcaONo> &Clocks)
 
-        Gets the list of object numbers of **OcaMediaClock** instances in this
-        device. Return value indicates whether list was successfully
-        retrieved. Note: In AES70-2017, this method is deprecated.
+        Gets the list of object numbers of  **OcaMediaClock** instances in this device. Return value indicates whether list was successfully retrieved. Note: In AES70-2017, this method is deprecated.
 
         This method has id ``3.1``.
 
@@ -102,10 +85,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetMediaClockTypesSupported(OcaList<OcaMediaClockType> &MediaClockTypes)
 
-        Gets the list of media clock types supported by **OcaMediaClock**
-        objects in the device. Return value indicates whether the list was
-        successfully retrieved. Note : In AES70-2017, this method is
-        deprecated.
+        Gets the list of media clock types supported by  **OcaMediaClock** objects in the device. Return value indicates whether the list was successfully retrieved. Note : In AES70-2017, this method is deprecated.
 
         This method has id ``3.2``.
 
@@ -115,9 +95,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetClock3s(OcaList<OcaONo> &Clocks)
 
-        Gets the list of object numbers of **OcaMediaClock3** instances in
-        this device. Return value indicates whether list was successfully
-        retrieved.
+        Gets the list of object numbers of  **OcaMediaClock3** instances in this device. Return value indicates whether list was successfully retrieved.
 
         This method has id ``3.3``.
 

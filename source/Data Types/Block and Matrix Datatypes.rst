@@ -40,8 +40,7 @@ OcaPort
 
 .. cpp:struct:: OcaPort
     
-    Representation of an OCA (input or output) port that is used in the
-    signal path representation of an OCA device.
+    Representation of an OCA (input or output) port that is used in the signal path representation of an OCA device.
 
     .. cpp:member:: OcaONo Owner
 
@@ -92,9 +91,7 @@ OcaPortID
 
 .. cpp:struct:: OcaPortID
     
-    Unique identifier of input or output port within a given worker or
-    block class. Port numbers are ordinals starting at 1, and there are
-    separate numbering spaces for input and output ports.
+    Unique identifier of input or output port within a given worker or block class. Port numbers are ordinals starting at 1, and there are separate numbering spaces for input and output ports.
 
     .. cpp:member:: OcaPortMode Mode
 
@@ -176,9 +173,7 @@ OcaProtoObjectIdentification
 
 .. cpp:struct:: OcaProtoObjectIdentification
     
-    Prototype object identification. Composite of prototype object number
-    and prototype object's class identification. Used in
-    **OcaBlockFactory** .
+    Prototype object identification. Composite of prototype object number and prototype object's class identification. Used in  **OcaBlockFactory** .
 
     .. cpp:member:: OcaProtoONo POno
 
@@ -208,14 +203,11 @@ OcaProtoPortID
 
 .. cpp:struct:: OcaProtoPortID
     
-    Unique identifier of prototype input or output port within a block
-    factory. Prototype port numbers are ordinals starting at 1, and there
-    are separate numbering spaces for input and output ports.
+    Unique identifier of prototype input or output port within a block factory. Prototype port numbers are ordinals starting at 1, and there are separate numbering spaces for input and output ports.
 
     .. cpp:member:: OcaPortMode Mode
 
-        Enum that indicates whether the prototype port is an for input or
-        output.
+        Enum that indicates whether the prototype port is an for input or output.
 
     .. cpp:member:: OcaUint16 Index
 
@@ -240,14 +232,11 @@ OcaProtoPort
 
 .. cpp:struct:: OcaProtoPort
     
-    Representation of an OCA (input or output) proto-port that is used in
-    the proto-signal path representation of an OCA device.
+    Representation of an OCA (input or output) proto-port that is used in the proto-signal path representation of an OCA device.
 
     .. cpp:member:: OcaProtoONo Owner
 
-        Proto-object number of the proto-member that owns the proto-port.
-        **The value of 0 (zero) is special, and refers to the block itself,
-        rather than to any of its members.**
+        Proto-object number of the proto-member that owns the proto-port.  **The value of 0 (zero) is special, and refers to the block itself, rather than to any of its members.** 
 
     .. cpp:member:: OcaProtoPortID ProtoID
 
@@ -316,9 +305,7 @@ OcaMatrixCoordinate
 
 .. cpp:type:: OcaMatrixCoordinate = OcaUint16
 
-    Coordinate value (x or y) for **OcaMatrix.** Value is zero-relative,
-    i.e. the first row or column is number zero. A value of 65535 means
-    all rows or columns.
+    Coordinate value (x or y) for  **OcaMatrix.** Value is zero-relative, i.e. the first row or column is number zero. A value of 65535 means all rows or columns.
 .. _OcaObjectSearchResult:
 
 OcaObjectSearchResult
@@ -326,10 +313,7 @@ OcaObjectSearchResult
 
 .. cpp:struct:: OcaObjectSearchResult
     
-    Result of object search via the Find...() methods of **OcaBlock** .
-    Dynamic format, form used depends on type of search and options. The
-    FieldMap parameter of the Find...() methods specifies which optional
-    fields should be returned as nonnull.
+    Result of object search via the Find...() methods of  **OcaBlock** . Dynamic format, form used depends on type of search and options. The FieldMap parameter of the Find...() methods specifies which optional fields should be returned as nonnull.
 
     .. cpp:member:: OcaONo ONo
 

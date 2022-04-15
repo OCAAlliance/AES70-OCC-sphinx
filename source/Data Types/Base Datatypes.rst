@@ -204,8 +204,7 @@ OcaBitstring
 
 .. cpp:struct:: OcaBitstring
     
-    Representation of a bitmask that is used on the network to send
-    bitmask data.
+    Representation of a bitmask that is used on the network to send bitmask data.
 
     .. cpp:member:: OcaUint16 NrBits
 
@@ -213,8 +212,7 @@ OcaBitstring
 
     .. cpp:member:: OcaUint8[] Bitstring
 
-        The bitstring data as an array of bytes with the most significant bit
-        of the first byte being bit number 0.
+        The bitstring data as an array of bytes with the most significant bit of the first byte being bit number 0.
 
 
 OCP.1 Encoding
@@ -235,8 +233,7 @@ OcaBlob
 
 .. cpp:struct:: OcaBlob
     
-    Representation of a binary large object that is used on the network to
-    send large chunks of binary data.
+    Representation of a binary large object that is used on the network to send large chunks of binary data.
 
     .. cpp:member:: OcaUint16 DataSize
 
@@ -269,9 +266,7 @@ OcaBlobFixedLen
 
     .. cpp:member:: OcaUint8[Len] Value
 
-        The value is an array of bytes with the most significant bit of the
-        first byte being bit number 0. Size of the array is determined by the
-        template parameter :raw:html:`&lt;`Len:raw:html:`&gt;`.
+        The value is an array of bytes with the most significant bit of the first byte being bit number 0. Size of the array is determined by the template parameter :raw:html:`&lt;`Len:raw:html:`&gt;`.
 
 
 OCP.1 Encoding
@@ -299,8 +294,7 @@ OcaList
 
     .. cpp:member:: datatype[Count] Items
 
-        The array of items of the list, i.e. each entry placed after each
-        other.
+        The array of items of the list, i.e. each entry placed after each other.
 
 
 OCP.1 Encoding
@@ -320,9 +314,7 @@ OcaList2D
 
 .. cpp:struct:: OcaList2D<typename datatype>
     
-    Template class representing a two-dimensional list of items. This
-    class describes only the data, not how it will be marshalled for
-    transport via the various OCA protocol implementations.
+    Template class representing a two-dimensional list of items. This class describes only the data, not how it will be marshalled for transport via the various OCA protocol implementations.
 
     .. cpp:member:: OcaUint16 nX
 
@@ -334,8 +326,7 @@ OcaList2D
 
     .. cpp:member:: datatype[nX, nY] Items
 
-        The array of items of the list, i.e. each entry placed after each
-        other.
+        The array of items of the list, i.e. each entry placed after each other.
 
 
 OCP.1 Encoding
@@ -357,7 +348,7 @@ OcaMapItem
 
 .. cpp:struct:: OcaMapItem<typename KeyDataType, typename ValueDataType>
     
-    One element of an **OcaMap** or **OcaMultiMap**
+    One element of an  **OcaMap**  or  **OcaMultiMap** 
 
     .. cpp:member:: KeyDataType Key
 
@@ -392,8 +383,7 @@ OcaMap
 
     .. cpp:member:: OcaMapItem<KeyDataType, ValueDataType>[Count] Items
 
-        The array of items of the map, i.e. each key value pair (value after
-        key) placed after each other.
+        The array of items of the map, i.e. each key value pair (value after key) placed after each other.
 
 
 OCP.1 Encoding
@@ -413,8 +403,7 @@ OcaMultiMap
 
 .. cpp:struct:: OcaMultiMap<typename KeyDataType, typename ValueDataType>
     
-    Template _class_ representing a map of keys to values where keys do
-    not have to be unique (e.g. can be present multiple times).
+    Template  _class_  representing a map of keys to values where keys do not have to be unique (e.g. can be present multiple times).
 
     .. cpp:member:: OcaUint16 Count
 
@@ -422,9 +411,7 @@ OcaMultiMap
 
     .. cpp:member:: OcaMapItem<KeyDataType, ValueDataType>[Count] Items
 
-        The array of items of the map, i.e. each key value pair (value after
-        key) placed after each other. Note that the keys do not have to be
-        unique, i.e. the same key may be present multiple times in the map.
+        The array of items of the map, i.e. each key value pair (value after key) placed after each other. Note that the keys do not have to be unique, i.e. the same key may be present multiple times in the map.
 
 
 OCP.1 Encoding

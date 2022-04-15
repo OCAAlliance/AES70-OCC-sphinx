@@ -9,15 +9,13 @@ Class Hirarchy:
 
 .. cpp:class:: OcaCodingManager: OcaManager
 
-    Optional manager that collects all media decoders/encoders (Codecs)
-    which the device owns.
+    Optional manager that collects all media decoders/encoders (Codecs) which the device owns.  
     
-    - Must be instantiated in every device that implements more than one
-    media encoding scheme and/or more than one media decoding scheme.
+     - Must be instantiated in every device that implements more than one media encoding scheme and/or more than one media decoding scheme.
+       
     
-    
-    - If instantiated, object number must be 12.
-    
+     - If instantiated, object number must be 12.
+     
 
     **Properties**:
 
@@ -25,9 +23,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -35,9 +31,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaUint16 ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -45,8 +39,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaMap<OcaMediaCodingSchemeID, OcaString> AvailableEncodingSchemes
 
-        Map of names of media encoding schemes the device supports, indexed by
-        scheme ID.
+        Map of names of media encoding schemes the device supports, indexed by scheme ID.
 
         This property has id ``3.1``.
 
@@ -54,8 +47,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaMap<OcaMediaCodingSchemeID, OcaString> AvailableDecodingSchemes
 
-        Map of names of media decoding schemes the device supports, indexed by
-        scheme ID.
+        Map of names of media decoding schemes the device supports, indexed by scheme ID.
 
         This property has id ``3.2``.
 
@@ -75,8 +67,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetAvailableEncodingSchemes(OcaMap<OcaMediaCodingSchemeID, OcaString> &Schemes)
 
-        Retrieves the map of available encoding schemes, indexed by scheme ID.
-        Return value indicates success of the retrieval.
+        Retrieves the map of available encoding schemes, indexed by scheme ID. Return value indicates success of the retrieval.
 
         This method has id ``3.1``.
 
@@ -86,8 +77,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetAvailableDecodingSchemes(OcaMap<OcaMediaCodingSchemeID, OcaString> &Schemes)
 
-        Retrieves the map of available decoding schemes, indexed by scheme ID.
-        Return value indicates success of the retrieval.
+        Retrieves the map of available decoding schemes, indexed by scheme ID. Return value indicates success of the retrieval.
 
         This method has id ``3.2``.
 

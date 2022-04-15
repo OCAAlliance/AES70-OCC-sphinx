@@ -9,10 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaIdentificationSensor: OcaSensor
 
-    Sensor for device identification mechanism. The idea of this mechanism
-    is that there is some kind of control -- a pushbutton, for instance --
-    that the user depresses to send a device identification event to the
-    controller. Such mechanisms aid in the setup of networks.
+    Sensor for device identification mechanism. The idea of this mechanism is that there is some kind of control -- a pushbutton, for instance -- that the user depresses to send a device identification event to the controller. Such mechanisms aid in the setup of networks.
 
     **Properties**:
 
@@ -20,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -30,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 
@@ -124,7 +117,6 @@ Class Hirarchy:
 
     .. cpp:function:: void Identify(OcaEventData eventData)
 
-        Event that is emitted when someone actuates the device identification
-        control.
+        Event that is emitted when someone actuates the device identification control.
 
 

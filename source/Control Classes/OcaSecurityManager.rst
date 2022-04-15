@@ -9,18 +9,16 @@ Class Hirarchy:
 
 .. cpp:class:: OcaSecurityManager: OcaManager
 
-    Manager that collects and controls security settings (including
-    security keys).
+    Manager that collects and controls security settings (including security keys).  
     
-    - Must be instantiated in every device that supports secure control
-    and monitoring; otherwise, is optional.
+     - Must be instantiated in every device that supports secure control and monitoring; otherwise, is optional.
+     
     
+     - May be instantiated at most once in any device.
+     
     
-    - May be instantiated at most once in any device.
-    
-    
-    - If instantiated, object number must be 2.
-    
+     - If instantiated, object number must be 2.
+     
 
     **Properties**:
 
@@ -28,9 +26,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -38,9 +34,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -68,12 +62,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus AddPreSharedKey(OcaString identity, OcaBlob key)
 
-        Adds a pre-shared key (identified by the passed identity) to the
-        device. By having multiple PSKs the device is able to participate in
-        multiple secure systems. Note that adding a PSK over the network will
-        only work if the controller has a secure connection to the device and
-        control security has been turned on. If this is not the case the
-        method will return DeviceError.
+        Adds a pre-shared key (identified by the passed identity) to the device. By having multiple PSKs the device is able to participate in multiple secure systems. Note that adding a PSK over the network will only work if the controller has a secure connection to the device and control security has been turned on. If this is not the case the method will return DeviceError.
 
         This method has id ``3.4``.
 
@@ -84,10 +73,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus ChangePreSharedKey(OcaString identity, OcaBlob newKey)
 
-        Changes the pre-shared key identified by the passed identity. Note
-        that changing a PSK over the network will only work if the controller
-        has a secure connection to the device and control security has been
-        turned on. If this is not the case the method will return DeviceError.
+        Changes the pre-shared key identified by the passed identity. Note that changing a PSK over the network will only work if the controller has a secure connection to the device and control security has been turned on. If this is not the case the method will return DeviceError.
 
         This method has id ``3.3``.
 
@@ -98,12 +84,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus DeletePreSharedKey(OcaString identity)
 
-        Deletes a pre-shared key (identified by the passed identity) on the
-        device. After deleting the pre-shared key the device will no longer be
-        able to participate in the secure system that uses the PSK. Note that
-        deleting a PSK over the network will only work if the controller has a
-        secure connection to the device and control security has been turned
-        on. If this is not the case the method will return DeviceError.
+        Deletes a pre-shared key (identified by the passed identity) on the device. After deleting the pre-shared key the device will no longer be able to participate in the secure system that uses the PSK. Note that deleting a PSK over the network will only work if the controller has a secure connection to the device and control security has been turned on. If this is not the case the method will return DeviceError.
 
         This method has id ``3.5``.
 
@@ -113,10 +94,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus DisableControlSecurity()
 
-        Disables security of control data (OCA messages). After calling this
-        method all OCA messages can be sent and received both on insecure and
-        secure connections. The return value indicates whether the operation
-        succeeded. If the operation fails security is not disabled.
+        Disables security of control data (OCA messages). After calling this method all OCA messages can be sent and received both on insecure and secure connections. The return value indicates whether the operation succeeded. If the operation fails security is not disabled.
 
         This method has id ``3.2``.
 
@@ -125,10 +103,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus EnableControlSecurity()
 
-        Enables security of control data (OCA messages). After calling this
-        method all OCA messages are sent and received using a secure
-        connection. The return value indicates whether the operation
-        succeeded. If the operation fails security is not enabled.
+        Enables security of control data (OCA messages). After calling this method all OCA messages are sent and received using a secure connection. The return value indicates whether the operation succeeded. If the operation fails security is not enabled.
 
         This method has id ``3.1``.
 

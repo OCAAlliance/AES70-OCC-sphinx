@@ -9,13 +9,13 @@ Class Hirarchy:
 
 .. cpp:class:: OcaPowerManager: OcaManager
 
-    Optional manager that manages power settings and state.
+    Optional manager that manages power settings and state.  
     
-    - May be instantiated once in any device.
+     - May be instantiated once in any device.
+     
     
-    
-    - If instantiated, object number must be 5.
-    
+     - If instantiated, object number must be 5.
+     
 
     **Properties**:
 
@@ -23,9 +23,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -33,9 +31,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -67,8 +63,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaBoolean AutoState
 
-        True if current state was invoked automatically, not by a controller
-        action.
+        True if current state was invoked automatically, not by a controller action.
 
         This property has id ``3.4``.
 
@@ -76,8 +71,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaPowerState TargetState
 
-        Power state to which the device is transitioning. If no transition is
-        in progress, has value None. Readonly.
+        Power state to which the device is transitioning. If no transition is in progress, has value None. Readonly.
 
         This property has id ``3.5``.
 
@@ -97,9 +91,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetState(OcaPowerState &State)
 
-        Retrieve the value of property **03p01 State** , the current power
-        state of the device. Return value indicates whether the value was
-        successfully retrieved.
+        Retrieve the value of property  **03p01 State** , the current power state of the device. Return value indicates whether the value was successfully retrieved.
 
         This method has id ``3.1``.
 
@@ -109,8 +101,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetState(OcaPowerState State)
 
-        Change the device power state. The return value indicates whether the
-        requested change has been successfully made.
+        Change the device power state. The return value indicates whether the requested change has been successfully made.
 
         This method has id ``3.2``.
 
@@ -120,8 +111,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetPowerSupplies(OcaList<OcaONo> &psuList)
 
-        Retrieves list of object number(s) of all power supply(ies). Return
-        value indicates whether the data was successfully retrieved.
+        Retrieves list of object number(s) of all power supply(ies). Return value indicates whether the data was successfully retrieved.
 
         This method has id ``3.3``.
 
@@ -131,8 +121,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetActivePowerSupplies(OcaList<OcaONo> &psuList)
 
-        Retrieves list of object number(s) of active power supply(ies). Return
-        value indicates whether the data was successfully retrieved.
+        Retrieves list of object number(s) of active power supply(ies). Return value indicates whether the data was successfully retrieved.
 
         This method has id ``3.4``.
 
@@ -142,11 +131,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus ExchangePowerSupply(OcaONo oldPsu, OcaONo newPsu, OcaBoolean powerOffOld)
 
-        Deactivate one power supply and activate another. An option switch
-        indicates whether the previously active power supply is to be turned
-        off. If it is not turned off, it will be placed in the **Unavailable**
-        state. The return value indicates whether the requested exchange has
-        been successfully made.
+        Deactivate one power supply and activate another. An option switch indicates whether the previously active power supply is to be turned off. If it is not turned off, it will be placed in the  **Unavailable**  state. The return value indicates whether the requested exchange has been successfully made.
 
         This method has id ``3.5``.
 
@@ -158,8 +143,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetAutoState(OcaBoolean &state)
 
-        Gets the value of the **AutoState** property. The return value
-        indicates whether the value was successfully retrieved.
+        Gets the value of the  **AutoState**  property. The return value indicates whether the value was successfully retrieved.
 
         This method has id ``3.6``.
 

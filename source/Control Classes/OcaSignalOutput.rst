@@ -9,11 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaSignalOutput: OcaActuator
 
-    A set of one or more non-network signal outputs. Number of channels is
-    set at construction time. This class has no native properties or
-    methods - they are all inherited from **OcaWorker** and above. It is
-    defined as a separate class as an aid to enumeration and signal flow
-    definition.
+    A set of one or more non-network signal outputs. Number of channels is set at construction time. This class has no native properties or methods - they are all inherited from  **OcaWorker**  and above. It is defined as a separate class as an aid to enumeration and signal flow definition.
 
     **Properties**:
 
@@ -21,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.1``.
 
@@ -31,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``4.2``.
 

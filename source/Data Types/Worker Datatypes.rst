@@ -17,17 +17,15 @@ OcaDBr
 
 .. cpp:struct:: OcaDBr
     
-    An absolute level expressed in dB above the given absolute reference
-    level.
+    An absolute level expressed in dB above the given absolute reference level.
 
     .. cpp:member:: OcaDB Value
 
-        Absolute level in decibels relative to value of **Ref** property.
+        Absolute level in decibels relative to value of  **Ref**  property.
 
     .. cpp:member:: OcaDBz Ref
 
-        Reference level in dBz. See the definition of OcaDBz for an
-        explanation of the dBz unit.
+        Reference level in dBz. See the definition of OcaDBz for an explanation of the dBz unit.
 
 
 OCP.1 Encoding
@@ -48,9 +46,7 @@ OcaDBV
 
 .. cpp:type:: OcaDBV = OcaDB
 
-    An absolute analogue level expressed in dB re 1 volt. This datatype
-    may only be used for parameters that reflect analogue signal values,
-    e.g. pre-ADC input signals and post-DAC output signals.
+    An absolute analogue level expressed in dB re 1 volt. This datatype may only be used for parameters that reflect analogue signal values, e.g. pre-ADC input signals and post-DAC output signals.
 .. _OcaDBu:
 
 OcaDBu
@@ -58,9 +54,7 @@ OcaDBu
 
 .. cpp:type:: OcaDBu = OcaDB
 
-    An absolute analogue level expressed in dB re 0.774 volts. This
-    datatype may only be used for parameters that reflect analogue signal
-    values, e.g. pre-ADC input signals and post-DAC output signals.
+    An absolute analogue level expressed in dB re 0.774 volts. This datatype may only be used for parameters that reflect analogue signal values, e.g. pre-ADC input signals and post-DAC output signals.
 .. _OcaDBFS:
 
 OcaDBFS
@@ -68,10 +62,7 @@ OcaDBFS
 
 .. cpp:type:: OcaDBFS = OcaDB
 
-    An absolute level value for digital signals, expressed in dB relative
-    to the device maximum internal digital sample value. For example, a
-    digital signal whose peak sample value is 7dB below the maximum
-    digital sample value shall be said to have a peak level of -7 dBFS.
+    An absolute level value for digital signals, expressed in dB relative to the device maximum internal digital sample value. For example, a digital signal whose peak sample value is 7dB below the maximum digital sample value shall be said to have a peak level of -7 dBFS.
 .. _OcaDBz:
 
 OcaDBz
@@ -79,10 +70,7 @@ OcaDBz
 
 .. cpp:type:: OcaDBz = OcaDB
 
-    An absolute level expressed in dB relative to the nominal device
-    operating level. The nominal device operating level is a
-    device-specific signal level chosen as a normal or typical signal
-    amplitude for the device.
+    An absolute level expressed in dB relative to the nominal device operating level. The nominal device operating level is a device-specific signal level chosen as a normal or typical signal amplitude for the device.
 .. _OcaVoltage:
 
 OcaVoltage
@@ -273,9 +261,7 @@ OcaPeriod
 
 .. cpp:type:: OcaPeriod = OcaUint32
 
-    General-purpose period of time in milliseconds. As this type is mostly
-    used for management purposes an integer base type is used and it is
-    expressed in milliseconds.
+    General-purpose period of time in milliseconds. As this type is mostly used for management purposes an integer base type is used and it is expressed in milliseconds.
 .. _OcaClassicalFilterShape:
 
 OcaClassicalFilterShape
@@ -283,8 +269,7 @@ OcaClassicalFilterShape
 
 .. cpp:enum:: OcaClassicalFilterShape : uint8_t
 
-    Enumeration of classicalr filter types that can be used by OCA
-    objects.
+    Enumeration of classicalr filter types that can be used by OCA objects.
 
     .. cpp:enumerator:: Butterworth = 1
 
@@ -377,23 +362,20 @@ OcaDynamicsFunction
 
 .. cpp:enum:: OcaDynamicsFunction : uint8_t
 
-    Enumeration of the types of dynamics functions available from class
-    OcaDynamics.
+    Enumeration of the types of dynamics functions available from class OcaDynamics.
 
     .. cpp:enumerator:: None = 0
 
         No dynamic function.
     .. cpp:enumerator:: Compress = 1
 
-        Upward compress function (reduce gain when input is above the given
-        threshold).
+        Upward compress function (reduce gain when input is above the given threshold).
     .. cpp:enumerator:: Limit = 2
 
         Limit function (compress with a fixed ratio of 10:1 or greater).
     .. cpp:enumerator:: Expand = 3
 
-        Downward expand function (decrease gain when input is below the given
-        threshhold).
+        Downward expand function (decrease gain when input is below the given threshhold).
     .. cpp:enumerator:: Gate = 4
 
         Gate function (expand with fixed 'infinite' downward expansion ratio).
@@ -490,11 +472,7 @@ OcaUnitOfMeasure
 
 .. cpp:enum:: OcaUnitOfMeasure : uint8_t
 
-    Enumeration of units of measure that can be used in OCA classes. Only
-    SI (base or derived) units are specified, so that internal
-    calculations will not need to convert. If conversion is needed it
-    should only be done in user interfaces. The datatype of a reading
-    expressed in one of these units of measure is FLOAT.
+    Enumeration of units of measure that can be used in OCA classes. Only SI (base or derived) units are specified, so that internal calculations will not need to convert. If conversion is needed it should only be done in user interfaces. The datatype of a reading expressed in one of these units of measure is FLOAT.
 
     .. cpp:enumerator:: Ampere = 4
 
@@ -521,15 +499,7 @@ OcaPresentationUnit
 
 .. cpp:enum:: OcaPresentationUnit : uint8_t
 
-    Enumeration of presentation units that can be used in OCA classes.
-    Property values of OCA objects are always in SI units (unless
-    explicitly documented otherwise), but the presentation unit can also
-    be stored to indicate in which unit the value was presented in a user
-    interface. This way another controller can also present it in that
-    unit (i.e. doing a conversion on the controller before presenting it)
-    to keep the user presentation uniform. Note that the presentation unit
-    may be equal to the unit of the property (in which case of course no
-    conversion is needed).
+    Enumeration of presentation units that can be used in OCA classes. Property values of OCA objects are always in SI units (unless explicitly documented otherwise), but the presentation unit can also be stored to indicate in which unit the value was presented in a user interface. This way another controller can also present it in that unit (i.e. doing a conversion on the controller before presenting it) to keep the user presentation uniform. Note that the presentation unit may be equal to the unit of the property (in which case of course no conversion is needed).
 
     .. cpp:enumerator:: dBu = 0
 
@@ -555,8 +525,7 @@ OcaLevelDetectionLaw
 
 .. cpp:enum:: OcaLevelDetectionLaw : uint8_t
 
-    Enumeration of the types of level detector characteristics. Used in
-    dynamics classes and for sensors.
+    Enumeration of the types of level detector characteristics. Used in dynamics classes and for sensors.
 
     .. cpp:enumerator:: None = 0
 
@@ -574,13 +543,11 @@ OcaSensorReadingState
 
 .. cpp:enum:: OcaSensorReadingState : uint8_t
 
-    Enum that describes whether an **OcaSensor** 's current reading value
-    can be trusted, and if not, why not.
+    Enum that describes whether an  **OcaSensor** 's current reading value can be trusted, and if not, why not.
 
     .. cpp:enumerator:: Unknown = 0
 
-        Cannot determine validity of reading, or this feature is not
-        implemented.
+        Cannot determine validity of reading, or this feature is not implemented.
     .. cpp:enumerator:: Valid = 1
 
         Sensor reading is valid.
@@ -607,8 +574,7 @@ OcaLevelMeterLaw
         Generic VU-style meter, characteristics defined by device.
     .. cpp:enumerator:: StandardVU = 2
 
-        Classic VU meter per ANSI C16.5-1942, British Standard BS 6840, and
-        IEC 60268-17.
+        Classic VU meter per ANSI C16.5-1942, British Standard BS 6840, and IEC 60268-17.
     .. cpp:enumerator:: PPM1 = 3
 
         IEC 60268-10 Peak Programme Meter, type I (Germany).
@@ -626,5 +592,4 @@ OcaLevelMeterLaw
         Simple peak meter
     .. cpp:enumerator:: ProprietaryValueBase = 128
 
-        Proprietery classes shall add values of this value or greater. Values
-        0 to 127 are reserved.
+        Proprietery classes shall add values of this value or greater. Values 0 to 127 are reserved.

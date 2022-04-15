@@ -17,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.1``.
 
@@ -27,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``3.2``.
 
@@ -45,8 +41,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaString ModelInfo
 
-        Model information for power supply. Text; content is
-        implementation-dependent.
+        Model information for power supply. Text; content is implementation-dependent.
 
         This property has id ``3.2``.
 
@@ -70,9 +65,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaFloat32 LoadFractionAvailable
 
-        Fraction of power supply's load capacity that is currently not being
-        used. Readonly. Normal value range 0...1. A negative value indicates
-        this data is not available.
+        Fraction of power supply's load capacity that is currently not being used. Readonly. Normal value range 0...1. A negative value indicates this data is not available.
 
         This property has id ``3.5``.
 
@@ -80,9 +73,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaFloat32 StorageFractionAvailable
 
-        Fraction of power supply's energy storage that remains available. For
-        battery supplies. Readonly. Normal value range 0...1. A negative value
-        indicates this data is not available.
+        Fraction of power supply's energy storage that remains available. For battery supplies. Readonly. Normal value range 0...1. A negative value indicates this data is not available.
 
         This property has id ``3.6``.
 
@@ -117,8 +108,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetType(OcaPowerSupplyType &type)
 
-        Gets the type of the power supply. Return value indicates whether the
-        data was successfully retrieved.
+        Gets the type of the power supply. Return value indicates whether the data was successfully retrieved.
 
         This method has id ``3.1``.
 
@@ -128,8 +118,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetModelInfo(OcaString &info)
 
-        Gets the power supply's model information text. Return value indicates
-        whether the data was successfully retrieved.
+        Gets the power supply's model information text. Return value indicates whether the data was successfully retrieved.
 
         This method has id ``3.2``.
 
@@ -139,8 +128,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetState(OcaPowerSupplyState &state)
 
-        Gets the state of the power supply. Return value indicates whether the
-        data was successfully retrieved.
+        Gets the state of the power supply. Return value indicates whether the data was successfully retrieved.
 
         This method has id ``3.3``.
 
@@ -150,8 +138,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetState(OcaPowerSupplyState state)
 
-        Changes the power supply's state. Return value indicates whether the
-        state was successfully changed.
+        Changes the power supply's state. Return value indicates whether the state was successfully changed.
 
         This method has id ``3.4``.
 
@@ -161,8 +148,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetCharging(OcaBoolean &charging)
 
-        Gets the value of property **Charging** . Return value indicates
-        whether the value was successfully retrieved.
+        Gets the value of property  **Charging** . Return value indicates whether the value was successfully retrieved.
 
         This method has id ``3.5``.
 
@@ -172,8 +158,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLoadFractionAvailable(OcaFloat32 &fraction)
 
-        Gets the available load fraction. Return value indicates whether the
-        data was successfully retrieved.
+        Gets the available load fraction. Return value indicates whether the data was successfully retrieved.
 
         This method has id ``3.6``.
 
@@ -183,8 +168,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetStorageFractionAvailable(OcaFloat32 &fraction)
 
-        Gets the available storage fraction. Return value indicates whether
-        the data was successfully retrieved.
+        Gets the available storage fraction. Return value indicates whether the data was successfully retrieved.
 
         This method has id ``3.7``.
 
@@ -194,8 +178,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLocation(OcaPowerSupplyLocation &Location)
 
-        Gets the power supply physical location. Return value indicates
-        whether the data was successfully retrieved.
+        Gets the power supply physical location. Return value indicates whether the data was successfully retrieved.
 
         This method has id ``3.8``.
 

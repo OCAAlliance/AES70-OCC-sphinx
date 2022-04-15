@@ -9,9 +9,7 @@ Class Hirarchy:
 
 .. cpp:class:: OcaAudioLevelSensor: OcaLevelSensor
 
-    Child of **OcaLevelSensor** that returns an audio meter reading in dB
-    relative to a known reference level, and whose value has been
-    calculated by the selected averaging algorithm.
+    Child of  **OcaLevelSensor** that returns an audio meter reading in dB relative to a known reference level, and whose value has been calculated by the selected averaging algorithm.
 
     **Properties**:
 
@@ -19,9 +17,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassID ClassID
 
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
 
         This property has id ``5.1``.
 
@@ -29,9 +25,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an
-        override of the **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
         This property has id ``5.2``.
 
@@ -39,9 +33,7 @@ Class Hirarchy:
 
     .. cpp:member:: OcaLevelMeterLaw Law
 
-        Enum that defines metering algorithm, including averaging
-        characteristics and, in some cases, reference level. Readonly in some
-        objects.
+        Enum that defines metering algorithm, including averaging characteristics and, in some cases, reference level. Readonly in some objects.
 
         This property has id ``5.1``.
 
@@ -84,8 +76,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus GetLaw(OcaLevelMeterLaw &law)
 
-        Gets the value of the Law property. The return value indicates whether
-        the property was successfully retrieved.
+        Gets the value of the Law property. The return value indicates whether the property was successfully retrieved.
 
         This method has id ``5.1``.
 
@@ -95,9 +86,7 @@ Class Hirarchy:
 
     .. cpp:function:: OcaStatus SetLaw(OcaLevelMeterLaw law)
 
-        Sets the value of the Law property. The return value indicates whether
-        the property was successfully set. Only implemented for objects whose
-        Law property is read/write.
+        Sets the value of the Law property. The return value indicates whether the property was successfully set. Only implemented for objects whose Law property is read/write.
 
         This method has id ``5.2``.
 

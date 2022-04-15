@@ -49,8 +49,7 @@ OcaManagerDefaultObjectNumbers
 
 .. cpp:struct:: OcaManagerDefaultObjectNumbers
     
-    Datatype that defines the fixed object numbers assigned to the various
-    **OcaManager** objects.
+    Datatype that defines the fixed object numbers assigned to the various  **OcaManager** objects.
 
     .. cpp:member:: OcaONo DeviceManager
 
@@ -138,8 +137,7 @@ OcaModelGUID
 
     .. cpp:member:: OcaBlobFixedLen<4> ModelCode
 
-        Model code. Unique within the given manufacturer's products. May be
-        set freely by the manufacturer.
+        Model code. Unique within the given manufacturer's products. May be set freely by the manufacturer.
 
 
 OCP.1 Encoding
@@ -211,8 +209,7 @@ OcaResetCause
         Reset following upgrade of firmware.
     .. cpp:enumerator:: ExternalRequest = 3
 
-        Reset due to an external request (i.e. Reset method of DeviceManager
-        or hardware reset pin).
+        Reset due to an external request (i.e. Reset method of DeviceManager or hardware reset pin).
 .. _OcaComponent:
 
 OcaComponent
@@ -220,10 +217,7 @@ OcaComponent
 
 .. cpp:enum:: OcaComponent : uint16_t
 
-    Enumeration (16-bit) for of software :raw:html:`&amp;` firmware
-    components in the device. Except for the boot loader, all other values
-    of this enum are device-specific and will be specified by subclassing
-    this class.
+    Enumeration (16-bit) for of software :raw:html:`&amp;` firmware components in the device. Except for the boot loader, all other values of this enum are device-specific and will be specified by subclassing this class.
 
     .. cpp:enumerator:: BootLoader = 0
 
@@ -235,8 +229,7 @@ OcaPowerState
 
 .. cpp:enum:: OcaPowerState : uint8_t
 
-    Enumeration defining the power states that OCA devices can be in. The
-    state is returned by the device's Power Manager on request.
+    Enumeration defining the power states that OCA devices can be in. The state is returned by the device's Power Manager on request.
 
     .. cpp:enumerator:: None = 0
 
@@ -246,9 +239,7 @@ OcaPowerState
         Power is on.
     .. cpp:enumerator:: Standby = 2
 
-        The device is in standby mode, but may be awoken by a call to the
-        appropriate state-changing method of this class.
+        The device is in standby mode, but may be awoken by a call to the appropriate state-changing method of this class.
     .. cpp:enumerator:: Off = 3
 
-        The device is off, but may (depending on implementation) be awoken by
-        a transport-dependent wakeup mechanism.
+        The device is off, but may (depending on implementation) be awoken by a transport-dependent wakeup mechanism.
