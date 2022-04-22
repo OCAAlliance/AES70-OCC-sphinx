@@ -63,7 +63,7 @@ Class Hirarchy:
 
     .. _ocapowersupply_loadfractionavailable:
 
-    .. cpp:member:: const OcaFloat32 LoadFractionAvailable
+    .. cpp:member:: OcaFloat32 LoadFractionAvailable
 
         Fraction of power supply's load capacity that is currently not being used. Readonly. Normal value range 0...1. A negative value indicates this data is not available.
 
@@ -71,7 +71,7 @@ Class Hirarchy:
 
     .. _ocapowersupply_storagefractionavailable:
 
-    .. cpp:member:: const OcaFloat32 StorageFractionAvailable
+    .. cpp:member:: OcaFloat32 StorageFractionAvailable
 
         Fraction of power supply's energy storage that remains available. For battery supplies. Readonly. Normal value range 0...1. A negative value indicates this data is not available.
 

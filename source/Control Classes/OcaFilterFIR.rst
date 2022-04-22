@@ -31,7 +31,7 @@ Class Hirarchy:
 
     .. _ocafilterfir_length:
 
-    .. cpp:member:: const OcaUint32 Length
+    .. cpp:member:: OcaUint32 Length
 
         Length of the filter, in samples. Readonly. Value is set when SetCoefficients(...) method executes.
 

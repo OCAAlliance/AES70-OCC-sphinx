@@ -47,7 +47,7 @@ Class Hirarchy:
 
     .. _ocaswitch_positionenableds:
 
-    .. cpp:member:: OcaList<OcaBoolean> PositionEnableds = True
+    .. cpp:member:: OcaList<OcaBoolean> PositionEnableds
 
         Vector of booleans which enable or disable corresponding switch positions. Default values are a construction parameter. The usual default value is True.
 

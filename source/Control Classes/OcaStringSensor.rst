@@ -39,7 +39,7 @@ Class Hirarchy:
 
     .. _ocastringsensor_maxlen:
 
-    .. cpp:member:: OcaUint16 MaxLen = 65535
+    .. cpp:member:: OcaUint16 MaxLen
 
         Maximum length of the returned string. May be readonly in some implementations.
 

@@ -31,7 +31,7 @@ Class Hirarchy:
 
     .. _ocasensor_readingstate:
 
-    .. cpp:member:: static OcaSensorReadingState ReadingState
+    .. cpp:member:: OcaSensorReadingState ReadingState
 
         Enum that describes whether current reading value is valid and if not, why not. Readonly.
 

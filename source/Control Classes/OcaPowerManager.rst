@@ -69,7 +69,7 @@ Class Hirarchy:
 
     .. _ocapowermanager_targetstate:
 
-    .. cpp:member:: const OcaPowerState TargetState
+    .. cpp:member:: OcaPowerState TargetState
 
         Power state to which the device is transitioning. If no transition is in progress, has value None. Readonly.
 
