@@ -3,7 +3,7 @@
 1.3.11  OcaTaskManager
 ======================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaManager <ocamanager>` :raw:html:`&rarr;` :ref:`OcaTaskManager <ocataskmanager>` 
 

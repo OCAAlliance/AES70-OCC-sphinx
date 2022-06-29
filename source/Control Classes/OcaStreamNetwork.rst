@@ -3,7 +3,7 @@
 1.2.10  OcaStreamNetwork
 ========================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaAgent <ocaagent>` :raw:html:`&rarr;` :ref:`OcaStreamNetwork <ocastreamnetwork>` 
 

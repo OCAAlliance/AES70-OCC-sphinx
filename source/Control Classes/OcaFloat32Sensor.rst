@@ -3,7 +3,7 @@
 1.1.2.1.10  OcaFloat32Sensor
 ============================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaSensor <ocasensor>` :raw:html:`&rarr;` :ref:`OcaBasicSensor <ocabasicsensor>` :raw:html:`&rarr;` :ref:`OcaFloat32Sensor <ocafloat32sensor>` 
 

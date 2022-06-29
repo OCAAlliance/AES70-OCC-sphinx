@@ -3,7 +3,7 @@
 1.1.1.19  OcaSignalOutput
 =========================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaActuator <ocaactuator>` :raw:html:`&rarr;` :ref:`OcaSignalOutput <ocasignaloutput>` 
 

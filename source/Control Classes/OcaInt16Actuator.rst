@@ -3,7 +3,7 @@
 1.1.1.1.3  OcaInt16Actuator
 ===========================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaActuator <ocaactuator>` :raw:html:`&rarr;` :ref:`OcaBasicActuator <ocabasicactuator>` :raw:html:`&rarr;` :ref:`OcaInt16Actuator <ocaint16actuator>` 
 

@@ -3,7 +3,7 @@
 1.4.2  OcaMediaTransportNetwork
 ===============================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaApplicationNetwork <ocaapplicationnetwork>` :raw:html:`&rarr;` :ref:`OcaMediaTransportNetwork <ocamediatransportnetwork>` 
 

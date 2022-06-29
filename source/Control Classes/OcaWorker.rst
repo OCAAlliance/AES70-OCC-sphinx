@@ -3,7 +3,7 @@
 1.1  OcaWorker
 ==============
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` 
 

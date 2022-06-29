@@ -3,7 +3,7 @@
 1.4  OcaApplicationNetwork
 ==========================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaApplicationNetwork <ocaapplicationnetwork>` 
 

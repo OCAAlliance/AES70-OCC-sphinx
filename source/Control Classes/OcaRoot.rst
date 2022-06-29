@@ -3,7 +3,7 @@
 1  OcaRoot
 ==========
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` 
 

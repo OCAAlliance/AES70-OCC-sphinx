@@ -3,7 +3,7 @@
 1.3  OcaManager
 ===============
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaManager <ocamanager>` 
 

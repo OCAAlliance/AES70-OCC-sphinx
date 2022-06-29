@@ -3,7 +3,7 @@
 1.2.15  OcaMediaClock3
 ======================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaAgent <ocaagent>` :raw:html:`&rarr;` :ref:`OcaMediaClock3 <ocamediaclock3>` 
 

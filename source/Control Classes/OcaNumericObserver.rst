@@ -3,7 +3,7 @@
 1.2.4  OcaNumericObserver
 =========================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaAgent <ocaagent>` :raw:html:`&rarr;` :ref:`OcaNumericObserver <ocanumericobserver>` 
 

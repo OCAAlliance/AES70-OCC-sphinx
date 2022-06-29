@@ -3,7 +3,7 @@
 1.1.2.1.3  OcaInt16Sensor
 =========================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaSensor <ocasensor>` :raw:html:`&rarr;` :ref:`OcaBasicSensor <ocabasicsensor>` :raw:html:`&rarr;` :ref:`OcaInt16Sensor <ocaint16sensor>` 
 

@@ -3,7 +3,7 @@
 1.1.1.1.8  OcaUint32Actuator
 ============================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaActuator <ocaactuator>` :raw:html:`&rarr;` :ref:`OcaBasicActuator <ocabasicactuator>` :raw:html:`&rarr;` :ref:`OcaUint32Actuator <ocauint32actuator>` 
 

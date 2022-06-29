@@ -3,7 +3,7 @@
 1.2.17  OcaPhysicalPosition
 ===========================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaAgent <ocaagent>` :raw:html:`&rarr;` :ref:`OcaPhysicalPosition <ocaphysicalposition>` 
 

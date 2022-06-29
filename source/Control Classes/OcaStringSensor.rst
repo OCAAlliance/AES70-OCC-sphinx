@@ -3,7 +3,7 @@
 1.1.2.1.12  OcaStringSensor
 ===========================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaSensor <ocasensor>` :raw:html:`&rarr;` :ref:`OcaBasicSensor <ocabasicsensor>` :raw:html:`&rarr;` :ref:`OcaStringSensor <ocastringsensor>` 
 

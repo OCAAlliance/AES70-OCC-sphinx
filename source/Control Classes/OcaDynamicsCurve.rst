@@ -3,7 +3,7 @@
 1.1.1.16  OcaDynamicsCurve
 ==========================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaActuator <ocaactuator>` :raw:html:`&rarr;` :ref:`OcaDynamicsCurve <ocadynamicscurve>` 
 

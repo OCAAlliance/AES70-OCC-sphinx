@@ -3,7 +3,7 @@
 1.3.9  OcaAudioProcessingManager
 ================================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaManager <ocamanager>` :raw:html:`&rarr;` :ref:`OcaAudioProcessingManager <ocaaudioprocessingmanager>` 
 

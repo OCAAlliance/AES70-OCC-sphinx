@@ -3,7 +3,7 @@
 1.1.2.8  OcaCurrentSensor
 =========================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaSensor <ocasensor>` :raw:html:`&rarr;` :ref:`OcaCurrentSensor <ocacurrentsensor>` 
 

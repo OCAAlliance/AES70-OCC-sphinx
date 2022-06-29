@@ -3,7 +3,7 @@
 1.1.4  OcaBlockFactory
 ======================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaBlockFactory <ocablockfactory>` 
 

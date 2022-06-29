@@ -3,7 +3,7 @@
 1.2  OcaAgent
 =============
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaAgent <ocaagent>` 
 

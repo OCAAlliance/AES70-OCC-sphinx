@@ -3,7 +3,7 @@
 1.1.5  OcaMatrix
 ================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaMatrix <ocamatrix>` 
 

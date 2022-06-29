@@ -3,7 +3,7 @@
 1.3.8  OcaLibraryManager
 ========================
 
-Class Hirarchy:
+Class Hierarchy:
 
 :ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaManager <ocamanager>` :raw:html:`&rarr;` :ref:`OcaLibraryManager <ocalibrarymanager>` 
 
