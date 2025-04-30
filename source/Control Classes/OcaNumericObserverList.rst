@@ -42,20 +42,20 @@ Class Hierarchy:
      - For signed integer targets, the threshold and target are both coerced to
        **OcaInt64** before comparing.
 
-     - For boolean values, the threshold hreshold and target are both coerced to
+     - For boolean values, the threshold and target are both coerced to
        **OcaUint8**, True is assigned the value One, False is assigned the value
        Zero.
 
 
     Note that this coercion may result in rounding errors if the observed
-    datatype is of type OcaUint64 or OcaUint64. An **OcaNumericObserver**
+    datatype is of type **OcaUint64** or **OcaInt64**. An **OcaNumericObserver**
     instance and the property it observes are bound at the time the
     **OcaNumericObserver** instance is constructed. For static devices,
     construction will occur during manufacture, or possibly during a subsequent
     hardware configuration step. For reconfigurable devices, construction might
     be done by online controllers as part of device configuration sessions. This
-    class is normally used for monitoring readings of sensor readings, but may
-    be used equally well for watching workers' parameter settings.
+    class is normally used for monitoring sensor readings, but may be used
+    equally well for watching workers' parameter settings.
 
     **Properties**:
 
@@ -72,59 +72,13 @@ Class Hierarchy:
 
     .. _ocanumericobserverlist_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
         of the **OcaRoot** property.
 
         This property has id ``1.2``.
-
-    .. _ocanumericobserverlist_state:
-
-    .. cpp:member:: OcaObserverState State
-
-        State: triggered, not triggered
-
-        This property has id ``3.1``.
-
-    .. _ocanumericobserverlist_observedproperties:
-
-    .. cpp:member:: OcaList<OcaProperty> ObservedProperties
-
-        List of identifiers of the properties are being observed.
-
-        This property has id ``3.2``.
-
-    .. _ocanumericobserverlist_threshold:
-
-    .. cpp:member:: OcaFloat64 Threshold
-
-        Comparison value for raising the **Triggered** event.
-
-        This property has id ``3.3``.
-
-    .. _ocanumericobserverlist_operator:
-
-    .. cpp:member:: OcaRelationalOperator Operator
-
-        Relational operator used when comparing the value of the observed
-        property to the threshold value.
-
-        This property has id ``3.4``.
-
-    .. _ocanumericobserverlist_twoway:
-
-    .. cpp:member:: OcaBoolean TwoWay
-
-        True to emit a **Triggered** event upon crossing the threshold in either
-        direction; false to emit only upon crossing in the primary direction
-        (i.e. rising when **Operator** is set to GreaterThan or
-        GreaterThanOrEqual; falling when **Operator** is set to LessThan **** or
-        LessThanOrEqual; equality when **Operator** is set to Equality;
-        inequality when **Operator** is set to Inequality).
-
-        This property has id ``3.5``.
 
     .. _ocanumericobserverlist_hysteresis:
 
@@ -139,19 +93,65 @@ Class Hierarchy:
         'Inequality'. If the State is **Not Triggered** it changes to
         **Triggered** if any of the ObservedProperties reaches the Threshold. If
         the State is **Triggered** it changes to **Not Triggered** only if all
-        of the ObservedProperties no longer meet the ‘Threshold including
-        Hysteresis’** .**
+        of the ObservedProperties no longer meet the �Threshold including
+        Hysteresis�** .**
 
         This property has id ``3.6``.
+
+    .. _ocanumericobserverlist_observedproperties:
+
+    .. cpp:member:: OcaList<OcaProperty> ObservedProperties
+
+        List of identifiers of the properties being observed.
+
+        This property has id ``3.2``.
+
+    .. _ocanumericobserverlist_operator:
+
+    .. cpp:member:: OcaRelationalOperator Operator
+
+        Relational operator used when comparing the value of the observed
+        property to the threshold value.
+
+        This property has id ``3.4``.
 
     .. _ocanumericobserverlist_period:
 
     .. cpp:member:: OcaTimeInterval Period
 
-        Repetition period or zero. If nonzero, the observer will retrieve the
-        value and emit
+        Repetition period or zero. Zero value means the **Observation** event is
+        not emitted periodically.
 
         This property has id ``3.7``.
+
+    .. _ocanumericobserverlist_state:
+
+    .. cpp:member:: OcaObserverState State
+
+        State: triggered, not triggered
+
+        This property has id ``3.1``.
+
+    .. _ocanumericobserverlist_threshold:
+
+    .. cpp:member:: OcaFloat64 Threshold
+
+        Comparison value for raising the **Triggered** event.
+
+        This property has id ``3.3``.
+
+    .. _ocanumericobserverlist_twoway:
+
+    .. cpp:member:: OcaBoolean TwoWay
+
+        True to emit a **Triggered** event upon crossing the threshold in either
+        direction; false to emit only upon crossing in the primary direction
+        (i.e. rising when **Operator** is set to GreaterThan or
+        GreaterThanOrEqual; falling when **Operator** is set to LessThan **** or
+        LessThanOrEqual; equality when **Operator** is set to Equality;
+        inequality when **Operator** is set to Inequality).
+
+        This property has id ``3.5``.
 
     Properties inherited from :ref:`ocaagent`:
 
@@ -159,9 +159,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -187,9 +189,7 @@ Class Hierarchy:
         values. The order of values in the returned list is determined by the
         order of values set by SetObservedProperties, and is the same as the
         order of values returned by the Observation event, and the same as the
-        order of object identifications returned by GetObservedProperties. The
-        return status indicates whether the value has been successfully
-        returned.
+        order of object identifications returned by GetObservedProperties.
 
         This method has id ``3.1``.
 
@@ -200,8 +200,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetState(OcaObserverState &state)
 
-        Gets the observer's state. The return value indicates whether the state
-        was successfully retrieved.
+        Gets the observer's state.
 
         This method has id ``3.2``.
 
@@ -210,18 +209,17 @@ Class Hierarchy:
 
     .. _ocanumericobserverlist_getobservedproperties:
 
-    .. cpp:function:: OcaStatus GetObservedProperties(OcaList<OcaProperty> &property)
+    .. cpp:function:: OcaStatus GetObservedProperties(OcaList<OcaProperty> &properties)
 
         Gets the identifications of the properties that the observer observes.
         The order of property identifications in the returned list is determined
-        by the order of property identifications set by SetObservedProperties,
-        and is the same as the order of values returned by GetLastObservation
-        and the Observation event. The return value indicates whether the
-        identifications were successfully retrieved.
+        by the order of property identifications set by
+        **SetObservedProperties**, and is the same as the order of values
+        returned by **GetLastObservation** and the **Observation** event.
 
         This method has id ``3.3``.
 
-        - :cpp:expr:`property`: Output parameter.
+        - :cpp:expr:`properties`: Output parameter.
 
 
     .. _ocanumericobserverlist_setobservedproperties:
@@ -230,10 +228,9 @@ Class Hierarchy:
 
         Sets the identifications of the properties that the observer observes.
         The order of property identifications supplied determines the order of
-        property identifications returned by GetObservedProperties and the order
-        of values returned by GetLastObservation and the Observation event. The
-        return value indicates whether the identifications were successfully
-        set.
+        property identifications returned by **GetObservedProperties** and the
+        order of values returned by **GetLastObservation** and the
+        **Observation** event.
 
         This method has id ``3.4``.
 
@@ -244,8 +241,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetThreshold(OcaFloat64 &Threshold)
 
-        Gets the value of the **Threshold** property. The return value indicates
-        whether the threshold value was successfully retrieved.
+        Gets the value of the **Threshold** property.
 
         This method has id ``3.5``.
 
@@ -256,8 +252,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetThreshold(OcaFloat64 Threshold)
 
-        Sets the value of the **Threshold** property. The return value indicates
-        whether the threshold value was successfully set.
+        Sets the value of the **Threshold** property.
 
         This method has id ``3.6``.
 
@@ -280,8 +275,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetOperator(OcaRelationalOperator _operator)
 
-        Sets the value of the **Operator** property. The return value indicates
-        whether the operator was successfully set.
+        Sets the value of the **Operator** property.
 
         This method has id ``3.8``.
 
@@ -292,8 +286,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetTwoWay(OcaBoolean &twoWay)
 
-        Gets the value of the **TwoWay** property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the **TwoWay** property.
 
         This method has id ``3.9``.
 
@@ -304,8 +297,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetTwoWay(OcaBoolean twoWay)
 
-        Sets the value of the **TwoWay** property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the **TwoWay** property.
 
         This method has id ``3.10``.
 
@@ -316,8 +308,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetHysteresis(OcaFloat64 &hysteresis)
 
-        Gets the value of the **Hysteresis** property. The return value
-        indicates whether the property was successfully retrieved.
+        Gets the value of the **Hysteresis** property.
 
         This method has id ``3.11``.
 
@@ -328,8 +319,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetHysteresis(OcaFloat64 hysteresis)
 
-        Sets the value of the **Hysteresis** property. The return value
-        indicates whether the property was successfully set.
+        Sets the value of the **Hysteresis** property.
 
         This method has id ``3.12``.
 
@@ -340,8 +330,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetPeriod(OcaTimeInterval &period)
 
-        Gets the value of the **Period** property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the **Period** property.
 
         This method has id ``3.13``.
 
@@ -352,8 +341,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetPeriod(OcaTimeInterval period)
 
-        Sets the value of the **Period** property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the **Period** property.
 
         This method has id ``3.14``.
 
@@ -366,21 +354,23 @@ Class Hierarchy:
 
     - :ref:`OcaAgent::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaAgent::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaAgent::Unlock <ocaroot_unlock>`
+    - :ref:`OcaAgent::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaAgent::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaAgent::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaAgent::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaAgent::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaAgent::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaAgent::GetLabel <ocaagent_getlabel>`
-
-    - :ref:`OcaAgent::SetLabel <ocaagent_setlabel>`
 
     - :ref:`OcaAgent::GetOwner <ocaagent_getowner>`
 
     - :ref:`OcaAgent::GetPath <ocaagent_getpath>`
+
+    - :ref:`OcaAgent::SetLabel <ocaagent_setlabel>`
 
 
     **Events**:

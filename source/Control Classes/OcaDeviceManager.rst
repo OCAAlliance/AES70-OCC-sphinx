@@ -20,6 +20,15 @@ Class Hierarchy:
     **Properties**:
 
 
+    .. _ocadevicemanager_busy:
+
+    .. cpp:member:: OcaBoolean Busy
+
+        True if and only if device is working on something and is not available
+        for OCA command activity. Readonly. **Deprecated** in v3 of this class.
+
+        This property has id ``3.10``.
+
     .. _ocadevicemanager_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.3.1"
@@ -32,7 +41,7 @@ Class Hierarchy:
 
     .. _ocadevicemanager_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -40,99 +49,71 @@ Class Hierarchy:
 
         This property has id ``1.2``.
 
-    .. _ocadevicemanager_modelguid:
+    .. _ocadevicemanager_controlenabled:
 
-    .. cpp:member:: OcaModelGUID ModelGUID
+    .. cpp:member:: OcaBoolean ControlEnabled
 
-        Read-only property that identifies the model of the device. Note this
-        property is not equivalent to a MAC address, because (a) MAC addresses
-        identify individual devices, not models, and (b) MAC addresses are
-        Ethernet-specific, but an OCA device need not have an Ethernet port.
+        Indicates whether the device is enabled, i.e. whether it is responsive
+        to OCA commands. Prior to v3 of this class, property name was
+        **Enabled**.
 
-        This property has id ``3.1``.
-
-    .. _ocadevicemanager_serialnumber:
-
-    .. cpp:member:: OcaString SerialNumber
-
-        Read-only property that identifies the serial number of the CAP device.
-
-        This property has id ``3.2``.
-
-    .. _ocadevicemanager_modeldescription:
-
-    .. cpp:member:: OcaModelDescription ModelDescription
-
-        Read-only property that contains text names for this model, its
-        manufacturer, and its version.
-
-        This property has id ``3.3``.
+        This property has id ``3.8``.
 
     .. _ocadevicemanager_devicename:
 
     .. cpp:member:: OcaString DeviceName
 
-        Name of the device. Should be unique manufacturer-qualified identifier.
+        User-specified name of this device in application context. Device
+        instance name, not product name.
 
         This property has id ``3.4``.
 
-    .. _ocadevicemanager_ocaversion:
+    .. _ocadevicemanager_devicerevisionid:
 
-    .. cpp:member:: OcaUint16 OcaVersion
+    .. cpp:member:: const OcaString DeviceRevisionID
 
-        Read-only property that indicates the AES70 version number used by the
-        device.
+        Overall device revision identifier. Format of string is
+        manufacturer-specific. Readonly. May be changed by proprietery functions
+        of firmware upload processes. **Deprecated** in v3 of this class, moved
+        into property **Product**.
 
-        This property has id ``3.5``.
+        This property has id ``3.14``.
 
     .. _ocadevicemanager_devicerole:
 
     .. cpp:member:: OcaString DeviceRole
 
-        Role of device in application (arbitrary).
+        Role of device in application (arbitrary). Named **Role** prior to v3 of
+        this class.
 
         This property has id ``3.6``.
 
-    .. _ocadevicemanager_userinventorycode:
+    .. _ocadevicemanager_loggingenabled:
 
-    .. cpp:member:: OcaString UserInventoryCode
+    .. cpp:member:: OcaBoolean LoggingEnabled
 
-        Code used for equipment tracking.
+        Global enable/disable switch for device logging. TRUE = logging enabled,
+        FALSE = logging disabled. See class **OcaLog** for the rest of the
+        logging mechanism.
 
-        This property has id ``3.7``.
+        This property has id ``3.18``.
 
-    .. _ocadevicemanager_enabled:
+    .. _ocadevicemanager_managers:
 
-    .. cpp:member:: OcaBoolean Enabled
+    .. cpp:member:: OcaList<OcaManagerDescriptor> Managers
 
-        Indicates whether the device is enabled (and therefore operational).
+        List of all manager objects (including the Device Manager) instantiated
+        in this device.
 
-        This property has id ``3.8``.
+        This property has id ``3.13``.
 
-    .. _ocadevicemanager_state:
+    .. _ocadevicemanager_manufacturer:
 
-    .. cpp:member:: OcaDeviceState State
+    .. cpp:member:: const OcaManufacturer Manufacturer
 
-        Read-only property that indicates the current state of the device.
+        Descriptor of this product's manufacturer.
 
-        This property has id ``3.9``.
-
-    .. _ocadevicemanager_busy:
-
-    .. cpp:member:: OcaBoolean Busy
-
-        True iff device is working on something and is not available for OCA
-        command activity. Readonly.
-
-        This property has id ``3.10``.
-
-    .. _ocadevicemanager_resetcause:
-
-    .. cpp:member:: OcaResetCause ResetCause
-
-        Read-only attribute that indicates the reset cause of the last reset.
-
-        This property has id ``3.11``.
+        This property has id ``3.15``.
 
     .. _ocadevicemanager_message:
 
@@ -143,23 +124,94 @@ Class Hierarchy:
 
         This property has id ``3.12``.
 
-    .. _ocadevicemanager_managers:
+    .. _ocadevicemanager_modeldescription:
 
-    .. cpp:member:: OcaList<OcaManagerDescriptor> Managers
+    .. cpp:member:: OcaModelDescription ModelDescription
 
-        List of all manager objects instantiated in this device.
+        Read-only property that contains text names for this model, its
+        manufacturer, and its version. **Deprecated** in v3 of this class, moved
+        into property **Product**.
 
-        This property has id ``3.13``.
+        This property has id ``3.3``.
 
-    .. _ocadevicemanager_devicerevisionid:
+    .. _ocadevicemanager_modelguid:
 
-    .. cpp:member:: const OcaString DeviceRevisionID
+    .. cpp:member:: OcaModelGUID ModelGUID
 
-        Overall device revision identifier. Format of string is
-        manufacturer-specific. Readonly. May be changed by proprietery functions
-        of firmware upload processes.
+        Read-only property that identifies the model of the device. Note this
+        property is not equivalent to a MAC address, because (a) MAC addresses
+        identify individual devices, not models, and (b) MAC addresses are
+        Ethernet-specific, but an OCA device need not have an Ethernet port.
+        **Deprecated** in v3 of this class, moved into property **Product** .
 
-        This property has id ``3.14``.
+        This property has id ``3.1``.
+
+    .. _ocadevicemanager_mostrecentpatchdatasetono:
+
+    .. cpp:member:: OcaONo MostRecentPatchDatasetONo
+
+        **ONo** of **OcaDataset** containing the most recently applied patch.
+        Zero if no patch has been applied since last device reset.
+
+        This property has id ``3.19``.
+
+    .. _ocadevicemanager_ocaversion:
+
+    .. cpp:member:: const OcaUint16 OcaVersion
+
+        Read-only property that indicates the AES70 version number used by the
+        device.
+
+        This property has id ``3.5``.
+
+    .. _ocadevicemanager_operationalstate:
+
+    .. cpp:member:: OcaDeviceOperationalState OperationalState
+
+        Operational state of device.
+
+        This property has id ``3.17``.
+
+    .. _ocadevicemanager_product:
+
+    .. cpp:member:: const OcaProduct Product
+
+        Descriptor of this product.
+
+        This property has id ``3.16``.
+
+    .. _ocadevicemanager_resetcause:
+
+    .. cpp:member:: const OcaResetCause ResetCause
+
+        Read-only property that indicates the cause of the last Device reset.
+
+        This property has id ``3.11``.
+
+    .. _ocadevicemanager_serialnumber:
+
+    .. cpp:member:: const OcaString SerialNumber
+
+        Read-only property that identifies the serial number of the Device.
+
+        This property has id ``3.2``.
+
+    .. _ocadevicemanager_state:
+
+    .. cpp:member:: OcaDeviceState State
+
+        Read-only property that indicates the current state of the device.
+        Deprecated in v3 of this class, replaced by **.OperationalState** .
+
+        This property has id ``3.9``.
+
+    .. _ocadevicemanager_userinventorycode:
+
+    .. cpp:member:: OcaString UserInventoryCode
+
+        Code used for equipment tracking.
+
+        This property has id ``3.7``.
 
     Properties inherited from :ref:`ocamanager`:
 
@@ -167,9 +219,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -185,8 +239,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetOcaVersion(OcaUint16 &OcaVersion)
 
-        Gets the value of the OcaVersion property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the **OcaVersion** property.
 
         This method has id ``3.1``.
 
@@ -197,8 +250,8 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetModelGUID(OcaModelGUID &GUID)
 
-        Gets the model GUID. The return value indicates whether the GUID was
-        successfully retrieved.
+        Gets the model GUID. **Deprecated** in v3 of this class, replaced by
+        **GetProduct()** .
 
         This method has id ``3.2``.
 
@@ -209,8 +262,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetSerialNumber(OcaString &serialNumber)
 
-        Gets the value of the SerialNumber property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the **SerialNumber** property.
 
         This method has id ``3.3``.
 
@@ -221,8 +273,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetDeviceName(OcaString &Name)
 
-        Gets the device name. The return value indicates whether the property
-        was successfully retrieved.
+        Gets the device name.
 
         This method has id ``3.4``.
 
@@ -233,8 +284,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetDeviceName(OcaString Name)
 
-        Sets the device name. The return value indicates whether the property
-        was successfully set.
+        Sets the device name.
 
         This method has id ``3.5``.
 
@@ -245,8 +295,8 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetModelDescription(OcaModelDescription &Description)
 
-        Gets the model description. The return value indicates whether the
-        description was successfully retrieved.
+        Gets the model description. **Deprecated** in v3 of this class, replaced
+        by** GetProduct()** .
 
         This method has id ``3.6``.
 
@@ -257,8 +307,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetDeviceRole(OcaString &role)
 
-        Gets the value of the Role property. The return value indicates whether
-        the property was successfully retrieved.
+        Gets the value of the **DeviceRole** property.
 
         This method has id ``3.7``.
 
@@ -269,8 +318,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetDeviceRole(OcaString role)
 
-        Sets the value of the Role property. The return value indicates whether
-        the property was successfully set.
+        Sets the value of the **DeviceRole** property.
 
         This method has id ``3.8``.
 
@@ -281,8 +329,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetUserInventoryCode(OcaString &Code)
 
-        Gets the value of the UserInventoryCode property. The return value
-        indicates whether the property was successfully retrieved.
+        Gets the value of the **UserInventoryCode** property.
 
         This method has id ``3.9``.
 
@@ -293,8 +340,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetUserInventoryCode(OcaString Code)
 
-        Sets the value of the UserInventoryCode property. The return value
-        indicates whether the property was successfully set.
+        Sets the value of the **UserInventoryCode** property.
 
         This method has id ``3.10``.
 
@@ -305,8 +351,8 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetEnabled(OcaBoolean &enabled)
 
-        Gets the value of the Enabled property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the **Enabled** property. Deprecated in v3 of this
+        class.
 
         This method has id ``3.11``.
 
@@ -317,8 +363,8 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetEnabled(OcaBoolean enabled)
 
-        Sets the value of the Enabled property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the **Enabled** property. Deprecated in v3 of this
+        class.
 
         This method has id ``3.12``.
 
@@ -329,8 +375,8 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetState(OcaDeviceState &state)
 
-        Gets the value of the State property. The return value indicates whether
-        the property was successfully retrieved.
+        Gets the value of the State property. **Deprecated** in v3 of this
+        class, replaced by **.GetOperationalState() .**
 
         This method has id ``3.13``.
 
@@ -341,11 +387,9 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetResetKey(OcaBlobFixedLen<16> Key, OcaNetworkAddress Address)
 
-        Sets the value of the reset key of the device. The return value
-        indicates whether the property was successfully set. Note that the
-        device manager must inform the CAP gateway of this key (via the host
-        interface), since the CAP gateway will check for and handle the special
-        reset message.
+        Sets the value of the reset key and the required source address for the
+        reset command. If given address is null, all source addresses will be
+        accepted.
 
         This method has id ``3.14``.
 
@@ -359,8 +403,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetResetCause(OcaResetCause &resetCause)
 
-        Gets the value of the ResetCause property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the **ResetCause** property.
 
         This method has id ``3.15``.
 
@@ -371,13 +414,12 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus ClearResetCause()
 
-        Clears the ResetCause property, i.e. resets it to the default value
+        Clears the **ResetCause** property, i.e. resets it to the default value
         'PowerOn'. Must be used after the reset cause has been read out to
-        ensure differentation between reconnects due to network loss and
+        ensure differentiation between reconnects due to network loss and
         reconnects due to external or internal reset. Offered as a separate
         method (instead of implicitly clearing the cause after it has been read
-        out) to accomodate systems that have multiple controllers. The return
-        value indicates whether the property was successfully retrieved.
+        out) to accommodate systems that have multiple controllers.
 
         This method has id ``3.16``.
 
@@ -385,8 +427,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetMessage(OcaString &Message)
 
-        Gets the value of property **Message**. Return value indicates whether
-        value was successfully retrieved.
+        Gets the value of property **Message**.
 
         This method has id ``3.17``.
 
@@ -397,8 +438,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetMessage(OcaString Text)
 
-        Set arbitrary text message into **Message** property. The return value
-        indicates whether the value was successfully set.
+        Set arbitrary text message into **Message** property.
 
         This method has id ``3.18``.
 
@@ -410,7 +450,6 @@ Class Hierarchy:
     .. cpp:function:: OcaStatus GetManagers(OcaList<OcaManagerDescriptor> &Managers)
 
         Retrive the list of descriptors of managers instantiated in this device.
-        The return value indicates whether the retrieval was successful.
 
         This method has id ``3.19``.
 
@@ -421,12 +460,90 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetDeviceRevisionID(OcaString &ID)
 
-        Gets the value of property **DeviceRevisionID**. Return value indicates
-        whether value was successfully retrieved.
+        Gets the value of deprecated property **DeviceRevisionID**.
+        **Deprecated** in v3 of this class, replaced by **.GetProduct()** .
 
         This method has id ``3.20``.
 
         - :cpp:expr:`ID`: Output parameter.
+
+
+    .. _ocadevicemanager_getmanufacturer:
+
+    .. cpp:function:: OcaStatus GetManufacturer(OcaManufacturer &Manufacturer)
+
+        Gets the device's manufacturer descriptor.
+
+        This method has id ``3.21``.
+
+        - :cpp:expr:`Manufacturer`: Output parameter.
+
+
+    .. _ocadevicemanager_getproduct:
+
+    .. cpp:function:: OcaStatus GetProduct(OcaProduct &Product)
+
+        Gets the device's product descriptor.
+
+        This method has id ``3.22``.
+
+        - :cpp:expr:`Product`: Output parameter.
+
+
+    .. _ocadevicemanager_getoperationalstate:
+
+    .. cpp:function:: OcaStatus GetOperationalState(OcaDeviceOperationalState &State)
+
+        Gets the device's operational state.
+
+        This method has id ``3.23``.
+
+        - :cpp:expr:`State`: Output parameter.
+
+
+    .. _ocadevicemanager_getloggingenabled:
+
+    .. cpp:function:: OcaStatus GetLoggingEnabled(OcaBoolean &Enabled)
+
+        Gets the value of property **LoggingEnabled**.
+
+        This method has id ``3.24``.
+
+        - :cpp:expr:`Enabled`: Output parameter.
+
+
+    .. _ocadevicemanager_setloggingenabled:
+
+    .. cpp:function:: OcaStatus SetLoggingEnabled(OcaBoolean Enabled)
+
+        Sets the value of property **LoggingEnabled**.
+
+        This method has id ``3.25``.
+
+        - :cpp:expr:`Enabled`: Input parameter.
+
+
+    .. _ocadevicemanager_getmostrecentpatchdatasetono:
+
+    .. cpp:function:: OcaStatus GetMostRecentPatchDatasetONo(OcaONo &ONo)
+
+        Gets the value of property **MostRecentPatchDatasetONo**.
+
+        This method has id ``3.26``.
+
+        - :cpp:expr:`ONo`: Output parameter.
+
+
+    .. _ocadevicemanager_applypatch:
+
+    .. cpp:function:: OcaStatus ApplyPatch(OcaONo ONo)
+
+        Applies the patch in the **OcaDataset** identified by the given **ONo**,
+        and sets the value of property MostRecentPatchDatasetONo.
+
+        This method has id ``3.27``.
+
+        - :cpp:expr:`ONo`: Input parameter.
 
 
     Methods inherited from :ref:`ocamanager`:
@@ -435,11 +552,13 @@ Class Hierarchy:
 
     - :ref:`OcaManager::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaManager::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
+    - :ref:`OcaManager::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaManager::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaManager::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaManager::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaManager::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
 

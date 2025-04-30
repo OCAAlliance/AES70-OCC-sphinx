@@ -14,6 +14,14 @@ Class Hierarchy:
     **Properties**:
 
 
+    .. _ocabitstringsensor_reading:
+
+    .. cpp:member:: OcaBitstring Reading
+
+        The bitstring. New name as of v3 of this class.
+
+        This property has id ``5.1``.
+
     .. _ocabitstringsensor_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.1.2.1.13"
@@ -26,7 +34,7 @@ Class Hierarchy:
 
     .. _ocabitstringsensor_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -34,23 +42,17 @@ Class Hierarchy:
 
         This property has id ``1.2``.
 
-    .. _ocabitstringsensor_bitstring:
-
-    .. cpp:member:: OcaBitstring BitString
-
-        The bitstring.
-
-        This property has id ``5.1``.
-
     Properties inherited from :ref:`ocabasicsensor`:
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -60,13 +62,15 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
 
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
-
     - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
 
     - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
 
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+    - :cpp:texpr:`OcaMap<OcaPortID, OcaPortClockMapEntry>` :ref:`OcaWorker::PortClockMap <ocaworker_portclockmap>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaSensor::ClassID <ocasensor_classid>`
 
@@ -86,8 +90,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetNrBits(OcaUint16 &NrBits)
 
-        Gets the number of bits of the bitmask data. Returned status indicates
-        success or failure of the retrieval.
+        Gets the number of bits of the bitstring data.
 
         This method has id ``5.1``.
 
@@ -98,8 +101,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetBit(OcaUint16 bitNr, OcaUint8 &bit)
 
-        Gets the value of the given bit. Return status indicates success or
-        failure of the retrieval.
+        Gets the value of the given bit.
 
         This method has id ``5.2``.
 
@@ -109,16 +111,15 @@ Class Hierarchy:
         - :cpp:expr:`bit`: Output parameter.
 
 
-    .. _ocabitstringsensor_getbitstring:
+    .. _ocabitstringsensor_getreading:
 
-    .. cpp:function:: OcaStatus GetBitString(OcaBitstring &BitString)
+    .. cpp:function:: OcaStatus GetReading(OcaBitstring &Reading)
 
-        Gets the entire bitstring. Return status indicates success or failure of
-        the retrieval.
+        Gets the entire bitstring.
 
         This method has id ``5.3``.
 
-        - :cpp:expr:`BitString`: Output parameter.
+        - :cpp:expr:`Reading`: Output parameter.
 
 
     Methods inherited from :ref:`ocabasicsensor`:
@@ -127,39 +128,51 @@ Class Hierarchy:
 
     - :ref:`OcaBasicSensor::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaBasicSensor::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaBasicSensor::Unlock <ocaroot_unlock>`
+    - :ref:`OcaBasicSensor::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaBasicSensor::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaBasicSensor::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaBasicSensor::SetLockNoWrite <ocaroot_setlocknowrite>`
 
-    - :ref:`OcaBasicSensor::GetEnabled <ocaworker_getenabled>`
+    - :ref:`OcaBasicSensor::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
 
-    - :ref:`OcaBasicSensor::SetEnabled <ocaworker_setenabled>`
+    - :ref:`OcaBasicSensor::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaBasicSensor::AddPort <ocaworker_addport>`
 
     - :ref:`OcaBasicSensor::DeletePort <ocaworker_deleteport>`
 
-    - :ref:`OcaBasicSensor::GetPorts <ocaworker_getports>`
+    - :ref:`OcaBasicSensor::DeletePortClockMapEntry <ocaworker_deleteportclockmapentry>`
 
-    - :ref:`OcaBasicSensor::GetPortName <ocaworker_getportname>`
-
-    - :ref:`OcaBasicSensor::SetPortName <ocaworker_setportname>`
+    - :ref:`OcaBasicSensor::GetEnabled <ocaworker_getenabled>`
 
     - :ref:`OcaBasicSensor::GetLabel <ocaworker_getlabel>`
 
-    - :ref:`OcaBasicSensor::SetLabel <ocaworker_setlabel>`
+    - :ref:`OcaBasicSensor::GetLatency <ocaworker_getlatency>`
 
     - :ref:`OcaBasicSensor::GetOwner <ocaworker_getowner>`
 
-    - :ref:`OcaBasicSensor::GetLatency <ocaworker_getlatency>`
+    - :ref:`OcaBasicSensor::GetPath <ocaworker_getpath>`
+
+    - :ref:`OcaBasicSensor::GetPortClockMap <ocaworker_getportclockmap>`
+
+    - :ref:`OcaBasicSensor::GetPortClockMapEntry <ocaworker_getportclockmapentry>`
+
+    - :ref:`OcaBasicSensor::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaBasicSensor::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaBasicSensor::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaBasicSensor::SetLabel <ocaworker_setlabel>`
 
     - :ref:`OcaBasicSensor::SetLatency <ocaworker_setlatency>`
 
-    - :ref:`OcaBasicSensor::GetPath <ocaworker_getpath>`
+    - :ref:`OcaBasicSensor::SetPortClockMap <ocaworker_setportclockmap>`
+
+    - :ref:`OcaBasicSensor::SetPortClockMapEntry <ocaworker_setportclockmapentry>`
+
+    - :ref:`OcaBasicSensor::SetPortName <ocaworker_setportname>`
 
     - :ref:`OcaBasicSensor::GetReadingState <ocasensor_getreadingstate>`
 

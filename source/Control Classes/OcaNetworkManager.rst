@@ -9,13 +9,13 @@ Class Hierarchy:
 
 .. cpp:class:: OcaNetworkManager: OcaManager
 
-    Optional manager that collects all media transport and control networks to
-    which the device belongs.
+    Optional manager that collects all network interface and network application
+    objects to which the device belongs.
 
-     - Must be instantiated once in every device that has more than one network
-       object. In this context, "network object" shall mean an instance of
-       **OcaNetwork**, **OcaStreamNetwork**, **OcaApplicationNetwork**, or any
-       subclass of these classes.
+     - Must be instantiated in every device that has more than one network
+       object.
+
+     - May be instantiated at most once in any device.
 
      - If instantiated, must have object number 6.
 
@@ -36,39 +36,21 @@ Class Hierarchy:
 
     .. _ocanetworkmanager_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
-        of the **OcaRoot** property. Version 2 adds the control and media
-        transport network properties and methods.
+        of the **OcaRoot** property.
 
         This property has id ``1.2``.
-
-    .. _ocanetworkmanager_networks:
-
-    .. cpp:member:: OcaList<OcaONo> Networks
-
-        Object numbers of **OcaNetwork** objects, one for each network to which
-        this device belongs. **Deprecated as of OCA 1.2.**
-
-        This property has id ``3.1``.
-
-    .. _ocanetworkmanager_streamnetworks:
-
-    .. cpp:member:: OcaList<OcaONo> StreamNetworks
-
-        Object numbers of **OcaStreamNetwork** objects, one for each network to
-        which this device belongs. **Deprecated as of OCA 1.4.**
-
-        This property has id ``3.2``.
 
     .. _ocanetworkmanager_controlnetworks:
 
     .. cpp:member:: OcaList<OcaONo> ControlNetworks
 
         Object numbers of **OcaControlNetwork** objects, one for each control
-        network to which this device belongs. Added in version 2.
+        network to which this device belongs. Deprecated in version 3 of this
+        class.
 
         This property has id ``3.3``.
 
@@ -77,10 +59,48 @@ Class Hierarchy:
     .. cpp:member:: OcaList<OcaONo> MediaTransportNetworks
 
         Object numbers of **OcaMediaTransportNetwork** objects, one for each
-        media transport network to which this device belongs. Added in version
-        2.
+        media transport network to which this device belongs. Deprecated in
+        version 3 of this class.
 
         This property has id ``3.4``.
+
+    .. _ocanetworkmanager_networkapplications:
+
+    .. cpp:member:: OcaList<OcaONo> NetworkApplications
+
+        Object numbers of all objects in this device that are instances of
+        **OcaNetworkApplication** or a subclass of **OcaNetworkApplication**.
+        Added in version 3 of this class.
+
+        This property has id ``3.6``.
+
+    .. _ocanetworkmanager_networkinterfaces:
+
+    .. cpp:member:: OcaList<OcaONo> NetworkInterfaces
+
+        Object numbers of all objects in this device that are instances of
+        **OcaNetworkInterface** or a subclass of **OcaNetworkInterface**. Added
+        in version 3 of this class.
+
+        This property has id ``3.5``.
+
+    .. _ocanetworkmanager_networks:
+
+    .. cpp:member:: OcaList<OcaONo> Networks
+
+        Object numbers of **OcaNetwork** objects, one for each network to which
+        this device belongs. **Deprecated** in version 2 of this class.
+
+        This property has id ``3.1``.
+
+    .. _ocanetworkmanager_streamnetworks:
+
+    .. cpp:member:: OcaList<OcaONo> StreamNetworks
+
+        Object numbers of **OcaStreamNetwork** objects, one for each network to
+        which this device belongs. **Deprecated** in version 3 of this class.
+
+        This property has id ``3.2``.
 
     Properties inherited from :ref:`ocamanager`:
 
@@ -88,9 +108,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -107,8 +129,7 @@ Class Hierarchy:
     .. cpp:function:: OcaStatus GetNetworks(OcaList<OcaONo> &Networks)
 
         Gets the list of object numbers of **OcaNetwork** instances in this
-        device. Return value indicates whether the list was successfully
-        retrieved. **Deprecated as of OCA 1.2**
+        device. **Deprecated** in version 2 of this class.
 
         This method has id ``3.1``.
 
@@ -119,9 +140,8 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetStreamNetworks(OcaList<OcaONo> &StreamNetworks)
 
-        Gets the list of object numbers of **OcaStreamNetwork** instances in
-        this device. Return value indicates whether list was successfully
-        retrieved. **Deprecated as of OCA 1.4.**
+        Gets the list of object numbers of **OcaStreamNetwork** objects in this
+        device. **Deprecated** in version 2 of this class.
 
         This method has id ``3.2``.
 
@@ -132,9 +152,8 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetControlNetworks(OcaList<OcaONo> &ControlNetworks)
 
-        Gets the list of object numbers of **OcaControlNetwork** instances in
-        this device. Return value indicates whether list was successfully
-        retrieved. Introduced in version 1.4.
+        Gets the list of object numbers of **OcaControlNetwork** objects in this
+        device. **Deprecated** in version 3 of this class.
 
         This method has id ``3.3``.
 
@@ -145,13 +164,38 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetMediaTransportNetworks(OcaList<OcaONo> &MediaTransportNetworks)
 
-        Gets the list of object numbers of **OcaMediaTransportNetwork**
-        instances in this device. Return value indicates whether list was
-        successfully retrieved. Introduced in version 1.4.
+        Gets the list of object numbers of **OcaMediaTransportNetwork** objects
+        in this device. **Deprecated** in version 3 of this class.
 
         This method has id ``3.4``.
 
         - :cpp:expr:`MediaTransportNetworks`: Output parameter.
+
+
+    .. _ocanetworkmanager_getnetworkinterfaces:
+
+    .. cpp:function:: OcaStatus GetNetworkInterfaces(OcaList<OcaONo> &ONos)
+
+        Gets the list of object numbers of all objects that are instances of
+        **OcaNetworkInterface** or a subclass of **OcaNetworkInterface.** Added
+        in version 3 of this class.
+
+        This method has id ``3.5``.
+
+        - :cpp:expr:`ONos`: Output parameter.
+
+
+    .. _ocanetworkmanager_getnetworkapplications:
+
+    .. cpp:function:: OcaStatus GetNetworkApplications(OcaList<OcaONo> &ONos)
+
+        Gets the list of object numbers of all objects that are instances of
+        **OcaNetworkApplication** or a subclass of **OcaNetworkApplication.**
+        Added in version 3 of this class.
+
+        This method has id ``3.6``.
+
+        - :cpp:expr:`ONos`: Output parameter.
 
 
     Methods inherited from :ref:`ocamanager`:
@@ -160,11 +204,13 @@ Class Hierarchy:
 
     - :ref:`OcaManager::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaManager::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
+    - :ref:`OcaManager::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaManager::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaManager::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaManager::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaManager::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
 

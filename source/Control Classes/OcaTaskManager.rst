@@ -9,7 +9,8 @@ Class Hierarchy:
 
 .. cpp:class:: OcaTaskManager: OcaManager
 
-    Optional manager that collects OcaTask and OcaProgram objects.
+    This class is **deprecated** in version 2 (OCA 1.5). Optional manager that
+    collects **OcaTask** and **OcaProgram** objects.
 
      - May be instantiated once in any device.
 
@@ -48,7 +49,7 @@ Class Hierarchy:
 
     .. _ocataskmanager_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 1
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -79,9 +80,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -124,7 +127,7 @@ Class Hierarchy:
 
     .. _ocataskmanager_controltaskgroup:
 
-    .. cpp:function:: OcaStatus ControlTaskGroup(OcaTaskGroupID GroupID, OcaTaskCommand Command, OcaBlob ApplicationTaskParameter)
+    .. cpp:function:: OcaStatus ControlTaskGroup(OcaID16 GroupID, OcaTaskCommand Command, OcaBlob ApplicationTaskParameter)
 
         Controls all tasks in the given group. Return value indicates whether
         tasks were successfully controlled.
@@ -195,7 +198,7 @@ Class Hierarchy:
 
     .. _ocataskmanager_addtask:
 
-    .. cpp:function:: OcaStatus AddTask(OcaTask Task, OcaTask &Task_)
+    .. cpp:function:: OcaStatus AddTask()
 
         Creates a Task. Parameters of the new Task are given in the Task
         parameter; device returns the same parameter with the new Task ID filled
@@ -203,12 +206,6 @@ Class Hierarchy:
         whether Task was successfully created.
 
         This method has id ``3.8``.
-
-        - :cpp:expr:`Task`: Input parameter.
-
-
-        - :cpp:expr:`Task_`: Output parameter.
-
 
     .. _ocataskmanager_gettasks:
 
@@ -270,13 +267,15 @@ Class Hierarchy:
 
     - :ref:`OcaManager::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaManager::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
+    - :ref:`OcaManager::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaManager::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaManager::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaManager::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaManager::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
 
 
     **Events**:
@@ -284,7 +283,7 @@ Class Hierarchy:
 
     .. _ocataskmanager_taskstatechanged:
 
-    .. cpp:function:: void TaskStateChanged(OcaTaskStateChangedEventData EventData)
+    .. cpp:function:: void TaskStateChanged(OcaTaskStatusChangedEventData EventData)
 
 
         This event has id ``3.1``.

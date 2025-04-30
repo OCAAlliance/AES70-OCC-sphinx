@@ -29,7 +29,7 @@ Class Hierarchy:
 
     .. _ocamanager_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -43,9 +43,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -59,11 +61,13 @@ Class Hierarchy:
 
     - :ref:`OcaRoot::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaRoot::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaRoot::Unlock <ocaroot_unlock>`
+    - :ref:`OcaRoot::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaRoot::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaRoot::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaRoot::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaRoot::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaRoot::Unlock <ocaroot_unlock>`
 

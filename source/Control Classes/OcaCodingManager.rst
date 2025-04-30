@@ -22,6 +22,24 @@ Class Hierarchy:
     **Properties**:
 
 
+    .. _ocacodingmanager_availabledecodingschemes:
+
+    .. cpp:member:: OcaMap<OcaMediaCodingSchemeID, OcaString> AvailableDecodingSchemes
+
+        Map of names of media decoding schemes the device supports, indexed by
+        scheme ID.
+
+        This property has id ``3.2``.
+
+    .. _ocacodingmanager_availableencodingschemes:
+
+    .. cpp:member:: OcaMap<OcaMediaCodingSchemeID, OcaString> AvailableEncodingSchemes
+
+        Map of names of media encoding schemes the device supports, indexed by
+        scheme ID.
+
+        This property has id ``3.1``.
+
     .. _ocacodingmanager_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.3.12"
@@ -34,7 +52,7 @@ Class Hierarchy:
 
     .. _ocacodingmanager_classversion:
 
-    .. cpp:member:: static const OcaUint16 ClassVersion = 1
+    .. cpp:member:: static const OcaUint16 ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -42,33 +60,17 @@ Class Hierarchy:
 
         This property has id ``1.2``.
 
-    .. _ocacodingmanager_availableencodingschemes:
-
-    .. cpp:member:: OcaMap<OcaMediaCodingSchemeID, OcaString> AvailableEncodingSchemes
-
-        Map of names of media encoding schemes the device supports, indexed by
-        scheme ID.
-
-        This property has id ``3.1``.
-
-    .. _ocacodingmanager_availabledecodingschemes:
-
-    .. cpp:member:: OcaMap<OcaMediaCodingSchemeID, OcaString> AvailableDecodingSchemes
-
-        Map of names of media decoding schemes the device supports, indexed by
-        scheme ID.
-
-        This property has id ``3.2``.
-
     Properties inherited from :ref:`ocamanager`:
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -110,11 +112,13 @@ Class Hierarchy:
 
     - :ref:`OcaManager::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaManager::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
+    - :ref:`OcaManager::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaManager::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaManager::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaManager::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaManager::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
 

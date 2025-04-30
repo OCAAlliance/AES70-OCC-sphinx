@@ -25,8 +25,11 @@ Class Hierarchy:
 
     .. _ocaphysicalposition_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 1
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
+        Identifies the interface version of the class. Any change to the class
+        definition leads to a higher class version. This property is an override
+        of the **OcaRoot** property.
 
         This property has id ``1.2``.
 
@@ -39,16 +42,6 @@ Class Hierarchy:
 
         This property has id ``3.1``.
 
-    .. _ocaphysicalposition_positiondescriptorfieldflags:
-
-    .. cpp:member:: const OcaPositionDescriptorFieldFlags PositionDescriptorFieldFlags
-
-        Position descriptor field flags. Describe which position descriptor
-        fields are used by this object. Read-only, set at object construction
-        time.
-
-        This property has id ``3.2``.
-
     .. _ocaphysicalposition_positiondescriptor:
 
     .. cpp:member:: OcaPositionDescriptor PositionDescriptor
@@ -58,15 +51,29 @@ Class Hierarchy:
 
         This property has id ``3.3``.
 
+    .. _ocaphysicalposition_positiondescriptorfieldflags:
+
+    .. cpp:member:: const OcaPositionDescriptorFieldFlags PositionDescriptorFieldFlags
+
+        Position descriptor field flags. Describe which position descriptor
+        fields are used by this object. Note that for a given position
+        determining mechanism, not all position descriptor fields might be used.
+        For example, a 2D position descriptor will not use altitude coordinates.
+        Read-only, set at object construction time.
+
+        This property has id ``3.2``.
+
     Properties inherited from :ref:`ocaagent`:
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -86,8 +93,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetCoordinateSystem(OcaPositionCoordinateSystem &CoordinateSystem)
 
-        Retrieves value of property **CoordinateSystem**. Result indicates
-        whether retrieval was successful.
+        Gets value of property **CoordinateSystem**.
 
         This method has id ``3.1``.
 
@@ -98,8 +104,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetPositionDescriptorFieldFlags(OcaPositionDescriptorFieldFlags &Flags)
 
-        Retrieves value of property **PositionDescriptorFieldFlags**. Result
-        indicates whether retrieval was successful.
+        Gets value of property **PositionDescriptorFieldFlags**.
 
         This method has id ``3.2``.
 
@@ -110,8 +115,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetPositionDescriptor(OcaPositionDescriptor &PositionDescriptor, OcaPositionDescriptor &minPositionDescriptor, OcaPositionDescriptor &maxPositionDescriptor)
 
-        Retrieves value of property **PositioinDescriptor**. Result indicates
-        whether retrieval was successful.
+        Gets value of property **PositionDescriptor**.
 
         This method has id ``3.3``.
 
@@ -148,19 +152,21 @@ Class Hierarchy:
 
     - :ref:`OcaAgent::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaAgent::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaAgent::Unlock <ocaroot_unlock>`
+    - :ref:`OcaAgent::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaAgent::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaAgent::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaAgent::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaAgent::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaAgent::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaAgent::GetLabel <ocaagent_getlabel>`
-
-    - :ref:`OcaAgent::SetLabel <ocaagent_setlabel>`
 
     - :ref:`OcaAgent::GetOwner <ocaagent_getowner>`
 
     - :ref:`OcaAgent::GetPath <ocaagent_getpath>`
+
+    - :ref:`OcaAgent::SetLabel <ocaagent_setlabel>`
 

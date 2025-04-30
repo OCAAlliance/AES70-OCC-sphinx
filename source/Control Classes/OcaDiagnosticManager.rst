@@ -13,7 +13,7 @@ Class Hierarchy:
     manager classes, OcaDiagnosticManager may be subclassed to provide
     proprietary application diagnostic enhancements.
 
-     - May be instantiated once in any device.
+     - May be instantiated at most once in any device.
 
      - If instantiated, object number must be 13.
 
@@ -34,7 +34,7 @@ Class Hierarchy:
 
     .. _ocadiagnosticmanager_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 1
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -48,9 +48,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -62,32 +64,19 @@ Class Hierarchy:
     **Methods**:
 
 
-    .. _ocadiagnosticmanager_getlockstatus:
-
-    .. cpp:function:: OcaStatus GetLockStatus(OcaONo ONo, OcaString &StatusDescription)
-
-        Retrieves a text description of the given object's lock status. Return
-        value indicates success of the retrieval.
-
-        This method has id ``3.1``.
-
-        - :cpp:expr:`ONo`: Input parameter.
-
-
-        - :cpp:expr:`StatusDescription`: Output parameter.
-
-
     Methods inherited from :ref:`ocamanager`:
 
     - :ref:`OcaManager::GetClassIdentification <ocaroot_getclassidentification>`
 
     - :ref:`OcaManager::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaManager::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
+    - :ref:`OcaManager::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaManager::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaManager::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaManager::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaManager::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
 

@@ -25,34 +25,10 @@ Class Hierarchy:
 
     .. _ocamediaclock_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
 
         This property has id ``1.2``.
-
-    .. _ocamediaclock_type:
-
-    .. cpp:member:: OcaMediaClockType Type
-
-        Type of clock.
-
-        This property has id ``3.1``.
-
-    .. _ocamediaclock_domainid:
-
-    .. cpp:member:: OcaUint16 DomainID
-
-        Clock domain ID. Arbitrary value.
-
-        This property has id ``3.2``.
-
-    .. _ocamediaclock_ratessupported:
-
-    .. cpp:member:: OcaList<OcaMediaClockRate> RatesSupported
-
-        List of supported rates
-
-        This property has id ``3.3``.
 
     .. _ocamediaclock_currentrate:
 
@@ -62,6 +38,14 @@ Class Hierarchy:
 
         This property has id ``3.4``.
 
+    .. _ocamediaclock_domainid:
+
+    .. cpp:member:: OcaUint16 DomainID
+
+        Clock domain ID. Arbitrary value.
+
+        This property has id ``3.2``.
+
     .. _ocamediaclock_lockstate:
 
     .. cpp:member:: OcaMediaClockLockState LockState
@@ -70,15 +54,33 @@ Class Hierarchy:
 
         This property has id ``3.5``.
 
+    .. _ocamediaclock_ratessupported:
+
+    .. cpp:member:: OcaList<OcaMediaClockRate> RatesSupported
+
+        List of supported rates
+
+        This property has id ``3.3``.
+
+    .. _ocamediaclock_type:
+
+    .. cpp:member:: OcaMediaClockType Type
+
+        Type of clock.
+
+        This property has id ``3.1``.
+
     Properties inherited from :ref:`ocaagent`:
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -156,9 +158,9 @@ Class Hierarchy:
         - :cpp:expr:`ID`: Output parameter.
 
 
-    .. _ocamediaclock_getcurrentrate:
+    .. _ocamediaclock_getrate:
 
-    .. cpp:function:: OcaStatus GetCurrentRate(OcaMediaClockRate &rate)
+    .. cpp:function:: OcaStatus GetRate(OcaMediaClockRate &rate)
 
         Gets the current sampling rate. The return value indicates whether the
         value was successfully retrieved.
@@ -168,9 +170,9 @@ Class Hierarchy:
         - :cpp:expr:`rate`: Output parameter.
 
 
-    .. _ocamediaclock_setcurrentrate:
+    .. _ocamediaclock_setrate:
 
-    .. cpp:function:: OcaStatus SetCurrentRate(OcaMediaClockRate rate)
+    .. cpp:function:: OcaStatus SetRate(OcaMediaClockRate rate)
 
         Sets the sampling rate. The return value indicates whether the rate was
         successfully set.
@@ -198,19 +200,21 @@ Class Hierarchy:
 
     - :ref:`OcaAgent::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaAgent::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaAgent::Unlock <ocaroot_unlock>`
+    - :ref:`OcaAgent::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaAgent::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaAgent::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaAgent::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaAgent::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaAgent::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaAgent::GetLabel <ocaagent_getlabel>`
-
-    - :ref:`OcaAgent::SetLabel <ocaagent_setlabel>`
 
     - :ref:`OcaAgent::GetOwner <ocaagent_getowner>`
 
     - :ref:`OcaAgent::GetPath <ocaagent_getpath>`
+
+    - :ref:`OcaAgent::SetLabel <ocaagent_setlabel>`
 

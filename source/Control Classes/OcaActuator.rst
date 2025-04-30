@@ -9,9 +9,9 @@ Class Hierarchy:
 
 .. cpp:class:: OcaActuator: OcaWorker
 
-    Abstract base class for all actuators (i.e. devices that affect the routing
-    and/or content of the audio signal, or provide ancillary functions such as
-    power).
+    Abstract base class for all actuators (i.e. classes) that affect the routing
+    and/or content of the audio signal, or provide ancillary control functions
+    such as power).
 
     **Properties**:
 
@@ -26,7 +26,7 @@ Class Hierarchy:
 
     .. _ocaactuator_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         This property is an override of the **OcaRoot** property.
 
@@ -38,9 +38,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -50,13 +52,15 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
 
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
-
     - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
 
     - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
 
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+    - :cpp:texpr:`OcaMap<OcaPortID, OcaPortClockMapEntry>` :ref:`OcaWorker::PortClockMap <ocaworker_portclockmap>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
 
 
     **Methods**:
@@ -68,37 +72,49 @@ Class Hierarchy:
 
     - :ref:`OcaWorker::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaWorker::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaWorker::Unlock <ocaroot_unlock>`
+    - :ref:`OcaWorker::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaWorker::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaWorker::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaWorker::SetLockNoWrite <ocaroot_setlocknowrite>`
 
-    - :ref:`OcaWorker::GetEnabled <ocaworker_getenabled>`
+    - :ref:`OcaWorker::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
 
-    - :ref:`OcaWorker::SetEnabled <ocaworker_setenabled>`
+    - :ref:`OcaWorker::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaWorker::AddPort <ocaworker_addport>`
 
     - :ref:`OcaWorker::DeletePort <ocaworker_deleteport>`
 
-    - :ref:`OcaWorker::GetPorts <ocaworker_getports>`
+    - :ref:`OcaWorker::DeletePortClockMapEntry <ocaworker_deleteportclockmapentry>`
 
-    - :ref:`OcaWorker::GetPortName <ocaworker_getportname>`
-
-    - :ref:`OcaWorker::SetPortName <ocaworker_setportname>`
+    - :ref:`OcaWorker::GetEnabled <ocaworker_getenabled>`
 
     - :ref:`OcaWorker::GetLabel <ocaworker_getlabel>`
 
-    - :ref:`OcaWorker::SetLabel <ocaworker_setlabel>`
+    - :ref:`OcaWorker::GetLatency <ocaworker_getlatency>`
 
     - :ref:`OcaWorker::GetOwner <ocaworker_getowner>`
 
-    - :ref:`OcaWorker::GetLatency <ocaworker_getlatency>`
+    - :ref:`OcaWorker::GetPath <ocaworker_getpath>`
+
+    - :ref:`OcaWorker::GetPortClockMap <ocaworker_getportclockmap>`
+
+    - :ref:`OcaWorker::GetPortClockMapEntry <ocaworker_getportclockmapentry>`
+
+    - :ref:`OcaWorker::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaWorker::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaWorker::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaWorker::SetLabel <ocaworker_setlabel>`
 
     - :ref:`OcaWorker::SetLatency <ocaworker_setlatency>`
 
-    - :ref:`OcaWorker::GetPath <ocaworker_getpath>`
+    - :ref:`OcaWorker::SetPortClockMap <ocaworker_setportclockmap>`
+
+    - :ref:`OcaWorker::SetPortClockMapEntry <ocaworker_setportclockmapentry>`
+
+    - :ref:`OcaWorker::SetPortName <ocaworker_setportname>`
 

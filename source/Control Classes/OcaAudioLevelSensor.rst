@@ -9,8 +9,8 @@ Class Hierarchy:
 
 .. cpp:class:: OcaAudioLevelSensor: OcaLevelSensor
 
-    Child of **OcaLevelSensor** that returns an audio meter reading in dB
-    relative to a known reference level, and whose value has been calculated by
+    Child of **OcaLevelSensor** that shall return an audio meter reading in dB
+    relative to a known reference level, and whose value shall be calculated by
     the selected averaging algorithm.
 
     **Properties**:
@@ -28,7 +28,7 @@ Class Hierarchy:
 
     .. _ocaaudiolevelsensor_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -52,9 +52,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -64,13 +66,15 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
 
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
-
     - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
 
     - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
 
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+    - :cpp:texpr:`OcaMap<OcaPortID, OcaPortClockMapEntry>` :ref:`OcaWorker::PortClockMap <ocaworker_portclockmap>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaSensor::ClassID <ocasensor_classid>`
 
@@ -92,8 +96,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetLaw(OcaLevelMeterLaw &law)
 
-        Gets the value of the Law property. The return value indicates whether
-        the property was successfully retrieved.
+        Gets the value of the **Law** property.
 
         This method has id ``5.1``.
 
@@ -104,9 +107,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetLaw(OcaLevelMeterLaw law)
 
-        Sets the value of the Law property. The return value indicates whether
-        the property was successfully set. Only implemented for objects whose
-        Law property is read/write.
+        Sets the value of the **Law** property.
 
         This method has id ``5.2``.
 
@@ -119,39 +120,51 @@ Class Hierarchy:
 
     - :ref:`OcaLevelSensor::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaLevelSensor::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaLevelSensor::Unlock <ocaroot_unlock>`
+    - :ref:`OcaLevelSensor::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaLevelSensor::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaLevelSensor::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaLevelSensor::SetLockNoWrite <ocaroot_setlocknowrite>`
 
-    - :ref:`OcaLevelSensor::GetEnabled <ocaworker_getenabled>`
+    - :ref:`OcaLevelSensor::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
 
-    - :ref:`OcaLevelSensor::SetEnabled <ocaworker_setenabled>`
+    - :ref:`OcaLevelSensor::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaLevelSensor::AddPort <ocaworker_addport>`
 
     - :ref:`OcaLevelSensor::DeletePort <ocaworker_deleteport>`
 
-    - :ref:`OcaLevelSensor::GetPorts <ocaworker_getports>`
+    - :ref:`OcaLevelSensor::DeletePortClockMapEntry <ocaworker_deleteportclockmapentry>`
 
-    - :ref:`OcaLevelSensor::GetPortName <ocaworker_getportname>`
-
-    - :ref:`OcaLevelSensor::SetPortName <ocaworker_setportname>`
+    - :ref:`OcaLevelSensor::GetEnabled <ocaworker_getenabled>`
 
     - :ref:`OcaLevelSensor::GetLabel <ocaworker_getlabel>`
 
-    - :ref:`OcaLevelSensor::SetLabel <ocaworker_setlabel>`
+    - :ref:`OcaLevelSensor::GetLatency <ocaworker_getlatency>`
 
     - :ref:`OcaLevelSensor::GetOwner <ocaworker_getowner>`
 
-    - :ref:`OcaLevelSensor::GetLatency <ocaworker_getlatency>`
+    - :ref:`OcaLevelSensor::GetPath <ocaworker_getpath>`
+
+    - :ref:`OcaLevelSensor::GetPortClockMap <ocaworker_getportclockmap>`
+
+    - :ref:`OcaLevelSensor::GetPortClockMapEntry <ocaworker_getportclockmapentry>`
+
+    - :ref:`OcaLevelSensor::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaLevelSensor::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaLevelSensor::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaLevelSensor::SetLabel <ocaworker_setlabel>`
 
     - :ref:`OcaLevelSensor::SetLatency <ocaworker_setlatency>`
 
-    - :ref:`OcaLevelSensor::GetPath <ocaworker_getpath>`
+    - :ref:`OcaLevelSensor::SetPortClockMap <ocaworker_setportclockmap>`
+
+    - :ref:`OcaLevelSensor::SetPortClockMapEntry <ocaworker_setportclockmapentry>`
+
+    - :ref:`OcaLevelSensor::SetPortName <ocaworker_setportname>`
 
     - :ref:`OcaLevelSensor::GetReadingState <ocasensor_getreadingstate>`
 

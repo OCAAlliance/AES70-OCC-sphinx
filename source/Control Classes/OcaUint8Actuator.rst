@@ -9,7 +9,7 @@ Class Hierarchy:
 
 .. cpp:class:: OcaUint8Actuator: OcaBasicActuator
 
-    Basic uint8 actuator.
+    8-bit unsigned integer actuator
 
     **Properties**:
 
@@ -26,7 +26,7 @@ Class Hierarchy:
 
     .. _ocauint8actuator_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -48,9 +48,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -60,13 +62,15 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
 
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
-
     - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
 
     - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
 
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+    - :cpp:texpr:`OcaMap<OcaPortID, OcaPortClockMapEntry>` :ref:`OcaWorker::PortClockMap <ocaworker_portclockmap>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaActuator::ClassID <ocaactuator_classid>`
 
@@ -84,8 +88,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetSetting(OcaUint8 &Setting, OcaUint8 &minSetting, OcaUint8 &maxSetting)
 
-        Gets the value and limits of the **Setting** property. The return value
-        indicates whether the data was successfully retrieved.
+        Gets the value and limits of the **Setting** property.
 
         This method has id ``5.1``.
 
@@ -102,8 +105,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetSetting(OcaUint8 Setting)
 
-        Sets the **Setting** property. The return value indicates whether the
-        property was successfully set.
+        Sets the **Setting** property.
 
         This method has id ``5.2``.
 
@@ -116,37 +118,49 @@ Class Hierarchy:
 
     - :ref:`OcaBasicActuator::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaBasicActuator::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaBasicActuator::Unlock <ocaroot_unlock>`
+    - :ref:`OcaBasicActuator::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaBasicActuator::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaBasicActuator::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaBasicActuator::SetLockNoWrite <ocaroot_setlocknowrite>`
 
-    - :ref:`OcaBasicActuator::GetEnabled <ocaworker_getenabled>`
+    - :ref:`OcaBasicActuator::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
 
-    - :ref:`OcaBasicActuator::SetEnabled <ocaworker_setenabled>`
+    - :ref:`OcaBasicActuator::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaBasicActuator::AddPort <ocaworker_addport>`
 
     - :ref:`OcaBasicActuator::DeletePort <ocaworker_deleteport>`
 
-    - :ref:`OcaBasicActuator::GetPorts <ocaworker_getports>`
+    - :ref:`OcaBasicActuator::DeletePortClockMapEntry <ocaworker_deleteportclockmapentry>`
 
-    - :ref:`OcaBasicActuator::GetPortName <ocaworker_getportname>`
-
-    - :ref:`OcaBasicActuator::SetPortName <ocaworker_setportname>`
+    - :ref:`OcaBasicActuator::GetEnabled <ocaworker_getenabled>`
 
     - :ref:`OcaBasicActuator::GetLabel <ocaworker_getlabel>`
 
-    - :ref:`OcaBasicActuator::SetLabel <ocaworker_setlabel>`
+    - :ref:`OcaBasicActuator::GetLatency <ocaworker_getlatency>`
 
     - :ref:`OcaBasicActuator::GetOwner <ocaworker_getowner>`
 
-    - :ref:`OcaBasicActuator::GetLatency <ocaworker_getlatency>`
+    - :ref:`OcaBasicActuator::GetPath <ocaworker_getpath>`
+
+    - :ref:`OcaBasicActuator::GetPortClockMap <ocaworker_getportclockmap>`
+
+    - :ref:`OcaBasicActuator::GetPortClockMapEntry <ocaworker_getportclockmapentry>`
+
+    - :ref:`OcaBasicActuator::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaBasicActuator::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaBasicActuator::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaBasicActuator::SetLabel <ocaworker_setlabel>`
 
     - :ref:`OcaBasicActuator::SetLatency <ocaworker_setlatency>`
 
-    - :ref:`OcaBasicActuator::GetPath <ocaworker_getpath>`
+    - :ref:`OcaBasicActuator::SetPortClockMap <ocaworker_setportclockmap>`
+
+    - :ref:`OcaBasicActuator::SetPortClockMapEntry <ocaworker_setportclockmapentry>`
+
+    - :ref:`OcaBasicActuator::SetPortName <ocaworker_setportname>`
 

@@ -26,22 +26,13 @@ Class Hierarchy:
 
     .. _ocapanbalance_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
         of the **OcaRoot** property.
 
         This property has id ``1.2``.
-
-    .. _ocapanbalance_position:
-
-    .. cpp:member:: OcaFloat32 Position
-
-        Pan position. Range = -1.0 to +1.0. -1.0 is 100% left, +1.0 is 100%
-        right.
-
-        This property has id ``4.1``.
 
     .. _ocapanbalance_midpointgain:
 
@@ -52,15 +43,26 @@ Class Hierarchy:
 
         This property has id ``4.2``.
 
+    .. _ocapanbalance_position:
+
+    .. cpp:member:: OcaFloat32 Position
+
+        Pan position. Range = -1.0 to +1.0. -1.0 is 100% left, +1.0 is 100%
+        right.
+
+        This property has id ``4.1``.
+
     Properties inherited from :ref:`ocaactuator`:
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -70,13 +72,15 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
 
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
-
     - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
 
     - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
 
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+    - :cpp:texpr:`OcaMap<OcaPortID, OcaPortClockMapEntry>` :ref:`OcaWorker::PortClockMap <ocaworker_portclockmap>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaActuator::ClassID <ocaactuator_classid>`
 
@@ -90,8 +94,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetPosition(OcaFloat32 &Position, OcaFloat32 &minPosition, OcaFloat32 &maxPosition)
 
-        Gets the value and limits of the Position property. The return value
-        indicates whether the data was successfully retrieved.
+        Gets the value and limits of the **Position** property.
 
         This method has id ``4.1``.
 
@@ -108,8 +111,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetPosition(OcaFloat32 Position)
 
-        Sets the value of the Position property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the **Position** property.
 
         This method has id ``4.2``.
 
@@ -120,8 +122,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetMidpointGain(OcaDB &Gain, OcaDB &minGain, OcaDB &maxGain)
 
-        Gets the value and limits of the MidpointGain property. The return value
-        indicates whether the data was successfully retrieved.
+        Gets the value and limits of the **MidpointGain** property.
 
         This method has id ``4.3``.
 
@@ -138,8 +139,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetMidpointGain(OcaDB Gain)
 
-        Sets the value of the MidpointGain property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the **MidpointGain** property.
 
         This method has id ``4.4``.
 
@@ -152,37 +152,49 @@ Class Hierarchy:
 
     - :ref:`OcaActuator::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaActuator::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
+    - :ref:`OcaActuator::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaActuator::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaActuator::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaActuator::SetLockNoWrite <ocaroot_setlocknowrite>`
 
-    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
+    - :ref:`OcaActuator::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
 
-    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaActuator::AddPort <ocaworker_addport>`
 
     - :ref:`OcaActuator::DeletePort <ocaworker_deleteport>`
 
-    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+    - :ref:`OcaActuator::DeletePortClockMapEntry <ocaworker_deleteportclockmapentry>`
 
-    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
-
-    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
+    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
 
     - :ref:`OcaActuator::GetLabel <ocaworker_getlabel>`
 
-    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
+    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
 
     - :ref:`OcaActuator::GetOwner <ocaworker_getowner>`
 
-    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
+    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
+
+    - :ref:`OcaActuator::GetPortClockMap <ocaworker_getportclockmap>`
+
+    - :ref:`OcaActuator::GetPortClockMapEntry <ocaworker_getportclockmapentry>`
+
+    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
 
     - :ref:`OcaActuator::SetLatency <ocaworker_setlatency>`
 
-    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
+    - :ref:`OcaActuator::SetPortClockMap <ocaworker_setportclockmap>`
+
+    - :ref:`OcaActuator::SetPortClockMapEntry <ocaworker_setportclockmapentry>`
+
+    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
 

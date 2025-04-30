@@ -30,6 +30,14 @@ Class Hierarchy:
 
         This property has id ``1.2``.
 
+    .. _ocaapplicationnetwork_errorcode:
+
+    .. cpp:member:: OcaUint16 ErrorCode
+
+        Most recent error code. 0=no error.
+
+        This property has id ``2.6``.
+
     .. _ocaapplicationnetwork_label:
 
     .. cpp:member:: static OcaString Label
@@ -42,9 +50,9 @@ Class Hierarchy:
 
     .. _ocaapplicationnetwork_owner:
 
-    .. cpp:member:: static OcaONo Owner
+    .. cpp:member:: const OcaONo Owner
 
-        Object number of block that contains this network.
+        Object number of block that contains this network. Readonly
 
         This property has id ``2.2``.
 
@@ -61,6 +69,14 @@ Class Hierarchy:
 
         This property has id ``2.3``.
 
+    .. _ocaapplicationnetwork_state:
+
+    .. cpp:member:: OcaApplicationNetworkState State
+
+        Operational state of the network.
+
+        This property has id ``2.5``.
+
     .. _ocaapplicationnetwork_systeminterfaces:
 
     .. cpp:member:: OcaList<OcaNetworkSystemInterfaceDescriptor> SystemInterfaces
@@ -74,31 +90,17 @@ Class Hierarchy:
 
         This property has id ``2.4``.
 
-    .. _ocaapplicationnetwork_state:
-
-    .. cpp:member:: OcaApplicationNetworkState State
-
-        Operational state of the network.
-
-        This property has id ``2.5``.
-
-    .. _ocaapplicationnetwork_errorcode:
-
-    .. cpp:member:: OcaUint16 ErrorCode
-
-        Most recent error code. 0=no error.
-
-        This property has id ``2.6``.
-
     Properties inherited from :ref:`ocaroot`:
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -230,14 +232,14 @@ Class Hierarchy:
 
     .. _ocaapplicationnetwork_getpath:
 
-    .. cpp:function:: OcaStatus GetPath(OcaNamePath &NamePath, OcaONoPath &ONoPath)
+    .. cpp:function:: OcaStatus GetPath(OcaRolePath &RolePath, OcaONoPath &ONoPath)
 
-        Returns path from given object down to root. The return value indicates
-        whether the operation succeeded.
+        Returns Role Path and ONo Path from the Root Block to this object. The
+        return value indicates whether the operation succeeded.
 
         This method has id ``2.11``.
 
-        - :cpp:expr:`NamePath`: Output parameter.
+        - :cpp:expr:`RolePath`: Output parameter.
 
 
         - :cpp:expr:`ONoPath`: Output parameter.
@@ -249,11 +251,13 @@ Class Hierarchy:
 
     - :ref:`OcaRoot::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaRoot::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaRoot::Unlock <ocaroot_unlock>`
+    - :ref:`OcaRoot::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaRoot::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaRoot::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaRoot::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaRoot::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaRoot::Unlock <ocaroot_unlock>`
 

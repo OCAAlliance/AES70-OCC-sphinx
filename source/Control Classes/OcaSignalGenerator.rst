@@ -26,7 +26,7 @@ Class Hierarchy:
 
     .. _ocasignalgenerator_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -50,6 +50,15 @@ Class Hierarchy:
 
         This property has id ``4.2``.
 
+    .. _ocasignalgenerator_generating:
+
+    .. cpp:member:: OcaBoolean Generating
+
+        Read-only property that indicates whether the generator is producing
+        output (true) or not (false).
+
+        This property has id ``4.8``.
+
     .. _ocasignalgenerator_level:
 
     .. cpp:member:: OcaDBz Level
@@ -58,14 +67,21 @@ Class Hierarchy:
 
         This property has id ``4.3``.
 
-    .. _ocasignalgenerator_waveform:
+    .. _ocasignalgenerator_sweeprepeat:
 
-    .. cpp:member:: OcaWaveformType Waveform
+    .. cpp:member:: OcaBoolean SweepRepeat
 
-        The waveform type this generator generates (e.g. sine, square, noise,
-        etc.).
+        Indicates whether the sweep is repeated (true) or is one-shot (false).
 
-        This property has id ``4.4``.
+        This property has id ``4.7``.
+
+    .. _ocasignalgenerator_sweeptime:
+
+    .. cpp:member:: OcaTimeInterval SweepTime
+
+        Duration of sweep in seconds.
+
+        This property has id ``4.6``.
 
     .. _ocasignalgenerator_sweeptype:
 
@@ -76,30 +92,14 @@ Class Hierarchy:
 
         This property has id ``4.5``.
 
-    .. _ocasignalgenerator_sweeptime:
+    .. _ocasignalgenerator_waveform:
 
-    .. cpp:member:: OcaTimeInterval SweepTime
+    .. cpp:member:: OcaWaveformType Waveform
 
-        Duration of sweep in seconds.
+        The waveform type this generator generates (e.g. sine, square, noise,
+        etc.).
 
-        This property has id ``4.6``.
-
-    .. _ocasignalgenerator_sweeprepeat:
-
-    .. cpp:member:: OcaBoolean SweepRepeat
-
-        Indicates whether the sweep is repeated (true) or is one-shot (false).
-
-        This property has id ``4.7``.
-
-    .. _ocasignalgenerator_generating:
-
-    .. cpp:member:: OcaBoolean Generating
-
-        Read-only property that indicates whether the generator is producing
-        output (true) or not (false).
-
-        This property has id ``4.8``.
+        This property has id ``4.4``.
 
     Properties inherited from :ref:`ocaactuator`:
 
@@ -107,9 +107,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -119,13 +121,15 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
 
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
-
     - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
 
     - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
 
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+    - :cpp:texpr:`OcaMap<OcaPortID, OcaPortClockMapEntry>` :ref:`OcaWorker::PortClockMap <ocaworker_portclockmap>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaActuator::ClassID <ocaactuator_classid>`
 
@@ -137,14 +141,13 @@ Class Hierarchy:
 
     .. _ocasignalgenerator_getfrequency1:
 
-    .. cpp:function:: OcaStatus GetFrequency1(OcaFrequency &frequency, OcaFrequency &minFrequency, OcaFrequency &maxFrequency)
+    .. cpp:function:: OcaStatus GetFrequency1(OcaFrequency &Frequency, OcaFrequency &minFrequency, OcaFrequency &maxFrequency)
 
-        Gets the value of the Frequency1 property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value and limits of the **Frequency1** property.
 
         This method has id ``4.1``.
 
-        - :cpp:expr:`frequency`: Output parameter.
+        - :cpp:expr:`Frequency`: Output parameter.
 
 
         - :cpp:expr:`minFrequency`: Output parameter.
@@ -155,22 +158,20 @@ Class Hierarchy:
 
     .. _ocasignalgenerator_setfrequency1:
 
-    .. cpp:function:: OcaStatus SetFrequency1(OcaFrequency frequency)
+    .. cpp:function:: OcaStatus SetFrequency1(OcaFrequency Frequency)
 
-        Sets the value of the Frequency1 property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the **Frequency1** property.
 
         This method has id ``4.2``.
 
-        - :cpp:expr:`frequency`: Input parameter.
+        - :cpp:expr:`Frequency`: Input parameter.
 
 
     .. _ocasignalgenerator_getfrequency2:
 
     .. cpp:function:: OcaStatus GetFrequency2(OcaFrequency &frequency, OcaFrequency &minFrequency, OcaFrequency &maxFrequency)
 
-        Gets the value of the Frequency2 property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value and limits of the **Frequency2** property..
 
         This method has id ``4.3``.
 
@@ -187,8 +188,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetFrequency2(OcaFrequency frequency)
 
-        Sets the value of the Frequency2 property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the **Frequency2** property.
 
         This method has id ``4.4``.
 
@@ -199,8 +199,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetLevel(OcaDBz &Level, OcaDBz &minLevel, OcaDBz &maxLevel)
 
-        Gets the value of the Level property. The return value indicates whether
-        the property was successfully retrieved.
+        Gets the value and limits of the **Level** property.
 
         This method has id ``4.5``.
 
@@ -217,8 +216,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetLevel(OcaDBz Level)
 
-        Sets the value of the Level property. The return value indicates whether
-        the property was successfully set.
+        Sets the value of the **Level** property.
 
         This method has id ``4.6``.
 
@@ -229,8 +227,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetWaveform(OcaWaveformType &waveform)
 
-        Gets the value of the Waveform property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the Waveform property.
 
         This method has id ``4.7``.
 
@@ -241,8 +238,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetWaveform(OcaWaveformType waveform)
 
-        Sets the value of the Waveform property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the **Waveform** property.
 
         This method has id ``4.8``.
 
@@ -253,8 +249,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetSweepType(OcaSweepType &sweepType)
 
-        Gets the value of the SweepType property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the **SweepType** property.
 
         This method has id ``4.9``.
 
@@ -265,8 +260,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetSweepType(OcaSweepType sweepType)
 
-        Sets the value of the SweepType property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the **SweepType** property.
 
         This method has id ``4.10``.
 
@@ -277,8 +271,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetSweepTime(OcaTimeInterval &sweepTime, OcaTimeInterval &minSweepTime, OcaTimeInterval &maxSweepTime)
 
-        Gets the value of the SweepTime property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value and limits of the **SweepTime** property.
 
         This method has id ``4.11``.
 
@@ -295,8 +288,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetSweepTime(OcaTimeInterval sweepTime)
 
-        Sets the value of the SweepTime property. The return value indicates
-        whether the property was successfully set.
+        Gets the value of the **SweepTime** property.
 
         This method has id ``4.12``.
 
@@ -307,8 +299,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetSweepRepeat(OcaBoolean &sweepRepeat)
 
-        Gets the value of the SweepRepeat property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the **SweepRepeat** property.
 
         This method has id ``4.13``.
 
@@ -319,8 +310,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetSweepRepeat(OcaBoolean sweepRepeat)
 
-        Sets the value of the SweepRepeat property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the **SweepRepeat** property.
 
         This method has id ``4.14``.
 
@@ -331,8 +321,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetGenerating(OcaBoolean &generating)
 
-        Gets the value of the Generating property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value of the **Generating** property.
 
         This method has id ``4.15``.
 
@@ -343,8 +332,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus Start()
 
-        Starts the signal generator. The return value indicates whether the
-        signal generator was successfully started.
+        Starts the signal generator.
 
         This method has id ``4.16``.
 
@@ -352,8 +340,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus Stop()
 
-        Stops the signal generator. The return value indicates whether the
-        signal generator was successfully stopped.
+        Stops the signal generator.
 
         This method has id ``4.17``.
 
@@ -361,10 +348,9 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetMultiple(OcaParameterMask Mask, OcaFrequency Frequency1, OcaFrequency Frequency2, OcaDBz Level, OcaWaveformType Waveform, OcaSweepType SweepType, OcaTimeInterval SweepTime, OcaBoolean SweepRepeat)
 
-        Sets some or all signal generation parameters. The return value
-        indicates if the parameters were successfully set. The action of this
-        method is atomic - if any of the value changes fails, none of the
-        changes are made.
+        Sets some or all signal generation parameters. The action of this method
+        is atomic - if any of the value changes fails, none of the changes are
+        made.
 
         This method has id ``4.18``.
 
@@ -398,37 +384,49 @@ Class Hierarchy:
 
     - :ref:`OcaActuator::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaActuator::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
+    - :ref:`OcaActuator::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaActuator::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaActuator::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaActuator::SetLockNoWrite <ocaroot_setlocknowrite>`
 
-    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
+    - :ref:`OcaActuator::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
 
-    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaActuator::AddPort <ocaworker_addport>`
 
     - :ref:`OcaActuator::DeletePort <ocaworker_deleteport>`
 
-    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+    - :ref:`OcaActuator::DeletePortClockMapEntry <ocaworker_deleteportclockmapentry>`
 
-    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
-
-    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
+    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
 
     - :ref:`OcaActuator::GetLabel <ocaworker_getlabel>`
 
-    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
+    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
 
     - :ref:`OcaActuator::GetOwner <ocaworker_getowner>`
 
-    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
+    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
+
+    - :ref:`OcaActuator::GetPortClockMap <ocaworker_getportclockmap>`
+
+    - :ref:`OcaActuator::GetPortClockMapEntry <ocaworker_getportclockmapentry>`
+
+    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
 
     - :ref:`OcaActuator::SetLatency <ocaworker_setlatency>`
 
-    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
+    - :ref:`OcaActuator::SetPortClockMap <ocaworker_setportclockmap>`
+
+    - :ref:`OcaActuator::SetPortClockMapEntry <ocaworker_setportclockmapentry>`
+
+    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
 

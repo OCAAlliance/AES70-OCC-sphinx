@@ -48,7 +48,7 @@ Class Hierarchy:
 
     .. _ocafirmwaremanager_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -72,9 +72,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -90,8 +92,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetComponentVersions(OcaList<OcaVersion> &componentVersions)
 
-        Gets the value of the ComponentVersions property. The return value
-        indicates whether the property was successfully retrieved.
+        Gets the value of the ComponentVersions property.
 
         This method has id ``3.1``.
 
@@ -106,8 +107,7 @@ Class Hierarchy:
         more components will be updated. If the method succeeds the device will
         be in state 'Updating'. One or more active or passive updates can then
         follow, after which the update process is ended by calling the '03m08
-        EndUpdateProcess' method. The return value indicates if starting the
-        update process succeeded.
+        EndUpdateProcess' method.
 
         This method has id ``3.2``.
 
@@ -122,8 +122,7 @@ Class Hierarchy:
         manager implementation may implement separate processes for different
         components, but in each case the interface is the same. The active
         interface consists of this method and the methods 03m03 AddImageData,
-        03m04 VerifyImage and 03m05 EndActiveImageUpdate. The return value
-        indicates if starting the active update succeeded.
+        03m04 VerifyImage and 03m05 EndActiveImageUpdate.
 
         This method has id ``3.3``.
 
@@ -138,8 +137,7 @@ Class Hierarchy:
         part of the active update. Where this data is stored, is up to the
         implementation of the manager. It can either be stored in RAM to be
         written to Flash later, or directly to Flash, dependent on the chosen
-        architecture and requirements. The return value indicates whether the
-        data is correctly received and the data is not out of order.
+        architecture and requirements.
 
         This method has id ``3.4``.
 
@@ -169,7 +167,6 @@ Class Hierarchy:
         the device know that the current active component has finished, and
         therefore a new active or passive update can be started (or the upload
         process can be ended by invoking the '03m08 EndUpdateProcess' method).
-        The return value indicates if ending the active update succeeded.
 
         This method has id ``3.6``.
 
@@ -209,8 +206,8 @@ Class Hierarchy:
         device to start using the new images. This should bring the device back
         into standard operational mode (e.g. rebooting the device, this however
         depends on the implementation of the upgrade process). As it will
-        usually trigger a reset of the device in some cases no response
-        parameter is used for this method.
+        usually trigger a reset of the device, no response parameter is defined
+        for this method.
 
         This method has id ``3.8``.
 
@@ -220,11 +217,13 @@ Class Hierarchy:
 
     - :ref:`OcaManager::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaManager::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
+    - :ref:`OcaManager::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaManager::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaManager::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaManager::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaManager::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
 

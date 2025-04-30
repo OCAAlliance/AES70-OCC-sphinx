@@ -44,9 +44,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -54,17 +56,17 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaApplicationNetwork::ClassVersion <ocaapplicationnetwork_classversion>`
 
+    - :cpp:texpr:`OcaUint16` :ref:`OcaApplicationNetwork::ErrorCode <ocaapplicationnetwork_errorcode>`
+
     - :cpp:texpr:`OcaString` :ref:`OcaApplicationNetwork::Label <ocaapplicationnetwork_label>`
 
     - :cpp:texpr:`OcaONo` :ref:`OcaApplicationNetwork::Owner <ocaapplicationnetwork_owner>`
 
     - :cpp:texpr:`OcaApplicationNetworkServiceID` :ref:`OcaApplicationNetwork::ServiceID <ocaapplicationnetwork_serviceid>`
 
-    - :cpp:texpr:`OcaList<OcaNetworkSystemInterfaceDescriptor>` :ref:`OcaApplicationNetwork::SystemInterfaces <ocaapplicationnetwork_systeminterfaces>`
-
     - :cpp:texpr:`OcaApplicationNetworkState` :ref:`OcaApplicationNetwork::State <ocaapplicationnetwork_state>`
 
-    - :cpp:texpr:`OcaUint16` :ref:`OcaApplicationNetwork::ErrorCode <ocaapplicationnetwork_errorcode>`
+    - :cpp:texpr:`OcaList<OcaNetworkSystemInterfaceDescriptor>` :ref:`OcaApplicationNetwork::SystemInterfaces <ocaapplicationnetwork_systeminterfaces>`
 
 
     **Methods**:
@@ -88,33 +90,35 @@ Class Hierarchy:
 
     - :ref:`OcaApplicationNetwork::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaApplicationNetwork::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaApplicationNetwork::Unlock <ocaroot_unlock>`
+    - :ref:`OcaApplicationNetwork::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaApplicationNetwork::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaApplicationNetwork::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaApplicationNetwork::SetLockNoWrite <ocaroot_setlocknowrite>`
 
-    - :ref:`OcaApplicationNetwork::GetLabel <ocaapplicationnetwork_getlabel>`
+    - :ref:`OcaApplicationNetwork::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
 
-    - :ref:`OcaApplicationNetwork::SetLabel <ocaapplicationnetwork_setlabel>`
-
-    - :ref:`OcaApplicationNetwork::GetOwner <ocaapplicationnetwork_getowner>`
-
-    - :ref:`OcaApplicationNetwork::GetServiceID <ocaapplicationnetwork_getserviceid>`
-
-    - :ref:`OcaApplicationNetwork::SetServiceID <ocaapplicationnetwork_setserviceid>`
-
-    - :ref:`OcaApplicationNetwork::GetSystemInterfaces <ocaapplicationnetwork_getsysteminterfaces>`
-
-    - :ref:`OcaApplicationNetwork::SetSystemInterfaces <ocaapplicationnetwork_setsysteminterfaces>`
-
-    - :ref:`OcaApplicationNetwork::GetState <ocaapplicationnetwork_getstate>`
-
-    - :ref:`OcaApplicationNetwork::GetErrorCode <ocaapplicationnetwork_geterrorcode>`
+    - :ref:`OcaApplicationNetwork::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaApplicationNetwork::Control <ocaapplicationnetwork_control>`
 
+    - :ref:`OcaApplicationNetwork::GetErrorCode <ocaapplicationnetwork_geterrorcode>`
+
+    - :ref:`OcaApplicationNetwork::GetLabel <ocaapplicationnetwork_getlabel>`
+
+    - :ref:`OcaApplicationNetwork::GetOwner <ocaapplicationnetwork_getowner>`
+
     - :ref:`OcaApplicationNetwork::GetPath <ocaapplicationnetwork_getpath>`
+
+    - :ref:`OcaApplicationNetwork::GetServiceID <ocaapplicationnetwork_getserviceid>`
+
+    - :ref:`OcaApplicationNetwork::GetState <ocaapplicationnetwork_getstate>`
+
+    - :ref:`OcaApplicationNetwork::GetSystemInterfaces <ocaapplicationnetwork_getsysteminterfaces>`
+
+    - :ref:`OcaApplicationNetwork::SetLabel <ocaapplicationnetwork_setlabel>`
+
+    - :ref:`OcaApplicationNetwork::SetServiceID <ocaapplicationnetwork_setserviceid>`
+
+    - :ref:`OcaApplicationNetwork::SetSystemInterfaces <ocaapplicationnetwork_setsysteminterfaces>`
 

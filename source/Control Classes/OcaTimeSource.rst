@@ -9,11 +9,19 @@ Class Hierarchy:
 
 .. cpp:class:: OcaTimeSource: OcaAgent
 
-    A time source, internal or external. See RFC 7273 for a detailed discussion
-    of time sources.
+    A time source, internal or external, and the delivery method by which time
+    values reach this device.
 
     **Properties**:
 
+
+    .. _ocatimesource_availability:
+
+    .. cpp:member:: OcaTimeSourceAvailability Availability
+
+        Availability of this time source.
+
+        This property has id ``3.1``.
 
     .. _ocatimesource_classid:
 
@@ -25,53 +33,51 @@ Class Hierarchy:
 
     .. _ocatimesource_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 1
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
+        Identifies the interface version of the class. Any change to the class
+        definition leads to a higher class version. This property is an override
+        of the **OcaRoot** property.
 
         This property has id ``1.2``.
 
-    .. _ocatimesource_availability:
+    .. _ocatimesource_referencesdpdescription:
 
-    .. cpp:member:: OcaTimeSourceAvailability Availability
-
-        Availability of this time source.
-
-        This property has id ``3.1``.
-
-    .. _ocatimesource_protocol:
-
-    .. cpp:member:: OcaTimeProtocol Protocol
-
-        Time transport protocol used by this time source
-
-        This property has id ``3.2``.
-
-    .. _ocatimesource_parameters:
-
-    .. cpp:member:: OcaSDPString Parameters
+    .. cpp:member:: OcaSDPString ReferenceSDPDescription
 
         Parameters (identifiers, modifiers, etc.) for this time source . Content
-        is an SDP timestamp reference specification as defined in RFC7273,
-        section 4.8.
+        is an SDP time reference specification as defined in RFC7273, section
+        4.8.
 
         This property has id ``3.3``.
 
-    .. _ocatimesource_referencetype:
+    .. _ocatimesource_timedeliverymechanism:
 
-    .. cpp:member:: OcaTimeReferenceType ReferenceType
+    .. cpp:member:: OcaTimeDeliveryMechanism TimeDeliveryMechanism
 
-        Type of time reference to which this time source is synced, if any.
+        Time delivery mechanism used by this time source. Named **Protocol**
+        prior to v3 of this class.
 
-        This property has id ``3.4``.
+        This property has id ``3.2``.
 
     .. _ocatimesource_referenceid:
 
     .. cpp:member:: OcaString ReferenceID
 
-        Identifier of reference to which this time source is synced, if any. Not
-        needed for all reference types.
+        Identifier of reference to which this time source is synchronized, if
+        any. Not needed for all time reference types. **This property is
+        deprecated.**
 
         This property has id ``3.5``.
+
+    .. _ocatimesource_referencetype:
+
+    .. cpp:member:: OcaTimeReferenceType ReferenceType
+
+        Type of time reference to which this time source is synchronized, if
+        any. **This property is deprecated.**
+
+        This property has id ``3.4``.
 
     .. _ocatimesource_syncstatus:
 
@@ -81,15 +87,30 @@ Class Hierarchy:
 
         This property has id ``3.6``.
 
+    .. _ocatimesource_timedeliveryparameters:
+
+    .. cpp:member:: OcaParameterRecord TimeDeliveryParameters
+
+        External parameter record for time delivery parameters. If
+        **TimeDeliveryMechanism**=**StreamEndpoint**, then the schema of this
+        parameter record shall be defined by the datatype
+        **OcaTimeDeliveryParameters_StreamEndpoint**. Otherwise, the schema
+        shall depend on the time delivery method chosen, and is out of scope of
+        AES70-2.
+
+        This property has id ``3.7``.
+
     Properties inherited from :ref:`ocaagent`:
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -109,57 +130,54 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetAvailability(OcaTimeSourceAvailability &Availability)
 
-        Gets the value of the **Availability** property. The return value
-        indicates whether the value was successfully retrieved.
+        Gets the value of the **Availability** property.
 
         This method has id ``3.1``.
 
         - :cpp:expr:`Availability`: Output parameter.
 
 
-    .. _ocatimesource_getprotocol:
+    .. _ocatimesource_gettimedeliverymechanism:
 
-    .. cpp:function:: OcaStatus GetProtocol(OcaTimeProtocol &Protocol)
+    .. cpp:function:: OcaStatus GetTimeDeliveryMechanism(OcaTimeDeliveryMechanism &Mechanism)
 
-        Gets the value of the **Protocol** property. The return value indicates
-        whether the value was successfully retrieved.
+        Gets the value of the **TimeDeliveryMechanism** property. Prior to v3 of
+        this class, was named **GetProtocol.**
 
         This method has id ``3.2``.
 
-        - :cpp:expr:`Protocol`: Output parameter.
+        - :cpp:expr:`Mechanism`: Output parameter.
 
 
-    .. _ocatimesource_setprotocol:
+    .. _ocatimesource_settimedeliverymechanism:
 
-    .. cpp:function:: OcaStatus SetProtocol(OcaTimeProtocol Protocol)
+    .. cpp:function:: OcaStatus SetTimeDeliveryMechanism(OcaTimeDeliveryMechanism Mechanism)
 
-        Sets the value of the **Protocol** property. The return value indicates
-        whether the value was successfully set.
+        Sets the value of the **TimeDeliveryMechanism** property. Prior to v3 of
+        this class, was named **SetProtocol**.
 
         This method has id ``3.3``.
 
-        - :cpp:expr:`Protocol`: Input parameter.
+        - :cpp:expr:`Mechanism`: Input parameter.
 
 
-    .. _ocatimesource_getparameters:
+    .. _ocatimesource_getreferencesdpdescription:
 
-    .. cpp:function:: OcaStatus GetParameters(OcaSDPString &Parameters)
+    .. cpp:function:: OcaStatus GetReferenceSDPDescription(OcaSDPString &Parameters)
 
-        Gets the value of the **Parameters** property. The return value
-        indicates whether the value was successfully retrieved.
+        Gets the value of the **ReferenceSDPDescription** property.
 
         This method has id ``3.4``.
 
         - :cpp:expr:`Parameters`: Output parameter.
 
 
-    .. _ocatimesource_setparameters:
+    .. _ocatimesource_setreferencesdpdescription:
 
-    .. cpp:function:: OcaStatus SetParameters(OcaSDPString Parameters)
+    .. cpp:function:: OcaStatus SetReferenceSDPDescription(OcaSDPString Parameters)
 
-        Sets the value of the **Parameters** property. The return value
-        indicates whether the value was successfully set. Optional method, may
-        not be supported in all implementations.
+        Sets the value of the **ReferenceSDPDescription** property. Optional
+        method, may not be supported in all implementations.
 
         This method has id ``3.5``.
 
@@ -170,8 +188,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetReferenceType(OcaTimeReferenceType &ReferenceType)
 
-        Gets the time reference type. The return value indicates whether the
-        value was successfully retrieved.
+        Gets the time reference type. **This method is deprecated.**
 
         This method has id ``3.6``.
 
@@ -182,9 +199,8 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetReferenceType(OcaTimeReferenceType ReferenceType)
 
-        Sets the time reference type. The return value indicates whether the
-        value was successfully set. Optional method, may not be supported in all
-        implementations.
+        Sets the time reference type. Optional method, may not be supported in
+        all implementations. **This method is deprecated.**
 
         This method has id ``3.7``.
 
@@ -195,8 +211,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetReferenceID(OcaString &ID)
 
-        Gets the timing source ID. The return value indicates whether the value
-        was successfully retrieved. Optional method, not required for all time
+        Gets the timing source ID. Optional method, not required for all time
         reference types.
 
         This method has id ``3.8``.
@@ -208,8 +223,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetReferenceID(OcaString ID)
 
-        Sets the time reference ID. The return value indicates whether the ID
-        was successfully set. Optional method, not required for all time
+        Sets the time reference ID. Optional method, not required for all time
         reference types.
 
         This method has id ``3.9``.
@@ -221,8 +235,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetSyncStatus(OcaTimeSourceSyncStatus &SyncStatus)
 
-        Gets the synchronization status of this time source. The return value
-        indicates whether the value was successfully retrieved.
+        Gets the synchronization status of this time source.
 
         This method has id ``3.10``.
 
@@ -233,10 +246,33 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus Reset()
 
-        Resets this time source. Initiates a new synchronization sequence. The
-        return value indicates whether the reset was successful.
+        Resets this time source. Initiates a new synchronization sequence.
 
         This method has id ``3.11``.
+
+    .. _ocatimesource_gettimedeliveryparameters:
+
+    .. cpp:function:: OcaStatus GetTimeDeliveryParameters(OcaParameterRecord &Record)
+
+        Gets the value of the **TimeDeliveryParameters** property. Optional
+        method.
+
+        This method has id ``3.12``.
+
+        - :cpp:expr:`Record`: Output parameter.
+
+
+    .. _ocatimesource_settimedeliveryparameters:
+
+    .. cpp:function:: OcaStatus SetTimeDeliveryParameters(OcaParameterRecord Record)
+
+        Sets the value of the **TimeDeliveryParameters** property. Optional
+        method.
+
+        This method has id ``3.13``.
+
+        - :cpp:expr:`Record`: Input parameter.
+
 
     Methods inherited from :ref:`ocaagent`:
 
@@ -244,19 +280,21 @@ Class Hierarchy:
 
     - :ref:`OcaAgent::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaAgent::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaAgent::Unlock <ocaroot_unlock>`
+    - :ref:`OcaAgent::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaAgent::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaAgent::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaAgent::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaAgent::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaAgent::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaAgent::GetLabel <ocaagent_getlabel>`
-
-    - :ref:`OcaAgent::SetLabel <ocaagent_setlabel>`
 
     - :ref:`OcaAgent::GetOwner <ocaagent_getowner>`
 
     - :ref:`OcaAgent::GetPath <ocaagent_getpath>`
+
+    - :ref:`OcaAgent::SetLabel <ocaagent_setlabel>`
 

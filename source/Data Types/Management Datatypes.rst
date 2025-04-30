@@ -9,23 +9,90 @@ OcaManagerDescriptor
 
 .. cpp:struct:: OcaManagerDescriptor
 
-    Structure that describes a manager instance.
+    Structure that describes a Manager instance.
 
     .. cpp:member:: OcaONo ObjectNumber
 
-        Object number of this manager instance.
+        Object number of this Manager instance.
 
     .. cpp:member:: OcaString Name
 
-        Name of the manager instance.
+        Name of this Manager instance.
 
     .. cpp:member:: OcaClassID ClassID
 
-        ClassID of the class from which the manager instance was created.
+        ClassID of the class from which the Manager instance was constructed.
 
     .. cpp:member:: OcaClassVersionNumber ClassVersion
 
-        Version number of the class from which this instance was created.
+        Version number of the class from which this Manager instance was
+        constructed.
+
+.. _OcaManufacturer:
+
+OcaManufacturer
+===============
+
+.. cpp:struct:: OcaManufacturer
+
+    Structure that describes a manufacturer.
+
+    .. cpp:member:: OcaString Name
+
+        Manufacturer's name
+
+    .. cpp:member:: OcaOrganizationID OrganizationID
+
+        Manufacturer's IEEE OUI or CID, if any. Zero value means OUI or CID is
+        not specified.
+
+    .. cpp:member:: OcaString Website
+
+        URL of the manufacturer's website. If none, an empty string shall be
+        provided.
+
+    .. cpp:member:: OcaString BusinessContact
+
+        Contact information for business issues. If none, an empty string shall
+        be provided.
+
+    .. cpp:member:: OcaString TechnicalContact
+
+        Contact information for technical issues. If none, an empty string shall
+        be provided.
+
+.. _OcaProduct:
+
+OcaProduct
+==========
+
+.. cpp:struct:: OcaProduct
+
+    Structure that describes a Product.
+
+    .. cpp:member:: OcaString Name
+
+        Product name
+
+    .. cpp:member:: OcaString ModelID
+
+        Manufacturer's unique model identifier.
+
+    .. cpp:member:: OcaString RevisionLevel
+
+        Manufacturer's product revision level code
+
+    .. cpp:member:: OcaString BrandName
+
+        Brand name under which product is sold
+
+    .. cpp:member:: OcaUUID UUID
+
+        Unique UUID of product. Not manufacturer-specific.
+
+    .. cpp:member:: OcaString Description
+
+        Text description of product
 
 .. _OcaManagerDefaultObjectNumbers:
 
@@ -39,97 +106,149 @@ OcaManagerDefaultObjectNumbers
 
     .. cpp:enumerator:: DeviceManager = 1
 
+        Required
 
     .. cpp:enumerator:: SecurityManager = 2
 
+        Optional
 
     .. cpp:enumerator:: FirmwareManager = 3
 
+        Optional
 
     .. cpp:enumerator:: SubscriptionManager = 4
 
+        Required
 
     .. cpp:enumerator:: PowerManager = 5
 
+        Optional
 
     .. cpp:enumerator:: NetworkManager = 6
 
+        Required if Device has **OcaNetworkInterface** and/or
+        **OcaNetworkApplication** objects, or subclasses of them
 
     .. cpp:enumerator:: MediaClockManager = 7
 
+        Required if device supports AES70-controlled media transport
 
     .. cpp:enumerator:: LibraryManager = 8
 
+        Deprecated in OCA 1.5
 
     .. cpp:enumerator:: AudioProcessingManager = 9
 
+        Optional
 
     .. cpp:enumerator:: DeviceTimeManager = 10
 
+        Required if device knows what time it is
 
     .. cpp:enumerator:: TaskManager = 11
 
+        Deprecated in OCA 1.5
 
     .. cpp:enumerator:: CodingManager = 12
 
+        Deprecated in OCA 1.5
 
     .. cpp:enumerator:: DiagnosticManager = 13
 
+        Optional
 
-.. _OcaDeviceState:
+    .. cpp:enumerator:: LockManager = 14
 
-OcaDeviceState
-==============
+        Optional
 
-.. cpp:type:: OcaDeviceState = OcaBitSet16
+.. _OcaDeviceGenericState:
 
-    Bitset defining bit flags that indicate the device states CAP devices can be
-    in. The state is returned by the device's Device Manager on request. Any
-    combination of the flags may be returned, unless specified otherwise for the
-    specific flag. The value 0x0000 indicates the device is fully operational.
+OcaDeviceGenericState
+=====================
 
-.. _OcaModelGUID:
+.. cpp:enum:: OcaDeviceGenericState : uint8_t
 
-OcaModelGUID
+    Generic device states
+
+    .. cpp:enumerator:: NormalOperation = 0
+
+        Device is operating normally.
+
+    .. cpp:enumerator:: Initializaing = 1
+
+        Device is starting or restarting.
+
+    .. cpp:enumerator:: Updating = 2
+
+        Device is installing firmware.
+
+    .. cpp:enumerator:: Fault = 3
+
+        Device has encountered a terminal error and cannot continue to operate
+        normally without external intervention.
+
+    .. cpp:enumerator:: ExpansionBase = 128
+
+        Base value for proprietary extensions
+
+.. _OcaDeviceOperationalState:
+
+OcaDeviceOperationalState
+=========================
+
+.. cpp:struct:: OcaDeviceOperationalState
+
+    Operating state of device: generic state + device-specific details
+
+    .. cpp:member:: OcaDeviceGenericState Generic
+
+        Generic device state
+
+    .. cpp:member:: OcaBlob Details
+
+        Device-specific state details (optional)
+
+.. _OcaComponent:
+
+OcaComponent
 ============
 
-.. cpp:struct:: OcaModelGUID
+.. cpp:enum:: OcaComponent : uint16_t
 
-    64 bit device type GUID.
+    Enumeration (16-bit) for of software & firmware components in the device.
+    Except for the boot loader, all other values of this enum are
+    device-specific and will be specified by subclassing this class.
 
-    .. cpp:member:: OcaBlobFixedLen<1> Reserved
+    .. cpp:enumerator:: BootLoader = 0
 
-        8 reserved bits.
+        The boot loader image.
 
-    .. cpp:member:: OcaBlobFixedLen<3> MfrCode
+.. _OcaVersion:
 
-        IEEE Manufacturer code. Unique worldwide.
+OcaVersion
+==========
 
-    .. cpp:member:: OcaBlobFixedLen<4> ModelCode
+.. cpp:struct:: OcaVersion
 
-        Model code. Unique within the given manufacturer's products. May be set
-        freely by the manufacturer.
+    Representation of a version number of a (hardware/software) component of a
+    device in the form of Major.Minor.Build (e.g. 1.0.123).
 
-.. _OcaModelDescription:
+    .. cpp:member:: OcaUint32 Major
 
-OcaModelDescription
-===================
+        The major version number.
 
-.. cpp:struct:: OcaModelDescription
+    .. cpp:member:: OcaUint32 Minor
 
-    Friendly description of this particular product model.
+        The minor version number.
 
-    .. cpp:member:: OcaString Manufacturer
+    .. cpp:member:: OcaUint32 Build
 
-        Name of manufacturer.
+        The build number. May be 0 if it is not used (e.g. for a hardware
+        component).
 
-    .. cpp:member:: OcaString Name
+    .. cpp:member:: OcaComponent Component
 
-        Name of this model (whatever the manufacturer wants to call it).
-
-    .. cpp:member:: OcaString Version
-
-        Text name for the version of this model, e.g. "1.2.1a".
+        The component.
 
 .. _OcaResetCause:
 
@@ -157,46 +276,6 @@ OcaResetCause
         Reset due to an external request (i.e. Reset method of DeviceManager or
         hardware reset pin).
 
-.. _OcaComponent:
+    .. cpp:enumerator:: Unknown = 255
 
-OcaComponent
-============
-
-.. cpp:enum:: OcaComponent : uint16_t
-
-    Enumeration (16-bit) for of software & firmware components in the device.
-    Except for the boot loader, all other values of this enum are
-    device-specific and will be specified by subclassing this class.
-
-    .. cpp:enumerator:: BootLoader = 0
-
-        The boot loader image.
-
-.. _OcaPowerState:
-
-OcaPowerState
-=============
-
-.. cpp:enum:: OcaPowerState : uint8_t
-
-    Enumeration defining the power states that OCA devices can be in. The state
-    is returned by the device's Power Manager on request.
-
-    .. cpp:enumerator:: None = 0
-
-        Unspecified state.
-
-    .. cpp:enumerator:: Working = 1
-
-        Power is on.
-
-    .. cpp:enumerator:: Standby = 2
-
-        The device is in standby mode, but may be awoken by a call to the
-        appropriate state-changing method of this class.
-
-    .. cpp:enumerator:: Off = 3
-
-        The device is off, but may (depending on implementation) be awoken by a
-        transport-dependent wakeup mechanism.
 

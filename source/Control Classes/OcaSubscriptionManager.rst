@@ -11,15 +11,11 @@ Class Hierarchy:
 
     Manager that collects and controls the event subscriptions of the device.
 
-     - Must be instantiated once in every device that supports subscriptions.
+     - Must be instantiated exactly once in every device.
 
-     - May be instantiated at most once in any device.
-
-     - If instantiated, must have object number 4.
+     - Object number must be 4.
 
 
-    Absence of an **OcaSubscriptionManager** object signifies that the device
-    does not support event subscriptions.
 
     **Properties**:
 
@@ -36,7 +32,7 @@ Class Hierarchy:
 
     .. _ocasubscriptionmanager_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 4
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -63,9 +59,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -81,13 +79,14 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus AddSubscription(OcaEvent Event, OcaMethod Subscriber, OcaBlob SubscriberContext, OcaNotificationDeliveryMode NotificationDeliveryMode, OcaNetworkAddress DestinationInformation)
 
-        Adds a subscription to an event. The subscription is added for the
+        Adds an EV1 subscription to an event. The subscription is added for the
         session on which the command came in. If a subscription identical to the
         one being requested already exists, an additional one shall not be
         added. Two subscriptions are identical if the **Event, Subscriber,
         NotificationDeliveryMode**, and **DestinationInformation** parameters
-        are all identical. The return value indicates whether the subscription
-        succeeded.
+        are all identical. **Deprecated** in version 3 of this class, replaced
+        by **AddPropertyChangeSubscription(..).** Deprecated in version 3 of
+        this class, and replaced by **AddSubscription2**.
 
         This method has id ``3.1``.
 
@@ -110,9 +109,9 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus RemoveSubscription(OcaEvent Event, OcaMethod Subscriber)
 
-        Removes all subscriptions to the given event with the given
-        **OcaMethod**. The return value indicates whether the subscription(s)
-        was (were) successfully removed.
+        Removes all EV1 subscriptions to the given event with the given
+        **OcaMethod**. **Deprecated** in version 3 of this class, and replaced
+        by **RemoveSubscription2**.
 
         This method has id ``3.2``.
 
@@ -126,12 +125,12 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus DisableNotifications()
 
-        Temporarily disables emitting of event notifications (to all
-        subscribers, not just to the subscriber calling this method). Events
-        from the Subscription Manager itself are not disabled. This method can
-        be used if either a controller or the local device knows that it is
-        going to change the state of the device significantly, which could lead
-        to a notification storm of events. Invoking this method will prevent the
+        Temporarily disables emitting of event notifications to all subscribers,
+        not just to the subscriber calling this method. Events from the
+        Subscription Manager itself are not disabled. This method can be used if
+        either a controller or the local device knows that it is going to change
+        the state of the device significantly, which could lead to a
+        notification storm of events. Invoking this method will prevent the
         notification storm. The event '03e01 EventsDisabled' will be raised to
         notify all controllers of the fact that events are temporarily disabled.
         The subscription manager will start collecting the object numbers of the
@@ -150,10 +149,9 @@ Class Hierarchy:
         **SynchronizeState** event, passing the list of objects that have
         changed state. Subsequently, the subscription manager will transmit all
         notifications as normal. If the connection to the controller that
-        invoked the DisableEvents() is lost, this method will be called
+        invoked the **DisableEvents()** is lost, this method will be called
         automatically to prevent the situation in which the raising of events
-        would never be re-enabled. The return value indicates if re-enabling the
-        event-based events succeeded.
+        would never be re-enabled.
 
         This method has id ``3.4``.
 
@@ -161,15 +159,14 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus AddPropertyChangeSubscription(OcaONo Emitter, OcaPropertyID Property, OcaMethod Subscriber, OcaBlob SubscriberContext, OcaNotificationDeliveryMode NotificationDeliveryMode, OcaNetworkAddress DestinationInformation)
 
-        Adds a subscription to the PropertyChanged event in the object Emitter
-        for changes of the property Property. If the NotificationDeliveryMode is
-        Fast, the subscription is added for the session on which the command
-        came in. If a subscription identical to the one being requested already
-        exists, an additional one shall not be added. Two subscriptions are
-        identical if the Emitter, Property, Subscriber, SubsciberContext,
-        NotificationDeliveryMode, and DestinationInformation parameters are all
-        identical. The return value indicates whether the subscription
-        succeeded. Added in v2 of this class, in AES70-2017.
+        Adds an EV1 subscription to the **PropertyChanged** event in the object
+        **Emitter** for changes of the property **Property**. If a subscription
+        identical to the one being requested already exists, an additional one
+        shall not be added. Two subscriptions are identical if the **Emitter,
+        Property, Subscriber, SubsciberContext, NotificationDeliveryMode,** and
+        **DestinationInformation** parameters are all identical. **Deprecated**
+        in version 3 of this class, replaced by
+        **AddPropertyChangeSubscription2(..).**
 
         This method has id ``3.5``.
 
@@ -195,11 +192,11 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus RemovePropertyChangeSubscription(OcaONo Emitter, OcaPropertyID Property, OcaMethod Subscriber)
 
-        Removes any subscription to a PropertyChanged event with the given
-        Emitter, Property, Subscriber, SubscriberContext,
-        NotificationDeliveryMode, and DestinationInformation. The return value
-        indicates whether the subscription(s) was (were) successfully removed.
-        Added in v2 of this class, in AES70-2017.
+        Removes any EV1 subscription to a **PropertyChanged** event with the
+        given Emitter, Property, Subscriber, SubscriberContext,
+        NotificationDeliveryMode, and DestinationInformation. **Deprecated** in
+        version 3 of this class, replaced by
+        **RemovePropertyChangeSubscription2(...).**
 
         This method has id ``3.6``.
 
@@ -216,16 +213,206 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetMaximumSubscriberContextLength(OcaUint16 &Max)
 
-        Returns maximum byte length of payload of subscriber context parameter
-        that this device supports. This returned value shall be either zero or
-        four. If the returned payload length is not zero, it shall be four. No
-        other values shall be allowed, and the returned value shall not change
-        once the device has initialized. NOTE: In AES70-2015, arbitrary
-        subscriber context lengths were allowed; this is no longer true.
+        Returns maximum byte length of payload of EV1 subscriber context
+        parameter that this device supports. This returned value shall be either
+        zero or four. If the returned payload length is not zero, it shall be
+        four. No other values shall be allowed, and the returned value shall not
+        change once the device has initialized. **Deprecated** in version 3 of
+        this class. Not used in EV2. NOTE: In AES70-2015, arbitrary subscriber
+        context lengths were allowed; this is no longer true.
 
         This method has id ``3.7``.
 
         - :cpp:expr:`Max`: Output parameter.
+
+
+    .. _ocasubscriptionmanager_addsubscription2:
+
+    .. cpp:function:: OcaStatus AddSubscription2(OcaEvent Event, OcaNotificationDeliveryMode NotificationDeliveryMode, OcaNetworkAddress DestinationInformation)
+
+        Adds an EV2 subscription.
+
+        This method has id ``3.8``.
+
+        - :cpp:expr:`Event`: Input parameter.
+
+
+        - :cpp:expr:`NotificationDeliveryMode`: Input parameter.
+
+
+        - :cpp:expr:`DestinationInformation`: Input parameter.
+
+
+    .. _ocasubscriptionmanager_removesubscription2:
+
+    .. cpp:function:: OcaStatus RemoveSubscription2(OcaEvent Event, OcaNotificationDeliveryMode NotificationDeliveryMode, OcaNetworkAddress DestinationInformation)
+
+        Removes all EV2 subscriptions with the given **Event**,
+        **NotificationDeliveryMode**, and **DestinationInformation**.
+
+        This method has id ``3.9``.
+
+        - :cpp:expr:`Event`: Input parameter.
+
+
+        - :cpp:expr:`NotificationDeliveryMode`: Input parameter.
+
+
+        - :cpp:expr:`DestinationInformation`: Input parameter.
+
+
+    .. _ocasubscriptionmanager_addpropertychangesubscription2:
+
+    .. cpp:function:: OcaStatus AddPropertyChangeSubscription2(OcaONo Emitter, OcaPropertyID Property, OcaNotificationDeliveryMode NotificationDeliveryMode, OcaNetworkAddress DestinationInformation)
+
+        Adds an EV2 subscription to the **PropertyChanged** event in the object
+        **Emitter** for changes of the property **Property**. If a subscription
+        identical to the one being requested already exists, an additional one
+        shall not be added and the method shall return the status value
+        **InvalidRequest**. Two subscriptions are identical if the **Emitter,
+        Property, NotificationDeliveryMode,** and **DestinationInformation**
+        parameters are all identical.
+
+        This method has id ``3.10``.
+
+        - :cpp:expr:`Emitter`: Input parameter.
+
+
+        - :cpp:expr:`Property`: Input parameter.
+
+
+        - :cpp:expr:`NotificationDeliveryMode`: Input parameter.
+
+
+        - :cpp:expr:`DestinationInformation`: Input parameter.
+
+
+    .. _ocasubscriptionmanager_removepropertychangesubscription2:
+
+    .. cpp:function:: OcaStatus RemovePropertyChangeSubscription2(OcaONo Emitter, OcaPropertyID Property, OcaNotificationDeliveryMode NotificationDeliveryMode, OcaNetworkAddress DestinationInformation)
+
+        Removes all EV2 subscriptions to **PropertyChanged** events with the
+        given **Emitter**, **Property**, **NotificationDeliveryMode**, and
+        **DestinationInformation**.
+
+        This method has id ``3.11``.
+
+        - :cpp:expr:`Emitter`: Input parameter.
+
+
+        - :cpp:expr:`Property`: Input parameter.
+
+
+        - :cpp:expr:`NotificationDeliveryMode`: Input parameter.
+
+
+        - :cpp:expr:`DestinationInformation`: Input parameter.
+
+
+    .. _ocasubscriptionmanager_addsubscription2list:
+
+    .. cpp:function:: OcaStatus AddSubscription2List(OcaList<OcaEvent> Events, OcaNotificationDeliveryMode NotificationDeliveryMode, OcaNetworkAddress DestinationInformation, OcaList<OcaStatus> &ResultStatuses)
+
+        Adds a list of EV2 subscriptions. **OcaStatus** return values from this
+        method are as follows:
+
+         - **OK**: Requested subscriptions were attempted; all, none, or some
+           succeeded. Individual subscription result details are returned in
+           parameter **ResultStatuses**.
+
+         - **<anything else>:** Problem - no subscription attempts were made.
+
+
+
+        This method has id ``3.12``.
+
+        - :cpp:expr:`Events`: Input parameter.
+
+
+        - :cpp:expr:`NotificationDeliveryMode`: Input parameter.
+
+
+        - :cpp:expr:`DestinationInformation`: Input parameter.
+
+
+        - :cpp:expr:`ResultStatuses`: Output parameter.
+
+
+    .. _ocasubscriptionmanager_removesubscription2list:
+
+    .. cpp:function:: OcaStatus RemoveSubscription2List(OcaList<OcaEvent> Events, OcaNotificationDeliveryMode NotificationDeliveryMode, OcaNetworkAddress DestinationInformation)
+
+        Removes all EV2 subscriptions in the given list of Events that have the
+        specified **NotificationDeliveryMode** and **DestinationInformation**.
+
+        This method has id ``3.13``.
+
+        - :cpp:expr:`Events`: Input parameter.
+
+
+        - :cpp:expr:`NotificationDeliveryMode`: Input parameter.
+
+
+        - :cpp:expr:`DestinationInformation`: Input parameter.
+
+
+    .. _ocasubscriptionmanager_addpropertychangesubscription2list:
+
+    .. cpp:function:: OcaStatus AddPropertyChangeSubscription2List(OcaList<OcaONo> Emitters, OcaList<OcaPropertyID> Properties, OcaNotificationDeliveryMode NotificationDeliveryMode, OcaNetworkAddress DestinationInformation, OcaList<OcaStatus> ResultStatuses)
+
+        Adds a list of EV2 property-change subscriptions. **OcaStatus** return
+        values from this method are as follows:
+
+         - **OK**: Requested subscriptions were attempted; all, none, or some
+           succeeded. Individual subscription result details are returned in
+           list parameter **ResultStatuses**.
+
+         - **<anything else>:** Problem - no subscription attempts were made.
+
+
+        If a subscription identical to the one being requested already exists,
+        an additional one shall not be added and the method shall return the
+        **ResultStatuses** value **InvalidRequest**. Two subscriptions are
+        identical if the **Emitter, Property, NotificationDeliveryMode,** and
+        **DestinationInformation** parameters are all identical.
+
+        This method has id ``3.14``.
+
+        - :cpp:expr:`Emitters`: Input parameter.
+
+
+        - :cpp:expr:`Properties`: Input parameter.
+
+
+        - :cpp:expr:`NotificationDeliveryMode`: Input parameter.
+
+
+        - :cpp:expr:`DestinationInformation`: Input parameter.
+
+
+        - :cpp:expr:`ResultStatuses`: Input parameter.
+
+
+    .. _ocasubscriptionmanager_removepropertychangesubscription2list:
+
+    .. cpp:function:: OcaStatus RemovePropertyChangeSubscription2List(OcaList<OcaONo> Emitters, OcaList<OcaPropertyID> Properties, OcaNotificationDeliveryMode NotificationDeliveryMode, OcaNetworkAddress DestinationInformation)
+
+        Removes all EV2 property-change subscriptions in the given lists of
+        Events and Properties that have the specified
+        **NotificationDeliveryMode** and **DestinationInformation**.
+
+        This method has id ``3.15``.
+
+        - :cpp:expr:`Emitters`: Input parameter.
+
+
+        - :cpp:expr:`Properties`: Input parameter.
+
+
+        - :cpp:expr:`NotificationDeliveryMode`: Input parameter.
+
+
+        - :cpp:expr:`DestinationInformation`: Input parameter.
 
 
     Methods inherited from :ref:`ocamanager`:
@@ -234,13 +421,15 @@ Class Hierarchy:
 
     - :ref:`OcaManager::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaManager::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
+    - :ref:`OcaManager::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaManager::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaManager::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaManager::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaManager::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
 
 
     **Events**:

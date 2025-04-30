@@ -14,6 +14,7 @@ Control Classes
    Control Classes/OcaFloat64Actuator
    Control Classes/OcaStringActuator
    Control Classes/OcaBitstringActuator
+   Control Classes/OcaJsonActuator
    Control Classes/OcaInt8Actuator
    Control Classes/OcaInt16Actuator
    Control Classes/OcaInt32Actuator
@@ -36,6 +37,7 @@ Control Classes
    Control Classes/OcaTemperatureActuator
    Control Classes/OcaIdentificationActuator
    Control Classes/OcaSummingPoint
+   Control Classes/OcaSamplingRateConverter
    Control Classes/OcaPolarity
    Control Classes/OcaSwitch
    Control Classes/OcaGain
@@ -51,6 +53,7 @@ Control Classes
    Control Classes/OcaFloat64Sensor
    Control Classes/OcaStringSensor
    Control Classes/OcaBitstringSensor
+   Control Classes/OcaJsonSensor
    Control Classes/OcaInt8Sensor
    Control Classes/OcaInt16Sensor
    Control Classes/OcaInt32Sensor
@@ -60,6 +63,8 @@ Control Classes
    Control Classes/OcaUint32Sensor
    Control Classes/OcaUint64Sensor
    Control Classes/OcaGainSensor
+   Control Classes/OcaPowerSensor
+   Control Classes/OcaStateSensor
    Control Classes/OcaLevelSensor
    Control Classes/OcaAudioLevelSensor
    Control Classes/OcaTimeIntervalSensor
@@ -70,23 +75,29 @@ Control Classes
    Control Classes/OcaCurrentSensor
    Control Classes/OcaImpedanceSensor
    Control Classes/OcaBlock
-   Control Classes/OcaBlockFactory
    Control Classes/OcaMatrix
    Control Classes/OcaNetworkSignalChannel
+   Control Classes/OcaDatasetWorker
+   Control Classes/OcaMediaRecorderPlayer
    Control Classes/OcaAgent
    Control Classes/OcaNetwork
    Control Classes/OcaStreamNetwork
    Control Classes/OcaStreamConnector
+   Control Classes/OcaTaskAgent
+   Control Classes/OcaTaskScheduler
    Control Classes/OcaMediaClock3
    Control Classes/OcaTimeSource
    Control Classes/OcaPhysicalPosition
+   Control Classes/OcaCounterNotifier
    Control Classes/OcaGrouper
+   Control Classes/OcaMediaTransportSessionAgent
+   Control Classes/OcaBlockFactoryAgent
+   Control Classes/OcaGroup
+   Control Classes/OcaCommandSetAgent
    Control Classes/OcaRamper
    Control Classes/OcaNumericObserver
-   Control Classes/OcaLibrary
    Control Classes/OcaMediaClock
    Control Classes/OcaPowerSupply
-   Control Classes/OcaEventHandler
    Control Classes/OcaNumericObserverList
    Control Classes/OcaManager
    Control Classes/OcaDeviceManager
@@ -94,6 +105,7 @@ Control Classes
    Control Classes/OcaTaskManager
    Control Classes/OcaCodingManager
    Control Classes/OcaDiagnosticManager
+   Control Classes/OcaLockManager
    Control Classes/OcaSecurityManager
    Control Classes/OcaFirmwareManager
    Control Classes/OcaSubscriptionManager
@@ -105,3 +117,10 @@ Control Classes
    Control Classes/OcaApplicationNetwork
    Control Classes/OcaControlNetwork
    Control Classes/OcaMediaTransportNetwork
+   Control Classes/OcaDataset
+   Control Classes/OcaLog
+   Control Classes/OcaProgram
+   Control Classes/OcaCommandSet
+   Control Classes/OcaNetworkInterface
+   Control Classes/OcaNetworkApplication
+   Control Classes/OcaMediaTransportApplication

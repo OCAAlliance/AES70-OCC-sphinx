@@ -26,7 +26,7 @@ Class Hierarchy:
 
     .. _ocaagent_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -44,9 +44,9 @@ Class Hierarchy:
 
     .. _ocaagent_owner:
 
-    .. cpp:member:: OcaONo Owner
+    .. cpp:member:: const OcaONo Owner
 
-        Object number of block that contains this agent.
+        Object number of block that contains this agent. Readonly.
 
         This property has id ``2.2``.
 
@@ -56,9 +56,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -70,8 +72,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetLabel(OcaString &Label)
 
-        Gets the value of the Label property. The return value indicates whether
-        the property was successfully retrieved.
+        Gets the value of the **Label** property.
 
         This method has id ``2.1``.
 
@@ -82,8 +83,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetLabel(OcaString Label)
 
-        Sets the value of the Label property. The return value indicates whether
-        the property was successfully set.
+        Sets the value of the **Label** property.
 
         This method has id ``2.2``.
 
@@ -92,26 +92,25 @@ Class Hierarchy:
 
     .. _ocaagent_getowner:
 
-    .. cpp:function:: OcaStatus GetOwner(OcaONo &owner)
+    .. cpp:function:: OcaStatus GetOwner(OcaONo &Owner)
 
-        Gets the value of the Owner property. The return value indicates whether
-        the property was successfully retrieved.
+        Gets the value of the **Owner** property.
 
         This method has id ``2.3``.
 
-        - :cpp:expr:`owner`: Output parameter.
+        - :cpp:expr:`Owner`: Output parameter.
 
 
     .. _ocaagent_getpath:
 
-    .. cpp:function:: OcaStatus GetPath(OcaNamePath &NamePath, OcaONoPath &ONoPath)
+    .. cpp:function:: OcaStatus GetPath(OcaRolePath &RolePath, OcaONoPath &ONoPath)
 
-        Returns path from the given object down to root. The return value
-        indicates whether the operation succeeded. Added in version 2.
+        Returns Role Path and ONo Path from the Root Block to this object. The
+        return value indicates whether the operation succeeded.
 
         This method has id ``2.4``.
 
-        - :cpp:expr:`NamePath`: Output parameter.
+        - :cpp:expr:`RolePath`: Output parameter.
 
 
         - :cpp:expr:`ONoPath`: Output parameter.
@@ -123,11 +122,13 @@ Class Hierarchy:
 
     - :ref:`OcaRoot::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaRoot::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaRoot::Unlock <ocaroot_unlock>`
+    - :ref:`OcaRoot::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaRoot::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaRoot::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaRoot::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaRoot::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaRoot::Unlock <ocaroot_unlock>`
 

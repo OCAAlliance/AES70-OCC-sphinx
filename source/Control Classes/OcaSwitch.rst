@@ -9,7 +9,9 @@ Class Hierarchy:
 
 .. cpp:class:: OcaSwitch: OcaActuator
 
-    (n)-position single-pole switch.
+    (n)-position switch. Single-pole or multipole, as determined by number of
+    input and output ports. May be instantiated with no ports for use as an
+    option selector.
 
     **Properties**:
 
@@ -26,7 +28,7 @@ Class Hierarchy:
 
     .. _ocaswitch_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -39,29 +41,33 @@ Class Hierarchy:
     .. cpp:member:: OcaUint16 Position
 
         The current position of the switch. Positions shall be numbered from
-        minPosition to (including) maxPosition. If the object does not return
-        the optional parameters minPosition and maxPosition in its GetPosition
-        method the positions shall be numbered from 1 to n.
+        **minPosition** to (including) **maxPosition**. If the object does not
+        return the optional parameters **minPosition** and **maxPosition** in
+        its **GetPosition** method, the positions shall be numbered from 1 to n.
 
         This property has id ``4.1``.
+
+    .. _ocaswitch_positionenableflags:
+
+    .. cpp:member:: OcaList<OcaBoolean> PositionEnableFlags
+
+        Vector of booleans which enable or disable corresponding switch
+        positions. Default values are a construction parameter. The usual
+        default value is True. Renamed to **PositionEnableFlags** in v3 of this
+        class.
+
+        This property has id ``4.3``.
 
     .. _ocaswitch_positionnames:
 
     .. cpp:member:: OcaList<OcaString> PositionNames
 
-        Vector of switch position names. Supplied by controller.
+        Vector of switch position names. Defined at object construction time. In
+        some implementations, may be changed by controller. FIrst element of
+        list corresponds to the position value of **minPosition** as returned by
+        **GetPosition(...)**.
 
         This property has id ``4.2``.
-
-    .. _ocaswitch_positionenableds:
-
-    .. cpp:member:: OcaList<OcaBoolean> PositionEnableds
-
-        Vector of booleans which enable or disable corresponding switch
-        positions. Default values are a construction parameter. The usual
-        default value is True.
-
-        This property has id ``4.3``.
 
     Properties inherited from :ref:`ocaactuator`:
 
@@ -69,9 +75,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -81,13 +89,15 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
 
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
-
     - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
 
     - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
 
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+    - :cpp:texpr:`OcaMap<OcaPortID, OcaPortClockMapEntry>` :ref:`OcaWorker::PortClockMap <ocaworker_portclockmap>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaActuator::ClassID <ocaactuator_classid>`
 
@@ -101,9 +111,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetPosition(OcaUint16 &position, OcaUint16 &minPosition, OcaUint16 &maxPosition)
 
-        Gets the value of the Position property and, optionally, its
-        implementation min and max. The return value indicates whether the data
-        was successfully retrieved.
+        Gets the value and limits of the **Position** property.
 
         This method has id ``4.1``.
 
@@ -120,8 +128,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetPosition(OcaUint16 position)
 
-        Sets the value of the Position property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the Position property.
 
         This method has id ``4.2``.
 
@@ -132,8 +139,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetPositionName(OcaUint16 Index, OcaString &Name)
 
-        Gets the name assigned to a given switch position. The return value
-        indicates whether the name was successfully retrieved.
+        Gets the name assigned to a given switch position.
 
         This method has id ``4.3``.
 
@@ -147,8 +153,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetPositionName(OcaUint16 Index, OcaString Name)
 
-        Assigns a name to a given switch position. The return value indicates
-        whether the name was successfully assigned.
+        Assigns a name to a given switch position.
 
         This method has id ``4.4``.
 
@@ -162,8 +167,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetPositionNames(OcaList<OcaString> &Names)
 
-        Gets list of names assigned to the switch's positions. The return value
-        indicates whether the names were successfully retrieved.
+        Gets list of names assigned to the switch's positions.
 
         This method has id ``4.5``.
 
@@ -174,35 +178,32 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetPositionNames(OcaList<OcaString> Names)
 
-        Assigns names to the switch's positions. The return value indicates
-        whether the names were successfully assigned.
+        Assigns names to the switch's positions.
 
         This method has id ``4.6``.
 
         - :cpp:expr:`Names`: Input parameter.
 
 
-    .. _ocaswitch_getpositionenabled:
+    .. _ocaswitch_getpositionenableflag:
 
-    .. cpp:function:: OcaStatus GetPositionEnabled(OcaUint16 Index, OcaBoolean &enabled)
+    .. cpp:function:: OcaStatus GetPositionEnableFlag(OcaUint16 Index, OcaBoolean &Enabled)
 
-        Gets the Enabled flag assigned to a given switch position. The return
-        value indicates whether the flag was successfully retrieved.
+        Gets the Enabled flag assigned to a given switch position.
 
         This method has id ``4.7``.
 
         - :cpp:expr:`Index`: Input parameter.
 
 
-        - :cpp:expr:`enabled`: Output parameter.
+        - :cpp:expr:`Enabled`: Output parameter.
 
 
-    .. _ocaswitch_setpositionenabled:
+    .. _ocaswitch_setpositionenableflag:
 
-    .. cpp:function:: OcaStatus SetPositionEnabled(OcaUint16 Index, OcaBoolean enabled)
+    .. cpp:function:: OcaStatus SetPositionEnableFlag(OcaUint16 Index, OcaBoolean enabled)
 
-        Sets the Enabled flag assigned to a given switch position. The return
-        value indicates whether the flag was successfully set.
+        Sets the Enabled flag assigned to a given switch position.
 
         This method has id ``4.8``.
 
@@ -212,28 +213,26 @@ Class Hierarchy:
         - :cpp:expr:`enabled`: Input parameter.
 
 
-    .. _ocaswitch_getpositionenableds:
+    .. _ocaswitch_getpositionenableflags:
 
-    .. cpp:function:: OcaStatus GetPositionEnableds(OcaList<OcaBoolean> &enableds)
+    .. cpp:function:: OcaStatus GetPositionEnableFlags(OcaList<OcaBoolean> &flags)
 
-        Gets list of Enabled flags assigned to the switch's positions. The
-        return value indicates whether the flags were successfully retrieved.
+        Gets list of position-enabled flags assigned to the switch's positions.
 
         This method has id ``4.9``.
 
-        - :cpp:expr:`enableds`: Output parameter.
+        - :cpp:expr:`flags`: Output parameter.
 
 
-    .. _ocaswitch_setpositionenableds:
+    .. _ocaswitch_setpositionenableflags:
 
-    .. cpp:function:: OcaStatus SetPositionEnableds(OcaList<OcaBoolean> enableds)
+    .. cpp:function:: OcaStatus SetPositionEnableFlags(OcaList<OcaBoolean> flags)
 
-        Sets list of Enabled flags for the switch's positions. The return value
-        indicates whether the flags were successfully set.
+        Sets list of position-enable flags for the switch's positions.
 
         This method has id ``4.10``.
 
-        - :cpp:expr:`enableds`: Input parameter.
+        - :cpp:expr:`flags`: Input parameter.
 
 
     Methods inherited from :ref:`ocaactuator`:
@@ -242,37 +241,49 @@ Class Hierarchy:
 
     - :ref:`OcaActuator::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaActuator::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
+    - :ref:`OcaActuator::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaActuator::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaActuator::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaActuator::SetLockNoWrite <ocaroot_setlocknowrite>`
 
-    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
+    - :ref:`OcaActuator::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
 
-    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaActuator::AddPort <ocaworker_addport>`
 
     - :ref:`OcaActuator::DeletePort <ocaworker_deleteport>`
 
-    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+    - :ref:`OcaActuator::DeletePortClockMapEntry <ocaworker_deleteportclockmapentry>`
 
-    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
-
-    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
+    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
 
     - :ref:`OcaActuator::GetLabel <ocaworker_getlabel>`
 
-    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
+    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
 
     - :ref:`OcaActuator::GetOwner <ocaworker_getowner>`
 
-    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
+    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
+
+    - :ref:`OcaActuator::GetPortClockMap <ocaworker_getportclockmap>`
+
+    - :ref:`OcaActuator::GetPortClockMapEntry <ocaworker_getportclockmapentry>`
+
+    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
 
     - :ref:`OcaActuator::SetLatency <ocaworker_setlatency>`
 
-    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
+    - :ref:`OcaActuator::SetPortClockMap <ocaworker_setportclockmap>`
+
+    - :ref:`OcaActuator::SetPortClockMapEntry <ocaworker_setportclockmapentry>`
+
+    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
 

@@ -13,6 +13,28 @@ Class Hierarchy:
     **Properties**:
 
 
+    .. _ocamediatransportnetwork_alignmentgain:
+
+    .. cpp:member:: OcaDB AlignmentGain
+
+        Default value of AlignmentGain for newly-created OcaMediaSinkConnectors
+        attached to this network. The min and max values of this property define
+        respectively the lowest and highest alignment level values that may be
+        specified when adding sink connectors to this network.
+
+        This property has id ``3.8``.
+
+    .. _ocamediatransportnetwork_alignmentlevel:
+
+    .. cpp:member:: OcaDBFS AlignmentLevel
+
+        Default alignment level value for newly-created
+        **OcaMedia{Source|Sink}Connector** elements. The min and max values of
+        this property define respectively the lowest and highest alignment level
+        values that may be specified when adding connectors to this network.
+
+        This property has id ``3.7``.
+
     .. _ocamediatransportnetwork_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.4.2"
@@ -28,45 +50,6 @@ Class Hierarchy:
         This property is an override of the **OcaRoot** property.
 
         This property has id ``1.2``.
-
-    .. _ocamediatransportnetwork_protocol:
-
-    .. cpp:member:: OcaNetworkMediaProtocol Protocol
-
-        Type of media transport protocol used by the network.
-
-        This property has id ``3.1``.
-
-    .. _ocamediatransportnetwork_ports:
-
-    .. cpp:member:: OcaList<OcaPort> Ports
-
-        The list of ports this network has. Note that these represent network
-        channels of the media transport network. Each input port represents a
-        source (transmit) network channel, each output port represents a sink
-        (receive) network channel. Such network channels are directly linked to
-        the ports, so the first input port represents the first source network
-        channel, etc.
-
-        This property has id ``3.2``.
-
-    .. _ocamediatransportnetwork_maxsourceconnectors:
-
-    .. cpp:member:: OcaUint16 MaxSourceConnectors
-
-        The maximum number of source connectors this media transport network can
-        have (read-only property).
-
-        This property has id ``3.3``.
-
-    .. _ocamediatransportnetwork_maxsinkconnectors:
-
-    .. cpp:member:: OcaUint16 MaxSinkConnectors
-
-        The maximum number of sink connectors this media transport network can
-        have (read-only property).
-
-        This property has id ``3.4``.
 
     .. _ocamediatransportnetwork_maxpinsperconnector:
 
@@ -86,27 +69,44 @@ Class Hierarchy:
 
         This property has id ``3.6``.
 
-    .. _ocamediatransportnetwork_alignmentlevel:
+    .. _ocamediatransportnetwork_maxsinkconnectors:
 
-    .. cpp:member:: OcaDBFS AlignmentLevel
+    .. cpp:member:: OcaUint16 MaxSinkConnectors
 
-        Default alignment level value for newly-created
-        **OcaMedia{Source|Sink}Connector** elements. The min and max values of
-        this property define respectively the lowest and highest alignment level
-        values that may be specified when adding connectors to this network.
+        The maximum number of sink connectors this media transport network can
+        have (read-only property).
 
-        This property has id ``3.7``.
+        This property has id ``3.4``.
 
-    .. _ocamediatransportnetwork_alignmentgain:
+    .. _ocamediatransportnetwork_maxsourceconnectors:
 
-    .. cpp:member:: OcaDB AlignmentGain
+    .. cpp:member:: OcaUint16 MaxSourceConnectors
 
-        Default value of AlignmentGain for newly-created OcaMediaSinkConnectors
-        attached to this network. The min and max values of this property define
-        respectively the lowest and highest alignment level values that may be
-        specified when adding sink connectors to this network.
+        The maximum number of source connectors this media transport network can
+        have (read-only property).
 
-        This property has id ``3.8``.
+        This property has id ``3.3``.
+
+    .. _ocamediatransportnetwork_ports:
+
+    .. cpp:member:: OcaList<OcaPort> Ports
+
+        The list of ports this network has. Note that these represent network
+        channels of the media transport network. Each input port represents a
+        source (transmit) network channel, each output port represents a sink
+        (receive) network channel. Such network channels are directly linked to
+        the ports, so the first input port represents the first source network
+        channel, etc.
+
+        This property has id ``3.2``.
+
+    .. _ocamediatransportnetwork_protocol:
+
+    .. cpp:member:: OcaNetworkMediaProtocol Protocol
+
+        Type of media transport protocol used by the network.
+
+        This property has id ``3.1``.
 
     Properties inherited from :ref:`ocaapplicationnetwork`:
 
@@ -114,9 +114,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -124,17 +126,17 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaApplicationNetwork::ClassVersion <ocaapplicationnetwork_classversion>`
 
+    - :cpp:texpr:`OcaUint16` :ref:`OcaApplicationNetwork::ErrorCode <ocaapplicationnetwork_errorcode>`
+
     - :cpp:texpr:`OcaString` :ref:`OcaApplicationNetwork::Label <ocaapplicationnetwork_label>`
 
     - :cpp:texpr:`OcaONo` :ref:`OcaApplicationNetwork::Owner <ocaapplicationnetwork_owner>`
 
     - :cpp:texpr:`OcaApplicationNetworkServiceID` :ref:`OcaApplicationNetwork::ServiceID <ocaapplicationnetwork_serviceid>`
 
-    - :cpp:texpr:`OcaList<OcaNetworkSystemInterfaceDescriptor>` :ref:`OcaApplicationNetwork::SystemInterfaces <ocaapplicationnetwork_systeminterfaces>`
-
     - :cpp:texpr:`OcaApplicationNetworkState` :ref:`OcaApplicationNetwork::State <ocaapplicationnetwork_state>`
 
-    - :cpp:texpr:`OcaUint16` :ref:`OcaApplicationNetwork::ErrorCode <ocaapplicationnetwork_errorcode>`
+    - :cpp:texpr:`OcaList<OcaNetworkSystemInterfaceDescriptor>` :ref:`OcaApplicationNetwork::SystemInterfaces <ocaapplicationnetwork_systeminterfaces>`
 
 
     **Methods**:
@@ -326,7 +328,7 @@ Class Hierarchy:
 
     .. _ocamediatransportnetwork_addsourceconnector:
 
-    .. cpp:function:: OcaStatus AddSourceConnector(OcaMediaSourceConnector Connector, OcaMediaConnectorState InitialStatus, OcaMediaSourceConnector &Connector_)
+    .. cpp:function:: OcaStatus AddSourceConnector(OcaMediaSourceConnector Connector, OcaMediaConnectorState InitialStatus)
 
         Adds a source connector to this network. Parameters of the new connector
         are given in the Connector parameter; device returns the same parameter
@@ -343,12 +345,9 @@ Class Hierarchy:
         - :cpp:expr:`InitialStatus`: Input parameter.
 
 
-        - :cpp:expr:`Connector_`: Output parameter.
-
-
     .. _ocamediatransportnetwork_addsinkconnector:
 
-    .. cpp:function:: OcaStatus AddSinkConnector(OcaMediaConnectorStatus InitialStatus, OcaMediaSinkConnector Connector, OcaMediaSinkConnector &Connector_)
+    .. cpp:function:: OcaStatus AddSinkConnector(OcaMediaConnectorStatus InitialStatus)
 
         Adds a sinkconnector to this network. Parameters of the new connector
         are given in the Connector parameter; device returns the same parameter
@@ -362,12 +361,6 @@ Class Hierarchy:
         This method has id ``3.16``.
 
         - :cpp:expr:`InitialStatus`: Input parameter.
-
-
-        - :cpp:expr:`Connector`: Input parameter.
-
-
-        - :cpp:expr:`Connector_`: Output parameter.
 
 
     .. _ocamediatransportnetwork_controlconnector:
@@ -538,48 +531,50 @@ Class Hierarchy:
 
     - :ref:`OcaApplicationNetwork::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaApplicationNetwork::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaApplicationNetwork::Unlock <ocaroot_unlock>`
+    - :ref:`OcaApplicationNetwork::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaApplicationNetwork::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaApplicationNetwork::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaApplicationNetwork::SetLockNoWrite <ocaroot_setlocknowrite>`
 
-    - :ref:`OcaApplicationNetwork::GetLabel <ocaapplicationnetwork_getlabel>`
+    - :ref:`OcaApplicationNetwork::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
 
-    - :ref:`OcaApplicationNetwork::SetLabel <ocaapplicationnetwork_setlabel>`
-
-    - :ref:`OcaApplicationNetwork::GetOwner <ocaapplicationnetwork_getowner>`
-
-    - :ref:`OcaApplicationNetwork::GetServiceID <ocaapplicationnetwork_getserviceid>`
-
-    - :ref:`OcaApplicationNetwork::SetServiceID <ocaapplicationnetwork_setserviceid>`
-
-    - :ref:`OcaApplicationNetwork::GetSystemInterfaces <ocaapplicationnetwork_getsysteminterfaces>`
-
-    - :ref:`OcaApplicationNetwork::SetSystemInterfaces <ocaapplicationnetwork_setsysteminterfaces>`
-
-    - :ref:`OcaApplicationNetwork::GetState <ocaapplicationnetwork_getstate>`
-
-    - :ref:`OcaApplicationNetwork::GetErrorCode <ocaapplicationnetwork_geterrorcode>`
+    - :ref:`OcaApplicationNetwork::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaApplicationNetwork::Control <ocaapplicationnetwork_control>`
 
+    - :ref:`OcaApplicationNetwork::GetErrorCode <ocaapplicationnetwork_geterrorcode>`
+
+    - :ref:`OcaApplicationNetwork::GetLabel <ocaapplicationnetwork_getlabel>`
+
+    - :ref:`OcaApplicationNetwork::GetOwner <ocaapplicationnetwork_getowner>`
+
     - :ref:`OcaApplicationNetwork::GetPath <ocaapplicationnetwork_getpath>`
+
+    - :ref:`OcaApplicationNetwork::GetServiceID <ocaapplicationnetwork_getserviceid>`
+
+    - :ref:`OcaApplicationNetwork::GetState <ocaapplicationnetwork_getstate>`
+
+    - :ref:`OcaApplicationNetwork::GetSystemInterfaces <ocaapplicationnetwork_getsysteminterfaces>`
+
+    - :ref:`OcaApplicationNetwork::SetLabel <ocaapplicationnetwork_setlabel>`
+
+    - :ref:`OcaApplicationNetwork::SetServiceID <ocaapplicationnetwork_setserviceid>`
+
+    - :ref:`OcaApplicationNetwork::SetSystemInterfaces <ocaapplicationnetwork_setsysteminterfaces>`
 
 
     **Events**:
 
 
-    .. _ocamediatransportnetwork_sourceconnectorchanged:
+    .. _ocamediatransportnetwork_connectorstatuschanged:
 
-    .. cpp:function:: void SourceConnectorChanged(OcaMediaSourceConnectorChangedEventData eventData)
+    .. cpp:function:: void ConnectorStatusChanged(OcaMediaConnectorStatusChangedEventData eventData)
 
-        Event indicating that a media source connector has changed. The change
-        type indicates if the connector was added, deleted or changed.
+        Event indicating that the status of a source or sink connector has
+        changed.
 
-        This event has id ``3.1``.
+        This event has id ``3.3``.
 
     .. _ocamediatransportnetwork_sinkconnectorchanged:
 
@@ -590,11 +585,11 @@ Class Hierarchy:
 
         This event has id ``3.2``.
 
-    .. _ocamediatransportnetwork_connectorstatuschanged:
+    .. _ocamediatransportnetwork_sourceconnectorchanged:
 
-    .. cpp:function:: void ConnectorStatusChanged(OcaMediaConnectorStatusChangedEventData eventData)
+    .. cpp:function:: void SourceConnectorChanged(OcaMediaSourceConnectorChangedEventData eventData)
 
-        Event indicating that the status of a source or sink connector has
-        changed.
+        Event indicating that a media source connector has changed. The change
+        type indicates if the connector was added, deleted or changed.
 
-        This event has id ``3.3``.
+        This event has id ``3.1``.

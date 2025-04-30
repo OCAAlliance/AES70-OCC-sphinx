@@ -15,6 +15,14 @@ Class Hierarchy:
     **Properties**:
 
 
+    .. _ocamediaclock3_availability:
+
+    .. cpp:member:: OcaMediaClockAvailability Availability
+
+        Availability of the media clock.
+
+        This property has id ``3.1``.
+
     .. _ocamediaclock3_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.2.15"
@@ -25,36 +33,13 @@ Class Hierarchy:
 
     .. _ocamediaclock3_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 1
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
+        Identifies the interface version of the class. Any change to the class
+        definition leads to a higher class version. This property is an override
+        of the **OcaRoot** property.
 
         This property has id ``1.2``.
-
-    .. _ocamediaclock3_availability:
-
-    .. cpp:member:: OcaMediaClockAvailability Availability
-
-        Availability of media clock.
-
-        This property has id ``3.1``.
-
-    .. _ocamediaclock3_timesourceono:
-
-    .. cpp:member:: OcaONo TimeSourceONo
-
-        ONo of time source that drives this media clock.
-
-        This property has id ``3.2``.
-
-    .. _ocamediaclock3_offset:
-
-    .. cpp:member:: OcaTimePTP Offset
-
-        Offset of media clock time from reference time. Note: For RTP-based
-        media transport networks, this value is NOT the RTP time offset. RTP
-        time offset is an implementation detail that is out of AES70's scope.
-
-        This property has id ``3.3``.
 
     .. _ocamediaclock3_currentrate:
 
@@ -64,16 +49,33 @@ Class Hierarchy:
 
         This property has id ``3.4``.
 
+    .. _ocamediaclock3_offset:
+
+    .. cpp:member:: OcaTime Offset
+
+        Offset of media clock time from reference time. Note: For RTP-based
+        media transport networks, this value is NOT the RTP time offset. RTP
+        time offset is an implementation detail that is out of AES70's scope.
+
+        This property has id ``3.3``.
+
     .. _ocamediaclock3_supportedrates:
 
     .. cpp:member:: OcaMap<OcaONo, OcaList<OcaMediaClockRate>> SupportedRates
 
-        Map of supported rates for each supported time source. Key of map is ONo
-        of supported time source; value is list of supported clock rates for the
-        given time source. Private parameter, does not generate property-change
-        events.
+        Map of supported rates for each supported time source. Key of map is
+        **ONo** of an **OcaTimeSource** object; value is list of supported clock
+        rates for the given time source.
 
         This property has id ``3.5``.
+
+    .. _ocamediaclock3_timesourceono:
+
+    .. cpp:member:: OcaONo TimeSourceONo
+
+        **ONo** of time source object that drives this media clock.
+
+        This property has id ``3.2``.
 
     Properties inherited from :ref:`ocaagent`:
 
@@ -81,9 +83,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -103,8 +107,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetAvailability(OcaMediaClockAvailability &Availability)
 
-        Gets the value of the **Availability** property. The return value
-        indicates whether the value was successfully retrieved.
+        Gets the value of the **Availability** property.
 
         This method has id ``3.1``.
 
@@ -115,8 +118,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetAvailability(OcaMediaClockAvailability Availability)
 
-        Sets the value of the **Availability** property. The return value
-        indicates whether the value was successfully set. Optional method, may
+        Sets the value of the **Availability** property. Optional method, need
         not be supported in all implementations.
 
         This method has id ``3.2``.
@@ -129,8 +131,7 @@ Class Hierarchy:
     .. cpp:function:: OcaStatus GetCurrentRate(OcaMediaClockRate &Rate, OcaONo &TimeSourceONo)
 
         Gets the current clock rate and the ONo of the associated
-        **OcaTimeSource** object. The return value indicates whether the value
-        was successfully retrieved.
+        **OcaTimeSource** object.
 
         This method has id ``3.3``.
 
@@ -145,8 +146,7 @@ Class Hierarchy:
     .. cpp:function:: OcaStatus SetCurrentRate(OcaMediaClockRate Rate, OcaONo TimeSourceONo)
 
         Sets the clock rate and the ONo of the associated **OcaTimeSource**
-        object. The return value indicates whether the value was successfully
-        set. Optional method, may not be supported in all implementations.
+        object. Optional method, may not be supported in all implementations.
 
         This method has id ``3.4``.
 
@@ -158,11 +158,10 @@ Class Hierarchy:
 
     .. _ocamediaclock3_getoffset:
 
-    .. cpp:function:: OcaStatus GetOffset(OcaTimePTP &Offset)
+    .. cpp:function:: OcaStatus GetOffset(OcaTime &Offset)
 
         Gets the offset of this media clock's time from that of the associated
-        **OcaTimeSource** object. The return value indicates whether the value
-        was successfully retrieved.
+        **OcaTimeSource** object.
 
         This method has id ``3.5``.
 
@@ -171,11 +170,10 @@ Class Hierarchy:
 
     .. _ocamediaclock3_setoffset:
 
-    .. cpp:function:: OcaStatus SetOffset(OcaTimePTP Offset)
+    .. cpp:function:: OcaStatus SetOffset(OcaTime Offset)
 
         Sets the offset of this media clock's time from that of the associated
-        **OcaTimeSource** object. The return value indicates whether the value
-        was successfully set. Optional method, may not be supported in all
+        **OcaTimeSource** object. Optional method, may not be supported in all
         implementations.
 
         This method has id ``3.6``.
@@ -187,8 +185,8 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetSupportedRates(OcaMap<OcaONo, OcaList<OcaMediaClockRate>> &Rates)
 
-        Gets the list of supported media clock rates for the given time source.
-        The return value indicates whether the list was successfully retrieved.
+        Gets the list of supported media clock rates for each supported time
+        source.
 
         This method has id ``3.7``.
 
@@ -201,19 +199,21 @@ Class Hierarchy:
 
     - :ref:`OcaAgent::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaAgent::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaAgent::Unlock <ocaroot_unlock>`
+    - :ref:`OcaAgent::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaAgent::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaAgent::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaAgent::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaAgent::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaAgent::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaAgent::GetLabel <ocaagent_getlabel>`
-
-    - :ref:`OcaAgent::SetLabel <ocaagent_setlabel>`
 
     - :ref:`OcaAgent::GetOwner <ocaagent_getowner>`
 
     - :ref:`OcaAgent::GetPath <ocaagent_getpath>`
+
+    - :ref:`OcaAgent::SetLabel <ocaagent_setlabel>`
 

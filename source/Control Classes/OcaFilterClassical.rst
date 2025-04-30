@@ -9,9 +9,9 @@ Class Hierarchy:
 
 .. cpp:class:: OcaFilterClassical: OcaActuator
 
-    A classical analog-style filter - highpass, lowpass, bandpass, etc., with
+    Classical analog-style filter - highpass, lowpass, bandpass, etc., with
     shape characteristics such as Butterworth, Chebyshev, Bessel, and
-    Linkwitz-Riley. Frequently used in loudspeaker crossover networks.
+    Linkwitz-Riley.
 
     **Properties**:
 
@@ -28,7 +28,7 @@ Class Hierarchy:
 
     .. _ocafilterclassical_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -43,22 +43,6 @@ Class Hierarchy:
         The frequency of the filter.
 
         This property has id ``4.1``.
-
-    .. _ocafilterclassical_passband:
-
-    .. cpp:member:: OcaFilterPassband Passband
-
-        Lowpass, highpass, bandpass, bandreject
-
-        This property has id ``4.2``.
-
-    .. _ocafilterclassical_shape:
-
-    .. cpp:member:: OcaClassicalFilterShape Shape
-
-        Shape family - Butterworth, Bessell, etc.
-
-        This property has id ``4.3``.
 
     .. _ocafilterclassical_order:
 
@@ -77,15 +61,33 @@ Class Hierarchy:
 
         This property has id ``4.5``.
 
+    .. _ocafilterclassical_passband:
+
+    .. cpp:member:: OcaFilterPassband Passband
+
+        Lowpass, highpass, bandpass, bandreject
+
+        This property has id ``4.2``.
+
+    .. _ocafilterclassical_shape:
+
+    .. cpp:member:: OcaClassicalFilterShape Shape
+
+        Shape family - Butterworth, Bessell, etc.
+
+        This property has id ``4.3``.
+
     Properties inherited from :ref:`ocaactuator`:
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -95,13 +97,15 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
 
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
-
     - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
 
     - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
 
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+    - :cpp:texpr:`OcaMap<OcaPortID, OcaPortClockMapEntry>` :ref:`OcaWorker::PortClockMap <ocaworker_portclockmap>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaActuator::ClassID <ocaactuator_classid>`
 
@@ -115,8 +119,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetFrequency(OcaFrequency &Frequency, OcaFrequency &minFrequency, OcaFrequency &maxFrequency)
 
-        Gets the value of the Frequency property. The return value indicates if
-        the property was successfully retrieved.
+        Gets the value and limits of the **Frequency** property.
 
         This method has id ``4.1``.
 
@@ -133,8 +136,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetFrequency(OcaFrequency frequency)
 
-        Sets the value of the Frequency property. The return value indicates if
-        the property was successfully set.
+        Sets the value of the **Frequency** property.
 
         This method has id ``4.2``.
 
@@ -145,8 +147,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetPassband(OcaFilterPassband &Passband)
 
-        Returns the passband specification of the filter object. The return
-        value indicates if the specification was successfully retrieved.
+        Gets the value of the **Passband** property.
 
         This method has id ``4.3``.
 
@@ -157,8 +158,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetPassband(OcaFilterPassband Passband)
 
-        Sets the passband specification of the filter object. The return value
-        indicates if the specification was successfully set.
+        Sets the value of the **Passband** property.
 
         This method has id ``4.4``.
 
@@ -169,8 +169,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetShape(OcaClassicalFilterShape &Shape)
 
-        Returns the Shape property of the filter. The return value indicates if
-        the property was successfully retrieved.
+        Gets the value of the **Shape** property.
 
         This method has id ``4.5``.
 
@@ -181,8 +180,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetShape(OcaClassicalFilterShape Shape)
 
-        Sets the Shape property of the filter. The return value indicates if the
-        property was successfully set.
+        Sets the value of the **Shape** property.
 
         This method has id ``4.6``.
 
@@ -193,8 +191,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetOrder(OcaUint16 &Order, OcaUint16 &minOrder, OcaUint16 &maxOrder)
 
-        Returns the order of the filter. The return value indicates if the
-        property was successfully retrieved.
+        Gets the value and limits of the **Order** property.
 
         This method has id ``4.7``.
 
@@ -211,8 +208,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetOrder(OcaUint16 Order)
 
-        Sets the order of the filter. The return value indicates if the property
-        was successfully set.
+        Sets the value of the **Order** property.
 
         This method has id ``4.8``.
 
@@ -223,8 +219,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetParameter(OcaFloat32 &Parameter, OcaFloat32 &minParameter, OcaFloat32 &maxParameter)
 
-        Returns the filter parameter. The return value indicates if the property
-        was successfully retrieved.
+        Gets the value and limits of the **Parameter** property.
 
         This method has id ``4.9``.
 
@@ -241,8 +236,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetParameter(OcaFloat32 Parameter)
 
-        Sets the filter parameter. The return value indicates if the parameter
-        was successfully set.
+        Sets the value of the **Parameter** property.
 
         This method has id ``4.10``.
 
@@ -253,9 +247,9 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetMultiple(OcaParameterMask Mask, OcaFrequency Frequency, OcaFilterPassband Passband, OcaClassicalFilterShape Shape, OcaUint16 Order, OcaFloat32 Parameter)
 
-        Sets some or all filter parameter. The return value indicates if the
-        parameters were successfully set. The action of this method is atomic -
-        if any of the value changes fails, none of the changes are made.
+        Sets some or all filter parameters. The action of this method shall be
+        atomic - if any of the changes fails, **none** of the changes shall be
+        made.
 
         This method has id ``4.11``.
 
@@ -283,37 +277,49 @@ Class Hierarchy:
 
     - :ref:`OcaActuator::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaActuator::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
+    - :ref:`OcaActuator::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaActuator::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaActuator::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaActuator::SetLockNoWrite <ocaroot_setlocknowrite>`
 
-    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
+    - :ref:`OcaActuator::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
 
-    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaActuator::AddPort <ocaworker_addport>`
 
     - :ref:`OcaActuator::DeletePort <ocaworker_deleteport>`
 
-    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+    - :ref:`OcaActuator::DeletePortClockMapEntry <ocaworker_deleteportclockmapentry>`
 
-    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
-
-    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
+    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
 
     - :ref:`OcaActuator::GetLabel <ocaworker_getlabel>`
 
-    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
+    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
 
     - :ref:`OcaActuator::GetOwner <ocaworker_getowner>`
 
-    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
+    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
+
+    - :ref:`OcaActuator::GetPortClockMap <ocaworker_getportclockmap>`
+
+    - :ref:`OcaActuator::GetPortClockMapEntry <ocaworker_getportclockmapentry>`
+
+    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
 
     - :ref:`OcaActuator::SetLatency <ocaworker_setlatency>`
 
-    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
+    - :ref:`OcaActuator::SetPortClockMap <ocaworker_setportclockmap>`
+
+    - :ref:`OcaActuator::SetPortClockMapEntry <ocaworker_setportclockmapentry>`
+
+    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
 

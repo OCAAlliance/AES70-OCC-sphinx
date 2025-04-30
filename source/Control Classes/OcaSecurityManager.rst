@@ -36,7 +36,7 @@ Class Hierarchy:
 
     .. _ocasecuritymanager_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -48,7 +48,7 @@ Class Hierarchy:
 
     .. cpp:member:: OcaBoolean secureControlData
 
-        Indicates whether the OCA control data in the system is secured.
+        TRUE if and only if the OCA control data in the system is secured.
 
         This property has id ``3.1``.
 
@@ -58,9 +58,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -78,8 +80,7 @@ Class Hierarchy:
 
         Enables security of control data (OCA messages). After calling this
         method all OCA messages are sent and received using a secure connection.
-        The return value indicates whether the operation succeeded. If the
-        operation fails security is not enabled.
+        If the operation fails, security is not enabled.
 
         This method has id ``3.1``.
 
@@ -89,8 +90,7 @@ Class Hierarchy:
 
         Disables security of control data (OCA messages). After calling this
         method all OCA messages can be sent and received both on insecure and
-        secure connections. The return value indicates whether the operation
-        succeeded. If the operation fails security is not disabled.
+        secure connections. If the operation fails, security is not disabled.
 
         This method has id ``3.2``.
 
@@ -101,7 +101,7 @@ Class Hierarchy:
         Changes the pre-shared key identified by the passed identity. Note that
         changing a PSK over the network will only work if the controller has a
         secure connection to the device and control security has been turned on.
-        If this is not the case the method will return DeviceError.
+        If this is not the case, the method will return DeviceError.
 
         This method has id ``3.3``.
 
@@ -119,7 +119,7 @@ Class Hierarchy:
         By having multiple PSKs the device is able to participate in multiple
         secure systems. Note that adding a PSK over the network will only work
         if the controller has a secure connection to the device and control
-        security has been turned on. If this is not the case the method will
+        security has been turned on. If this is not the case, the method will
         return DeviceError.
 
         This method has id ``3.4``.
@@ -134,12 +134,12 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus DeletePreSharedKey(OcaString identity)
 
-        Deletes a pre-shared key (identified by the passed identity) on the
-        device. After deleting the pre-shared key the device will no longer be
+        Deletes the pre-shared key identified by the given identity from the
+        device. After deleting the pre-shared key, the device will no longer be
         able to participate in the secure system that uses the PSK. Note that
         deleting a PSK over the network will only work if the controller has a
         secure connection to the device and control security has been turned on.
-        If this is not the case the method will return DeviceError.
+        If this is not the case, the method will return DeviceError.
 
         This method has id ``3.5``.
 
@@ -152,11 +152,13 @@ Class Hierarchy:
 
     - :ref:`OcaManager::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaManager::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
+    - :ref:`OcaManager::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaManager::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaManager::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaManager::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaManager::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
 

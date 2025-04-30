@@ -14,6 +14,14 @@ Class Hierarchy:
     **Properties**:
 
 
+    .. _ocapowersupply_charging:
+
+    .. cpp:member:: OcaBoolean Charging
+
+        True if and only if charging. For rechargable supplies (obviously).
+
+        This property has id ``3.4``.
+
     .. _ocapowersupply_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.2.7"
@@ -34,13 +42,23 @@ Class Hierarchy:
 
         This property has id ``1.2``.
 
-    .. _ocapowersupply_type:
+    .. _ocapowersupply_loadfractionavailable:
 
-    .. cpp:member:: OcaPowerSupplyType Type
+    .. cpp:member:: OcaFloat32 LoadFractionAvailable
 
-        Type of power supply.
+        Fraction of power supply's load capacity that is currently **not** being
+        used. Readonly. Normal value range 0...1. A negative value indicates
+        this data is unavailable.
 
-        This property has id ``3.1``.
+        This property has id ``3.5``.
+
+    .. _ocapowersupply_location:
+
+    .. cpp:member:: const OcaPowerSupplyLocation Location
+
+        Physical location of power supply - internal or external.
+
+        This property has id ``3.7``.
 
     .. _ocapowersupply_modelinfo:
 
@@ -59,41 +77,23 @@ Class Hierarchy:
 
         This property has id ``3.3``.
 
-    .. _ocapowersupply_charging:
-
-    .. cpp:member:: OcaBoolean Charging
-
-        True iff charging. For rechargable supplies (obviously).
-
-        This property has id ``3.4``.
-
-    .. _ocapowersupply_loadfractionavailable:
-
-    .. cpp:member:: OcaFloat32 LoadFractionAvailable
-
-        Fraction of power supply's load capacity that is currently not being
-        used. Readonly. Normal value range 0...1. A negative value indicates
-        this data is not available.
-
-        This property has id ``3.5``.
-
     .. _ocapowersupply_storagefractionavailable:
 
     .. cpp:member:: OcaFloat32 StorageFractionAvailable
 
         Fraction of power supply's energy storage that remains available. For
         battery supplies. Readonly. Normal value range 0...1. A negative value
-        indicates this data is not available.
+        indicates this data is unavailable.
 
         This property has id ``3.6``.
 
-    .. _ocapowersupply_location:
+    .. _ocapowersupply_type:
 
-    .. cpp:member:: const OcaPowerSupplyLocation Location
+    .. cpp:member:: OcaPowerSupplyType Type
 
-        Physical location of power supply - internal or external.
+        Type of power supply.
 
-        This property has id ``3.7``.
+        This property has id ``3.1``.
 
     Properties inherited from :ref:`ocaagent`:
 
@@ -101,9 +101,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -123,8 +125,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetType(OcaPowerSupplyType &type)
 
-        Gets the type of the power supply. Return value indicates whether the
-        data was successfully retrieved.
+        Gets the type of the power supply.
 
         This method has id ``3.1``.
 
@@ -135,8 +136,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetModelInfo(OcaString &info)
 
-        Gets the power supply's model information text. Return value indicates
-        whether the data was successfully retrieved.
+        Gets the power supply's model information text.
 
         This method has id ``3.2``.
 
@@ -147,8 +147,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetState(OcaPowerSupplyState &state)
 
-        Gets the state of the power supply. Return value indicates whether the
-        data was successfully retrieved.
+        Gets the state of the power supply.
 
         This method has id ``3.3``.
 
@@ -159,8 +158,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetState(OcaPowerSupplyState state)
 
-        Changes the power supply's state. Return value indicates whether the
-        state was successfully changed.
+        Changes the power supply's state.
 
         This method has id ``3.4``.
 
@@ -171,8 +169,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetCharging(OcaBoolean &charging)
 
-        Gets the value of property **Charging**. Return value indicates whether
-        the value was successfully retrieved.
+        Gets the value of property **Charging**.
 
         This method has id ``3.5``.
 
@@ -183,8 +180,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetLoadFractionAvailable(OcaFloat32 &fraction)
 
-        Gets the available load fraction. Return value indicates whether the
-        data was successfully retrieved.
+        Gets the available load fraction.
 
         This method has id ``3.6``.
 
@@ -195,8 +191,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetStorageFractionAvailable(OcaFloat32 &fraction)
 
-        Gets the available storage fraction. Return value indicates whether the
-        data was successfully retrieved.
+        Gets the available storage fraction.
 
         This method has id ``3.7``.
 
@@ -207,8 +202,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetLocation(OcaPowerSupplyLocation &Location)
 
-        Gets the power supply physical location. Return value indicates whether
-        the data was successfully retrieved.
+        Gets the power supply physical location.
 
         This method has id ``3.8``.
 
@@ -221,19 +215,21 @@ Class Hierarchy:
 
     - :ref:`OcaAgent::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaAgent::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaAgent::Unlock <ocaroot_unlock>`
+    - :ref:`OcaAgent::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaAgent::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaAgent::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaAgent::SetLockNoWrite <ocaroot_setlocknowrite>`
+
+    - :ref:`OcaAgent::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
+
+    - :ref:`OcaAgent::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaAgent::GetLabel <ocaagent_getlabel>`
-
-    - :ref:`OcaAgent::SetLabel <ocaagent_setlabel>`
 
     - :ref:`OcaAgent::GetOwner <ocaagent_getowner>`
 
     - :ref:`OcaAgent::GetPath <ocaagent_getpath>`
+
+    - :ref:`OcaAgent::SetLabel <ocaagent_setlabel>`
 

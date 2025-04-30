@@ -9,31 +9,12 @@ Class Hierarchy:
 
 .. cpp:class:: OcaFilterPolynomial: OcaActuator
 
-    A generic Z-domain rational polynomial filter section: A(0) + A(1)z +
-    A(2)z^2 + A(3)z^3 + ... B(0) + B(1)z + B(2)z^2 + B(3)z^3 + ...
+    Generic Z-domain rational polynomial filter section with transfer function
+    expression of the form: A(0) + A(1)z + A(2)z^2 + A(3)z^3 + ... B(0) + B(1)z
+    + B(2)z^2 + B(3)z^3 + ...
 
     **Properties**:
 
-
-    .. _ocafilterpolynomial_classid:
-
-    .. cpp:member:: static const OcaClassID ClassID = "1.1.1.11"
-
-        Number that uniquely identifies the class. Note that this differs from
-        the object number, which identifies the instantiated object. This
-        property is an override of the **OcaRoot** property.
-
-        This property has id ``1.1``.
-
-    .. _ocafilterpolynomial_classversion:
-
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
-
-        Identifies the interface version of the class. Any change to the class
-        definition leads to a higher class version. This property is an override
-        of the **OcaRoot** property.
-
-        This property has id ``1.2``.
 
     .. _ocafilterpolynomial_a:
 
@@ -51,14 +32,25 @@ Class Hierarchy:
 
         This property has id ``4.2``.
 
-    .. _ocafilterpolynomial_samplerate:
+    .. _ocafilterpolynomial_classid:
 
-    .. cpp:member:: OcaFrequency SampleRate
+    .. cpp:member:: static const OcaClassID ClassID = "1.1.1.11"
 
-        Sample rate inside the filter. We can't assume it's the same as the
-        device input or output rate.
+        Number that uniquely identifies the class. Note that this differs from
+        the object number, which identifies the instantiated object. This
+        property is an override of the **OcaRoot** property.
 
-        This property has id ``4.3``.
+        This property has id ``1.1``.
+
+    .. _ocafilterpolynomial_classversion:
+
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
+
+        Identifies the interface version of the class. Any change to the class
+        definition leads to a higher class version. This property is an override
+        of the **OcaRoot** property.
+
+        This property has id ``1.2``.
 
     .. _ocafilterpolynomial_maxorder:
 
@@ -69,15 +61,26 @@ Class Hierarchy:
 
         This property has id ``4.4``.
 
+    .. _ocafilterpolynomial_samplerate:
+
+    .. cpp:member:: OcaFrequency SampleRate
+
+        Sampling rate inside the filter. Note: This rate is not necessarily the
+        same as the Device input or output sampling rate.
+
+        This property has id ``4.3``.
+
     Properties inherited from :ref:`ocaactuator`:
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -87,13 +90,15 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
 
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
-
     - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
 
     - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
 
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+    - :cpp:texpr:`OcaMap<OcaPortID, OcaPortClockMapEntry>` :ref:`OcaWorker::PortClockMap <ocaworker_portclockmap>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaActuator::ClassID <ocaactuator_classid>`
 
@@ -107,7 +112,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetCoefficients(OcaList<OcaFloat32> &A, OcaList<OcaFloat32> &B)
 
-        Returns the polynomial coefficients used.
+        Gets the polynomial coefficients.
 
         This method has id ``4.1``.
 
@@ -135,7 +140,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetSampleRate(OcaFrequency &Rate, OcaFrequency &minRate, OcaFrequency &maxRate)
 
-        Gets the filter sampling rate.
+        Gets the filter sampling rate value and limits.
 
         This method has id ``4.3``.
 
@@ -177,37 +182,49 @@ Class Hierarchy:
 
     - :ref:`OcaActuator::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaActuator::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
+    - :ref:`OcaActuator::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaActuator::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaActuator::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaActuator::SetLockNoWrite <ocaroot_setlocknowrite>`
 
-    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
+    - :ref:`OcaActuator::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
 
-    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaActuator::AddPort <ocaworker_addport>`
 
     - :ref:`OcaActuator::DeletePort <ocaworker_deleteport>`
 
-    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+    - :ref:`OcaActuator::DeletePortClockMapEntry <ocaworker_deleteportclockmapentry>`
 
-    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
-
-    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
+    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
 
     - :ref:`OcaActuator::GetLabel <ocaworker_getlabel>`
 
-    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
+    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
 
     - :ref:`OcaActuator::GetOwner <ocaworker_getowner>`
 
-    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
+    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
+
+    - :ref:`OcaActuator::GetPortClockMap <ocaworker_getportclockmap>`
+
+    - :ref:`OcaActuator::GetPortClockMapEntry <ocaworker_getportclockmapentry>`
+
+    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
 
     - :ref:`OcaActuator::SetLatency <ocaworker_setlatency>`
 
-    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
+    - :ref:`OcaActuator::SetPortClockMap <ocaworker_setportclockmap>`
+
+    - :ref:`OcaActuator::SetPortClockMapEntry <ocaworker_setportclockmapentry>`
+
+    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
 

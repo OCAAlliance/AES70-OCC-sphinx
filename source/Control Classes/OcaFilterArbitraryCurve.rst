@@ -9,7 +9,7 @@ Class Hierarchy:
 
 .. cpp:class:: OcaFilterArbitraryCurve: OcaActuator
 
-    An arbitrary-curve filter, with transfer function specified as amplitude and
+    Arbitrary-curve filter, with transfer function specified as amplitude and
     phase versus frequency.
 
     **Properties**:
@@ -27,13 +27,38 @@ Class Hierarchy:
 
     .. _ocafilterarbitrarycurve_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
         of the **OcaRoot** property.
 
         This property has id ``1.2``.
+
+    .. _ocafilterarbitrarycurve_samplerate:
+
+    .. cpp:member:: OcaFrequency SampleRate
+
+        Sampling rate inside the filter. Note: This rate is not necessarily the
+        same as the Device input or output sampling rate.
+
+        This property has id ``4.2``.
+
+    .. _ocafilterarbitrarycurve_tfmaxlength:
+
+    .. cpp:member:: OcaUint16 TFMaxLength
+
+        Maximum number of points that the transfer function may specify
+
+        This property has id ``4.4``.
+
+    .. _ocafilterarbitrarycurve_tfminlength:
+
+    .. cpp:member:: OcaUint16 TFMinLength
+
+        Minimum number of points that the transfer function must specify
+
+        This property has id ``4.3``.
 
     .. _ocafilterarbitrarycurve_transferfunction:
 
@@ -43,40 +68,17 @@ Class Hierarchy:
 
         This property has id ``4.1``.
 
-    .. _ocafilterarbitrarycurve_samplerate:
-
-    .. cpp:member:: OcaFrequency SampleRate
-
-        Sample rate inside the filter. We can't assume it's the same as the
-        device input or output rate.
-
-        This property has id ``4.2``.
-
-    .. _ocafilterarbitrarycurve_tfminlength:
-
-    .. cpp:member:: OcaUint16 TFMinLength
-
-        Minimum number of points that transfer function must specify
-
-        This property has id ``4.3``.
-
-    .. _ocafilterarbitrarycurve_tfmaxlength:
-
-    .. cpp:member:: OcaUint16 TFMaxLength
-
-        Maximum number of points that transfer function may specify
-
-        This property has id ``4.4``.
-
     Properties inherited from :ref:`ocaactuator`:
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -86,13 +88,15 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
 
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
-
     - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
 
     - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
 
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+    - :cpp:texpr:`OcaMap<OcaPortID, OcaPortClockMapEntry>` :ref:`OcaWorker::PortClockMap <ocaworker_portclockmap>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaActuator::ClassID <ocaactuator_classid>`
 
@@ -106,7 +110,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetTransferFunction(OcaTransferFunction &TransferFunction)
 
-        Returns the complex transfer function.
+        Gets the complex transfer function.
 
         This method has id ``4.1``.
 
@@ -128,7 +132,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetSampleRate(OcaFrequency &Rate, OcaFrequency &minRate, OcaFrequency &maxRate)
 
-        Gets the filter sampling rate.
+        Gets the value and limits of the filter sampling rate.
 
         This method has id ``4.3``.
 
@@ -156,8 +160,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetTFMinLength(OcaUint16 &Min)
 
-        Returns the minimum number of required points in the specified transfer
-        function.
+        Gets the value and limits of the TFMinLength property.
 
         This method has id ``4.5``.
 
@@ -168,8 +171,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetTFMaxLength(OcaUint16 &Max)
 
-        Returns the maximum number of allowed points in the specified transfer
-        function.
+        Gets the value and limits of the TFMaxLength property.
 
         This method has id ``4.6``.
 
@@ -182,37 +184,49 @@ Class Hierarchy:
 
     - :ref:`OcaActuator::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaActuator::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
+    - :ref:`OcaActuator::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaActuator::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaActuator::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaActuator::SetLockNoWrite <ocaroot_setlocknowrite>`
 
-    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
+    - :ref:`OcaActuator::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
 
-    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaActuator::AddPort <ocaworker_addport>`
 
     - :ref:`OcaActuator::DeletePort <ocaworker_deleteport>`
 
-    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+    - :ref:`OcaActuator::DeletePortClockMapEntry <ocaworker_deleteportclockmapentry>`
 
-    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
-
-    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
+    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
 
     - :ref:`OcaActuator::GetLabel <ocaworker_getlabel>`
 
-    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
+    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
 
     - :ref:`OcaActuator::GetOwner <ocaworker_getowner>`
 
-    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
+    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
+
+    - :ref:`OcaActuator::GetPortClockMap <ocaworker_getportclockmap>`
+
+    - :ref:`OcaActuator::GetPortClockMapEntry <ocaworker_getportclockmapentry>`
+
+    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
 
     - :ref:`OcaActuator::SetLatency <ocaworker_setlatency>`
 
-    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
+    - :ref:`OcaActuator::SetPortClockMap <ocaworker_setportclockmap>`
+
+    - :ref:`OcaActuator::SetPortClockMapEntry <ocaworker_setportclockmapentry>`
+
+    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
 

@@ -11,7 +11,8 @@ Class Hierarchy:
 
     Signal delay - extended version. Allows setting delay value in various
     units. Note that the inherited property 04p01 DelayTime is also supported by
-    this class and reflects actual achieved delay in seconds.
+    this class and reflects actual achieved delay in seconds. This class is
+    **deprecated** in AES70-2022.
 
     **Properties**:
 
@@ -28,7 +29,7 @@ Class Hierarchy:
 
     .. _ocadelayextended_classversion:
 
-    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
+    .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 3
 
         Identifies the interface version of the class. Any change to the class
         definition leads to a higher class version. This property is an override
@@ -50,9 +51,11 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
 
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
-
     - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaLockState` :ref:`OcaRoot::LockState <ocaroot_lockstate>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
 
     - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
 
@@ -62,13 +65,15 @@ Class Hierarchy:
 
     - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
 
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
-
     - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
 
     - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
 
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+    - :cpp:texpr:`OcaMap<OcaPortID, OcaPortClockMapEntry>` :ref:`OcaWorker::PortClockMap <ocaworker_portclockmap>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
 
     - :cpp:texpr:`OcaClassID` :ref:`OcaActuator::ClassID <ocaactuator_classid>`
 
@@ -88,8 +93,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetDelayValue(OcaDelayValue &Value, OcaDelayValue &minValue, OcaDelayValue &maxValue)
 
-        Gets the value of the DelayValue property. The return value indicates
-        whether the property was successfully retrieved.
+        Gets the value and limits of the **DelayValue** property.
 
         This method has id ``5.1``.
 
@@ -106,8 +110,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus SetDelayValue(OcaDelayValue Value)
 
-        Sets the value of the DelayValue property. The return value indicates
-        whether the property was successfully set.
+        Sets the value of the **DelayValue** property.
 
         This method has id ``5.2``.
 
@@ -118,8 +121,7 @@ Class Hierarchy:
 
     .. cpp:function:: OcaStatus GetDelayValueConverted(OcaDelayUnit UoM, OcaDelayValue &Value)
 
-        Return current delay setting, converted to given units. The return value
-        indicates whether the method has succeeded.
+        Get current delay setting, converted to given units.
 
         This method has id ``5.3``.
 
@@ -135,39 +137,51 @@ Class Hierarchy:
 
     - :ref:`OcaDelay::GetLockable <ocaroot_getlockable>`
 
-    - :ref:`OcaDelay::LockTotal <ocaroot_locktotal>`
-
-    - :ref:`OcaDelay::Unlock <ocaroot_unlock>`
+    - :ref:`OcaDelay::GetLockState <ocaroot_getlockstate>`
 
     - :ref:`OcaDelay::GetRole <ocaroot_getrole>`
 
-    - :ref:`OcaDelay::LockReadonly <ocaroot_lockreadonly>`
+    - :ref:`OcaDelay::SetLockNoWrite <ocaroot_setlocknowrite>`
 
-    - :ref:`OcaDelay::GetEnabled <ocaworker_getenabled>`
+    - :ref:`OcaDelay::SetLockNoReadWrite <ocaroot_setlocknoreadwrite>`
 
-    - :ref:`OcaDelay::SetEnabled <ocaworker_setenabled>`
+    - :ref:`OcaDelay::Unlock <ocaroot_unlock>`
 
     - :ref:`OcaDelay::AddPort <ocaworker_addport>`
 
     - :ref:`OcaDelay::DeletePort <ocaworker_deleteport>`
 
-    - :ref:`OcaDelay::GetPorts <ocaworker_getports>`
+    - :ref:`OcaDelay::DeletePortClockMapEntry <ocaworker_deleteportclockmapentry>`
 
-    - :ref:`OcaDelay::GetPortName <ocaworker_getportname>`
-
-    - :ref:`OcaDelay::SetPortName <ocaworker_setportname>`
+    - :ref:`OcaDelay::GetEnabled <ocaworker_getenabled>`
 
     - :ref:`OcaDelay::GetLabel <ocaworker_getlabel>`
 
-    - :ref:`OcaDelay::SetLabel <ocaworker_setlabel>`
+    - :ref:`OcaDelay::GetLatency <ocaworker_getlatency>`
 
     - :ref:`OcaDelay::GetOwner <ocaworker_getowner>`
 
-    - :ref:`OcaDelay::GetLatency <ocaworker_getlatency>`
+    - :ref:`OcaDelay::GetPath <ocaworker_getpath>`
+
+    - :ref:`OcaDelay::GetPortClockMap <ocaworker_getportclockmap>`
+
+    - :ref:`OcaDelay::GetPortClockMapEntry <ocaworker_getportclockmapentry>`
+
+    - :ref:`OcaDelay::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaDelay::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaDelay::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaDelay::SetLabel <ocaworker_setlabel>`
 
     - :ref:`OcaDelay::SetLatency <ocaworker_setlatency>`
 
-    - :ref:`OcaDelay::GetPath <ocaworker_getpath>`
+    - :ref:`OcaDelay::SetPortClockMap <ocaworker_setportclockmap>`
+
+    - :ref:`OcaDelay::SetPortClockMapEntry <ocaworker_setportclockmapentry>`
+
+    - :ref:`OcaDelay::SetPortName <ocaworker_setportname>`
 
     - :ref:`OcaDelay::GetDelayTime <ocadelay_getdelaytime>`
 
