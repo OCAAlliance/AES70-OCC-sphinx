@@ -5,114 +5,116 @@
 
 Class Hierarchy:
 
-:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaApplicationNetwork <ocaapplicationnetwork>` :raw:html:`&rarr;` :ref:`OcaControlNetwork <ocacontrolnetwork>` 
+:ref:`OcaRoot <ocaroot>` : :ref:`OcaApplicationNetwork <ocaapplicationnetwork>` : :ref:`OcaControlNetwork <ocacontrolnetwork>`
 
 .. cpp:class:: OcaControlNetwork: OcaApplicationNetwork
 
 
     **Properties**:
 
+
     .. _ocacontrolnetwork_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.4.1"
 
-        This property is an override of the  **OcaRoot** property.
+        This property is an override of the **OcaRoot** property.
 
-        This property has id ``3.1``.
+        This property has id ``1.1``.
 
     .. _ocacontrolnetwork_classversion:
 
     .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 1
 
-        This property is an override of the  **OcaRoot** property.
+        This property is an override of the **OcaRoot** property.
 
-        This property has id ``3.2``.
+        This property has id ``1.2``.
 
     .. _ocacontrolnetwork_protocol:
 
     .. cpp:member:: OcaNetworkControlProtocol Protocol
 
-        Type of control protocol used by the network (OCAnn). Read-only property.
+        Type of control protocol used by the network (OCAnn). Read-only
+        property.
 
         This property has id ``3.1``.
 
-    Properties inherited from :ref:`OcaApplicationNetwork <OcaApplicationNetwork>`:
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaApplicationNetwork::Label <OcaApplicationNetwork_Label>`
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaApplicationNetwork::Owner <OcaApplicationNetwork_Owner>`
-    
-    - :cpp:texpr:`OcaApplicationNetworkServiceID` :ref:`OcaApplicationNetwork::ServiceID <OcaApplicationNetwork_ServiceID>`
-    
-    - :cpp:texpr:`OcaList<OcaNetworkSystemInterfaceDescriptor>` :ref:`OcaApplicationNetwork::SystemInterfaces <OcaApplicationNetwork_SystemInterfaces>`
-    
-    - :cpp:texpr:`OcaApplicationNetworkState` :ref:`OcaApplicationNetwork::State <OcaApplicationNetwork_State>`
-    
-    - :cpp:texpr:`OcaUint16` :ref:`OcaApplicationNetwork::ErrorCode <OcaApplicationNetwork_ErrorCode>`
-    
-    
-    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
-    
-    
+    Properties inherited from :ref:`ocaapplicationnetwork`:
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaApplicationNetwork::ClassID <ocaapplicationnetwork_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaApplicationNetwork::ClassVersion <ocaapplicationnetwork_classversion>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaApplicationNetwork::Label <ocaapplicationnetwork_label>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaApplicationNetwork::Owner <ocaapplicationnetwork_owner>`
+
+    - :cpp:texpr:`OcaApplicationNetworkServiceID` :ref:`OcaApplicationNetwork::ServiceID <ocaapplicationnetwork_serviceid>`
+
+    - :cpp:texpr:`OcaList<OcaNetworkSystemInterfaceDescriptor>` :ref:`OcaApplicationNetwork::SystemInterfaces <ocaapplicationnetwork_systeminterfaces>`
+
+    - :cpp:texpr:`OcaApplicationNetworkState` :ref:`OcaApplicationNetwork::State <ocaapplicationnetwork_state>`
+
+    - :cpp:texpr:`OcaUint16` :ref:`OcaApplicationNetwork::ErrorCode <ocaapplicationnetwork_errorcode>`
+
 
     **Methods**:
+
 
     .. _ocacontrolnetwork_getcontrolprotocol:
 
     .. cpp:function:: OcaStatus GetControlProtocol(OcaNetworkControlProtocol &Protocol)
 
-        Gets the network's Protocol property. Return status indicates whether the operation was successful.
+        Gets the network's Protocol property. Return status indicates whether
+        the operation was successful.
 
         This method has id ``3.1``.
 
-        :param OcaNetworkControlProtocol Protocol: Output parameter.
+        - :cpp:expr:`Protocol`: Output parameter.
 
 
-    Methods inherited from :ref:`OcaApplicationNetwork <OcaApplicationNetwork>`:
-    
-    - :ref:`OcaApplicationNetwork::GetLabel(Label) <OcaApplicationNetwork_GetLabel>`
-    
-    - :ref:`OcaApplicationNetwork::SetLabel(Label) <OcaApplicationNetwork_SetLabel>`
-    
-    - :ref:`OcaApplicationNetwork::GetOwner(Owner) <OcaApplicationNetwork_GetOwner>`
-    
-    - :ref:`OcaApplicationNetwork::GetServiceID(Name) <OcaApplicationNetwork_GetServiceID>`
-    
-    - :ref:`OcaApplicationNetwork::SetServiceID(Name) <OcaApplicationNetwork_SetServiceID>`
-    
-    - :ref:`OcaApplicationNetwork::GetSystemInterfaces(SystemInterfaces) <OcaApplicationNetwork_GetSystemInterfaces>`
-    
-    - :ref:`OcaApplicationNetwork::SetSystemInterfaces(Descriptors) <OcaApplicationNetwork_SetSystemInterfaces>`
-    
-    - :ref:`OcaApplicationNetwork::GetState(State) <OcaApplicationNetwork_GetState>`
-    
-    - :ref:`OcaApplicationNetwork::GetErrorCode(ErrorCode) <OcaApplicationNetwork_GetErrorCode>`
-    
-    - :ref:`OcaApplicationNetwork::Control(Command) <OcaApplicationNetwork_Control>`
-    
-    - :ref:`OcaApplicationNetwork::GetPath(NamePath, ONoPath) <OcaApplicationNetwork_GetPath>`
-    
-    
-    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
-    
-    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
-    
-    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
-    
-    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
-    
-    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
-    
-    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
-    
-    
+    Methods inherited from :ref:`ocaapplicationnetwork`:
 
+    - :ref:`OcaApplicationNetwork::GetClassIdentification <ocaroot_getclassidentification>`
+
+    - :ref:`OcaApplicationNetwork::GetLockable <ocaroot_getlockable>`
+
+    - :ref:`OcaApplicationNetwork::LockTotal <ocaroot_locktotal>`
+
+    - :ref:`OcaApplicationNetwork::Unlock <ocaroot_unlock>`
+
+    - :ref:`OcaApplicationNetwork::GetRole <ocaroot_getrole>`
+
+    - :ref:`OcaApplicationNetwork::LockReadonly <ocaroot_lockreadonly>`
+
+    - :ref:`OcaApplicationNetwork::GetLabel <ocaapplicationnetwork_getlabel>`
+
+    - :ref:`OcaApplicationNetwork::SetLabel <ocaapplicationnetwork_setlabel>`
+
+    - :ref:`OcaApplicationNetwork::GetOwner <ocaapplicationnetwork_getowner>`
+
+    - :ref:`OcaApplicationNetwork::GetServiceID <ocaapplicationnetwork_getserviceid>`
+
+    - :ref:`OcaApplicationNetwork::SetServiceID <ocaapplicationnetwork_setserviceid>`
+
+    - :ref:`OcaApplicationNetwork::GetSystemInterfaces <ocaapplicationnetwork_getsysteminterfaces>`
+
+    - :ref:`OcaApplicationNetwork::SetSystemInterfaces <ocaapplicationnetwork_setsysteminterfaces>`
+
+    - :ref:`OcaApplicationNetwork::GetState <ocaapplicationnetwork_getstate>`
+
+    - :ref:`OcaApplicationNetwork::GetErrorCode <ocaapplicationnetwork_geterrorcode>`
+
+    - :ref:`OcaApplicationNetwork::Control <ocaapplicationnetwork_control>`
+
+    - :ref:`OcaApplicationNetwork::GetPath <ocaapplicationnetwork_getpath>`
 

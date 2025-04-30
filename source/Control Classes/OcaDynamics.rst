@@ -5,35 +5,47 @@
 
 Class Hierarchy:
 
-:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaActuator <ocaactuator>` :raw:html:`&rarr;` :ref:`OcaDynamics <ocadynamics>` 
+:ref:`OcaRoot <ocaroot>` : :ref:`OcaWorker <ocaworker>` : :ref:`OcaActuator <ocaactuator>` : :ref:`OcaDynamics <ocadynamics>`
 
 .. cpp:class:: OcaDynamics: OcaActuator
 
-    A multipurpose dynamics processor. Can be configured as compressor, limiter, expander, or gate. This class is expected to handle the majority of the basic cases. More complex devices may be described in a different manner, using one or more  **OcaDynamicsDetector**  and  **OcaDynamicsCurve**  objects, in conjunction with other Worker objects as needed.
+    A multipurpose dynamics processor. Can be configured as compressor, limiter,
+    expander, or gate. This class is expected to handle the majority of the
+    basic cases. More complex devices may be described in a different manner,
+    using one or more **OcaDynamicsDetector** and **OcaDynamicsCurve** objects,
+    in conjunction with other Worker objects as needed.
 
     **Properties**:
+
 
     .. _ocadynamics_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.1.1.14"
 
-        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from
+        the object number, which identifies the instantiated object. This
+        property is an override of the **OcaRoot** property.
 
-        This property has id ``4.1``.
+        This property has id ``1.1``.
 
     .. _ocadynamics_classversion:
 
     .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
 
-        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class
+        definition leads to a higher class version. This property is an override
+        of the **OcaRoot** property.
 
-        This property has id ``4.2``.
+        This property has id ``1.2``.
 
     .. _ocadynamics_triggered:
 
     .. cpp:member:: OcaBoolean Triggered
 
-        Read-only property that indicates whether the dynamics processor is currently triggered (i.e. the signal level is above upper threshold or below lower threshold). This property can be monitored via a periodic event subscription.
+        Read-only property that indicates whether the dynamics processor is
+        currently triggered (i.e. the signal level is above upper threshold or
+        below lower threshold). This property can be monitored via a periodic
+        event subscription.
 
         This property has id ``4.1``.
 
@@ -57,7 +69,10 @@ Class Hierarchy:
 
     .. cpp:member:: OcaFloat32 Ratio
 
-        DEPRECATED PROPERTY - please use property  **Slope** instead. Compression or expansion ratio. For Function = Compress or Limit, value is d(input amplitude)/d(output amplitude). For Function = Expand or Gate, value is d(output amplitude)/d(input amplitude).
+        DEPRECATED PROPERTY - please use property **Slope** instead. Compression
+        or expansion ratio. For Function = Compress or Limit, value is d(input
+        amplitude)/d(output amplitude). For Function = Expand or Gate, value is
+        d(output amplitude)/d(input amplitude).
 
         This property has id ``4.4``.
 
@@ -136,378 +151,498 @@ Class Hierarchy:
 
     .. cpp:member:: OcaFloat32 Slope
 
-        Slope of transfer function = d(output amplitude) / d(input amplitude). See notes for class OcaDynamicsCurve for further detail. Note that the definition of this value does not depend on the value of property Function.
+        Slope of transfer function = d(output amplitude) / d(input amplitude).
+        See notes for class OcaDynamicsCurve for further detail. Note that the
+        definition of this value does not depend on the value of property
+        Function.
 
         This property has id ``4.14``.
 
-    Properties inherited from :ref:`OcaWorker <OcaWorker>`:
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <OcaWorker_Enabled>`
-    
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <OcaWorker_Ports>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <OcaWorker_Label>`
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <OcaWorker_Owner>`
-    
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <OcaWorker_Latency>`
-    
-    
-    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
-    
-    
+    Properties inherited from :ref:`ocaactuator`:
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaWorker::ClassID <ocaworker_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaWorker::ClassVersion <ocaworker_classversion>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaActuator::ClassID <ocaactuator_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaActuator::ClassVersion <ocaactuator_classversion>`
+
 
     **Methods**:
+
 
     .. _ocadynamics_gettriggered:
 
     .. cpp:function:: OcaStatus GetTriggered(OcaBoolean &triggered)
 
-        Gets the value of the Triggered property. The return value indicates whether the property was successfully retrieved.
+        Gets the value of the Triggered property. The return value indicates
+        whether the property was successfully retrieved.
 
         This method has id ``4.1``.
 
-        :param OcaBoolean triggered: Output parameter.
+        - :cpp:expr:`triggered`: Output parameter.
+
 
     .. _ocadynamics_getdynamicgain:
 
     .. cpp:function:: OcaStatus GetDynamicGain(OcaDB &Gain)
 
-        Gets the value of the DynamicGain property. The return value indicates whether the property was successfully retrieved.
+        Gets the value of the DynamicGain property. The return value indicates
+        whether the property was successfully retrieved.
 
         This method has id ``4.2``.
 
-        :param OcaDB Gain: Output parameter.
+        - :cpp:expr:`Gain`: Output parameter.
+
 
     .. _ocadynamics_getfunction:
 
     .. cpp:function:: OcaStatus GetFunction(OcaDynamicsFunction &Func)
 
-        Sets the value of the Function property. The return value indicates whether the property was successfully retrieved.
+        Sets the value of the Function property. The return value indicates
+        whether the property was successfully retrieved.
 
         This method has id ``4.3``.
 
-        :param OcaDynamicsFunction Func: Output parameter.
+        - :cpp:expr:`Func`: Output parameter.
+
 
     .. _ocadynamics_setfunction:
 
     .. cpp:function:: OcaStatus SetFunction(OcaDynamicsFunction Func)
 
-        Sets the value of the Function property. The return value indicates whether the property was successfully set.
+        Sets the value of the Function property. The return value indicates
+        whether the property was successfully set.
 
         This method has id ``4.4``.
 
-        :param OcaDynamicsFunction Func: Input parameter.
+        - :cpp:expr:`Func`: Input parameter.
+
 
     .. _ocadynamics_getratio:
 
     .. cpp:function:: OcaStatus GetRatio(OcaFloat32 &Ratio, OcaFloat32 &minRatio, OcaFloat32 &maxRatio)
 
-        Gets the value of the Ratio property. The return value indicates whether the property was successfully retrieved. GetRatio() is a DEPRECATED method. Please use  **GetSlope()**  instead.
+        Gets the value of the Ratio property. The return value indicates whether
+        the property was successfully retrieved. GetRatio() is a DEPRECATED
+        method. Please use **GetSlope()** instead.
 
         This method has id ``4.5``.
 
-        :param OcaFloat32 Ratio: Output parameter.
-        :param OcaFloat32 minRatio: Output parameter.
-        :param OcaFloat32 maxRatio: Output parameter.
+        - :cpp:expr:`Ratio`: Output parameter.
+
+
+        - :cpp:expr:`minRatio`: Output parameter.
+
+
+        - :cpp:expr:`maxRatio`: Output parameter.
+
 
     .. _ocadynamics_setratio:
 
     .. cpp:function:: OcaStatus SetRatio(OcaFloat32 Ratio)
 
-        Sets the value of the Ratio property. The return value indicates whether the property was successfully set. SetRatio() is a DEPRECATED method. Please use  **SetSlope()**  instead.
+        Sets the value of the Ratio property. The return value indicates whether
+        the property was successfully set. SetRatio() is a DEPRECATED method.
+        Please use **SetSlope()** instead.
 
         This method has id ``4.6``.
 
-        :param OcaFloat32 Ratio: Input parameter.
+        - :cpp:expr:`Ratio`: Input parameter.
+
 
     .. _ocadynamics_getthreshold:
 
     .. cpp:function:: OcaStatus GetThreshold(OcaDBr &Threshold, OcaDBz &minThreshold, OcaDBz &maxThreshold)
 
-        Gets the value of the Threshold property. The return value indicates if the value was successfully retrieved.
+        Gets the value of the Threshold property. The return value indicates if
+        the value was successfully retrieved.
 
         This method has id ``4.7``.
 
-        :param OcaDBr Threshold: Output parameter.
-        :param OcaDBz minThreshold: Output parameter.
-        :param OcaDBz maxThreshold: Output parameter.
+        - :cpp:expr:`Threshold`: Output parameter.
+
+
+        - :cpp:expr:`minThreshold`: Output parameter.
+
+
+        - :cpp:expr:`maxThreshold`: Output parameter.
+
 
     .. _ocadynamics_setthreshold:
 
     .. cpp:function:: OcaStatus SetThreshold(OcaDBr threshold)
 
-        Sets the value of the Threshold property. The return value indicates if the value was successfully set.
+        Sets the value of the Threshold property. The return value indicates if
+        the value was successfully set.
 
         This method has id ``4.8``.
 
-        :param OcaDBr threshold: Input parameter.
+        - :cpp:expr:`threshold`: Input parameter.
+
 
     .. _ocadynamics_getthresholdpresentationunits:
 
     .. cpp:function:: OcaStatus GetThresholdPresentationUnits(OcaPresentationUnit &Units)
 
-        Gets the value of the ThresholdPresentationUnits property. The return value indicates if the value was successfully retrieved.
+        Gets the value of the ThresholdPresentationUnits property. The return
+        value indicates if the value was successfully retrieved.
 
         This method has id ``4.9``.
 
-        :param OcaPresentationUnit Units: Output parameter.
+        - :cpp:expr:`Units`: Output parameter.
+
 
     .. _ocadynamics_setthresholdpresentationunits:
 
     .. cpp:function:: OcaStatus SetThresholdPresentationUnits(OcaPresentationUnit Units)
 
-        Sets the value of the ThresholdPresentationUnits property. The return value indicates if the value was successfully set.
+        Sets the value of the ThresholdPresentationUnits property. The return
+        value indicates if the value was successfully set.
 
         This method has id ``4.10``.
 
-        :param OcaPresentationUnit Units: Input parameter.
+        - :cpp:expr:`Units`: Input parameter.
+
 
     .. _ocadynamics_getdetectorlaw:
 
     .. cpp:function:: OcaStatus GetDetectorLaw(OcaLevelDetectionLaw &Law)
 
-        Sets the value of the DetectorLaw property. The return value indicates if the value was successfully set.
+        Sets the value of the DetectorLaw property. The return value indicates
+        if the value was successfully set.
 
         This method has id ``4.11``.
 
-        :param OcaLevelDetectionLaw Law: Output parameter.
+        - :cpp:expr:`Law`: Output parameter.
+
 
     .. _ocadynamics_setdetectorlaw:
 
     .. cpp:function:: OcaStatus SetDetectorLaw(OcaLevelDetectionLaw Law)
 
-        Sets the value of the DetectorLaw property. The return value indicates if the value was successfully set.
+        Sets the value of the DetectorLaw property. The return value indicates
+        if the value was successfully set.
 
         This method has id ``4.12``.
 
-        :param OcaLevelDetectionLaw Law: Input parameter.
+        - :cpp:expr:`Law`: Input parameter.
+
 
     .. _ocadynamics_getattacktime:
 
     .. cpp:function:: OcaStatus GetAttackTime(OcaTimeInterval &Time, OcaTimeInterval &minTime, OcaTimeInterval &maxTime)
 
-        Gets the value of the AttackTime property. The return value indicates if the value was successfully retrieved.
+        Gets the value of the AttackTime property. The return value indicates if
+        the value was successfully retrieved.
 
         This method has id ``4.13``.
 
-        :param OcaTimeInterval Time: Output parameter.
-        :param OcaTimeInterval minTime: Output parameter.
-        :param OcaTimeInterval maxTime: Output parameter.
+        - :cpp:expr:`Time`: Output parameter.
+
+
+        - :cpp:expr:`minTime`: Output parameter.
+
+
+        - :cpp:expr:`maxTime`: Output parameter.
+
 
     .. _ocadynamics_setattacktime:
 
     .. cpp:function:: OcaStatus SetAttackTime(OcaTimeInterval Time)
 
-        Sets the value of the AttackTime property. The return value indicates if the value was successfully set.
+        Sets the value of the AttackTime property. The return value indicates if
+        the value was successfully set.
 
         This method has id ``4.14``.
 
-        :param OcaTimeInterval Time: Input parameter.
+        - :cpp:expr:`Time`: Input parameter.
+
 
     .. _ocadynamics_getreleasetime:
 
     .. cpp:function:: OcaStatus GetReleaseTime(OcaTimeInterval &Time, OcaTimeInterval &minTime, OcaTimeInterval &maxTime)
 
-        Gets the value of the ReleaseTime property. The return value indicates if the value was successfully retrieved.
+        Gets the value of the ReleaseTime property. The return value indicates
+        if the value was successfully retrieved.
 
         This method has id ``4.15``.
 
-        :param OcaTimeInterval Time: Output parameter.
-        :param OcaTimeInterval minTime: Output parameter.
-        :param OcaTimeInterval maxTime: Output parameter.
+        - :cpp:expr:`Time`: Output parameter.
+
+
+        - :cpp:expr:`minTime`: Output parameter.
+
+
+        - :cpp:expr:`maxTime`: Output parameter.
+
 
     .. _ocadynamics_setreleasetime:
 
     .. cpp:function:: OcaStatus SetReleaseTime(OcaTimeInterval Time)
 
-        Sets the value of the ReleaseTime property. The return value indicates if the value was successfully set.
+        Sets the value of the ReleaseTime property. The return value indicates
+        if the value was successfully set.
 
         This method has id ``4.16``.
 
-        :param OcaTimeInterval Time: Input parameter.
+        - :cpp:expr:`Time`: Input parameter.
+
 
     .. _ocadynamics_getholdtime:
 
     .. cpp:function:: OcaStatus GetHoldTime(OcaTimeInterval &Time, OcaTimeInterval &minTime, OcaTimeInterval &maxTime)
 
-        Gets the value of the HoldTime property. The return value indicates if the value was successfully retrieved.
+        Gets the value of the HoldTime property. The return value indicates if
+        the value was successfully retrieved.
 
         This method has id ``4.17``.
 
-        :param OcaTimeInterval Time: Output parameter.
-        :param OcaTimeInterval minTime: Output parameter.
-        :param OcaTimeInterval maxTime: Output parameter.
+        - :cpp:expr:`Time`: Output parameter.
+
+
+        - :cpp:expr:`minTime`: Output parameter.
+
+
+        - :cpp:expr:`maxTime`: Output parameter.
+
 
     .. _ocadynamics_setholdtime:
 
     .. cpp:function:: OcaStatus SetHoldTime(OcaTimeInterval Time)
 
-        Sets the value of the HoldTime property. The return value indicates if the value was successfully set.
+        Sets the value of the HoldTime property. The return value indicates if
+        the value was successfully set.
 
         This method has id ``4.18``.
 
-        :param OcaTimeInterval Time: Input parameter.
+        - :cpp:expr:`Time`: Input parameter.
+
 
     .. _ocadynamics_getdynamicgainfloor:
 
     .. cpp:function:: OcaStatus GetDynamicGainFloor(OcaDB &Limit, OcaDB &minLimit, OcaDB &maxLimit)
 
-        Gets the value of the DynamicGainFLoor property. The return value indicates if the value was successfully retrieved.
+        Gets the value of the DynamicGainFLoor property. The return value
+        indicates if the value was successfully retrieved.
 
         This method has id ``4.19``.
 
-        :param OcaDB Limit: Output parameter.
-        :param OcaDB minLimit: Output parameter.
-        :param OcaDB maxLimit: Output parameter.
+        - :cpp:expr:`Limit`: Output parameter.
+
+
+        - :cpp:expr:`minLimit`: Output parameter.
+
+
+        - :cpp:expr:`maxLimit`: Output parameter.
+
 
     .. _ocadynamics_setdynamicgainfloor:
 
     .. cpp:function:: OcaStatus SetDynamicGainFloor(OcaDB Limit)
 
-        Sets the value of the DynamicGainFloor property. The return value indicates if the value was successfully set.
+        Sets the value of the DynamicGainFloor property. The return value
+        indicates if the value was successfully set.
 
         This method has id ``4.20``.
 
-        :param OcaDB Limit: Input parameter.
+        - :cpp:expr:`Limit`: Input parameter.
+
 
     .. _ocadynamics_getdynamicgainceiling:
 
     .. cpp:function:: OcaStatus GetDynamicGainCeiling(OcaDB &Limit, OcaDB &minLimit, OcaDB &maxLimit)
 
-        Gets the value of the DynamicGainCeiling property. The return value indicates if the value was successfully retrieved.
+        Gets the value of the DynamicGainCeiling property. The return value
+        indicates if the value was successfully retrieved.
 
         This method has id ``4.21``.
 
-        :param OcaDB Limit: Output parameter.
-        :param OcaDB minLimit: Output parameter.
-        :param OcaDB maxLimit: Output parameter.
+        - :cpp:expr:`Limit`: Output parameter.
+
+
+        - :cpp:expr:`minLimit`: Output parameter.
+
+
+        - :cpp:expr:`maxLimit`: Output parameter.
+
 
     .. _ocadynamics_setdynamicgainceiling:
 
     .. cpp:function:: OcaStatus SetDynamicGainCeiling(OcaDB Limit)
 
-        Sets the value of the DynamicGainCeiling property. The return value indicates if the value was successfully set.
+        Sets the value of the DynamicGainCeiling property. The return value
+        indicates if the value was successfully set.
 
         This method has id ``4.22``.
 
-        :param OcaDB Limit: Input parameter.
+        - :cpp:expr:`Limit`: Input parameter.
+
 
     .. _ocadynamics_getkneeparameter:
 
     .. cpp:function:: OcaStatus GetKneeParameter(OcaFloat32 &Parameter, OcaFloat32 &minParameter, OcaFloat32 &maxParameter)
 
-        Gets the value of the KneeParameter property. The return value indicates if the value was successfully retrieved.
+        Gets the value of the KneeParameter property. The return value indicates
+        if the value was successfully retrieved.
 
         This method has id ``4.23``.
 
-        :param OcaFloat32 Parameter: Output parameter.
-        :param OcaFloat32 minParameter: Output parameter.
-        :param OcaFloat32 maxParameter: Output parameter.
+        - :cpp:expr:`Parameter`: Output parameter.
+
+
+        - :cpp:expr:`minParameter`: Output parameter.
+
+
+        - :cpp:expr:`maxParameter`: Output parameter.
+
 
     .. _ocadynamics_setkneeparameter:
 
     .. cpp:function:: OcaStatus SetKneeParameter(OcaFloat32 Parameter)
 
-        Sets the value of the KneeParameter property. The return value indicates if the value was successfully set.
+        Sets the value of the KneeParameter property. The return value indicates
+        if the value was successfully set.
 
         This method has id ``4.24``.
 
-        :param OcaFloat32 Parameter: Input parameter.
+        - :cpp:expr:`Parameter`: Input parameter.
+
 
     .. _ocadynamics_getslope:
 
     .. cpp:function:: OcaStatus GetSlope(OcaFloat32 &Slope, OcaFloat32 &minSlope, OcaFloat32 &maxSlope)
 
-        Gets the value of the Slope property. The return value indicates whether the property was successfully retrieved.
+        Gets the value of the Slope property. The return value indicates whether
+        the property was successfully retrieved.
 
         This method has id ``4.25``.
 
-        :param OcaFloat32 Slope: Output parameter.
-        :param OcaFloat32 minSlope: Output parameter.
-        :param OcaFloat32 maxSlope: Output parameter.
+        - :cpp:expr:`Slope`: Output parameter.
+
+
+        - :cpp:expr:`minSlope`: Output parameter.
+
+
+        - :cpp:expr:`maxSlope`: Output parameter.
+
 
     .. _ocadynamics_setslope:
 
     .. cpp:function:: OcaStatus SetSlope(OcaFloat32 Slope)
 
-        Sets the value of the Slope property. The return value indicates whether the property was successfully set.
+        Sets the value of the Slope property. The return value indicates whether
+        the property was successfully set.
 
         This method has id ``4.26``.
 
-        :param OcaFloat32 Slope: Input parameter.
+        - :cpp:expr:`Slope`: Input parameter.
+
 
     .. _ocadynamics_setmultiple:
 
     .. cpp:function:: OcaStatus SetMultiple(OcaParameterMask Mask, OcaDynamicsFunction Function, OcaDBr Threshold, OcaPresentationUnit ThresholdPresentationUnits, OcaLevelDetectionLaw DetectorLaw, OcaTimeInterval AttackTime, OcaTimeInterval ReleaseTime, OcaTimeInterval HoldTime, OcaDB DynamicGainCeiling, OcaDB DynamicGainFloor, OcaFloat32 Slope, OcaFloat32 KneeParameter)
 
-        Sets some or all dynamics parameters. The return value indicates if the parameters were successfully set. The action of this method is atomic - if any of the value changes fails, none of the changes are made.
+        Sets some or all dynamics parameters. The return value indicates if the
+        parameters were successfully set. The action of this method is atomic -
+        if any of the value changes fails, none of the changes are made.
 
         This method has id ``4.27``.
 
-        :param OcaParameterMask Mask: Input parameter.
-        :param OcaDynamicsFunction Function: Input parameter.
-        :param OcaDBr Threshold: Input parameter.
-        :param OcaPresentationUnit ThresholdPresentationUnits: Input parameter.
-        :param OcaLevelDetectionLaw DetectorLaw: Input parameter.
-        :param OcaTimeInterval AttackTime: Input parameter.
-        :param OcaTimeInterval ReleaseTime: Input parameter.
-        :param OcaTimeInterval HoldTime: Input parameter.
-        :param OcaDB DynamicGainCeiling: Input parameter.
-        :param OcaDB DynamicGainFloor: Input parameter.
-        :param OcaFloat32 Slope: Input parameter.
-        :param OcaFloat32 KneeParameter: Input parameter.
+        - :cpp:expr:`Mask`: Input parameter.
 
 
-    Methods inherited from :ref:`OcaWorker <OcaWorker>`:
-    
-    - :ref:`OcaWorker::GetEnabled(enabled) <OcaWorker_GetEnabled>`
-    
-    - :ref:`OcaWorker::SetEnabled(enabled) <OcaWorker_SetEnabled>`
-    
-    - :ref:`OcaWorker::AddPort(Label, Mode, ID) <OcaWorker_AddPort>`
-    
-    - :ref:`OcaWorker::DeletePort(ID) <OcaWorker_DeletePort>`
-    
-    - :ref:`OcaWorker::GetPorts(OcaPorts) <OcaWorker_GetPorts>`
-    
-    - :ref:`OcaWorker::GetPortName(PortID, Name) <OcaWorker_GetPortName>`
-    
-    - :ref:`OcaWorker::SetPortName(PortID, Name) <OcaWorker_SetPortName>`
-    
-    - :ref:`OcaWorker::GetLabel(label) <OcaWorker_GetLabel>`
-    
-    - :ref:`OcaWorker::SetLabel(label) <OcaWorker_SetLabel>`
-    
-    - :ref:`OcaWorker::GetOwner(owner) <OcaWorker_GetOwner>`
-    
-    - :ref:`OcaWorker::GetLatency(latency) <OcaWorker_GetLatency>`
-    
-    - :ref:`OcaWorker::SetLatency(latency) <OcaWorker_SetLatency>`
-    
-    - :ref:`OcaWorker::GetPath(NamePath, ONoPath) <OcaWorker_GetPath>`
-    
-    
-    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
-    
-    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
-    
-    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
-    
-    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
-    
-    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
-    
-    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
-    
-    
+        - :cpp:expr:`Function`: Input parameter.
 
+
+        - :cpp:expr:`Threshold`: Input parameter.
+
+
+        - :cpp:expr:`ThresholdPresentationUnits`: Input parameter.
+
+
+        - :cpp:expr:`DetectorLaw`: Input parameter.
+
+
+        - :cpp:expr:`AttackTime`: Input parameter.
+
+
+        - :cpp:expr:`ReleaseTime`: Input parameter.
+
+
+        - :cpp:expr:`HoldTime`: Input parameter.
+
+
+        - :cpp:expr:`DynamicGainCeiling`: Input parameter.
+
+
+        - :cpp:expr:`DynamicGainFloor`: Input parameter.
+
+
+        - :cpp:expr:`Slope`: Input parameter.
+
+
+        - :cpp:expr:`KneeParameter`: Input parameter.
+
+
+    Methods inherited from :ref:`ocaactuator`:
+
+    - :ref:`OcaActuator::GetClassIdentification <ocaroot_getclassidentification>`
+
+    - :ref:`OcaActuator::GetLockable <ocaroot_getlockable>`
+
+    - :ref:`OcaActuator::LockTotal <ocaroot_locktotal>`
+
+    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
+
+    - :ref:`OcaActuator::GetRole <ocaroot_getrole>`
+
+    - :ref:`OcaActuator::LockReadonly <ocaroot_lockreadonly>`
+
+    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
+
+    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaActuator::AddPort <ocaworker_addport>`
+
+    - :ref:`OcaActuator::DeletePort <ocaworker_deleteport>`
+
+    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
+
+    - :ref:`OcaActuator::GetLabel <ocaworker_getlabel>`
+
+    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
+
+    - :ref:`OcaActuator::GetOwner <ocaworker_getowner>`
+
+    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
+
+    - :ref:`OcaActuator::SetLatency <ocaworker_setlatency>`
+
+    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
 

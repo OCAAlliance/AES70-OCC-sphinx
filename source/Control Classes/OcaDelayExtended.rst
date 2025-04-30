@@ -5,29 +5,36 @@
 
 Class Hierarchy:
 
-:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaActuator <ocaactuator>` :raw:html:`&rarr;` :ref:`OcaDelay <ocadelay>` :raw:html:`&rarr;` :ref:`OcaDelayExtended <ocadelayextended>` 
+:ref:`OcaRoot <ocaroot>` : :ref:`OcaWorker <ocaworker>` : :ref:`OcaActuator <ocaactuator>` : :ref:`OcaDelay <ocadelay>` : :ref:`OcaDelayExtended <ocadelayextended>`
 
 .. cpp:class:: OcaDelayExtended: OcaDelay
 
-    Signal delay - extended version. Allows setting delay value in various units. Note that the inherited property 04p01 DelayTime is also supported by this class and reflects actual achieved delay in seconds.
+    Signal delay - extended version. Allows setting delay value in various
+    units. Note that the inherited property 04p01 DelayTime is also supported by
+    this class and reflects actual achieved delay in seconds.
 
     **Properties**:
+
 
     .. _ocadelayextended_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.1.1.7.1"
 
-        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from
+        the object number, which identifies the instantiated object. This
+        property is an override of the **OcaRoot** property.
 
-        This property has id ``5.1``.
+        This property has id ``1.1``.
 
     .. _ocadelayextended_classversion:
 
     .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
 
-        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class
+        definition leads to a higher class version. This property is an override
+        of the **OcaRoot** property.
 
-        This property has id ``5.2``.
+        This property has id ``1.2``.
 
     .. _ocadelayextended_delayvalue:
 
@@ -37,120 +44,132 @@ Class Hierarchy:
 
         This property has id ``5.1``.
 
-    Properties inherited from :ref:`OcaDelay <OcaDelay>`:
-    
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaDelay::DelayTime <OcaDelay_DelayTime>`
-    
-    
-    Properties inherited from :ref:`OcaWorker <OcaWorker>`:
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <OcaWorker_Enabled>`
-    
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <OcaWorker_Ports>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <OcaWorker_Label>`
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <OcaWorker_Owner>`
-    
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <OcaWorker_Latency>`
-    
-    
-    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
-    
-    
+    Properties inherited from :ref:`ocadelay`:
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaWorker::ClassID <ocaworker_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaWorker::ClassVersion <ocaworker_classversion>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaActuator::ClassID <ocaactuator_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaActuator::ClassVersion <ocaactuator_classversion>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaDelay::ClassID <ocadelay_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaDelay::ClassVersion <ocadelay_classversion>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaDelay::DelayTime <ocadelay_delaytime>`
+
 
     **Methods**:
+
 
     .. _ocadelayextended_getdelayvalue:
 
     .. cpp:function:: OcaStatus GetDelayValue(OcaDelayValue &Value, OcaDelayValue &minValue, OcaDelayValue &maxValue)
 
-        Gets the value of the DelayValue property. The return value indicates whether the property was successfully retrieved.
+        Gets the value of the DelayValue property. The return value indicates
+        whether the property was successfully retrieved.
 
         This method has id ``5.1``.
 
-        :param OcaDelayValue Value: Output parameter.
-        :param OcaDelayValue minValue: Output parameter.
-        :param OcaDelayValue maxValue: Output parameter.
+        - :cpp:expr:`Value`: Output parameter.
+
+
+        - :cpp:expr:`minValue`: Output parameter.
+
+
+        - :cpp:expr:`maxValue`: Output parameter.
+
 
     .. _ocadelayextended_setdelayvalue:
 
     .. cpp:function:: OcaStatus SetDelayValue(OcaDelayValue Value)
 
-        Sets the value of the DelayValue property. The return value indicates whether the property was successfully set.
+        Sets the value of the DelayValue property. The return value indicates
+        whether the property was successfully set.
 
         This method has id ``5.2``.
 
-        :param OcaDelayValue Value: Input parameter.
+        - :cpp:expr:`Value`: Input parameter.
+
 
     .. _ocadelayextended_getdelayvalueconverted:
 
     .. cpp:function:: OcaStatus GetDelayValueConverted(OcaDelayUnit UoM, OcaDelayValue &Value)
 
-        Return current delay setting, converted to given units. The return value indicates whether the method has succeeded.
+        Return current delay setting, converted to given units. The return value
+        indicates whether the method has succeeded.
 
         This method has id ``5.3``.
 
-        :param OcaDelayUnit UoM: Input parameter.
-        :param OcaDelayValue Value: Output parameter.
+        - :cpp:expr:`UoM`: Input parameter.
 
 
-    Methods inherited from :ref:`OcaDelay <OcaDelay>`:
-    
-    - :ref:`OcaDelay::GetDelayTime(Time, minTime, maxTime) <OcaDelay_GetDelayTime>`
-    
-    - :ref:`OcaDelay::SetDelayTime(delayTime) <OcaDelay_SetDelayTime>`
-    
-    
-    Methods inherited from :ref:`OcaWorker <OcaWorker>`:
-    
-    - :ref:`OcaWorker::GetEnabled(enabled) <OcaWorker_GetEnabled>`
-    
-    - :ref:`OcaWorker::SetEnabled(enabled) <OcaWorker_SetEnabled>`
-    
-    - :ref:`OcaWorker::AddPort(Label, Mode, ID) <OcaWorker_AddPort>`
-    
-    - :ref:`OcaWorker::DeletePort(ID) <OcaWorker_DeletePort>`
-    
-    - :ref:`OcaWorker::GetPorts(OcaPorts) <OcaWorker_GetPorts>`
-    
-    - :ref:`OcaWorker::GetPortName(PortID, Name) <OcaWorker_GetPortName>`
-    
-    - :ref:`OcaWorker::SetPortName(PortID, Name) <OcaWorker_SetPortName>`
-    
-    - :ref:`OcaWorker::GetLabel(label) <OcaWorker_GetLabel>`
-    
-    - :ref:`OcaWorker::SetLabel(label) <OcaWorker_SetLabel>`
-    
-    - :ref:`OcaWorker::GetOwner(owner) <OcaWorker_GetOwner>`
-    
-    - :ref:`OcaWorker::GetLatency(latency) <OcaWorker_GetLatency>`
-    
-    - :ref:`OcaWorker::SetLatency(latency) <OcaWorker_SetLatency>`
-    
-    - :ref:`OcaWorker::GetPath(NamePath, ONoPath) <OcaWorker_GetPath>`
-    
-    
-    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
-    
-    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
-    
-    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
-    
-    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
-    
-    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
-    
-    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
-    
-    
+        - :cpp:expr:`Value`: Output parameter.
 
+
+    Methods inherited from :ref:`ocadelay`:
+
+    - :ref:`OcaDelay::GetClassIdentification <ocaroot_getclassidentification>`
+
+    - :ref:`OcaDelay::GetLockable <ocaroot_getlockable>`
+
+    - :ref:`OcaDelay::LockTotal <ocaroot_locktotal>`
+
+    - :ref:`OcaDelay::Unlock <ocaroot_unlock>`
+
+    - :ref:`OcaDelay::GetRole <ocaroot_getrole>`
+
+    - :ref:`OcaDelay::LockReadonly <ocaroot_lockreadonly>`
+
+    - :ref:`OcaDelay::GetEnabled <ocaworker_getenabled>`
+
+    - :ref:`OcaDelay::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaDelay::AddPort <ocaworker_addport>`
+
+    - :ref:`OcaDelay::DeletePort <ocaworker_deleteport>`
+
+    - :ref:`OcaDelay::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaDelay::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaDelay::SetPortName <ocaworker_setportname>`
+
+    - :ref:`OcaDelay::GetLabel <ocaworker_getlabel>`
+
+    - :ref:`OcaDelay::SetLabel <ocaworker_setlabel>`
+
+    - :ref:`OcaDelay::GetOwner <ocaworker_getowner>`
+
+    - :ref:`OcaDelay::GetLatency <ocaworker_getlatency>`
+
+    - :ref:`OcaDelay::SetLatency <ocaworker_setlatency>`
+
+    - :ref:`OcaDelay::GetPath <ocaworker_getpath>`
+
+    - :ref:`OcaDelay::GetDelayTime <ocadelay_getdelaytime>`
+
+    - :ref:`OcaDelay::SetDelayTime <ocadelay_setdelaytime>`
 

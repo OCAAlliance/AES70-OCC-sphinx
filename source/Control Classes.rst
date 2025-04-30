@@ -3,13 +3,17 @@ Control Classes
 ===============
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    Control Classes/OcaRoot
    Control Classes/OcaWorker
    Control Classes/OcaActuator
    Control Classes/OcaBasicActuator
    Control Classes/OcaBooleanActuator
+   Control Classes/OcaFloat32Actuator
+   Control Classes/OcaFloat64Actuator
+   Control Classes/OcaStringActuator
+   Control Classes/OcaBitstringActuator
    Control Classes/OcaInt8Actuator
    Control Classes/OcaInt16Actuator
    Control Classes/OcaInt32Actuator
@@ -18,19 +22,6 @@ Control Classes
    Control Classes/OcaUint16Actuator
    Control Classes/OcaUint32Actuator
    Control Classes/OcaUint64Actuator
-   Control Classes/OcaFloat32Actuator
-   Control Classes/OcaFloat64Actuator
-   Control Classes/OcaStringActuator
-   Control Classes/OcaBitstringActuator
-   Control Classes/OcaMute
-   Control Classes/OcaPolarity
-   Control Classes/OcaSwitch
-   Control Classes/OcaGain
-   Control Classes/OcaPanBalance
-   Control Classes/OcaDelay
-   Control Classes/OcaDelayExtended
-   Control Classes/OcaFrequencyActuator
-   Control Classes/OcaFilterClassical
    Control Classes/OcaFilterParametric
    Control Classes/OcaFilterPolynomial
    Control Classes/OcaFilterFIR
@@ -41,12 +32,25 @@ Control Classes
    Control Classes/OcaSignalGenerator
    Control Classes/OcaSignalInput
    Control Classes/OcaSignalOutput
+   Control Classes/OcaMute
    Control Classes/OcaTemperatureActuator
    Control Classes/OcaIdentificationActuator
    Control Classes/OcaSummingPoint
+   Control Classes/OcaPolarity
+   Control Classes/OcaSwitch
+   Control Classes/OcaGain
+   Control Classes/OcaPanBalance
+   Control Classes/OcaDelay
+   Control Classes/OcaDelayExtended
+   Control Classes/OcaFrequencyActuator
+   Control Classes/OcaFilterClassical
    Control Classes/OcaSensor
    Control Classes/OcaBasicSensor
    Control Classes/OcaBooleanSensor
+   Control Classes/OcaFloat32Sensor
+   Control Classes/OcaFloat64Sensor
+   Control Classes/OcaStringSensor
+   Control Classes/OcaBitstringSensor
    Control Classes/OcaInt8Sensor
    Control Classes/OcaInt16Sensor
    Control Classes/OcaInt32Sensor
@@ -55,10 +59,7 @@ Control Classes
    Control Classes/OcaUint16Sensor
    Control Classes/OcaUint32Sensor
    Control Classes/OcaUint64Sensor
-   Control Classes/OcaFloat32Sensor
-   Control Classes/OcaFloat64Sensor
-   Control Classes/OcaStringSensor
-   Control Classes/OcaBitstringSensor
+   Control Classes/OcaGainSensor
    Control Classes/OcaLevelSensor
    Control Classes/OcaAudioLevelSensor
    Control Classes/OcaTimeIntervalSensor
@@ -68,13 +69,17 @@ Control Classes
    Control Classes/OcaVoltageSensor
    Control Classes/OcaCurrentSensor
    Control Classes/OcaImpedanceSensor
-   Control Classes/OcaGainSensor
    Control Classes/OcaBlock
    Control Classes/OcaBlockFactory
    Control Classes/OcaMatrix
    Control Classes/OcaNetworkSignalChannel
    Control Classes/OcaAgent
    Control Classes/OcaNetwork
+   Control Classes/OcaStreamNetwork
+   Control Classes/OcaStreamConnector
+   Control Classes/OcaMediaClock3
+   Control Classes/OcaTimeSource
+   Control Classes/OcaPhysicalPosition
    Control Classes/OcaGrouper
    Control Classes/OcaRamper
    Control Classes/OcaNumericObserver
@@ -83,13 +88,12 @@ Control Classes
    Control Classes/OcaPowerSupply
    Control Classes/OcaEventHandler
    Control Classes/OcaNumericObserverList
-   Control Classes/OcaStreamNetwork
-   Control Classes/OcaStreamConnector
-   Control Classes/OcaMediaClock3
-   Control Classes/OcaTimeSource
-   Control Classes/OcaPhysicalPosition
    Control Classes/OcaManager
    Control Classes/OcaDeviceManager
+   Control Classes/OcaDeviceTimeManager
+   Control Classes/OcaTaskManager
+   Control Classes/OcaCodingManager
+   Control Classes/OcaDiagnosticManager
    Control Classes/OcaSecurityManager
    Control Classes/OcaFirmwareManager
    Control Classes/OcaSubscriptionManager
@@ -98,10 +102,6 @@ Control Classes
    Control Classes/OcaMediaClockManager
    Control Classes/OcaLibraryManager
    Control Classes/OcaAudioProcessingManager
-   Control Classes/OcaDeviceTimeManager
-   Control Classes/OcaTaskManager
-   Control Classes/OcaCodingManager
-   Control Classes/OcaDiagnosticManager
    Control Classes/OcaApplicationNetwork
    Control Classes/OcaControlNetwork
    Control Classes/OcaMediaTransportNetwork

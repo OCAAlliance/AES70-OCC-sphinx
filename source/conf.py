@@ -20,7 +20,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'AES70-OCC'
-copyright = '2021, OCA Alliance'
+copyright = '2025, OCA Alliance'
 author = 'Arne Goedeke'
 
 

@@ -9,4 +9,6 @@ OcaMediaStreamParameters
 
 .. cpp:type:: OcaMediaStreamParameters = OcaBlob
 
-    Media stream parameters. Definition is media transport type dependent. Appropriate subclasses will be defined for specific X210 adaptations.
+    Media stream parameters. Definition is media transport type dependent.
+    Appropriate subclasses will be defined for specific X210 adaptations.
+

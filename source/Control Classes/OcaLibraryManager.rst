@@ -5,35 +5,41 @@
 
 Class Hierarchy:
 
-:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaManager <ocamanager>` :raw:html:`&rarr;` :ref:`OcaLibraryManager <ocalibrarymanager>` 
+:ref:`OcaRoot <ocaroot>` : :ref:`OcaManager <ocamanager>` : :ref:`OcaLibraryManager <ocalibrarymanager>`
 
 .. cpp:class:: OcaLibraryManager: OcaManager
 
-    Optional manager for handling device presets -- Patch and ParamSet libraries.  
-    
+    Optional manager for handling device presets -- Patch and ParamSet
+    libraries.
+
      - May be instantiated once in any device.
-       
-    
+
      - If instantiated, object number must be 8.
-     
+
+
 
     **Properties**:
+
 
     .. _ocalibrarymanager_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.3.8"
 
-        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from
+        the object number, which identifies the instantiated object. This
+        property is an override of the **OcaRoot** property.
 
-        This property has id ``3.1``.
+        This property has id ``1.1``.
 
     .. _ocalibrarymanager_classversion:
 
     .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
 
-        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class
+        definition leads to a higher class version. This property is an override
+        of the **OcaRoot** property.
 
-        This property has id ``3.2``.
+        This property has id ``1.2``.
 
     .. _ocalibrarymanager_libraries:
 
@@ -47,32 +53,46 @@ Class Hierarchy:
 
     .. cpp:member:: OcaLibVolIdentifier CurrentPatch
 
-        Library volume identifier of the most-recently applied patch in this device. Changing the value of this property applies the patch represented by the new value.
+        Library volume identifier of the most-recently applied patch in this
+        device. Changing the value of this property applies the patch
+        represented by the new value.
 
         This property has id ``3.2``.
 
-    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
-    
-    
+    Properties inherited from :ref:`ocamanager`:
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaManager::ClassID <ocamanager_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaManager::ClassVersion <ocamanager_classversion>`
+
 
     **Methods**:
+
 
     .. _ocalibrarymanager_addlibrary:
 
     .. cpp:function:: OcaStatus AddLibrary(OcaLibVolType Type, OcaLibraryIdentifier &Identifier)
 
-        Adds a library to the device. Return value indicates whether the library was successfully added.
+        Adds a library to the device. Return value indicates whether the library
+        was successfully added.
 
         This method has id ``3.1``.
 
-        :param OcaLibVolType Type: Input parameter.
-        :param OcaLibraryIdentifier Identifier: Output parameter.
+        - :cpp:expr:`Type`: Input parameter.
+
+
+        - :cpp:expr:`Identifier`: Output parameter.
+
 
     .. _ocalibrarymanager_deletelibrary:
 
@@ -82,39 +102,50 @@ Class Hierarchy:
 
         This method has id ``3.2``.
 
-        :param OcaONo ID: Input parameter.
+        - :cpp:expr:`ID`: Input parameter.
+
 
     .. _ocalibrarymanager_getlibrarycount:
 
     .. cpp:function:: OcaStatus GetLibraryCount(OcaLibVolType Type, OcaUint16 &Count)
 
-        Returns the number of libraries of the given type that are instantiated in the device..
+        Returns the number of libraries of the given type that are instantiated
+        in the device..
 
         This method has id ``3.3``.
 
-        :param OcaLibVolType Type: Input parameter.
-        :param OcaUint16 Count: Output parameter.
+        - :cpp:expr:`Type`: Input parameter.
+
+
+        - :cpp:expr:`Count`: Output parameter.
+
 
     .. _ocalibrarymanager_getlibrarylist:
 
     .. cpp:function:: OcaStatus GetLibraryList(OcaLibVolType Type, OcaList<OcaLibraryIdentifier> &Libraries)
 
-        Returns the list of object numbers of libraries of libraries of the given type that are instantiated in the device.
+        Returns the list of object numbers of libraries of libraries of the
+        given type that are instantiated in the device.
 
         This method has id ``3.4``.
 
-        :param OcaLibVolType Type: Input parameter.
-        :param OcaList<OcaLibraryIdentifier> Libraries: Output parameter.
+        - :cpp:expr:`Type`: Input parameter.
+
+
+        - :cpp:expr:`Libraries`: Output parameter.
+
 
     .. _ocalibrarymanager_getcurrentpatch:
 
     .. cpp:function:: OcaStatus GetCurrentPatch(OcaLibVolIdentifier &ID)
 
-        Return the identifier of the most recently applied patch. The return value indicates whether the method succeeded.
+        Return the identifier of the most recently applied patch. The return
+        value indicates whether the method succeeded.
 
         This method has id ``3.5``.
 
-        :param OcaLibVolIdentifier ID: Output parameter.
+        - :cpp:expr:`ID`: Output parameter.
+
 
     .. _ocalibrarymanager_applypatch:
 
@@ -124,23 +155,20 @@ Class Hierarchy:
 
         This method has id ``3.6``.
 
-        :param OcaLibVolIdentifier ID: Input parameter.
+        - :cpp:expr:`ID`: Input parameter.
 
 
-    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
-    
-    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
-    
-    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
-    
-    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
-    
-    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
-    
-    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
-    
-    
+    Methods inherited from :ref:`ocamanager`:
 
+    - :ref:`OcaManager::GetClassIdentification <ocaroot_getclassidentification>`
+
+    - :ref:`OcaManager::GetLockable <ocaroot_getlockable>`
+
+    - :ref:`OcaManager::LockTotal <ocaroot_locktotal>`
+
+    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
+
+    - :ref:`OcaManager::GetRole <ocaroot_getrole>`
+
+    - :ref:`OcaManager::LockReadonly <ocaroot_lockreadonly>`
 

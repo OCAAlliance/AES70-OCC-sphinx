@@ -5,35 +5,85 @@
 
 Class Hierarchy:
 
-:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaMatrix <ocamatrix>` 
+:ref:`OcaRoot <ocaroot>` : :ref:`OcaWorker <ocaworker>` : :ref:`OcaMatrix <ocamatrix>`
 
 .. cpp:class:: OcaMatrix: OcaWorker
 
-    A matrix is a rectangular array of identical objects (" **members** ") that is coordinate addressable and has sets of common input and output ports. The matrix host does not instantiate these objects, but instead mediates the coordinate addressing, implements the common input and output ports, and provdes certain other aggregate functions. Matrix members may be workers (including blocks), or agents. All members of a matrix must be of the same class. No object may belong to more than one matrix at a time. No object may appear more than once in a given matrix. The complete model of an OCA matrix consists of: 1. One instance of  **OcaMatrix.**  2.  **(N x M) members** , where each member is an instance of a worker or agent class. For any given matrix, this class must be the same for all members, and is referred to as the  **member class.**  Members are sometimes referred to as  **cells**  of the matrix. 3. One additional instance of the member class, called the  **matrix proxy.**  Thus, the  **OcaMatrix**  instance is a container for the two-dimensional collection of its members. Once a matrix is set up, the controller may get and set member properties by the following procedures:  **Get**  To get a property value of member (x1, y1): 1. Controller calls  **OcaMatrix.SetXY(x1, y1)** . This action: - locks the  **OcaMatrix**  instance, and - posts x1 and y1 as coordinates of the object whose property value is to be retrieved. 2. Controller calls the matrix proxy's  **Get**  method for the property value desired. This action causes the  **OcaMatrix**  instance to: - decode the posted x1 and y1 values into a member ONo. - call the given  **Get**  method for the object identified by the decoded ONo. - aggregate the  **OcaResult**  from each  **Get**  call into a consolidated  **OcaResult** . - unlock the  **OcaMatrix**  instance. - return the consolidated  **OcaResult**  to the controller.  **Set**  To set a property value of member (x1, y1), or of row (0, y1) or column (x1, 0) or whole matrix (0,0) 1. Controller calls  **OcaMatrix.SetXY(x1, y1)** . This action: - locks the  **OcaMatrix**  instance, and - posts x1 and y1 as coordinates of the object whose property value is to be changed. 2. Controller calls the matrix proxy's  **Set**  method for the target property. This action causes the  **OcaMatrix**  instance to: - decode the posted x1 and y1 values into a list of target member ONos, as follows: If x1 :raw:html:`&gt;` 0 and y1 :raw:html:`&gt;` 0, the list will be the single ONo of the addressed cell. If x1 = 0 and y1 :raw:html:`&gt;` 0, the list will be the list of ONos of the cells in row y1 . If x1 :raw:html:`&gt;` 0 and y1 = 0, the list will be the list of ONos of the cells in column x1. If x1 = 0 and y1 = 0, the list will be the list of ONos of all cells of the matrix. - call the given  **Set**  method for each target member in the ONo list. - aggregate the  **OcaResult**  from each  **Set**  call into a consolidated  **OcaResult** . - unlock the  **OcaMatrix**  instance.
+    A matrix is a rectangular array of identical objects ("**members**") that is
+    coordinate addressable and has sets of common input and output ports. The
+    matrix host does not instantiate these objects, but instead mediates the
+    coordinate addressing, implements the common input and output ports, and
+    provdes certain other aggregate functions. Matrix members may be workers
+    (including blocks), or agents. All members of a matrix must be of the same
+    class. No object may belong to more than one matrix at a time. No object may
+    appear more than once in a given matrix. The complete model of an OCA matrix
+    consists of: 1. One instance of **OcaMatrix.** 2. **(N x M) members**, where
+    each member is an instance of a worker or agent class. For any given matrix,
+    this class must be the same for all members, and is referred to as the
+    **member class.** Members are sometimes referred to as **cells** of the
+    matrix. 3. One additional instance of the member class, called the **matrix
+    proxy.** Thus, the **OcaMatrix** instance is a container for the
+    two-dimensional collection of its members. Once a matrix is set up, the
+    controller may get and set member properties by the following procedures:
+    **Get** To get a property value of member (x :sub:`1`, y :sub:`1`): 1.
+    Controller calls **OcaMatrix.SetXY(x1, y1)**. This action: - locks the
+    **OcaMatrix** instance, and - posts x :sub:`1` and y :sub:`1` as coordinates
+    of the object whose property value is to be retrieved. 2. Controller calls
+    the matrix proxy's **Get** method for the property value desired. This
+    action causes the **OcaMatrix** instance to: - decode the posted x :sub:`1`
+    and y :sub:`1` values into a member ONo. - call the given **Get** method for
+    the object identified by the decoded ONo. - aggregate the **OcaResult** from
+    each **Get** call into a consolidated **OcaResult**. - unlock the
+    **OcaMatrix** instance. - return the consolidated **OcaResult** to the
+    controller. **Set** ** **To set a property value of member (x :sub:`1`, y
+    :sub:`1`), or of row (0, y :sub:`1`) or column (x :sub:`1`, 0) or whole
+    matrix (0,0) 1. Controller calls **OcaMatrix.SetXY(x1, y1)**. This action: -
+    locks the **OcaMatrix** instance, and - posts x :sub:`1` and y :sub:`1` as
+    coordinates of the object whose property value is to be changed. 2.
+    Controller calls the matrix proxy's **Set** method for the target property.
+    This action causes the **OcaMatrix** instance to: - decode the posted x
+    :sub:`1` and y :sub:`1` values into a list of target member ONos, as
+    follows: If x :sub:`1` ``>`` 0 and y :sub:`1` ``>`` 0, the list will be the
+    single ONo of the addressed cell. If x :sub:`1` = 0 and y :sub:`1` ``>`` 0,
+    the list will be the list of ONos of the cells in row y :sub:`1` . If x
+    :sub:`1` ``>`` 0 and y :sub:`1` = 0, the list will be the list of ONos of
+    the cells in column x :sub:`1`. If x :sub:`1` = 0 and y :sub:`1` = 0, the
+    list will be the list of ONos of all cells of the matrix. - call the given
+    **Set** method for each target member in the ONo list. - aggregate the
+    **OcaResult** from each **Set** call into a consolidated **OcaResult**. -
+    unlock the **OcaMatrix** instance.
 
     **Properties**:
+
 
     .. _ocamatrix_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.1.5"
 
-        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from
+        the object number, which identifies the instantiated object. This
+        property is an override of the **OcaRoot** property.
 
-        This property has id ``3.1``.
+        This property has id ``1.1``.
 
     .. _ocamatrix_classversion:
 
     .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
 
-        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class
+        definition leads to a higher class version. This property is an override
+        of the **OcaRoot** property.
 
-        This property has id ``3.2``.
+        This property has id ``1.2``.
 
     .. _ocamatrix_x:
 
     .. cpp:member:: OcaMatrixCoordinate X
 
-        Active column index. The active column is the column to which matrix proxy method calls will be reflected. Value is zero-relative, i.e. the first column is number zero. A value of 65535 means all columns in the matrix.
+        Active column index. The active column is the column to which matrix
+        proxy method calls will be reflected. Value is zero-relative, i.e. the
+        first column is number zero. A value of 65535 means all columns in the
+        matrix.
 
         This property has id ``3.1``.
 
@@ -41,7 +91,9 @@ Class Hierarchy:
 
     .. cpp:member:: OcaMatrixCoordinate Y
 
-        Active row index. The active row is the row to which matrix proxy changes will be reflected. Value is zero-relative, i.e. the first row is number zero. A value of 65535 means all rows in the matrix.
+        Active row index. The active row is the row to which matrix proxy
+        changes will be reflected. Value is zero-relative, i.e. the first row is
+        number zero. A value of 65535 means all rows in the matrix.
 
         This property has id ``3.2``.
 
@@ -81,7 +133,8 @@ Class Hierarchy:
 
     .. cpp:member:: OcaUint8 PortsPerRow
 
-        Number of input ports per row- e.g. for a stereo matrix, the value would be 2.
+        Number of input ports per row- e.g. for a stereo matrix, the value would
+        be 2.
 
         This property has id ``3.7``.
 
@@ -89,126 +142,176 @@ Class Hierarchy:
 
     .. cpp:member:: OcaUint8 PortsPerColumn
 
-        Number of output ports per column - e.g. for a stereo matrix, the value would be 2.
+        Number of output ports per column - e.g. for a stereo matrix, the value
+        would be 2.
 
         This property has id ``3.8``.
 
-    Properties inherited from :ref:`OcaWorker <OcaWorker>`:
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <OcaWorker_Enabled>`
-    
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <OcaWorker_Ports>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <OcaWorker_Label>`
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <OcaWorker_Owner>`
-    
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <OcaWorker_Latency>`
-    
-    
-    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
-    
-    
+    Properties inherited from :ref:`ocaworker`:
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaWorker::ClassID <ocaworker_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaWorker::ClassVersion <ocaworker_classversion>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+
 
     **Methods**:
+
 
     .. _ocamatrix_getcurrentxy:
 
     .. cpp:function:: OcaStatus GetCurrentXY(OcaMatrixCoordinate &x, OcaMatrixCoordinate &y)
 
-        Gets coordinates of the currently active area (cell, row, column, or whole matrix). The returned status indicates whether the operation was successful.
+        Gets coordinates of the currently active area (cell, row, column, or
+        whole matrix). The returned status indicates whether the operation was
+        successful.
 
         This method has id ``3.1``.
 
-        :param OcaMatrixCoordinate x: Output parameter.
-        :param OcaMatrixCoordinate y: Output parameter.
+        - :cpp:expr:`x`: Output parameter.
+
+
+        - :cpp:expr:`y`: Output parameter.
+
 
     .. _ocamatrix_setcurrentxy:
 
     .. cpp:function:: OcaStatus SetCurrentXY(OcaMatrixCoordinate x, OcaMatrixCoordinate y)
 
-        Sets the currently active area (cell, row, column, or whole matrix). The returned status indicates whether the operation was successful.
+        Sets the currently active area (cell, row, column, or whole matrix). The
+        returned status indicates whether the operation was successful.
 
         This method has id ``3.2``.
 
-        :param OcaMatrixCoordinate x: Input parameter.
-        :param OcaMatrixCoordinate y: Input parameter.
+        - :cpp:expr:`x`: Input parameter.
+
+
+        - :cpp:expr:`y`: Input parameter.
+
 
     .. _ocamatrix_getsize:
 
     .. cpp:function:: OcaStatus GetSize(OcaMatrixCoordinate &xSize, OcaMatrixCoordinate &ySize, OcaMatrixCoordinate &minXSize, OcaMatrixCoordinate &maxXSize, OcaMatrixCoordinate &minYSize, OcaMatrixCoordinate &maxYSize)
 
-        Gets the matrix size. The returned status indicates whether the operation was successful.
+        Gets the matrix size. The returned status indicates whether the
+        operation was successful.
 
         This method has id ``3.3``.
 
-        :param OcaMatrixCoordinate xSize: Output parameter.
-        :param OcaMatrixCoordinate ySize: Output parameter.
-        :param OcaMatrixCoordinate minXSize: Output parameter.
-        :param OcaMatrixCoordinate maxXSize: Output parameter.
-        :param OcaMatrixCoordinate minYSize: Output parameter.
-        :param OcaMatrixCoordinate maxYSize: Output parameter.
+        - :cpp:expr:`xSize`: Output parameter.
+
+
+        - :cpp:expr:`ySize`: Output parameter.
+
+
+        - :cpp:expr:`minXSize`: Output parameter.
+
+
+        - :cpp:expr:`maxXSize`: Output parameter.
+
+
+        - :cpp:expr:`minYSize`: Output parameter.
+
+
+        - :cpp:expr:`maxYSize`: Output parameter.
+
 
     .. _ocamatrix_setsize:
 
     .. cpp:function:: OcaStatus SetSize(OcaMatrixCoordinate xSize, OcaMatrixCoordinate ySize)
 
-        Sets the matrix size. The returned status indicates whether the operation was successful. This method will not be available for fixed-size matrices.
+        Sets the matrix size. The returned status indicates whether the
+        operation was successful. This method will not be available for
+        fixed-size matrices.
 
         This method has id ``3.4``.
 
-        :param OcaMatrixCoordinate xSize: Input parameter.
-        :param OcaMatrixCoordinate ySize: Input parameter.
+        - :cpp:expr:`xSize`: Input parameter.
+
+
+        - :cpp:expr:`ySize`: Input parameter.
+
 
     .. _ocamatrix_getmembers:
 
     .. cpp:function:: OcaStatus GetMembers(OcaList2D<OcaONo> &members)
 
-        Retrieves the 2D array of member object numbers. Cells for which no member has been defined will return Zero as the object number.
+        Retrieves the 2D array of member object numbers. Cells for which no
+        member has been defined will return Zero as the object number.
 
         This method has id ``3.5``.
 
-        :param OcaList2D<OcaONo> members: Output parameter.
+        - :cpp:expr:`members`: Output parameter.
+
 
     .. _ocamatrix_setmembers:
 
     .. cpp:function:: OcaStatus SetMembers(OcaList2D<OcaONo> members)
 
-        Sets the entire 2D array of member object numbers. Row and column size of the  **members**  parameter must be equal to the current size of the matrix.
+        Sets the entire 2D array of member object numbers. Row and column size
+        of the **members** parameter must be equal to the current size of the
+        matrix.
 
         This method has id ``3.6``.
 
-        :param OcaList2D<OcaONo> members: Input parameter.
+        - :cpp:expr:`members`: Input parameter.
+
 
     .. _ocamatrix_getmember:
 
     .. cpp:function:: OcaStatus GetMember(OcaMatrixCoordinate x, OcaMatrixCoordinate y, OcaONo &memberONo)
 
-        Retrieves the object number of the member at position (x,y). If no member is defined at this position, returns an object number value of Zero.
+        Retrieves the object number of the member at position (x,y). If no
+        member is defined at this position, returns an object number value of
+        Zero.
 
         This method has id ``3.7``.
 
-        :param OcaMatrixCoordinate x: Input parameter.
-        :param OcaMatrixCoordinate y: Input parameter.
-        :param OcaONo memberONo: Output parameter.
+        - :cpp:expr:`x`: Input parameter.
+
+
+        - :cpp:expr:`y`: Input parameter.
+
+
+        - :cpp:expr:`memberONo`: Output parameter.
+
 
     .. _ocamatrix_setmember:
 
     .. cpp:function:: OcaStatus SetMember(OcaMatrixCoordinate x, OcaMatrixCoordinate y, OcaONo memberONo)
 
-        Installs a particular object as a member at position (x,y). If another object was at this position, it is removed.
+        Installs a particular object as a member at position (x,y). If another
+        object was at this position, it is removed.
 
         This method has id ``3.8``.
 
-        :param OcaMatrixCoordinate x: Input parameter.
-        :param OcaMatrixCoordinate y: Input parameter.
-        :param OcaONo memberONo: Input parameter.
+        - :cpp:expr:`x`: Input parameter.
+
+
+        - :cpp:expr:`y`: Input parameter.
+
+
+        - :cpp:expr:`memberONo`: Input parameter.
+
 
     .. _ocamatrix_getproxy:
 
@@ -218,7 +321,8 @@ Class Hierarchy:
 
         This method has id ``3.9``.
 
-        :param OcaONo ONo: Output parameter.
+        - :cpp:expr:`ONo`: Output parameter.
+
 
     .. _ocamatrix_setproxy:
 
@@ -228,7 +332,8 @@ Class Hierarchy:
 
         This method has id ``3.10``.
 
-        :param OcaONo ONo: Input parameter.
+        - :cpp:expr:`ONo`: Input parameter.
+
 
     .. _ocamatrix_getportsperrow:
 
@@ -238,7 +343,8 @@ Class Hierarchy:
 
         This method has id ``3.11``.
 
-        :param OcaUint8 Ports: Output parameter.
+        - :cpp:expr:`Ports`: Output parameter.
+
 
     .. _ocamatrix_setportsperrow:
 
@@ -248,7 +354,8 @@ Class Hierarchy:
 
         This method has id ``3.12``.
 
-        :param OcaUint8 Ports: Input parameter.
+        - :cpp:expr:`Ports`: Input parameter.
+
 
     .. _ocamatrix_getportspercolumn:
 
@@ -258,7 +365,8 @@ Class Hierarchy:
 
         This method has id ``3.13``.
 
-        :param OcaUint8 Ports: Output parameter.
+        - :cpp:expr:`Ports`: Output parameter.
+
 
     .. _ocamatrix_setportspercolumn:
 
@@ -268,72 +376,74 @@ Class Hierarchy:
 
         This method has id ``3.14``.
 
-        :param OcaUint8 Ports: Input parameter.
+        - :cpp:expr:`Ports`: Input parameter.
+
 
     .. _ocamatrix_setcurrentxylock:
 
     .. cpp:function:: OcaStatus SetCurrentXYLock(OcaMatrixCoordinate x, OcaMatrixCoordinate y)
 
-        Sets the currently active area (cell, row, column, or whole matrix) and locks it. Fails if the referenced members cannot all be locked. The returned status indicates whether the operation was successful.
+        Sets the currently active area (cell, row, column, or whole matrix) and
+        locks it. Fails if the referenced members cannot all be locked. The
+        returned status indicates whether the operation was successful.
 
         This method has id ``3.15``.
 
-        :param OcaMatrixCoordinate x: Input parameter.
-        :param OcaMatrixCoordinate y: Input parameter.
+        - :cpp:expr:`x`: Input parameter.
+
+
+        - :cpp:expr:`y`: Input parameter.
+
 
     .. _ocamatrix_unlockcurrent:
 
     .. cpp:function:: OcaStatus UnlockCurrent()
 
-        Unlocks the currently active area of the matrix. Fails if all the members of the currently active area cannot be unlocked. Failure is  _not_ triggered if one or more members of the currently active area are already unlocked at the time Unlock() is called. The returned status indicates whether the operation was successful.
+        Unlocks the currently active area of the matrix. Fails if all the
+        members of the currently active area cannot be unlocked. Failure is not
+        triggered if one or more members of the currently active area are
+        already unlocked at the time Unlock() is called. The returned status
+        indicates whether the operation was successful.
 
         This method has id ``3.16``.
 
+    Methods inherited from :ref:`ocaworker`:
 
+    - :ref:`OcaWorker::GetClassIdentification <ocaroot_getclassidentification>`
 
-    Methods inherited from :ref:`OcaWorker <OcaWorker>`:
-    
-    - :ref:`OcaWorker::GetEnabled(enabled) <OcaWorker_GetEnabled>`
-    
-    - :ref:`OcaWorker::SetEnabled(enabled) <OcaWorker_SetEnabled>`
-    
-    - :ref:`OcaWorker::AddPort(Label, Mode, ID) <OcaWorker_AddPort>`
-    
-    - :ref:`OcaWorker::DeletePort(ID) <OcaWorker_DeletePort>`
-    
-    - :ref:`OcaWorker::GetPorts(OcaPorts) <OcaWorker_GetPorts>`
-    
-    - :ref:`OcaWorker::GetPortName(PortID, Name) <OcaWorker_GetPortName>`
-    
-    - :ref:`OcaWorker::SetPortName(PortID, Name) <OcaWorker_SetPortName>`
-    
-    - :ref:`OcaWorker::GetLabel(label) <OcaWorker_GetLabel>`
-    
-    - :ref:`OcaWorker::SetLabel(label) <OcaWorker_SetLabel>`
-    
-    - :ref:`OcaWorker::GetOwner(owner) <OcaWorker_GetOwner>`
-    
-    - :ref:`OcaWorker::GetLatency(latency) <OcaWorker_GetLatency>`
-    
-    - :ref:`OcaWorker::SetLatency(latency) <OcaWorker_SetLatency>`
-    
-    - :ref:`OcaWorker::GetPath(NamePath, ONoPath) <OcaWorker_GetPath>`
-    
-    
-    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
-    
-    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
-    
-    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
-    
-    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
-    
-    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
-    
-    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
-    
-    
+    - :ref:`OcaWorker::GetLockable <ocaroot_getlockable>`
 
+    - :ref:`OcaWorker::LockTotal <ocaroot_locktotal>`
+
+    - :ref:`OcaWorker::Unlock <ocaroot_unlock>`
+
+    - :ref:`OcaWorker::GetRole <ocaroot_getrole>`
+
+    - :ref:`OcaWorker::LockReadonly <ocaroot_lockreadonly>`
+
+    - :ref:`OcaWorker::GetEnabled <ocaworker_getenabled>`
+
+    - :ref:`OcaWorker::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaWorker::AddPort <ocaworker_addport>`
+
+    - :ref:`OcaWorker::DeletePort <ocaworker_deleteport>`
+
+    - :ref:`OcaWorker::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaWorker::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaWorker::SetPortName <ocaworker_setportname>`
+
+    - :ref:`OcaWorker::GetLabel <ocaworker_getlabel>`
+
+    - :ref:`OcaWorker::SetLabel <ocaworker_setlabel>`
+
+    - :ref:`OcaWorker::GetOwner <ocaworker_getowner>`
+
+    - :ref:`OcaWorker::GetLatency <ocaworker_getlatency>`
+
+    - :ref:`OcaWorker::SetLatency <ocaworker_setlatency>`
+
+    - :ref:`OcaWorker::GetPath <ocaworker_getpath>`
 

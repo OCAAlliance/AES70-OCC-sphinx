@@ -5,7 +5,7 @@
 
 Class Hierarchy:
 
-:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaActuator <ocaactuator>` :raw:html:`&rarr;` :ref:`OcaFilterFIR <ocafilterfir>` 
+:ref:`OcaRoot <ocaroot>` : :ref:`OcaWorker <ocaworker>` : :ref:`OcaActuator <ocaactuator>` : :ref:`OcaFilterFIR <ocafilterfir>`
 
 .. cpp:class:: OcaFilterFIR: OcaActuator
 
@@ -13,27 +13,33 @@ Class Hierarchy:
 
     **Properties**:
 
+
     .. _ocafilterfir_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.1.1.12"
 
-        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from
+        the object number, which identifies the instantiated object. This
+        property is an override of the **OcaRoot** property.
 
-        This property has id ``4.1``.
+        This property has id ``1.1``.
 
     .. _ocafilterfir_classversion:
 
     .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 2
 
-        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class
+        definition leads to a higher class version. This property is an override
+        of the **OcaRoot** property.
 
-        This property has id ``4.2``.
+        This property has id ``1.2``.
 
     .. _ocafilterfir_length:
 
     .. cpp:member:: OcaUint32 Length
 
-        Length of the filter, in samples. Readonly. Value is set when SetCoefficients(...) method executes.
+        Length of the filter, in samples. Readonly. Value is set when
+        SetCoefficients(...) method executes.
 
         This property has id ``4.1``.
 
@@ -41,7 +47,8 @@ Class Hierarchy:
 
     .. cpp:member:: OcaList<OcaFloat32> Coefficients
 
-        Array of FIR Coefficients. The size of the array (number of entries) is equal to the Order property plus 1.
+        Array of FIR Coefficients. The size of the array (number of entries) is
+        equal to the Order property plus 1.
 
         This property has id ``4.2``.
 
@@ -49,133 +56,154 @@ Class Hierarchy:
 
     .. cpp:member:: OcaFrequency SampleRate
 
-        Sample rate inside the filter. We can't assume it's the same as the device input or output rate.
+        Sample rate inside the filter. We can't assume it's the same as the
+        device input or output rate.
 
         This property has id ``4.3``.
 
-    Properties inherited from :ref:`OcaWorker <OcaWorker>`:
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <OcaWorker_Enabled>`
-    
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <OcaWorker_Ports>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <OcaWorker_Label>`
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <OcaWorker_Owner>`
-    
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <OcaWorker_Latency>`
-    
-    
-    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
-    
-    
+    Properties inherited from :ref:`ocaactuator`:
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaWorker::ClassID <ocaworker_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaWorker::ClassVersion <ocaworker_classversion>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaActuator::ClassID <ocaactuator_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaActuator::ClassVersion <ocaactuator_classversion>`
+
 
     **Methods**:
+
 
     .. _ocafilterfir_getlength:
 
     .. cpp:function:: OcaStatus GetLength(OcaUint32 &Length, OcaUint32 &minLength, OcaUint32 &maxLength)
 
-        Gets the length of the FIR filter. The return value indicates whether the value was successfully retrieved.
+        Gets the length of the FIR filter. The return value indicates whether
+        the value was successfully retrieved.
 
         This method has id ``4.1``.
 
-        :param OcaUint32 Length: Output parameter.
-        :param OcaUint32 minLength: Output parameter.
-        :param OcaUint32 maxLength: Output parameter.
+        - :cpp:expr:`Length`: Output parameter.
+
+
+        - :cpp:expr:`minLength`: Output parameter.
+
+
+        - :cpp:expr:`maxLength`: Output parameter.
+
 
     .. _ocafilterfir_getcoefficients:
 
     .. cpp:function:: OcaStatus GetCoefficients(OcaList<OcaFloat32> &Coefficients)
 
-        Gets the coefficients of the FIR filter. The return value indicates whether the coefficients were successfully retrieved.
+        Gets the coefficients of the FIR filter. The return value indicates
+        whether the coefficients were successfully retrieved.
 
         This method has id ``4.2``.
 
-        :param OcaList<OcaFloat32> Coefficients: Output parameter.
+        - :cpp:expr:`Coefficients`: Output parameter.
+
 
     .. _ocafilterfir_setcoefficients:
 
     .. cpp:function:: OcaStatus SetCoefficients(OcaList<OcaFloat32> Coefficients)
 
-        Sets the value of the properties of the FIR filter. The return value indicates whether the properties were successfully set.
+        Sets the value of the properties of the FIR filter. The return value
+        indicates whether the properties were successfully set.
 
         This method has id ``4.3``.
 
-        :param OcaList<OcaFloat32> Coefficients: Input parameter.
+        - :cpp:expr:`Coefficients`: Input parameter.
+
 
     .. _ocafilterfir_getsamplerate:
 
     .. cpp:function:: OcaStatus GetSampleRate(OcaFrequency &Rate, OcaFrequency &minRate, OcaFrequency &maxRate)
 
-        Gets the sample rate of the FIR filter. The return value indicates whether the data was successfully retrieved.
+        Gets the sample rate of the FIR filter. The return value indicates
+        whether the data was successfully retrieved.
 
         This method has id ``4.4``.
 
-        :param OcaFrequency Rate: Output parameter.
-        :param OcaFrequency minRate: Output parameter.
-        :param OcaFrequency maxRate: Output parameter.
+        - :cpp:expr:`Rate`: Output parameter.
+
+
+        - :cpp:expr:`minRate`: Output parameter.
+
+
+        - :cpp:expr:`maxRate`: Output parameter.
+
 
     .. _ocafilterfir_setsamplerate:
 
     .. cpp:function:: OcaStatus SetSampleRate(OcaFrequency Rate)
 
-        Sets the sample rate of the FIR filter. The return value indicates whether the rate was successfully set.
+        Sets the sample rate of the FIR filter. The return value indicates
+        whether the rate was successfully set.
 
         This method has id ``4.5``.
 
-        :param OcaFrequency Rate: Input parameter.
+        - :cpp:expr:`Rate`: Input parameter.
 
 
-    Methods inherited from :ref:`OcaWorker <OcaWorker>`:
-    
-    - :ref:`OcaWorker::GetEnabled(enabled) <OcaWorker_GetEnabled>`
-    
-    - :ref:`OcaWorker::SetEnabled(enabled) <OcaWorker_SetEnabled>`
-    
-    - :ref:`OcaWorker::AddPort(Label, Mode, ID) <OcaWorker_AddPort>`
-    
-    - :ref:`OcaWorker::DeletePort(ID) <OcaWorker_DeletePort>`
-    
-    - :ref:`OcaWorker::GetPorts(OcaPorts) <OcaWorker_GetPorts>`
-    
-    - :ref:`OcaWorker::GetPortName(PortID, Name) <OcaWorker_GetPortName>`
-    
-    - :ref:`OcaWorker::SetPortName(PortID, Name) <OcaWorker_SetPortName>`
-    
-    - :ref:`OcaWorker::GetLabel(label) <OcaWorker_GetLabel>`
-    
-    - :ref:`OcaWorker::SetLabel(label) <OcaWorker_SetLabel>`
-    
-    - :ref:`OcaWorker::GetOwner(owner) <OcaWorker_GetOwner>`
-    
-    - :ref:`OcaWorker::GetLatency(latency) <OcaWorker_GetLatency>`
-    
-    - :ref:`OcaWorker::SetLatency(latency) <OcaWorker_SetLatency>`
-    
-    - :ref:`OcaWorker::GetPath(NamePath, ONoPath) <OcaWorker_GetPath>`
-    
-    
-    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
-    
-    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
-    
-    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
-    
-    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
-    
-    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
-    
-    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
-    
-    
+    Methods inherited from :ref:`ocaactuator`:
 
+    - :ref:`OcaActuator::GetClassIdentification <ocaroot_getclassidentification>`
+
+    - :ref:`OcaActuator::GetLockable <ocaroot_getlockable>`
+
+    - :ref:`OcaActuator::LockTotal <ocaroot_locktotal>`
+
+    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
+
+    - :ref:`OcaActuator::GetRole <ocaroot_getrole>`
+
+    - :ref:`OcaActuator::LockReadonly <ocaroot_lockreadonly>`
+
+    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
+
+    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaActuator::AddPort <ocaworker_addport>`
+
+    - :ref:`OcaActuator::DeletePort <ocaworker_deleteport>`
+
+    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
+
+    - :ref:`OcaActuator::GetLabel <ocaworker_getlabel>`
+
+    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
+
+    - :ref:`OcaActuator::GetOwner <ocaworker_getowner>`
+
+    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
+
+    - :ref:`OcaActuator::SetLatency <ocaworker_setlatency>`
+
+    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
 

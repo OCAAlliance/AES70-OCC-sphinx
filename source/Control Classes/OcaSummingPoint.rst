@@ -5,99 +5,103 @@
 
 Class Hierarchy:
 
-:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaActuator <ocaactuator>` :raw:html:`&rarr;` :ref:`OcaSummingPoint <ocasummingpoint>` 
+:ref:`OcaRoot <ocaroot>` : :ref:`OcaWorker <ocaworker>` : :ref:`OcaActuator <ocaactuator>` : :ref:`OcaSummingPoint <ocasummingpoint>`
 
 .. cpp:class:: OcaSummingPoint: OcaActuator
 
-    Actuator with no control parameters, used as a simple node to represent summations in block signal flows.
+    Actuator with no control parameters, used as a simple node to represent
+    summations in block signal flows.
 
     **Properties**:
+
 
     .. _ocasummingpoint_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.1.1.22"
 
-        This property is an override of the  **OcaRoot** property.
+        This property is an override of the **OcaRoot** property.
 
-        This property has id ``4.1``.
+        This property has id ``1.1``.
 
     .. _ocasummingpoint_classversion:
 
     .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 1
 
-        This property is an override of the  **OcaRoot** property.
+        This property is an override of the **OcaRoot** property.
 
-        This property has id ``4.2``.
+        This property has id ``1.2``.
 
-    Properties inherited from :ref:`OcaWorker <OcaWorker>`:
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <OcaWorker_Enabled>`
-    
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <OcaWorker_Ports>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <OcaWorker_Label>`
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <OcaWorker_Owner>`
-    
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <OcaWorker_Latency>`
-    
-    
-    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
-    
-    
+    Properties inherited from :ref:`ocaactuator`:
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaWorker::ClassID <ocaworker_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaWorker::ClassVersion <ocaworker_classversion>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaActuator::ClassID <ocaactuator_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaActuator::ClassVersion <ocaactuator_classversion>`
+
 
     **Methods**:
 
 
-    Methods inherited from :ref:`OcaWorker <OcaWorker>`:
-    
-    - :ref:`OcaWorker::GetEnabled(enabled) <OcaWorker_GetEnabled>`
-    
-    - :ref:`OcaWorker::SetEnabled(enabled) <OcaWorker_SetEnabled>`
-    
-    - :ref:`OcaWorker::AddPort(Label, Mode, ID) <OcaWorker_AddPort>`
-    
-    - :ref:`OcaWorker::DeletePort(ID) <OcaWorker_DeletePort>`
-    
-    - :ref:`OcaWorker::GetPorts(OcaPorts) <OcaWorker_GetPorts>`
-    
-    - :ref:`OcaWorker::GetPortName(PortID, Name) <OcaWorker_GetPortName>`
-    
-    - :ref:`OcaWorker::SetPortName(PortID, Name) <OcaWorker_SetPortName>`
-    
-    - :ref:`OcaWorker::GetLabel(label) <OcaWorker_GetLabel>`
-    
-    - :ref:`OcaWorker::SetLabel(label) <OcaWorker_SetLabel>`
-    
-    - :ref:`OcaWorker::GetOwner(owner) <OcaWorker_GetOwner>`
-    
-    - :ref:`OcaWorker::GetLatency(latency) <OcaWorker_GetLatency>`
-    
-    - :ref:`OcaWorker::SetLatency(latency) <OcaWorker_SetLatency>`
-    
-    - :ref:`OcaWorker::GetPath(NamePath, ONoPath) <OcaWorker_GetPath>`
-    
-    
-    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
-    
-    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
-    
-    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
-    
-    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
-    
-    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
-    
-    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
-    
-    
+    Methods inherited from :ref:`ocaactuator`:
 
+    - :ref:`OcaActuator::GetClassIdentification <ocaroot_getclassidentification>`
+
+    - :ref:`OcaActuator::GetLockable <ocaroot_getlockable>`
+
+    - :ref:`OcaActuator::LockTotal <ocaroot_locktotal>`
+
+    - :ref:`OcaActuator::Unlock <ocaroot_unlock>`
+
+    - :ref:`OcaActuator::GetRole <ocaroot_getrole>`
+
+    - :ref:`OcaActuator::LockReadonly <ocaroot_lockreadonly>`
+
+    - :ref:`OcaActuator::GetEnabled <ocaworker_getenabled>`
+
+    - :ref:`OcaActuator::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaActuator::AddPort <ocaworker_addport>`
+
+    - :ref:`OcaActuator::DeletePort <ocaworker_deleteport>`
+
+    - :ref:`OcaActuator::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaActuator::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaActuator::SetPortName <ocaworker_setportname>`
+
+    - :ref:`OcaActuator::GetLabel <ocaworker_getlabel>`
+
+    - :ref:`OcaActuator::SetLabel <ocaworker_setlabel>`
+
+    - :ref:`OcaActuator::GetOwner <ocaworker_getowner>`
+
+    - :ref:`OcaActuator::GetLatency <ocaworker_getlatency>`
+
+    - :ref:`OcaActuator::SetLatency <ocaworker_setlatency>`
+
+    - :ref:`OcaActuator::GetPath <ocaworker_getpath>`
 

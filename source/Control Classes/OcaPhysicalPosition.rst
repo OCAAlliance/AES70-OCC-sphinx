@@ -5,35 +5,37 @@
 
 Class Hierarchy:
 
-:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaAgent <ocaagent>` :raw:html:`&rarr;` :ref:`OcaPhysicalPosition <ocaphysicalposition>` 
+:ref:`OcaRoot <ocaroot>` : :ref:`OcaAgent <ocaagent>` : :ref:`OcaPhysicalPosition <ocaphysicalposition>`
 
 .. cpp:class:: OcaPhysicalPosition: OcaAgent
 
-    Physical position of device or an element of it. AES70 supports a variety of positional coordinate systems. For details, see AES70-1, section 5.5.9.
+    Physical position of device or an element of it. AES70 supports a variety of
+    positional coordinate systems. For details, see AES70-1, section 5.5.9.
 
     **Properties**:
+
 
     .. _ocaphysicalposition_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.2.17"
 
-        This property is an override of the  **OcaRoot** property.
+        This property is an override of the **OcaRoot** property.
 
-        This property has id ``3.1``.
+        This property has id ``1.1``.
 
     .. _ocaphysicalposition_classversion:
 
     .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 1
 
-        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
 
-        This property has id ``3.2``.
+        This property has id ``1.2``.
 
     .. _ocaphysicalposition_coordinatesystem:
 
     .. cpp:member:: const OcaPositionCoordinateSystem CoordinateSystem
 
-        Type of physical coordinate system this object uses. Read-only, set at object construction time.
+        Type of physical coordinate system this object uses. Read-only, set at
+        object construction time.
 
         This property has id ``3.1``.
 
@@ -41,7 +43,9 @@ Class Hierarchy:
 
     .. cpp:member:: const OcaPositionDescriptorFieldFlags PositionDescriptorFieldFlags
 
-        Position descriptor field flags. Describe which position descriptor fields are used by this object. Read-only, set at object construction time.
+        Position descriptor field flags. Describe which position descriptor
+        fields are used by this object. Read-only, set at object construction
+        time.
 
         This property has id ``3.2``.
 
@@ -49,97 +53,114 @@ Class Hierarchy:
 
     .. cpp:member:: OcaPositionDescriptor PositionDescriptor
 
-        Position coordinates. For details, see AES70-1, section 5.5.9 and the  **OcaPositionDescriptor** datatype definition.
+        Position coordinates. For details, see AES70-1, section 5.5.9 and the
+        **OcaPositionDescriptor** datatype definition.
 
         This property has id ``3.3``.
 
-    Properties inherited from :ref:`OcaAgent <OcaAgent>`:
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaAgent::Label <OcaAgent_Label>`
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaAgent::Owner <OcaAgent_Owner>`
-    
-    
-    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
-    
-    
+    Properties inherited from :ref:`ocaagent`:
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaAgent::ClassID <ocaagent_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaAgent::ClassVersion <ocaagent_classversion>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaAgent::Label <ocaagent_label>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaAgent::Owner <ocaagent_owner>`
+
 
     **Methods**:
+
 
     .. _ocaphysicalposition_getcoordinatesystem:
 
     .. cpp:function:: OcaStatus GetCoordinateSystem(OcaPositionCoordinateSystem &CoordinateSystem)
 
-        Retrieves value of property  **CoordinateSystem** . Result indicates whether retrieval was successful.
+        Retrieves value of property **CoordinateSystem**. Result indicates
+        whether retrieval was successful.
 
         This method has id ``3.1``.
 
-        :param OcaPositionCoordinateSystem CoordinateSystem: Output parameter.
+        - :cpp:expr:`CoordinateSystem`: Output parameter.
+
 
     .. _ocaphysicalposition_getpositiondescriptorfieldflags:
 
     .. cpp:function:: OcaStatus GetPositionDescriptorFieldFlags(OcaPositionDescriptorFieldFlags &Flags)
 
-        Retrieves value of property  **PositionDescriptorFieldFlags** . Result indicates whether retrieval was successful.
+        Retrieves value of property **PositionDescriptorFieldFlags**. Result
+        indicates whether retrieval was successful.
 
         This method has id ``3.2``.
 
-        :param OcaPositionDescriptorFieldFlags Flags: Output parameter.
+        - :cpp:expr:`Flags`: Output parameter.
+
 
     .. _ocaphysicalposition_getpositiondescriptor:
 
     .. cpp:function:: OcaStatus GetPositionDescriptor(OcaPositionDescriptor &PositionDescriptor, OcaPositionDescriptor &minPositionDescriptor, OcaPositionDescriptor &maxPositionDescriptor)
 
-        Retrieves value of property  **PositioinDescriptor** . Result indicates whether retrieval was successful.
+        Retrieves value of property **PositioinDescriptor**. Result indicates
+        whether retrieval was successful.
 
         This method has id ``3.3``.
 
-        :param OcaPositionDescriptor PositionDescriptor: Output parameter.
-        :param OcaPositionDescriptor minPositionDescriptor: Output parameter.
-        :param OcaPositionDescriptor maxPositionDescriptor: Output parameter.
+        - :cpp:expr:`PositionDescriptor`: Output parameter.
+
+
+        - :cpp:expr:`minPositionDescriptor`: Output parameter.
+
+
+        - :cpp:expr:`maxPositionDescriptor`: Output parameter.
+
 
     .. _ocaphysicalposition_setpositiondescriptor:
 
     .. cpp:function:: OcaStatus SetPositionDescriptor(OcaPositionDescriptor PositionDescriptor)
 
-        Sets value of property  **PositionDescriptor** . Result indicates whether setting was successful. The  **ParameterError** status is returned if: (a) the  **FieldFlags** field of the given  **PositionDescriptor** value differs from the object's basic position descriptor as given in its  **PositionDescriptorFieldFlags** property, or (b) the given  **CoordinateSystem** value conflicts with the object's basic coordinate system as given in its  **CoordinateSystem** property. This is an optional method, not implemented for read-only position objects.
+        Sets value of property **PositionDescriptor**. Result indicates whether
+        setting was successful. The **ParameterError** status is returned if:
+        (a) the **FieldFlags** field of the given **PositionDescriptor** value
+        differs from the object's basic position descriptor as given in its
+        **PositionDescriptorFieldFlags** property, or (b) the given
+        **CoordinateSystem** value conflicts with the object's basic coordinate
+        system as given in its **CoordinateSystem** property. This is an
+        optional method, not implemented for read-only position objects.
 
         This method has id ``3.4``.
 
-        :param OcaPositionDescriptor PositionDescriptor: Input parameter.
+        - :cpp:expr:`PositionDescriptor`: Input parameter.
 
 
-    Methods inherited from :ref:`OcaAgent <OcaAgent>`:
-    
-    - :ref:`OcaAgent::GetLabel(Label) <OcaAgent_GetLabel>`
-    
-    - :ref:`OcaAgent::SetLabel(Label) <OcaAgent_SetLabel>`
-    
-    - :ref:`OcaAgent::GetOwner(owner) <OcaAgent_GetOwner>`
-    
-    - :ref:`OcaAgent::GetPath(NamePath, ONoPath) <OcaAgent_GetPath>`
-    
-    
-    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
-    
-    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
-    
-    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
-    
-    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
-    
-    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
-    
-    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
-    
-    
+    Methods inherited from :ref:`ocaagent`:
 
+    - :ref:`OcaAgent::GetClassIdentification <ocaroot_getclassidentification>`
+
+    - :ref:`OcaAgent::GetLockable <ocaroot_getlockable>`
+
+    - :ref:`OcaAgent::LockTotal <ocaroot_locktotal>`
+
+    - :ref:`OcaAgent::Unlock <ocaroot_unlock>`
+
+    - :ref:`OcaAgent::GetRole <ocaroot_getrole>`
+
+    - :ref:`OcaAgent::LockReadonly <ocaroot_lockreadonly>`
+
+    - :ref:`OcaAgent::GetLabel <ocaagent_getlabel>`
+
+    - :ref:`OcaAgent::SetLabel <ocaagent_setlabel>`
+
+    - :ref:`OcaAgent::GetOwner <ocaagent_getowner>`
+
+    - :ref:`OcaAgent::GetPath <ocaagent_getpath>`
 

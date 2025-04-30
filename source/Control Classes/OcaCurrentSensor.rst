@@ -5,7 +5,7 @@
 
 Class Hierarchy:
 
-:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaWorker <ocaworker>` :raw:html:`&rarr;` :ref:`OcaSensor <ocasensor>` :raw:html:`&rarr;` :ref:`OcaCurrentSensor <ocacurrentsensor>` 
+:ref:`OcaRoot <ocaroot>` : :ref:`OcaWorker <ocaworker>` : :ref:`OcaSensor <ocasensor>` : :ref:`OcaCurrentSensor <ocacurrentsensor>`
 
 .. cpp:class:: OcaCurrentSensor: OcaSensor
 
@@ -13,21 +13,26 @@ Class Hierarchy:
 
     **Properties**:
 
+
     .. _ocacurrentsensor_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.1.2.8"
 
-        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from
+        the object number, which identifies the instantiated object. This
+        property is an override of the **OcaRoot** property.
 
-        This property has id ``4.1``.
+        This property has id ``1.1``.
 
     .. _ocacurrentsensor_classversion:
 
     .. cpp:member:: static const OcaClassVersionNumber ClassVersion = 1
 
-        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class
+        definition leads to a higher class version. This property is an override
+        of the **OcaRoot** property.
 
-        This property has id ``4.2``.
+        This property has id ``1.2``.
 
     .. _ocacurrentsensor_reading:
 
@@ -37,97 +42,99 @@ Class Hierarchy:
 
         This property has id ``4.1``.
 
-    Properties inherited from :ref:`OcaSensor <OcaSensor>`:
-    
-    - :cpp:texpr:`OcaSensorReadingState` :ref:`OcaSensor::ReadingState <OcaSensor_ReadingState>`
-    
-    
-    Properties inherited from :ref:`OcaWorker <OcaWorker>`:
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <OcaWorker_Enabled>`
-    
-    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <OcaWorker_Ports>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <OcaWorker_Label>`
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <OcaWorker_Owner>`
-    
-    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <OcaWorker_Latency>`
-    
-    
-    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
-    
-    
+    Properties inherited from :ref:`ocasensor`:
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaWorker::ClassID <ocaworker_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaWorker::ClassVersion <ocaworker_classversion>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaWorker::Enabled <ocaworker_enabled>`
+
+    - :cpp:texpr:`OcaList<OcaPort>` :ref:`OcaWorker::Ports <ocaworker_ports>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaWorker::Label <ocaworker_label>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaWorker::Owner <ocaworker_owner>`
+
+    - :cpp:texpr:`OcaTimeInterval` :ref:`OcaWorker::Latency <ocaworker_latency>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaSensor::ClassID <ocasensor_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaSensor::ClassVersion <ocasensor_classversion>`
+
+    - :cpp:texpr:`OcaSensorReadingState` :ref:`OcaSensor::ReadingState <ocasensor_readingstate>`
+
 
     **Methods**:
+
 
     .. _ocacurrentsensor_getreading:
 
     .. cpp:function:: OcaStatus GetReading(OcaCurrent &Reading, OcaCurrent &minReading, OcaCurrent &maxReading)
 
-        Gets the value and limits of the  **Reading** property. The return value indicates whether the data was successfully retrieved.
+        Gets the value and limits of the **Reading** property. The return value
+        indicates whether the data was successfully retrieved.
 
         This method has id ``4.1``.
 
-        :param OcaCurrent Reading: Output parameter.
-        :param OcaCurrent minReading: Output parameter.
-        :param OcaCurrent maxReading: Output parameter.
+        - :cpp:expr:`Reading`: Output parameter.
 
 
-    Methods inherited from :ref:`OcaSensor <OcaSensor>`:
-    
-    - :ref:`OcaSensor::GetReadingState(state) <OcaSensor_GetReadingState>`
-    
-    
-    Methods inherited from :ref:`OcaWorker <OcaWorker>`:
-    
-    - :ref:`OcaWorker::GetEnabled(enabled) <OcaWorker_GetEnabled>`
-    
-    - :ref:`OcaWorker::SetEnabled(enabled) <OcaWorker_SetEnabled>`
-    
-    - :ref:`OcaWorker::AddPort(Label, Mode, ID) <OcaWorker_AddPort>`
-    
-    - :ref:`OcaWorker::DeletePort(ID) <OcaWorker_DeletePort>`
-    
-    - :ref:`OcaWorker::GetPorts(OcaPorts) <OcaWorker_GetPorts>`
-    
-    - :ref:`OcaWorker::GetPortName(PortID, Name) <OcaWorker_GetPortName>`
-    
-    - :ref:`OcaWorker::SetPortName(PortID, Name) <OcaWorker_SetPortName>`
-    
-    - :ref:`OcaWorker::GetLabel(label) <OcaWorker_GetLabel>`
-    
-    - :ref:`OcaWorker::SetLabel(label) <OcaWorker_SetLabel>`
-    
-    - :ref:`OcaWorker::GetOwner(owner) <OcaWorker_GetOwner>`
-    
-    - :ref:`OcaWorker::GetLatency(latency) <OcaWorker_GetLatency>`
-    
-    - :ref:`OcaWorker::SetLatency(latency) <OcaWorker_SetLatency>`
-    
-    - :ref:`OcaWorker::GetPath(NamePath, ONoPath) <OcaWorker_GetPath>`
-    
-    
-    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
-    
-    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
-    
-    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
-    
-    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
-    
-    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
-    
-    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
-    
-    
+        - :cpp:expr:`minReading`: Output parameter.
 
+
+        - :cpp:expr:`maxReading`: Output parameter.
+
+
+    Methods inherited from :ref:`ocasensor`:
+
+    - :ref:`OcaSensor::GetClassIdentification <ocaroot_getclassidentification>`
+
+    - :ref:`OcaSensor::GetLockable <ocaroot_getlockable>`
+
+    - :ref:`OcaSensor::LockTotal <ocaroot_locktotal>`
+
+    - :ref:`OcaSensor::Unlock <ocaroot_unlock>`
+
+    - :ref:`OcaSensor::GetRole <ocaroot_getrole>`
+
+    - :ref:`OcaSensor::LockReadonly <ocaroot_lockreadonly>`
+
+    - :ref:`OcaSensor::GetEnabled <ocaworker_getenabled>`
+
+    - :ref:`OcaSensor::SetEnabled <ocaworker_setenabled>`
+
+    - :ref:`OcaSensor::AddPort <ocaworker_addport>`
+
+    - :ref:`OcaSensor::DeletePort <ocaworker_deleteport>`
+
+    - :ref:`OcaSensor::GetPorts <ocaworker_getports>`
+
+    - :ref:`OcaSensor::GetPortName <ocaworker_getportname>`
+
+    - :ref:`OcaSensor::SetPortName <ocaworker_setportname>`
+
+    - :ref:`OcaSensor::GetLabel <ocaworker_getlabel>`
+
+    - :ref:`OcaSensor::SetLabel <ocaworker_setlabel>`
+
+    - :ref:`OcaSensor::GetOwner <ocaworker_getowner>`
+
+    - :ref:`OcaSensor::GetLatency <ocaworker_getlatency>`
+
+    - :ref:`OcaSensor::SetLatency <ocaworker_setlatency>`
+
+    - :ref:`OcaSensor::GetPath <ocaworker_getpath>`
+
+    - :ref:`OcaSensor::GetReadingState <ocasensor_getreadingstate>`
 

@@ -5,41 +5,49 @@
 
 Class Hierarchy:
 
-:ref:`OcaRoot <ocaroot>` :raw:html:`&rarr;` :ref:`OcaManager <ocamanager>` :raw:html:`&rarr;` :ref:`OcaCodingManager <ocacodingmanager>` 
+:ref:`OcaRoot <ocaroot>` : :ref:`OcaManager <ocamanager>` : :ref:`OcaCodingManager <ocacodingmanager>`
 
 .. cpp:class:: OcaCodingManager: OcaManager
 
-    Optional manager that collects all media decoders/encoders (Codecs) which the device owns.  
-    
-     - Must be instantiated in every device that implements more than one media encoding scheme and/or more than one media decoding scheme.
-       
-    
+    Optional manager that collects all media decoders/encoders (Codecs) which
+    the device owns.
+
+     - Must be instantiated in every device that implements more than one media
+       encoding scheme and/or more than one media decoding scheme.
+
      - If instantiated, object number must be 12.
-     
+
+
 
     **Properties**:
+
 
     .. _ocacodingmanager_classid:
 
     .. cpp:member:: static const OcaClassID ClassID = "1.3.12"
 
-        Number that uniquely identifies the class. Note that this differs from the object number, which identifies the instantiated object. This property is an override of the  **OcaRoot** property.
+        Number that uniquely identifies the class. Note that this differs from
+        the object number, which identifies the instantiated object. This
+        property is an override of the **OcaRoot** property.
 
-        This property has id ``3.1``.
+        This property has id ``1.1``.
 
     .. _ocacodingmanager_classversion:
 
     .. cpp:member:: static const OcaUint16 ClassVersion = 1
 
-        Identifies the interface version of the class. Any change to the class definition leads to a higher class version. This property is an override of the  **OcaRoot** property.
+        Identifies the interface version of the class. Any change to the class
+        definition leads to a higher class version. This property is an override
+        of the **OcaRoot** property.
 
-        This property has id ``3.2``.
+        This property has id ``1.2``.
 
     .. _ocacodingmanager_availableencodingschemes:
 
     .. cpp:member:: OcaMap<OcaMediaCodingSchemeID, OcaString> AvailableEncodingSchemes
 
-        Map of names of media encoding schemes the device supports, indexed by scheme ID.
+        Map of names of media encoding schemes the device supports, indexed by
+        scheme ID.
 
         This property has id ``3.1``.
 
@@ -47,57 +55,66 @@ Class Hierarchy:
 
     .. cpp:member:: OcaMap<OcaMediaCodingSchemeID, OcaString> AvailableDecodingSchemes
 
-        Map of names of media decoding schemes the device supports, indexed by scheme ID.
+        Map of names of media decoding schemes the device supports, indexed by
+        scheme ID.
 
         This property has id ``3.2``.
 
-    Properties inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <OcaRoot_ObjectNumber>`
-    
-    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <OcaRoot_Lockable>`
-    
-    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <OcaRoot_Role>`
-    
-    
+    Properties inherited from :ref:`ocamanager`:
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaRoot::ClassID <ocaroot_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaRoot::ClassVersion <ocaroot_classversion>`
+
+    - :cpp:texpr:`OcaONo` :ref:`OcaRoot::ObjectNumber <ocaroot_objectnumber>`
+
+    - :cpp:texpr:`OcaBoolean` :ref:`OcaRoot::Lockable <ocaroot_lockable>`
+
+    - :cpp:texpr:`OcaString` :ref:`OcaRoot::Role <ocaroot_role>`
+
+    - :cpp:texpr:`OcaClassID` :ref:`OcaManager::ClassID <ocamanager_classid>`
+
+    - :cpp:texpr:`OcaClassVersionNumber` :ref:`OcaManager::ClassVersion <ocamanager_classversion>`
+
 
     **Methods**:
+
 
     .. _ocacodingmanager_getavailableencodingschemes:
 
     .. cpp:function:: OcaStatus GetAvailableEncodingSchemes(OcaMap<OcaMediaCodingSchemeID, OcaString> &Schemes)
 
-        Retrieves the map of available encoding schemes, indexed by scheme ID. Return value indicates success of the retrieval.
+        Retrieves the map of available encoding schemes, indexed by scheme ID.
+        Return value indicates success of the retrieval.
 
         This method has id ``3.1``.
 
-        :param OcaMap<OcaMediaCodingSchemeID, OcaString> Schemes: Output parameter.
+        - :cpp:expr:`Schemes`: Output parameter.
+
 
     .. _ocacodingmanager_getavailabledecodingschemes:
 
     .. cpp:function:: OcaStatus GetAvailableDecodingSchemes(OcaMap<OcaMediaCodingSchemeID, OcaString> &Schemes)
 
-        Retrieves the map of available decoding schemes, indexed by scheme ID. Return value indicates success of the retrieval.
+        Retrieves the map of available decoding schemes, indexed by scheme ID.
+        Return value indicates success of the retrieval.
 
         This method has id ``3.2``.
 
-        :param OcaMap<OcaMediaCodingSchemeID, OcaString> Schemes: Output parameter.
+        - :cpp:expr:`Schemes`: Output parameter.
 
 
-    Methods inherited from :ref:`OcaRoot <OcaRoot>`:
-    
-    - :ref:`OcaRoot::GetClassIdentification(ClassIdentification) <OcaRoot_GetClassIdentification>`
-    
-    - :ref:`OcaRoot::GetLockable(lockable) <OcaRoot_GetLockable>`
-    
-    - :ref:`OcaRoot::LockTotal() <OcaRoot_LockTotal>`
-    
-    - :ref:`OcaRoot::Unlock() <OcaRoot_Unlock>`
-    
-    - :ref:`OcaRoot::GetRole(Role) <OcaRoot_GetRole>`
-    
-    - :ref:`OcaRoot::LockReadonly() <OcaRoot_LockReadonly>`
-    
-    
+    Methods inherited from :ref:`ocamanager`:
 
+    - :ref:`OcaManager::GetClassIdentification <ocaroot_getclassidentification>`
+
+    - :ref:`OcaManager::GetLockable <ocaroot_getlockable>`
+
+    - :ref:`OcaManager::LockTotal <ocaroot_locktotal>`
+
+    - :ref:`OcaManager::Unlock <ocaroot_unlock>`
+
+    - :ref:`OcaManager::GetRole <ocaroot_getrole>`
+
+    - :ref:`OcaManager::LockReadonly <ocaroot_lockreadonly>`
 
